@@ -1,0 +1,21 @@
+{
+  "name": "sample-project",
+  "version": "1.0.0",
+  "description": "This is just a sample exercise.",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "4.17.10",
+    "sass": "1.3.2",
+    "test-lib": "2.1.2",
+    "underscore": "1.9.0"
+  },
+  "devDependencies": {
+    "node-dev": "3.1.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "foo-dogsquared",
+  "license": "MIT"
+}

@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {% if site.pinpost %}
+    <section id="pinned-section">
+      <h3>Pinned Posts:</h3>
+      {%- include pinpost.html -%}
+    </section>
+  {% endif %}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <ul class="post-list">
+      {% for post in paginator.posts %}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta" title="{{ post.date }}">{{ post.date | date: date_format }}</span>
+          <h3 style="margin:0">
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+          </h3>
+          {% if post.alt_title %}
+            <h4 class="alt-title home" style="margin: 0">
+              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.alt_title | escape }}</a>
+            </h4>
+          {% endif %}
+
+          <!-- {%- if post.tags -%}
+            <span class="list-tags home-tags">Tags: &nbsp;{{ post.tags | sort | join: ',  ' }}</span>
+          {%- endif -%} -->
+
+          {%- if site.show_excerpts -%}
+            {{ post.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+
+  <!-- Pagination links -->
+  {% if paginator %}
+    <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+    {% else %}
+      <span class="previous disabled">Previous</span>
+    {% endif %}
+    <span class="page_number ">
+      Page: {{ paginator.page }} of {{ paginator.total_pages }} <br>
+    </span>
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+    {% else %}
+      <span class="next disabled">Next</span>
+    {% endif %}
+    </div>
+  {% endif %}
+      
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+
+</div>

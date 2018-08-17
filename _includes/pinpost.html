@@ -1,0 +1,18 @@
+<ul class="pinned-posts">
+{% for posts in site.posts %}
+  {% for post in site.pinpost %}
+    {% if posts.title == post %}
+      <li style="margin-bottom: 1em">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta" title="{{ posts.date }}">{{ posts.date | date: date_format }}</span>
+        <h3 style="margin:0">
+          <a class="post-link" href="{{ posts.url | relative_url }}">
+            {{ posts.title | escape }}
+          </a>
+        </h3>
+      {% endif %}
+      </li>
+  {% endfor %}
+{% endfor %}
+</ul>
+  

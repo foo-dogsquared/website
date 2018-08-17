@@ -1,0 +1,67 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: "A Hack's Code"
+author: "foo-dogsquared"
+description: >- # this means to ignore newlines until "baseurl:"
+  A blog that serves as a documentation of my progress
+  learning anything tech-related, mostly programming and
+  engineering. Yes, one of those blogs...
+baseurl: "blog" # the subpath of your site, e.g. /blog
+url: "https://foo-dogsquared.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+codepen_username: foo-dogsquared
+devto_username: foodogsquared
+github_username:  foo-dogsquared
+gitlab_username:  foo-dogsquared
+linkedin_username: gabriel-arazas
+twitter_username: foo_dogsquared
+paginate: 10
+paginate_path: "/page:num/"
+
+# Enabling Disqus
+disqus:
+  shortname: foo-dogsquared
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+pinpost: ["A Freebie's Resource List (Mostly Related to Programming)", "An Absolute Beginners' Complete Web Development Resource List"]
+
+# Default settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: posts/:title
+      comments: true
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

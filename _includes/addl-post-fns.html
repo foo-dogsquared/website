@@ -1,0 +1,47 @@
+<!-- This is mainly for the 'post.html' -->
+<script>
+    function insertHeaderLink() {
+        const HEADINGS = document.querySelectorAll(`article.post div[itemprop="articleBody"] h1[id], h2[id]`);
+        const MAIN_NODE_LIST = document.querySelector('div.post-content[itemprop="articleBody"]');
+
+        // creating an element containing the links to the selected headers
+        const LIST_CONTAINER = document.createElement('div');
+        let listOfTopics = document.createElement("ul");
+        LIST_CONTAINER.textContent = `"{{ page.title }}" Outline:`;
+        LIST_CONTAINER.setAttribute("id", "list-container")
+
+        HEADINGS.forEach((header) => {
+            // Filling up the list
+            let listItem = document.createElement("li");
+            const LINK_SETTER = `<a class="heading-links" href="#${header.id}">${header.innerHTML}</a>`;
+            header.innerHTML = LINK_SETTER, listItem.innerHTML = LINK_SETTER;
+            listItem.querySelector("a").setAttribute("class", "list-links");
+            listOfTopics.appendChild(listItem);
+        });
+
+        LIST_CONTAINER.appendChild(listOfTopics);
+        MAIN_NODE_LIST.insertBefore(LIST_CONTAINER, MAIN_NODE_LIST.firstChild);
+    }
+
+    function insertCenterTags() {
+        const TAGS  = document.querySelectorAll('iframe');
+        
+        TAGS.forEach((tag) => {
+            const center = document.createElement('center');
+            tag.appendChild(center)
+        })
+    }
+
+    function resourcesLink() {
+        const RESOURCES = document.querySelector("article.post .post-content h2#resources");
+        if (RESOURCES === null) return;
+        else if (RESOURCES.nextElementSibling.tagName === 'UL') {
+            const LIST_OF_LINKS = Array.from(RESOURCES.nextElementSibling.children)
+            LIST_OF_LINKS.forEach(listedLinks => listedLinks.children[0].setAttribute("target", "_blank"));
+        };
+    }
+
+    insertHeaderLink();
+    // insertCenterTags();
+    resourcesLink();
+</script>

@@ -1,0 +1,405 @@
+// custom default properties for normal tags
+html {
+    scroll-behavior: smooth;
+}
+
+a,
+a:hover,
+a:visited {
+    color: $light-brown; // Specified settings for the headers in 'post.html'
+    &.heading-links {
+        color: $text-color;
+        &:hover {
+            text-decoration: none;
+            &::after {
+                color: $grey-color;
+                content: ' #';
+            }
+        }
+    }
+    &.post-link:visited {
+        color: $brown;
+    }
+}
+
+blockquote {
+    font-family: "Georgia", $base-font-family;
+    border-left: $brown solid 5px;
+    color: $grey-color-dark;
+    font-style: italic;
+    padding: 1em;
+}
+
+h1,
+h2,
+h3 h4,
+h5,
+h6 {
+    code {
+        font-size: 1em;
+    }
+}
+
+hr {
+    margin: 2em 0;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    padding: 1em 0;
+}
+
+iframe {
+    margin: 1.5em 0;
+    max-width: 100%;
+}
+
+li > ul, li > ol {
+    margin-bottom: 1em;
+}
+
+// Table custom properties
+table:not(.rouge-table) {
+    th {
+        background: linear-gradient(to bottom, lighten($brown, 25%), $light-brown);
+        color: $super-platinum;
+    }
+    tr {
+        overflow: auto;
+        code {
+            color: $text-color;
+        }
+        &:nth-child(odd) {
+            background: linear-gradient(to right, $dark-brown, $brown);
+            color: $super-platinum;
+        }
+        &:nth-child(even) {
+            background: linear-gradient(to right, $dark-brown, $light-brown);
+            color: $super-platinum;
+        }
+    }
+}
+
+.table {
+    margin: 1em 0;
+    overflow-x: auto;
+    table {
+        margin: 0;
+    }
+    @include media-query($on-palm) {
+        height: 300px;
+    }
+}
+
+// code syntax table
+figure.highlight {
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #eef;
+
+    * {
+        border: 0;
+        margin: 0;
+    }
+
+    td.gutter.gl {
+        border-right: 1px solid $grey-color-light;
+
+        > pre.lineno {
+            padding-left: 0;
+        }
+    }
+}
+
+// Mathjax
+.mjx-chtml {
+    font-size: 1.4em !important;
+}
+
+// alt title properties
+.alt-title {
+    color: $grey-color;
+    &.home {
+        &::before {
+            content: "ALT TITLE: "
+        }
+        a.post-link {
+            display: inline;
+            font-size: $base-font-size * 1.05;
+        }
+    }
+}
+
+h2.post-alt-title {
+    font-family: "Georgia", $base-font-family;
+}
+
+// wrapper
+.wrapper {
+    main > & {
+        & > :first-child {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .post-content {
+            // h1, h2, h3, h4, h5, h6 {
+            //     font-family: "Georgia", $base-font-family;
+            // }
+
+            > h1:not(:first-child){
+                margin-top: $spacing-unit * 1.65;
+            }
+
+            h2:not(:first-child) {
+                margin-top: $spacing-unit * 1.4;
+            }
+
+            h3:not(:first-child) {
+                margin-top: $spacing-unit * 1.15;
+            }
+        }
+    }
+}
+
+// notes.md
+.note-post-list {
+    display: flex;
+    justify-content: space-between;
+    margin: .25em;
+    padding: .5em;
+    &:nth-child(odd) {
+        background: lighten($brown, 50%);
+    }
+    &:last-child {
+        margin-bottom: 1em;
+    }
+    .post-list-date {
+        display: block;
+    }
+    @include media-query($on-palm) {
+        display: block;
+        margin: 1em 0;
+    }
+}
+
+// custom properties for several layout items
+#personal-logo {
+    width: 29px;
+    height: auto;
+    padding: 0;
+}
+
+// Specific parts in content
+.word-definition {
+    text-decoration: underline;
+}
+
+p.caption {
+    color: $grey-color;
+    font-size: $small-font-size;
+    padding-bottom: 1.5em;
+    text-align: center;
+    width: 100%;
+}
+
+code.fileName {
+    color: darken($code-keywords, 10%);
+}
+
+// List of topics properties found on posts type
+#list-container {
+    border: 3px $brown dashed;
+    border-left: 0px;
+    border-right: 0px;
+    color: $grey-color;
+    line-height: 1.75em;
+    margin: 2em 0;
+    padding: 2em;
+    width: inherit;
+    @include relative-font-size(0.95);
+    ul {
+        list-style: upper-roman;
+    }
+}
+
+// Header custom settings
+.site-header {
+    background: linear-gradient(75deg, $dark-brown, $brown, $light-brown);
+    border-top: 5px solid $dark-brown;
+    border-bottom: 1px solid $grey-color-light;
+    color: $super-platinum;
+    .site-title {
+        @include relative-font-size(1.625);
+        font-weight: 300;
+        line-height: $base-line-height * $base-font-size * 2.25;
+        letter-spacing: -1px;
+        margin-bottom: 0;
+        float: left;
+        &,
+        &:visited {
+            color: $super-platinum;
+        }
+    }
+    .site-nav {
+        float: right;
+        line-height: $base-line-height * $base-font-size * 2.25;
+        .nav-trigger {
+            display: none;
+        }
+        .menu-icon {
+            display: none;
+        }
+        .page-link {
+            color: $super-platinum;
+            line-height: $base-line-height; // Gaps between nav items, but not on the last one
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+        @include media-query($on-palm) {
+            .page-link {
+                color: $text-color;
+                margin: 0 .5em;
+                text-align: left;
+            }
+            .menu-icon {
+                display: block;
+            }
+        }
+    }
+}
+
+// Post Title
+.post-subtitle {
+    color: $grey-color;
+    font-size: $base-font-size * 1.7;
+    margin: .24em 0;
+}
+
+// Markdown Table of Content
+// Pinned posts style on the homepage
+#pinned-section {
+    background: linear-gradient(75deg, $dark-brown, $brown, $light-brown);
+    border: $brown 4px solid;
+    border-top: 0;
+    border-bottom: 0;
+    color: white;
+    margin-bottom: 2em;
+    padding: $base-font-size;
+    
+
+    ul.pinned-posts {
+        & * {color: white;}
+
+        list-style: none;
+        padding: 0;
+
+        @include media-query($on-palm) {
+            margin-left: 0;
+        }
+    }
+}
+
+.dt-updated {
+    color: $grey-color;
+    font-size: $small-font-size;
+    margin-top: 0;
+}
+
+// Pagination custom settings
+.pagination {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 2em;
+    .previous,
+    .next {
+        border-radius: 4px;
+        padding: 1em;
+        text-align: center;
+        width: 100px;
+        &.disabled {
+            color: $grey-color;
+        }
+    }
+    &>* {
+        padding: 1em;
+    }
+    @include media-query($on-palm) {
+        flex-flow: column wrap;
+    }
+}
+
+// Tags custom settings
+.list-tags {
+    color: $grey-color;
+}
+
+.home-tags {
+    font-size: $small-font-size;
+}
+
+.post-updatedOn {
+    color: $grey-color-dark;
+    font-size: $small-font-size;
+    margin-bottom: $base-font-size;
+    span.updatedPostDate {
+        font-weight: bolder;
+    }
+}
+
+.post-tags {
+    color: $grey-color-dark;
+    font-size: $small-font-size;
+    .link-tag {
+        color: $brown;
+    }
+}
+
+// Footer custom settings
+.site-footer {
+    background: linear-gradient(75deg, $dark-brown, $brown, $light-brown);
+    border-top: 1px solid $grey-color-light;
+    color: $platinum;
+    padding: $spacing-unit 0;
+    .footer-col-1 {
+        width: -webkit-calc(25% - (#{$spacing-unit} / 2));
+        width : calc(25% - (#{$spacing-unit} / 2));
+    }
+    .footer-col-2 {
+        width: -webkit-calc(30% - (#{$spacing-unit} / 2));
+        width : calc(30% - (#{$spacing-unit} / 2));
+    }
+    .footer-col-wrapper {
+        color: $super-platinum;
+        .u-email,
+        .username {
+            color: $super-platinum;
+            &:hover {
+                color: $super-platinum;
+            }
+        }
+        .svg-icon {
+            fill: $super-platinum;
+        }
+    }
+    .site-credits {
+        text-align: center;
+        a {
+            color: $footer-link;
+        }
+        .copyright {
+            font-size: $small-font-size;
+        }
+    }
+    @include media-query($on-palm) {
+        .footer-col-1,
+        .footer-col-2,
+        .footer-col-3 {
+            width: 100%;
+        }
+    }
+}
