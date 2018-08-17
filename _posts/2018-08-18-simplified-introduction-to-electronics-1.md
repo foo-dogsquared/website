@@ -2,7 +2,7 @@
 layout: post
 title:  "[Simplified!] The Shock of Knowing Electronics"
 alt_title: "Simplified! :: Introduction to Electronics I"
-date: 2018-08-18 0:52:05 +0800
+date: 2018-08-18 00:52:05 +0800
 author: foo-dogsquared
 categories: general
 tags: [programming-notes, computer-science, real-notes]
@@ -407,7 +407,6 @@ Besides, [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition) is
 thing down in one swoop.
 
 There will be an upcoming part two of this post, so stay tuned on that!
-<!-- So yeah, into the [second part]({% post_url 2018-08-21-simplified-introduction-to-electronics-2 %}) we go. -->
 
 ## (Re)Sources:
 - ### Books
