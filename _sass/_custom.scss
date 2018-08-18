@@ -164,7 +164,7 @@ h2.post-alt-title {
 }
 
 // notes.md
-.note-post-list {
+.entry-list-item {
     display: flex;
     justify-content: space-between;
     margin: .25em;
@@ -179,8 +179,7 @@ h2.post-alt-title {
         display: block;
     }
     @include media-query($on-palm) {
-        display: block;
-        margin: 1em 0;
+        flex-flow: column;
     }
 }
 

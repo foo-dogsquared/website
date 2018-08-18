@@ -3,6 +3,8 @@
     function insertHeaderLink() {
         const HEADINGS = document.querySelectorAll(`article.post div[itemprop="articleBody"] h1[id], h2[id]`);
         const MAIN_NODE_LIST = document.querySelector('div.post-content[itemprop="articleBody"]');
+        console.log(HEADINGS);
+        if (HEADINGS.length === 0) return null;
 
         // creating an element containing the links to the selected headers
         const LIST_CONTAINER = document.createElement('div');
