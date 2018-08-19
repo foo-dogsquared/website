@@ -3,7 +3,6 @@
     function insertHeaderLink() {
         const HEADINGS = document.querySelectorAll(`article.post div[itemprop="articleBody"] h1[id], h2[id]`);
         const MAIN_NODE_LIST = document.querySelector('div.post-content[itemprop="articleBody"]');
-        console.log(HEADINGS);
         if (HEADINGS.length === 0) return null;
 
         // creating an element containing the links to the selected headers
@@ -36,14 +35,37 @@
 
     function resourcesLink() {
         const RESOURCES = document.querySelector("article.post .post-content h2#resources");
-        if (RESOURCES === null) return;
+        if (RESOURCES === null) return null;
         else if (RESOURCES.nextElementSibling.tagName === 'UL') {
-            const LIST_OF_LINKS = Array.from(RESOURCES.nextElementSibling.children)
-            LIST_OF_LINKS.forEach(listedLinks => listedLinks.children[0].setAttribute("target", "_blank"));
+            const LIST_OF_HEADERS = Array.from(RESOURCES.nextElementSibling.children);
+            console.log(LIST_OF_HEADERS)
+            LIST_OF_HEADERS.forEach(source_li => {
+                const INNER_LIST_OF_LINKS = source_li.children[1];
+                if (INNER_LIST_OF_LINKS === undefined) return null;
+                INNER_LIST_OF_LINKS.setAttribute("class", "resources-link");
+                const LIST_OF_LINKS = Array.from(INNER_LIST_OF_LINKS.children);
+                console.log(LIST_OF_LINKS);
+                LIST_OF_LINKS.forEach(li => {
+                    li.children[0].innerHTML = `<img src="{{ 'assets/main/icons/open-in-new-window.svg' | relative_url}}" style="height: 1em; width: 1em; padding: 0;"><span style="margin-left: 0.75em">${li.children[0].innerHTML}</span>`;
+                    li.children[0].setAttribute("target", "_blank");
+                })
+            });
         };
+    }
+
+    function convert_to_wpm(number_of_words = document.querySelectorAll(".no-of-mins")) {
+        // const imgs = document.querySelectorAll("main > .wrapper .post-content[itemprop='articleBody'] center > img");
+        number_of_words.forEach((num) => {
+            const wpm = 225 /* avg wpm for an adult */
+            num.textContent = Math.round((Number(num.textContent) / wpm) + 1 /*+ (imgs.length * 0.2) */);
+            return;
+        })
     }
 
     insertHeaderLink();
     // insertCenterTags();
     resourcesLink();
+
+    convert_to_wpm();
+
 </script>

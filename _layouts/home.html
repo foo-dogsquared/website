@@ -18,51 +18,68 @@ layout: default
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {% for post in paginator.posts %}
-        <li>
-          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-          <span class="post-meta" title="{{ post.date }}">{{ post.date | date: date_format }}</span>
-          <h3 style="margin:0">
-            <a class="post-link" href="{{ post.url | relative_url }}">
-              {{ post.title | escape }}
-            </a>
-          </h3>
-          {% if post.alt_title %}
-            <h4 class="alt-title home" style="margin: 0">
-              <a class="post-link" href="{{ post.url | relative_url }}">{{ post.alt_title | escape }}</a>
-            </h4>
-          {% endif %}
 
-          <!-- {%- if post.tags -%}
-            <span class="list-tags home-tags">Tags: &nbsp;{{ post.tags | sort | join: ',  ' }}</span>
-          {%- endif -%} -->
+    <!-- Pagination links -->
+    {% for post in paginator.posts %}
+    <div class="home-post">
+      <h2><a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a></h2>
+      {% if post.alt_title %}
+        <h3><a href="{{ post.url | relative_url }}" class="post-alt-link">{{ post.alt_title }}</a></h3>
+      {% endif %}
+      <p class="post-meta">
+        <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+            <img src="{{ 'assets/main/icons/calendar.svg' | relative_url }}" style="width: 1.5em; height: 1.5em">
+            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+            <span title="{{ post.date }}"> {{ post.date | date: date_format }}</span>
+        </time>
 
-          {%- if site.show_excerpts -%}
-            {{ post.excerpt }}
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
-    </ul>
+        <span class="reading-minutes" style="margin-left: 1.25em">
+            <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;"> <span class="no-of-mins">{{ post.content | number_of_words }}</span> minutes
+        </span>
 
-  <!-- Pagination links -->
-  {% if paginator %}
-    <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-    {% else %}
-      <span class="previous disabled">Previous</span>
-    {% endif %}
-    <span class="page_number ">
-      Page: {{ paginator.page }} of {{ paginator.total_pages }} <br>
-    </span>
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-    {% else %}
-      <span class="next disabled">Next</span>
-    {% endif %}
+        {%- if post.categories -%}
+        <span class="home-post-category" style="margin-left: 1.25em">
+          <img src="{{ 'assets/main/icons/categories.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;">
+          {{ post.categories }}  
+        </span>
+        {%- endif -%}
+
+        {%- if post.updatedOn -%}
+        <span class="dt-updated" style="margin-left: 1.25em">
+          <img src="{{ 'assets/main/icons/update.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;">
+          {{ post.updatedOn }}
+        </span>
+        {%- endif -%}
+        
+      </p>
     </div>
-  {% endif %}
+    {% endfor %}
+    <script>
+        function convert_to_wpm(number_of_words = document.querySelectorAll(".no-of-mins")) {
+          number_of_words.forEach((num) => {
+              const wpm = 225 /* avg wpm for an adult */
+              num.textContent = Math.round((Number(num.textContent) / wpm) + 1);
+              return;
+          })
+        }
+
+        convert_to_wpm();
+    </script>
+
+    <!-- Pagination links -->
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">Previous</a>
+      {% else %}
+        <span class="previous disabled">Previous</span>
+      {% endif %}
+      <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next</a>
+      {% else %}
+        <span class="next disabled">Next</span>
+      {% endif %}
+    </div>
       
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}

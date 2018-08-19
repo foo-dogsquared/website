@@ -20,6 +20,9 @@ a:visited {
     &.post-link:visited {
         color: $brown;
     }
+    &.post-alt-link:visited {
+        color: $brown;
+    }
 }
 
 blockquote {
@@ -92,6 +95,41 @@ table:not(.rouge-table) {
     }
 }
 
+.relative-posts {
+    color: $grey-color-dark;
+    display: flex;
+    font-size: $small-font-size;
+    justify-content: space-between;
+    margin-top: 2em;
+
+    a {
+        font-size: $base-font-size * 1.2;
+    }
+
+    .previous-post {
+        text-align: left;
+    }
+
+    .next-post {
+        text-align: right;
+    }
+
+    @include media-query($on-laptop) {
+        flex-flow: column wrap;
+        align-content: center;
+        justify-content: center;
+        text-align: center;        
+
+        > * {
+            margin-top: 2em;
+        }
+
+        .previous-post, .next-post {
+            text-align: center;
+        }
+    }
+}
+
 // code syntax table
 figure.highlight {
     border: 1px solid $grey-color-light;
@@ -118,16 +156,13 @@ figure.highlight {
 }
 
 // alt title properties
-.alt-title {
-    color: $grey-color;
-    &.home {
-        &::before {
-            content: "ALT TITLE: "
-        }
-        a.post-link {
-            display: inline;
-            font-size: $base-font-size * 1.05;
-        }
+main .home {
+    > .home-post:not(:first-of-type) {
+        margin-top: 3em;
+    }
+
+    > .home-post > * {
+        margin: 0;
     }
 }
 
@@ -144,10 +179,6 @@ h2.post-alt-title {
         }
 
         .post-content {
-            // h1, h2, h3, h4, h5, h6 {
-            //     font-family: "Georgia", $base-font-family;
-            // }
-
             > h1:not(:first-child){
                 margin-top: $spacing-unit * 1.65;
             }
@@ -159,6 +190,19 @@ h2.post-alt-title {
             h3:not(:first-child) {
                 margin-top: $spacing-unit * 1.15;
             }
+
+            ul.resources-link {
+                list-style: none; 
+                margin-left: 1.9em;
+
+                @include media-query($on-palm) {
+                    margin-left: 0;
+
+                    > li {
+                        margin-bottom: 0.75em;
+                    }
+                }
+            }
         }
     }
 }
@@ -166,6 +210,7 @@ h2.post-alt-title {
 // notes.md
 .entry-list-item {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin: .25em;
     padding: .5em;
@@ -180,6 +225,7 @@ h2.post-alt-title {
     }
     @include media-query($on-palm) {
         flex-flow: column;
+        align-items: baseline;
     }
 }
 
@@ -301,7 +347,7 @@ code.fileName {
     }
 }
 
-.dt-updated {
+.dt-updated, .reading-minutes {
     color: $grey-color;
     font-size: $small-font-size;
     margin-top: 0;
@@ -385,11 +431,30 @@ code.fileName {
             fill: $super-platinum;
         }
     }
-    .site-credits {
-        text-align: center;
+
+    .site-icon-credits {
+        font-size: $small-font-size;
+        margin-bottom: 1.5em;
+
+        p {
+            margin: 0;
+        }
+
         a {
             color: $footer-link;
         }
+    }
+
+    .site-credits {
+        text-align: center;
+        > p {
+            margin: 0;
+        }
+
+        a {
+            color: $footer-link;
+        }
+
         .copyright {
             font-size: $small-font-size;
         }

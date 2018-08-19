@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   A blog that serves as a documentation of my progress
   learning anything tech-related, mostly programming and
   engineering. Yes, one of those blogs...
-baseurl: "/blog/" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://foo-dogsquared.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 codepen_username: foo-dogsquared
@@ -29,7 +29,7 @@ gitlab_username:  foo-dogsquared
 linkedin_username: gabriel-arazas
 twitter_username: foo_dogsquared
 paginate: 10
-paginate_path: '/blog/page:num/'
+paginate_path: '/page:num/'
 
 # Enabling Disqus
 disqus:
