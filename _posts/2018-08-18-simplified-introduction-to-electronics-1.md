@@ -4,8 +4,8 @@ title:  "[Simplified!] The Shock of Knowing Electronics"
 alt_title: "Simplified! :: Introduction to Electronics I"
 date: 2018-08-18 00:52:05 +0800
 author: foo-dogsquared
-categories: general
-tags: [programming-notes, computer-science, real-notes]
+categories: electronics
+tags: [programming-notes, electronics, simplified]
 ---
 
 <!-- TODO: Introduction to electronics and how it affects our lives today -->

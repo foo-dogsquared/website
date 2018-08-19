@@ -4,8 +4,8 @@ title:  "[Simplified!] Thanks For The Memories"
 alt_title: "Simplified! :: Introduction to the Memory and Memory Management"
 # date: 2018-07-7 18:32:05 +0800
 author: foo-dogsquared
-categories: general
-tags: [programming-notes, computer-science, real-notes]
+categories: computer-science
+tags: [programming-notes, computer-science, simplified]
 ---
 
 <!-- TODO: Introduce to the memory -->

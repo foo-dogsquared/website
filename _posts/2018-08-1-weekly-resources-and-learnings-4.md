@@ -4,7 +4,7 @@ title:  "Weekly Resources and Learnings #4"
 date: 2018-08-1 00:00:34 +0800
 author: foo-dogsquared
 categories: general
-tags: [programming-notes, computer-science, learning]
+tags: [programming-notes, weekly-learnings, learning]
 ---
 
 Wow! Fourth entry? I've never been this consistent in my life. Inspired me to do more of these, seriously!

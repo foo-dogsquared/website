@@ -4,7 +4,7 @@ title:  "Weekly Resources and Learnings #6"
 date: 2018-08-17 12:57:34 +0800
 author: foo-dogsquared
 categories: general
-tags: [programming-notes, computer-science, learning]
+tags: [programming-notes, weekly-learnings, learning]
 ---
 
 Sixth entry?! This is sick. 😎 

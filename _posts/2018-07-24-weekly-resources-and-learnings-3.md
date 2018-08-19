@@ -4,7 +4,7 @@ title:  "Weekly Resources and Learnings #3"
 date: 2018-07-25 00:09:34 +0800
 author: foo-dogsquared
 categories: general
-tags: [programming-notes, computer-science, learning]
+tags: [programming-notes, weekly-learnings, learning]
 ---
 
 Woohoo! Third entry, third time's the charm, right? Also, as unexpected, this post is way longer than I thought.

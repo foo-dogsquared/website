@@ -6,7 +6,7 @@ date: 2018-07-2 9:56:34 +0800
 author: foo-dogsquared
 categories: general
 tags: [programming-notes, computer-science, real-notes]
-updatedOn: July 3, 2017
+updatedOn: Jul 3, 2018
 ---
 
 Another resource list? What is the difference of this and [that one]({% post_url 2018-05-1-free-resource-list %})?

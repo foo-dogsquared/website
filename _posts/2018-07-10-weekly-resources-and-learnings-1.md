@@ -4,7 +4,7 @@ title:  "Weekly Resources and Learnings #1"
 date: 2018-07-10 17:46:34 +0800
 author: foo-dogsquared
 categories: general
-tags: [programming-notes, computer-science, learning]
+tags: [programming-notes, weekly-learnings, learning]
 ---
 
 OK! Time for some kind of an active blogging. I always tend to procrastinate about my main type of posts which is basically 

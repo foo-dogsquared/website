@@ -1,10 +1,9 @@
 ---
 layout: post
 title:  "Weekly Resources and Learnings #5"
-# date: 2018-07-11 00:09:34 +0800
 author: foo-dogsquared
 categories: general
-tags: [programming-notes, computer-science, learning]
+tags: [programming-notes, weekly-learnings, learning]
 ---
 
 The fifth entry. Woohoo! Consistency all the way for this thing. Now I just have to apply how I become consistent with this but 

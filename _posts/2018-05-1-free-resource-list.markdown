@@ -5,7 +5,7 @@ date:   2018-05-01 09:25:57 +0800
 author: foo-dogsquared
 categories: freebies
 tags: [freebies, others]
-updatedOn: August 12, 2018
+updatedOn: Aug 19, 2018
 ---
 
 This is a free resource list that gradually grew over the past few months. Admittedly, I don't
@@ -70,6 +70,9 @@ stuff outside of programming (say [Khan Academy](https://khanacademy.org) for ma
 - [Pramp](https://www.pramp.com/) — you get to practice some programming interview questions and it's free
 
 ## Articles
+- [Dev.to](https://dev.to/)
+- [Explain That Stuff](https://www.explainthatstuff.com/)
+- [GeeksforGeeks](https://www.geeksforgeeks.org/) — **(recommended)**; a computer science portal (for geeks)
 - [Medium](https://medium.com/)
 - [Preadr](https://preadr.com/)
 - [Wikipedia](https://www.wikipedia.org/) — if you want to learn random things
@@ -77,7 +80,7 @@ stuff outside of programming (say [Khan Academy](https://khanacademy.org) for ma
 ## Communities
 - [CodeNewbie](https://www.codenewbie.org/)
 - [Coding Blocks](https://www.codingblocks.net/) — they also have a podcast
-- [Dev.to](https://dev.to/) — targeted towards developers
+- [Dev.to](https://dev.to/) — **(recommended)**; beginner-friendly
 - [freeCodeCamp Community](https://forum.freecodecamp.org)
 - [GitHub](https://github.com) **(of course)**
 - [HackerNews](https://news.ycombinator.com/)
@@ -100,8 +103,10 @@ stuff and I really like psychological stuff so that's why it's here
 - [CSS Tricks](https://css-tricks.com/) — a blog that focuses on front-end development
 - [Derek Sivers](https://sivers.org/) — a blog from a guy who had a lot of things to say on a lot of topics
 - [Flavio Copes](https://flaviocopes.com/) — another blog that focuses on front-end development
+- [Joel On Software](https://www.joelonsoftware.com) — a software-related blog from Joel Spolsky, the CEO from Stack Overflow 
 - [Jon Skeet's Coding Blog](https://codeblog.jonskeet.uk/) — Jon Skeet's blog; \* insert Jon Skeet fact here \*
 - [Mozilla Hacks](http://hacks.mozilla.org/) — mainly focuses on web development progress
+- [Scott Logic](https://blog.scottlogic.com/) — it's a blog that focuses on a broad spectrum of stuff
 - [webapplog](https://webapplog.com/) — mainly focuses on Node.js
 - [Wes Bos](https://wesbos.com/blog/) — creator of several courses and some helpful posts along the way
 

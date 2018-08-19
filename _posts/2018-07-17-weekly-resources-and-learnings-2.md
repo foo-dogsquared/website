@@ -4,7 +4,7 @@ title:  "Weekly Resources and Learnings #2"
 date: 2018-07-17 18:30:34 +0800
 author: foo-dogsquared
 categories: general
-tags: [programming-notes, computer-science, learning]
+tags: [programming-notes, weekly-learnings, learning]
 ---
 
 Alright! Second entry, second step into this consistency of habits thing, and a second good news to me since I learnt something.
