@@ -41,6 +41,8 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
 
 pinpost: ["A Freebie's Resource List (Mostly Related to Programming)", "An Absolute Beginners' Complete Web Development Resource List"]
 

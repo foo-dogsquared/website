@@ -1,6 +1,6 @@
 // custom default properties for normal tags
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth
 }
 
 a,
@@ -58,8 +58,12 @@ iframe {
     max-width: 100%;
 }
 
-li > ul, li > ol {
+li > ul, li > ol, ul > li, ol > li {
     margin-bottom: 1em;
+}
+
+ul.social-media-list > li, #list-container > ul > li {
+    margin: 0;
 }
 
 // Table custom properties
@@ -189,6 +193,15 @@ h2.post-alt-title {
 
             h3:not(:first-child) {
                 margin-top: $spacing-unit * 1.15;
+            }
+
+            > p {
+                word-spacing: 1px;
+            }
+
+            p > img {
+                display: block;
+                margin: 0 auto;
             }
 
             ul.resources-link {

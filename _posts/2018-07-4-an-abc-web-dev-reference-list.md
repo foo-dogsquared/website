@@ -9,7 +9,7 @@ tags: [programming-notes, computer-science, real-notes]
 updatedOn: Jul 3, 2018
 ---
 
-Another resource list? What is the difference of this and [that one]({% post_url 2018-05-1-free-resource-list %})?
+Another resource list? What is the difference of this and [that one]({{ site.baseurl }}{% post_url 2018-05-1-free-resource-list %})?
 
 This resource list, as you might have read from the title, is aimed towards beginners who wants to begin some web design, 
 web development, or programming, in general. This curated list contains tutorials and stuff that makes a beginner follow 
@@ -61,8 +61,8 @@ down in this list that is categorized according to how they present their inform
 
 ## Pick Your Tools!
 Basically this image:
-<center><img src="{{ '../assets/pictures/web-dev-tools-expanding-brain.png' | relative_url }}">
-<p class="caption">This is what you are here for, yeah?</p></center>
+<img src="{{ '../assets/pictures/web-dev-tools-expanding-brain.png' | relative_url }}">
+<p class="caption">This is what you are here for, yeah?</p>
 
 But seriously speaking, here are some of the tools that can help you in your budding growth as a web developer. Just take note 
 that these tools do not entirely define your path as a developer so don't rely on it a bit too much. That said do note to get 

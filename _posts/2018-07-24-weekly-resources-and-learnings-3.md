@@ -158,7 +158,7 @@ understood it well. Well, this is a chance for you to go for a introspection and
 ## Books of the Week
 #### [Programming Notes for Professional books](https://goalkicker.com/)
 I know this has been featured as one of the very much recommended items on my 
-[free resource list]({% post_url 2018-05-1-free-resource-list %}) but man, I really can't recommend it enough, it's very 
+[free resource list]({{ site.baseurl }}{% post_url 2018-05-1-free-resource-list %}) but man, I really can't recommend it enough, it's very 
 good in my opinion. This is basically like an unofficial, offline documentation of the languages but they way they 
 guide you to the basics is quite good since I find it hard to get into the basics reading from some of the official 
 documentation. On a formal note, this is a site that hosts a plethora of books on a plethora of tools (programming languages and 

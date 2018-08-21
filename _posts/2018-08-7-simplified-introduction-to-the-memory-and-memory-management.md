@@ -90,7 +90,8 @@ If the program is done running, the allocated resources would be freed and rende
 Now this allocated resource, the memory set, do have individual segments that make up the entire picture for our program (info from [GeeksForGeeks](https://www.geeksforgeeks.org/memory-layout-of-c-program/)). 
 
 <!-- TODO: Introduce the main segments of the memory in C (DONE) -->
-<center><img src="{{ 'assets/pictures/intro-to-memory/memory_segment.jpg' | relative_url }}" style="width:500px;" alt="Memory segment in C"><p class="caption">The mistake in writing on the 'heap' part is glaring.</p></center>
+<img src="{{ 'assets/pictures/intro-to-memory/memory_segment.jpg' | relative_url }}" style="width:500px;" alt="Memory segment in C">
+<p class="caption">The mistake in writing on the 'heap' part is glaring.</p>
 <!-- insert memory segment drawing here -->
 
 Starting from the low address, we have the:
@@ -139,7 +140,7 @@ work, it utilizes the First In, Last Out (FILO) approach. That means the most re
 
 ```
 <!-- insert image here -->
-<center><img src="{{ 'assets/pictures/intro-to-memory/stack_frame.jpg' | relative_url }}" style="width: 500px;" alt="A visualization of the stack."></center>
+<img src="{{ 'assets/pictures/intro-to-memory/stack_frame.jpg' | relative_url }}" style="width: 500px;" alt="A visualization of the stack.">
 
 Within each stack frame is an allocated memory space that is included with a set of data and values that have 
 been passed on from the previous function(s). The most recent stack frame also gets to have 
@@ -176,7 +177,7 @@ used to describe the memory spaces so the dynamically allocated space must go so
 Unlike the stack which has some form of organization, heap does not have. It assigns memory spaces randomly in the memory pool. 
 
 <!-- insert image here -->
-<center><img src="{{ 'assets/pictures/intro-to-memory/stack_and_heap.jpg' | relative_url }}" style="width:500px;" alt="Simplified visualization of the stack and the heap."></center>
+<img src="{{ 'assets/pictures/intro-to-memory/stack_and_heap.jpg' | relative_url }}" style="width:500px;" alt="Simplified visualization of the stack and the heap.">
 
 Also, unlike the stack which pops out the memory space of the most recent stack frame when the function finishes running, the 
 heap does not have any form of automatic deallocation and we would have to deallocate it ourselves. This does add on the random 
@@ -203,11 +204,12 @@ initialize two variables with the same value but it would be on two different me
 value*.
 
 <!-- Insert image here -->
-<center><img src="{{ 'assets/pictures/intro-to-memory/diff_addresses.jpg' | relative_url }}" alt="A simple visualization of what I'm talking about, supposedly."></center>
+<img src="{{ 'assets/pictures/intro-to-memory/diff_addresses.jpg' | relative_url }}" alt="A simple visualization of what I'm talking about, supposedly.">
 
 Well, we can take the idea outside, shall we.
 We can say that the concept of pointers are similar to URLs, which is a form of address to the file.
-<center><img src="{{ 'assets/pictures/intro-to-memory/diff_url_addresses.jpg' | relative_url }}" alt="Another visualization of my stuff, don't mind the drawing."><p class="caption">Like I said, don't mind the drawing.</p></center>
+<img src="{{ 'assets/pictures/intro-to-memory/diff_url_addresses.jpg' | relative_url }}" alt="Another visualization of my stuff, don't mind the drawing.">
+<p class="caption">Like I said, don't mind the drawing.</p>
 
 We can get the very exact file through different addresses but then, on the computer's term, they are considered different. 
 Plus if one of the maintainer updates a file, only one of them would be updated.
@@ -245,7 +247,8 @@ You might also notice the ambersand (&) on the initialization of the pointer var
 As one might conclude, the pointer variable needs an address in order to make it work and not get an error with unmatched type in 
 the initialization of the pointer variable.
 
-<center><img src="{{ 'assets/pictures/intro-to-memory/pointers.jpg' | relative_url }}" alt="Simple pointer visualization"><p class="caption">Uhh... the design around the text is a design decision, yup. Not a mistake that has been decided into a design by accident at all. Yeah, it looks worse than I thought.</p></center>
+<img src="{{ 'assets/pictures/intro-to-memory/pointers.jpg' | relative_url }}" alt="Simple pointer visualization">
+<p class="caption">Uhh... the design around the text is a design decision, yup. Not a mistake that has been decided into a design by accident at all. Yeah, it looks worse than I thought.</p>
 
 If we would describe it what happening on line 6 on the code example above, we would say that we assign a pointer named `i` that 
 points to the memory location which contains an integer, `7`. On line 8, we assign a pointer named `f` that points to the memory 
@@ -328,7 +331,7 @@ Another example from the previous subpoint:
 ```
 
 Would have this as a simple visualization when an indirection was needed:
-<center><img src="{{ 'assets/pictures/intro-to-memory/dereferencing.jpg' | relative_url }}" alt="A simple dereferencing visualization."></center>
+<img src="{{ 'assets/pictures/intro-to-memory/dereferencing.jpg' | relative_url }}" alt="A simple dereferencing visualization.">
 
 This has been previously mentioned but to nail the point: when the pointer points to a null pointer and we dereferenced it, the 
 compiler would compile the program (assuming no errors were thrown at compile time, of course) but it would get a segmentation 
@@ -527,7 +530,7 @@ Here are some of the topics/concepts that you'll expect to encounter if you want
 ## Author's Note
 Yes, it is another new series that's called *Simplified!* which sounds like one of the most common name for a beginner-friendly 
 kind of posts out there. If there's a more cool-sounding name, I would take it but I'm not good at naming things. If we would 
-take the previous regular posts such as [this one]({% post_url 2018-06-21-a-closer-look-on-computers %}) or [that one]({% post_url 2018-05-18-git-concepts-and-mechanics %}), they would be probably one on the series too but I don't want to include 
+take the previous regular posts such as [this one]({{ site.baseurl }}{% post_url 2018-06-21-a-closer-look-on-computers %}) or [that one]({{ site.baseurl }}{% post_url 2018-05-18-git-concepts-and-mechanics %}), they would be probably one on the series too but I don't want to include 
 them in this series since I'm currently making a new writing and content style.
 
 So I put the debut of this kind of series since I might make an more detailed version of this topic. It is kind of an interesting 

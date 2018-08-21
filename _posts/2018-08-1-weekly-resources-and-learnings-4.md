@@ -11,7 +11,7 @@ Wow! Fourth entry? I've never been this consistent in my life. Inspired me to do
 
 ## What I've learned this week
 ### Sorting algorithms (REVIEWED)
-OK! If you have read the tiny endnote from the [last entry]({% post_url 2018-07-24-weekly-resources-and-learnings-3 %}), you 
+OK! If you have read the tiny endnote from the [last entry]({{ site.baseurl }}{% post_url 2018-07-24-weekly-resources-and-learnings-3 %}), you 
 might have noticed the thing where it said about the exclusion of the sorting algorithms since I found little use of it and 
 my brain tends to forget those kinds of information, especially the ones that I haven't practiced to a good use, yet. Luckily, 
 I found [Brian Holt's Four Semesters of CS in Six Hours](http://btholt.github.io/four-semesters-of-cs/) that offers some 
@@ -328,7 +328,8 @@ it whatever you're doing. That is the subject of the talk given by a famed psych
 will very much butcher the pronounciation of it if I were to orally speak that name (also, his last name is pronounced as 
 'chik-sent-mi-ha-yi', according to the YouTube comments).
 
-<center><img src="https://78.media.tumblr.com/f346da16707adaeec7e5e5c490070c4d/tumblr_nnsu1r37wH1qe60t4o1_400.gif"><p class="caption">Into the zone we go</p></center>
+<img src="https://78.media.tumblr.com/f346da16707adaeec7e5e5c490070c4d/tumblr_nnsu1r37wH1qe60t4o1_400.gif">
+<p class="caption">Into the zone we go</p>
 
 I suggest that you watch the video in order to get the idea from the psychologist himself since the following statements are 
 pretty much the fruit of my researching labors (and unlike Csikszentmihalyi, I'm not certified for this so you better watch it).

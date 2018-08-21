@@ -15,8 +15,8 @@ GitHub Pages decided to not accept it for some reason), I decided to write this 
 Well, IDK how to write an introduction for this, so let's get on to the main branch of this post but first, let us be familiar 
 what Git really is.
 
-<center><img src="{{ 'assets/pictures/git-logo.png' | relative_url }}" alt="Git Logo" width="250px">
-<p class="caption">Git Logo (as of 2018)</p></center>
+<img src="{{ 'assets/pictures/git-logo.png' | relative_url }}" alt="Git Logo" width="250px">
+<p class="caption">Git Logo (as of 2018)</p>
 
 ## Primary Primer on Version Control Systems
 Version control, it may sound fancy, but it is a simple thing. You probably have done some form of version control in some 
@@ -233,8 +233,8 @@ and easy to be referenced to but also helping towards other people not wasting t
 
 I think this [*xkcd* strip](https://xkcd.com/1296/) portrays a situation of writing not-good commit messages.
 
-<center><img src="{{ 'assets/pictures/xkcd-git-commit.png' | relative_url }}" alt="A xkcd comic strip">
-<p class="caption">Me when my site build failed</p></center>
+<img src="{{ 'assets/pictures/xkcd-git-commit.png' | relative_url }}" alt="A xkcd comic strip">
+<p class="caption">Me when my site build failed</p>
 
 If you have read a handful of tutorials and articles about the basics of Git, you probably minded about writing a good 
 commit message. The following rules are ripped from the book 
@@ -290,7 +290,7 @@ OK, now that we have a GitHub account (presumably), we now have a reference to a
 If you are just starting to use (or be familiar with) GitHub, you can view this video then go through the 
 [playlist](https://www.youtube.com/playlist?list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-) to be more intimate with GitHub.
 
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/noZnOSpcjYY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/noZnOSpcjYY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Now that you are familiar with GitHub (presumably), we shall now push our test to the remote repository which is located 
 on the GitHub's server. 

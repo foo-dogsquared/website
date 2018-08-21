@@ -68,7 +68,8 @@ This machine was supposedly created for creating fabric patterns and nothing muc
 
 So, how does this machine was considered by most to be the precursor to modern computing and programming?
 
-<center><img src="{{ '/assets/pictures/jacquard-card.png' | relative_url }}" alt="A Jacquard card." width="75%"><p class="caption">A Jacquard card</p></center>
+<img src="{{ '/assets/pictures/jacquard-card.png' | relative_url }}" alt="A Jacquard card." width="75%">
+<p class="caption">A Jacquard card</p>
 
 First, the machine uses wooden punched cards (pictured above) which can be considered as the descendants of the punched cards 
 early computers usually use. These wooden cards then being read from the machine by a needle that will pass through the holes. If 
@@ -155,8 +156,8 @@ the more featured inventions are the vacuum tubes which serves as a replacement 
 faster computation. It does have flaws like its fragility and burning out similar to light bulbs but it was a better solution 
 than the previous way of managing electric flow which is a relay.
 
-<center><img src="{{ '/assets/pictures/vacuum-tube.jpg' | relative_url }}" alt="A vacuum tube" width="50%">
-<p class="caption">Sample of a vacuum tube</p></center>
+<img src="{{ '/assets/pictures/vacuum-tube.jpg' | relative_url }}" alt="A vacuum tube" width="50%">
+<p class="caption">Sample of a vacuum tube</p>
 
 One of the more iconic machines associated with vacuum tubes is the *Electronic Numerical Intergrator And Calculator*, also known 
 by its shortened form as ENIAC. This machine was noted because of its speed and featured to be the world's first general-purpose 

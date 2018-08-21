@@ -15,7 +15,7 @@ computers that can serve a variety of purposes such as calculating simple arithm
 digital art, and creating programs.
 
 <!-- PICTODO: insert image here of different electronic devices -->
-<center><img src="https://source.unsplash.com/Ae5jmF2PJXg/1024x512" alt="Different electronic devices at usual life."></center>
+<img src="https://source.unsplash.com/Ae5jmF2PJXg/1024x512" alt="Different electronic devices at usual life.">
 
 You get the idea, electricity pretty much integrates with everything now and it helped us a lot in a lot of ways. If you would 
 think of an object that doesn't involve electricity, you would have a hard time thinking about that. 
@@ -43,7 +43,8 @@ prepared to be get your hands dirty and get your organizing skills on to your da
 components and you won't have a big worry, probably.)
 
 <!-- PICTODO: example of a workspace -->
-<center><img src="{{ 'assets/pictures/intro-to-electronics/my-workspace.png' | relative_url }}" alt="My workspace."><p class="caption">Also, welcome to my chaotic workspace, everybody.</p></center>
+<img src="{{ 'assets/pictures/intro-to-electronics/my-workspace.png' | relative_url }}" alt="My workspace.">
+<p class="caption">Also, welcome to my chaotic workspace, everybody.</p>
 
 Usually, with electronics, you would want to have some basic components like LEDs, resistors, capacitors, switches, integrated circuits, and 
 transistors and some tools like a breadboard, wire splicer, tweezers, and your ol' handy-dandy paper and pen because we are not 
@@ -60,7 +61,8 @@ for a very quick headstart:
 - integrated circuits — it refers to any circuit that is *integrated* into a chip or any viable small container
 
 <!-- PICTODO: insert image here of the different electronic components like the breadboard, transistors, resistors, wires, and such -->
-<center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Componentes.JPG/1200px-Componentes.JPG"><p class="caption">Can you identify some parts at the end of the part two of this entry?</p></center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Componentes.JPG/1200px-Componentes.JPG">
+<p class="caption">Can you identify some parts at the end of the part two of this entry?</p>
 
 With all of these said, it is usually recommended for a complete beginner to just buy an beginners' electronic kit since all of the materials 
 needed to get started are already there. You would just have to practice to choose components yourself on the later part when you are more 
@@ -90,14 +92,14 @@ the protons and the neutrons make up the nucleus and the electrons just fly outs
 imagine it as if the atom is like the solar system: the nucleus is the sun and the electrons are the planets orbitting around it.
 
 <!-- PICTODO: insert image of the structure of an atom with the labelling of its parts -->
-<center><img src="{{ 'assets/pictures/intro-to-electronics/atom-structure.jpg' | relative_url }}" alt="Structure of an atom"></center>
+<img src="{{ 'assets/pictures/intro-to-electronics/atom-structure.jpg' | relative_url }}" alt="Structure of an atom">
 
 The number of protons and electrons make up the composition and define what type of atom it is. For instance, if we would want to have 
 a hydrogen atom, we would just have an atom that is mainly composed of one proton and one electron. Substances containing only one type 
 of atom are often referred to as an *element* as in the elements that can be found in the periodic table.
 
 <!-- PICTODO: insert image here of a hydrogen atom -->
-<center><img src="{{ 'assets/pictures/intro-to-electronics/hydrogen-atom.jpg' | relative_url }}" alt="Hydrogen atom"></center>
+<img src="{{ 'assets/pictures/intro-to-electronics/hydrogen-atom.jpg' | relative_url }}" alt="Hydrogen atom">
 
 Objects (i.e. a chair, a speaker, or a USB cable) and materials (i.e. leather, rubber, or plastic) are a larger bunch altogether that 
 these are usually made from several elements mixed together into what they call a *compound*. These compounds and elements are what 
@@ -116,7 +118,7 @@ pole and repelled to the same pole. This is what essentially the *Law of Attract
 > Like charges repel, opposite charges attract.
 
 <!-- PICTODO: insert image of a magnet with two opposite poles -->
-<center><img src="{{ 'assets/pictures/intro-to-electronics/law-of-attraction.jpg' | relative_url }}" alt="Law of attraction"></center>
+<img src="{{ 'assets/pictures/intro-to-electronics/law-of-attraction.jpg' | relative_url }}" alt="Law of attraction">
 
 There are some objects whose the atoms’ electrons are freely flying around the atom shell, labelling them to be as *free electrons*. These 
 extra electrons are now moving freely wherever they want as long as they hang around the atom unless they are being interacted with an 
@@ -172,7 +174,8 @@ interacted with it that much. In a simple electrical circuit like a LED circuit,
 Take note of this analogy as we will continuously add comparisons as we go on further into the concepts.
 
 <!-- PICTODO: electrical circuit and water pipe analogy -->
-<center><img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Electronic-hydraulic_analogy.svg" alt="Water pipe analogy"><p class="caption">Water pipe analogy (I have to put a picture there)</p></center>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Electronic-hydraulic_analogy.svg" alt="Water pipe analogy">
+<p class="caption">Water pipe analogy (I have to put a picture there)</p>
 
 How does an electric flow occurs?
 
@@ -185,12 +188,14 @@ Let's think about that last statement and elaborate with an example. Let's think
 around them.
 
 <!-- PICTODO: picture of a chain of atoms -->
-<center><img src="{{ 'assets/pictures/intro-to-electronics/chain-of-atoms.jpg' | relative_url }}" alt="A chain of atoms"><p class="caption" >A chain of atoms</p></center>
+<img src="{{ 'assets/pictures/intro-to-electronics/chain-of-atoms.jpg' | relative_url }}" alt="A chain of atoms">
+<p class="caption" >A chain of atoms</p>
 
 Let's imagine there's an electron is moving for whatever reason.
 
 <!-- PICTODO: picture of a moving electron with its path -->
-<center><img src="{{ 'assets/pictures/intro-to-electronics/atom-chain-movement.jpg' | relative_url }}" alt="A chain of atoms"><p class="caption" >Then a chain reaction will occur</p></center>
+<img src="{{ 'assets/pictures/intro-to-electronics/atom-chain-movement.jpg' | relative_url }}" alt="A chain of atoms">
+<p class="caption" >Then a chain reaction will occur</p>
 
 Since electrons repel from each other, whenever there's a movement of an electron, surely there will be other electrons that will be affected 
 from it. Even though this is not true for most of the time, we can say that we can move one electron without affecting the other.
@@ -198,7 +203,8 @@ from it. Even though this is not true for most of the time, we can say that we c
 From the example above, let's scale things up from a chain of atoms to an assembly to atoms, say from a conductor.
 
 <!-- PICTODO: atom arrangement of a conductor -->
-<center><img src="{{ 'assets/pictures/intro-to-electronics/conductor-atom-composition.jpg' | relative_url }}" alt="The atoms inside of a conductor, probably"><p class="caption" >Simplified representation of the atom structure inside of a conductor</p></center>
+<img src="{{ 'assets/pictures/intro-to-electronics/conductor-atom-composition.jpg' | relative_url }}" alt="The atoms inside of a conductor, probably">
+<p class="caption" >Simplified representation of the atom structure inside of a conductor</p>
 
 Since conductors have an arrangement that is loosely bound only held by protons that stay in one place preserving the structure of the 
 metal, electrons can freely move jumping from one atom to another. From that point, we can really see the chaotic and numerous movements that 
@@ -272,7 +278,7 @@ move on to different parts of the circuit. Or any components waiting for their w
 
 Next is the *per unit of charge* part of the definition. That's easy as we've already discussed that before: coulombs. A coulomb is a *unit* 
 of charge. What about for energy? Generally, when talking about energy, it uses what they call a *joule*. Therefore, one of the ways to 
-describe voltage in units is $ V = frac{J}{C} $. To put it into words: for each coulomb of charge flowing through the circuit, a certain 
+describe voltage in units is \\(V = \frac{J}{C}\\). To put it into words: for each coulomb of charge flowing through the circuit, a certain 
 amount of joules of energy is released.
 
 OK. Now's let take a look at the definition again:

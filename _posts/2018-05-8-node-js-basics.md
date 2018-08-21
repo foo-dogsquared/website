@@ -22,8 +22,8 @@ Alrighty then, onto the basic concepts around Node.js...
 Also reading this means that assuming you have basic familiarity*
 
 <!-- Node.js logo -->
-<center><img src="{{ '/assets/pictures/nodejs-logo.png' | relative_url }}" alt="Node.js logo" style="width:300px">
-<p class="caption">Node.js Logo (as of 2018)</p></center>
+<img src="{{ '/assets/pictures/nodejs-logo.png' | relative_url }}" alt="Node.js logo" style="width:300px">
+<p class="caption">Node.js Logo (as of 2018)</p>
 
 ## What is Node.js?
 According to the [official Node.js website](https://nodejs.org/en/):
@@ -92,7 +92,7 @@ more or less an extension of JavaScript, it must deal with the same way how Java
 If you understood how the process work in the given link, this will make it a whole lot easier to understand.
 If else you didn't, here's a YouTube video that I saw from a Medium article (which is linked in the Re(Sources) below).
 
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Now how does the event loop works on Node? (For a more detailed explanation of that, go [here](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#phases-in-detail))
 
@@ -114,7 +114,7 @@ One of the concepts that we have to know about is **modules**.
 Everything that we use in Node are called modules. Whether be it a built-in library, a third-party framework, a preprocessor, that 
 is a module (at least that's what it said on the command line when executing something, anyway). Queue the meme...
 
-<center><img src="{{ '/assets/pictures/oprah-module-meme.jpg' | relative_url }}" alt="A meme used in the wrong way, don't mind me here." style="width:400px;"><p class="caption">Cue the cringe...</p></center>
+<img src="{{ '/assets/pictures/oprah-module-meme.jpg' | relative_url }}" alt="A meme used in the wrong way, don't mind me here." style="width:400px;"><p class="caption">Cue the cringe...</p>
 
 This, in concept, is quite similar to how we import modules in other languages, say in Python:
 

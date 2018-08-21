@@ -11,7 +11,7 @@ not so much to the other things, hehe.
 
 ## What I've learned this week
 ### Memory and memory management (REVIEWED) 
-Yeah, this has been reviewed for too long that I decided to make it into its own post in which you can visit it [here]({% post_url 2018-08-7-simplified-introduction-to-the-memory-and-memory-management %}).
+Yeah, this has been reviewed for too long that I decided to make it into its own post in which you can visit it [here]({{ site.baseurl }}{% post_url 2018-08-7-simplified-introduction-to-the-memory-and-memory-management %}).
 Anyway, here's a summarized version of it: the memory is a part of the computer that is used to hold and store data; in context of 
 computer science, the memory is mostly referring to the RAM which is a type of memory that can hold and transfer data at a higher 
 rate compared to other forms of storage such as a hard drive disk (HDD) and a solid state drive (SSD).
