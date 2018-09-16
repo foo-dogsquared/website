@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Circuit Diagram, cdlibrary.dll 1.0.0.0 -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="300" height="380" xmlns="http://www.w3.org/2000/svg">
+	<line x1="260" y1="40" x2="260" y2="187" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="250" y1="187" x2="270" y2="187" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="255" y1="193" x2="265" y2="193" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:3" />
+	<line x1="260" y1="193" x2="260" y2="340" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<text x="246" y="190" style="font-family:Arial;font-size:12px;text-anchor:end" dy=".3em">+9V</text>
+	<line x1="160" y1="40" x2="160" y2="56" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<path d="M 160,56 L 160,66 L 165,70 L 155,78 L 165,86 L 155,94 L 165,102 L 155,110 L 160,114 L 160,124" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<line x1="160" y1="124" x2="160" y2="140" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="160" y1="140" x2="160" y2="240" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<path d="M 160,197 M 152,197 L 168,197 M 160,197 L 168,182 L 152,182 L 160,197" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<path d="M 160,195 M 171,193 L 179,201 M 180,202 L 178,198 L 176,200 L 180,202 L 178,198" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<path d="M 160,195 M 164,199 L 172,207 M 173,208 L 171,204 L 169,206 L 173,208 L 171,204" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<line x1="160" y1="240" x2="160" y2="277" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="160" y1="303" x2="160" y2="340" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="120" y1="290" x2="146" y2="290" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="145.5" y1="282" x2="145.5" y2="298" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:3" />
+	<line x1="160" y1="277" x2="145.5" y2="286" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="145.5" y1="294" x2="160" y2="303" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<ellipse cx="150" cy="290" rx="16" ry="16" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<path d="M 152,297 L 156,295 L 157,302 L 151,298 L 153,297" style="fill-opacity:1;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<text x="30" y="190" style="font-family:Arial;font-size:11px;text-anchor:start" dy=".3em">Touch here</text>
+	<text x="120" y="280" style="font-family:Arial;font-size:11px;text-anchor:start" dy=".3em">B</text>
+	<text x="170" y="270" style="font-family:Arial;font-size:11px;text-anchor:start" dy=".3em">C</text>
+	<text x="170" y="310" style="font-family:Arial;font-size:11px;text-anchor:start" dy=".3em">E</text>
+	<line x1="60" y1="40" x2="260" y2="40" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="160" y1="340" x2="260" y2="340" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="60" y1="290" x2="120" y2="290" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="60" y1="40" x2="60" y2="140" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="60" y1="240" x2="60" y2="290" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<ellipse cx="160" cy="40" rx="2" ry="2" style="fill-opacity:1;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<ellipse cx="160" cy="340" rx="2" ry="2" style="fill-opacity:1;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+</svg>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Circuit Diagram, cdlibrary.dll 1.0.0.0 -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="160" height="340" xmlns="http://www.w3.org/2000/svg">
+	<line x1="120" y1="220" x2="120" y2="267" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="110" y1="267" x2="130" y2="267" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="115" y1="273" x2="125" y2="273" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:3" />
+	<line x1="120" y1="273" x2="120" y2="320" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<text x="106" y="270" style="font-family:Arial;font-size:12px;text-anchor:end" dy=".3em">+9V</text>
+	<line x1="120" y1="120" x2="120" y2="220" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<path d="M 120,177 M 112,177 L 128,177 M 120,177 L 128,162 L 112,162 L 120,177" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<path d="M 120,175 M 131,173 L 139,181 M 140,182 L 138,178 L 136,180 L 140,182 L 138,178" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<path d="M 120,175 M 124,179 L 132,187 M 133,188 L 131,184 L 129,186 L 133,188 L 131,184" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<line x1="120" y1="20" x2="120" y2="36" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<path d="M 120,36 L 120,46 L 125,50 L 115,58 L 125,66 L 115,74 L 125,82 L 115,90 L 120,94 L 120,104" style="fill-opacity:0;fill:rgb(0,0,0);stroke:rgb(0,0,0);stroke-width:2" />
+	<line x1="120" y1="104" x2="120" y2="120" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<text x="106" y="70" style="font-family:Arial;font-size:11px;text-anchor:end" dy=".3em">220 Ω</text>
+	<line x1="20" y1="20" x2="20" y2="320" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="20" y1="20" x2="120" y2="20" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+	<line x1="20" y1="320" x2="120" y2="320" style="stroke:rgb(0,0,0);stroke-linecap:square;stroke-width:2" />
+</svg>
