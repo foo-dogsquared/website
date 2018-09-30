@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "How to Git Gud"
-alt_title: "Git: Concepts and Mechanics"
+title:  "Git: Concepts and Mechanics"
 date: 2018-05-28 7:03:34 +0800
 author: foo-dogsquared
 categories: git

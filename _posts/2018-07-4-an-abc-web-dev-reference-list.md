@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "An Absolute Beginners' Complete Web Development Resource List"
-alt_title: "An ABC Web Dev't Resource List"
 date: 2018-07-2 9:56:34 +0800
 author: foo-dogsquared
 categories: general

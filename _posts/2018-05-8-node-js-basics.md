@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "Debriefing to Node"
-alt_title:  "Node.js: Basics"
+title: "Node.js: Basics"
 date: 2018-05-08 21:47:24 +0800
 author: foo-dogsquared
 categories: node-js

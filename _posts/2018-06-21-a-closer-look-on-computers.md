@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "What's a Computer?"
-alt_title: "A Short History on Computers"
+title:  "A \"Short\" History on Computers"
 date: 2018-06-21 9:56:34 +0800
 author: foo-dogsquared
 categories: general

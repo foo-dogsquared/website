@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "[Simplified!] The Shock of Knowing Electronics"
-alt_title: "Simplified! :: Introduction to Electronics I"
+title:  "[Simplified!] Introduction to Electronics I"
 date: 2018-08-18 00:52:05 +0800
 author: foo-dogsquared
 categories: electronics

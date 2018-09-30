@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "[Simplified!] Thanks For The Memories"
-alt_title: "Simplified! :: Introduction to the Memory and Memory Management"
+title:  "[Simplified!] Introduction to the Memory and Memory Management"
 # date: 2018-07-7 18:32:05 +0800
 author: foo-dogsquared
 categories: computer-science

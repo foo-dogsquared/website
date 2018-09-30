@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "Meeting Node's (Package) Manager"
-alt_title: "Node.js: NPM"
+title:  "Node.js: NPM"
 date: 2018-05-15 04:25:33 +0800
 author: foo-dogsquared
 categories: node-js

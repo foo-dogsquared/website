@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "[Simplified!] Plug and Play into the Practical World"
-alt_title: "Simplified! :: Introduction to Electronics II"
+title:  "[Simplified!] Introduction to Electronics II"
 date: 2018-09-16 18:00:05 +0800
 author: foo-dogsquared
 categories: electronics
