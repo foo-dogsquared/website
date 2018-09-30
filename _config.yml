@@ -46,6 +46,8 @@ plugins:
 
 pinpost: ["A Freebie's Resource List (Mostly Related to Programming)", "An Absolute Beginners' Complete Web Development Resource List"]
 
+google_analytics: UA-126718538-1
+
 # Default settings
 defaults:
   -
