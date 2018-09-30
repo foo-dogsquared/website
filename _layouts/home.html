@@ -23,9 +23,6 @@ layout: default
     {% for post in paginator.posts %}
     <div class="home-post">
       <h2><a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a></h2>
-      {% if post.alt_title %}
-        <h3><a href="{{ post.url | relative_url }}" class="post-alt-link">{{ post.alt_title }}</a></h3>
-      {% endif %}
       <p class="post-meta">
         <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
             <img src="{{ 'assets/main/icons/calendar.svg' | relative_url }}" style="width: 1.5em; height: 1.5em">

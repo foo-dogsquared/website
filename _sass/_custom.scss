@@ -13,7 +13,7 @@ a:visited {
             text-decoration: none;
             &::after {
                 color: $grey-color;
-                content: ' #';
+                content: ' →';
             }
         }
     }
@@ -113,10 +113,12 @@ table:not(.rouge-table) {
 
     .previous-post {
         text-align: left;
+        max-width: 45%;
     }
 
     .next-post {
         text-align: right;
+        max-width: 45%;
     }
 
     @include media-query($on-laptop) {
@@ -184,15 +186,19 @@ h2.post-alt-title {
         }
 
         .post-content {
-            > h1:not(:first-child){
+            > h1:not(:first-of-type){
                 margin-top: $spacing-unit * 1.65;
             }
 
-            h2:not(:first-child) {
+            h2:first-of-type {
+                margin-top: $spacing-unit * 1.5;
+            }
+
+            h2:not(:first-of-type) {
                 margin-top: $spacing-unit * 1.4;
             }
 
-            h3:not(:first-child) {
+            h3:not(:first-of-type) {
                 margin-top: $spacing-unit * 1.15;
             }
 
