@@ -1,0 +1,9 @@
+main .home {
+    > .home-post:not(:first-of-type) {
+        margin-top: 3em;
+    }
+
+    > .home-post > * {
+        margin: 0;
+    }
+}

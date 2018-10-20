@@ -1,0 +1,21 @@
+#pinned-section {
+    background: linear-gradient(75deg, $dark-brown, $brown, $light-brown);
+    border: $brown 4px solid;
+    border-top: 0;
+    border-bottom: 0;
+    color: white;
+    margin-bottom: 2em;
+    padding: $base-font-size;
+    
+
+    ul.pinned-posts {
+        & * {color: white;}
+
+        list-style: none;
+        padding: 0;
+
+        @include media-query($on-palm) {
+            margin-left: 0;
+        }
+    }
+}

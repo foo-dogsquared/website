@@ -1,0 +1,20 @@
+.entry-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .25em;
+    padding: .5em;
+    &:nth-child(odd) {
+        background: lighten($brown, 50%);
+    }
+    &:last-child {
+        margin-bottom: 1em;
+    }
+    .post-list-date {
+        display: block;
+    }
+    @include media-query($on-palm) {
+        flex-flow: column;
+        align-items: baseline;
+    }
+}

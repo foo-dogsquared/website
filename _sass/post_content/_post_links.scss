@@ -1,0 +1,20 @@
+.heading-links {
+    color: $text-color;
+    &:hover {
+        color: $text-color;
+        text-decoration: none;
+        &::after {
+            color: $grey-color;
+            content: ' →';
+        }
+    }
+
+    &:visited {
+        color: $text-color;
+    }
+}
+
+.post-link:visited {
+    color: $brown;
+}
+

@@ -1,0 +1,51 @@
+.site-header {
+    background: linear-gradient(75deg, $dark-brown, $brown, $light-brown);
+    border-top: 5px solid $dark-brown;
+    border-bottom: 1px solid $grey-color-light;
+    color: $super-platinum;
+}
+
+.site-title {
+    @include relative-font-size(1.625);
+    font-weight: 300;
+    line-height: $base-line-height * $base-font-size * 2.25;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+    &,
+    &:visited {
+        color: $super-platinum;
+    }
+}
+
+.site-nav {
+    float: right;
+    line-height: $base-line-height * $base-font-size * 2.25;
+    
+    .nav-trigger {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $super-platinum;
+        line-height: $base-line-height; // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    @include media-query($on-palm) {
+        .page-link {
+            color: $text-color;
+            margin: 0 .5em;
+            text-align: left;
+        }
+        .menu-icon {
+            display: block;
+        }
+    }
+}

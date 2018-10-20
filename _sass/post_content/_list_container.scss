@@ -1,0 +1,15 @@
+#list-container {
+    border: 3px $brown dashed;
+    border-left: 0px;
+    border-right: 0px;
+    color: $grey-color;
+    line-height: 1.75em;
+    margin: 2em 0;
+    padding: 2em;
+    width: inherit;
+    @include relative-font-size(0.95);
+    
+    ul {
+        list-style: upper-roman;
+    }
+}

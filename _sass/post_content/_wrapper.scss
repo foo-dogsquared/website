@@ -1,0 +1,48 @@
+.wrapper {
+    main > & {
+        & > :first-child {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .post-content {
+            > h1:not(:first-of-type){
+                margin-top: $spacing-unit * 1.65;
+            }
+
+            h2:first-of-type {
+                margin-top: $spacing-unit * 1.5;
+            }
+
+            h2:not(:first-of-type) {
+                margin-top: $spacing-unit * 1.4;
+            }
+
+            h3:not(:first-of-type) {
+                margin-top: $spacing-unit * 1.15;
+            }
+
+            > p {
+                word-spacing: 1px;
+            }
+
+            p > img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            ul.resources-link {
+                list-style: none; 
+                margin-left: 1.9em;
+
+                @include media-query($on-palm) {
+                    margin-left: 0;
+
+                    > li {
+                        margin-bottom: 0.75em;
+                    }
+                }
+            }
+        }
+    }
+}
