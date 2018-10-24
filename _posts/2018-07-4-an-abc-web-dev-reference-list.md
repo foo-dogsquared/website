@@ -3,7 +3,7 @@ layout: post
 title:  "An Absolute Beginners' Complete Web Development Resource List"
 date: 2018-07-2 9:56:34 +0800
 author: foo-dogsquared
-categories: general
+categories: freebies
 tags: [programming-notes, computer-science, real-notes]
 updatedOn: Jul 3, 2018
 ---

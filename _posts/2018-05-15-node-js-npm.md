@@ -4,7 +4,7 @@ title:  "Node.js: NPM"
 date: 2018-05-15 04:25:33 +0800
 author: foo-dogsquared
 categories: node-js
-tags: [node, programming-notes, javascript]
+tags: [node-js, programming-notes, javascript]
 ---
 
 Now that we've tackled a little bit about Node, we know that Node.js comes with a huge number of user-created modules that will 

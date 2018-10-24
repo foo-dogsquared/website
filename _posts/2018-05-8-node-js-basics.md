@@ -4,7 +4,7 @@ title: "Node.js: Basics"
 date: 2018-05-08 21:47:24 +0800
 author: foo-dogsquared
 categories: node-js
-tags: [node, programming-notes, javascript]
+tags: [node-js, programming-notes, javascript]
 ---
 Ever since JavaScript boomed in popularity, so does its related technology as more people
 create tools with JavaScript. Now, it does not only revolves around the browser as some kind of 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Simplified!] Introduction to the Memory and Memory Management"
-# date: 2018-07-7 18:32:05 +0800
+date: 2018-07-7 18:32:05 +0800
 author: foo-dogsquared
 categories: computer-science
 tags: [programming-notes, computer-science, simplified]

@@ -5,7 +5,7 @@ date: 2018-10-20 15:27:06 +0800
 author: foo-dogsquared
 categories: side-projects
 id: simplesvg-sprites
-tags: [projects, beginner, nodejs]
+tags: [projects, beginner, node-js]
 ---
 
 As you have read the title, in this post, I'll just be introducing my first "serious" Node app: [**`simplesvg-sprites`**](https://simplesvg-sprites.herokuapp.com/). I spent developing on it on the span of 10 days as I familiarize myself with the concepts of an API, how back-end works, and... other stuff.
