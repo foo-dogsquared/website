@@ -23,32 +23,7 @@ layout: default
     {% for post in paginator.posts %}
     <div class="home-post">
       <h2><a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a></h2>
-      <p class="post-meta">
-        <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-            <img src="{{ 'assets/main/icons/calendar.svg' | relative_url }}" style="width: 1.5em; height: 1.5em">
-            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-            <span title="{{ post.date }}"> {{ post.date | date: date_format }}</span>
-        </time>
-
-        <span class="reading-minutes" style="margin-left: 1.25em">
-            <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;"> <span class="no-of-mins">{{ post.content | number_of_words }}</span> minutes
-        </span>
-
-        {%- if post.categories -%}
-        <span class="home-post-category" style="margin-left: 1.25em">
-          <img src="{{ 'assets/main/icons/categories.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;">
-          {{ post.categories }}  
-        </span>
-        {%- endif -%}
-
-        {%- if post.updatedOn -%}
-        <span class="dt-updated" style="margin-left: 1.25em">
-          <img src="{{ 'assets/main/icons/update.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;">
-          {{ post.updatedOn }}
-        </span>
-        {%- endif -%}
-        
-      </p>
+      {%- include post_meta.html page=post include_link=true -%}
     </div>
     {% endfor %}
     <script>

@@ -12,7 +12,10 @@ $spacing-unit:     30px !default;
 
 $text-color:       #111 !default;
 $background-color: #fdfdfd !default;
-$brand-color:      #2a7ae2 !default;
+
+$brand-color:      #b3411d !default;
+$brand-color_l:      lighten($brand-color, 10%) !default;
+$brand-color_d:      darken($brand-color, 20%) !default;
 
 $grey-color:       #504f4f !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
@@ -26,11 +29,6 @@ $content-width:    850px !default;
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
 $on-small-phone:   400px !default;
-
-// Custom variable are added here
-$brown:          #b3411d !default;
-$dark-brown:     darken($brown, 20%) !default;
-$light-brown:    lighten($brown, 10%) !default;
 
 $platinum:       #e8ebe4;
 $super-platinum:  lighten($platinum, 15%) !default;

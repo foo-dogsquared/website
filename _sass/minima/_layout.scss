@@ -18,10 +18,7 @@
   margin-bottom: 0;
   float: left;
 
-  &,
-  &:visited {
-    color: $grey-color-dark;
-  }
+  &, &:visited {color: $grey-color-dark;}
 }
 
 .site-nav {
@@ -41,9 +38,7 @@
     line-height: $base-line-height;
 
     // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+    &:not(:last-child) {margin-right: 20px;}
   }
 
   @include media-query($on-palm) {
@@ -73,9 +68,7 @@
       padding-top: 10px;
       text-align: center;
 
-      > svg {
-        fill: $grey-color-dark;
-      }
+      > svg {fill: $grey-color-dark;}
     }
 
     input ~ .trigger {
@@ -190,14 +183,17 @@
   margin-left: 0;
   list-style: none;
 
-  > li {
-    margin-bottom: $spacing-unit;
-  }
+  > li {margin-bottom: $spacing-unit;}
 }
 
 .post-meta {
+  display: flex;
+  flex-flow: row wrap;
   font-size: $small-font-size;
   color: $grey-color;
+  margin: .25em;
+
+  a:visited, a:hover {color: $brand-color_l}
 }
 
 .post-link {

@@ -1,0 +1,30 @@
+.keyword__grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.keywords {
+        border: $brand-color 1px solid;
+    background: lighten($brand-color_l, 20%);
+    color: white;
+    margin: .2em;
+    padding: .2em;
+
+    &:hover, &:visited {color: white;}
+}
+
+.datum__post_list:not(:last-of-type){
+    margin-bottom: 4em;
+
+    > ul {
+        > li {
+            padding: .5em;
+            &:nth-of-type(even) {background: lighten($brand-color_l, 40%)}
+
+            > * {margin: 0}
+        }
+        
+    }
+}

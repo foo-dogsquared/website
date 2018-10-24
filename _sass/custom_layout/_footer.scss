@@ -1,5 +1,5 @@
 .site-footer {
-    background: linear-gradient(75deg, $dark-brown, $brown, $light-brown);
+    background: linear-gradient(75deg, $brand-color_d, $brand-color, $brand-color_l);
     border-top: 1px solid $grey-color-light;
     color: $platinum;
     padding: $spacing-unit 0;
@@ -48,7 +48,7 @@
         margin: 0;
     }
 
-    a {
+    a, a:hover, a:visited {
         color: $footer-link;
     }
 

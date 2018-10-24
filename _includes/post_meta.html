@@ -1,22 +1,25 @@
 <p class="post-meta">
-        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            <img src="{{ 'assets/main/icons/calendar.svg' | relative_url }}" style="width: 1.5em; height: 1.5em">
-            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-            <span title="{{ page.date }}"> {{ page.date | date: date_format }}</span>
-        </time>
-  
-        <span class="reading-minutes" style="margin-left: 1.25em">
-            <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;"> <span class="no-of-mins">{{ page.content | number_of_words }}</span> minutes
-        </span>
+    {%- assign page = include.page -%}
+    {%- assign include_link = include.include_link -%}
+    <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        <img src="{{ 'assets/main/icons/calendar.svg' | relative_url }}" class="post-meta-icons">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span title="{{ page.date }}">{{ page.date | date: date_format }}</span>
+    </time>
 
-        {%- if page.categories -%}
-        <span class="post-category" style="margin-left: 1.25em">
-          <img src="{{ 'assets/main/icons/categories.svg' | relative_url }}" style="width: 1.5em; height: 1.5em;">
-          {{ page.categories }}  
-        </span>
-        {%- endif -%}
-  
-        {%- if page.updatedOn -%}
-        <p class="dt-updated">Updated: <span>{{ page.updatedOn | escape }}</span></p>
-        {%- endif -%}
+    <span class="reading-minutes" style="margin-left: 1.25em">
+        <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" class="post-meta-icons"><span class="no-of-mins">{{ page.content | number_of_words }}</span> minutes
+    </span>
+
+    {%- if page.categories -%}
+    <span class="post-category" style="margin-left: 1.25em">
+        <img src="{{ 'assets/main/icons/categories.svg' | relative_url }}" class="post-meta-icons">
+        {%- if include_link -%}<a href="{{ site.baseurl }}/data/categories#{{ page.categories }}">{{ page.categories }}</a>
+        {%- else -%}<span>{{ page.categories }}</span>{%- endif -%}
+    </span>
+    {%- endif -%}
+
+    {%- if page.updatedOn -%}
+    <p class="dt-updated">Updated: <span>{{ page.updatedOn | escape }}</span></p>
+    {%- endif -%}
 </p>

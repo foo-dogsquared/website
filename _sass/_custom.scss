@@ -3,15 +3,9 @@ html {
     scroll-behavior: smooth
 }
 
-a,
-a:hover,
-a:visited {
-    color: $light-brown; // Specified settings for the headers in 'post.html'
-}
-
 blockquote {
     font-family: "Georgia", $base-font-family;
-    border-left: $brown solid 5px;
+    border-left: $brand-color solid 5px;
     color: $grey-color-dark;
     font-style: italic;
     padding: 1em;
@@ -50,7 +44,7 @@ ul.social-media-list > li, #list-container > ul > li {
 // Table custom properties
 table:not(.rouge-table) {
     th {
-        background: linear-gradient(to bottom, lighten($brown, 25%), $light-brown);
+        background: linear-gradient(to bottom, lighten($brand-color, 25%), $brand-color_l);
         color: $super-platinum;
     }
     tr {
@@ -59,11 +53,11 @@ table:not(.rouge-table) {
             color: $text-color;
         }
         &:nth-child(odd) {
-            background: linear-gradient(to right, $dark-brown, $brown);
+            background: linear-gradient(to right, $brand-color_d, $brand-color);
             color: $super-platinum;
         }
         &:nth-child(even) {
-            background: linear-gradient(to right, $dark-brown, $light-brown);
+            background: linear-gradient(to right, $brand-color_d, $brand-color_l);
             color: $super-platinum;
         }
     }
@@ -100,9 +94,10 @@ figure.highlight {
     }
 }
 
-// Mathjax
-.mjx-chtml {
-    font-size: 1.4em !important;
+.mathjax {
+    &-text {
+        font-family: "Georgia", $base-font-family;
+    }
 }
 
 // custom properties for several layout items

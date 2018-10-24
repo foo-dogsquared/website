@@ -6,7 +6,7 @@ layout: default
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}{% if page.subtitle %}: <span class="post-subtitle">{{ page.subtitle | escape }}</span>{% endif %}
     </h1>
-    {%- include post_meta.html -%}
+    {%- include post_meta.html page=page include_link=false -%}
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -23,7 +23,7 @@ layout: default
   <div class="post-tags">
     <img src="{{ 'assets/main/icons/tag.svg' | relative_url }}" style="width: 2em; height: 2em">
     {% for tag in page.tags %}
-    <a class="link-tag" href="{{site.baseurl}}/tags/#{{tag|slugize}}">{{tag}}</a>
+    <a class="link-tag" href="{{site.baseurl}}/data/tags#{{tag|slugize}}">{{tag}}</a>
     {% unless forloop.last %}&nbsp;{% endunless %}
     {% endfor %}
   </div>

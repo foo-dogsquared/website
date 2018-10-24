@@ -1,0 +1,4 @@
+---
+data: tags
+title: Tags
+---

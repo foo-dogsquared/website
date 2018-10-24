@@ -29,7 +29,7 @@ gitlab_username:  foo-dogsquared
 linkedin_username: gabriel-arazas
 twitter_username: foo_dogsquared
 paginate: 10
-paginate_path: '/page:num/'
+paginate_path: 'page/:num/'
 
 # Enabling Disqus
 disqus:
@@ -48,15 +48,27 @@ pinpost: ["A Freebie's Resource List (Mostly Related to Programming)"]
 
 google_analytics: UA-126718538-1
 
+collections:
+  generators:
+    output: true
+    permalink: data/:name
+
 # Default settings
 defaults:
   -
     scope:
-      path: ""
+      path: "_posts"
       type: "posts"
     values:
       permalink: posts/:title
+      layout: post
       comments: true
+  -
+    scope:
+      path: "_generators"
+      type: "generators"
+    values:
+      layout: generator
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
