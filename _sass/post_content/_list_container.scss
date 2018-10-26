@@ -11,5 +11,7 @@
     
     ul {
         list-style: upper-roman;
+
+        a.list-links, a.list-links:hover, a.list-links:visited, a.list-links:active {color: $brand-color_l}
     }
 }

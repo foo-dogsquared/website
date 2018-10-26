@@ -19,19 +19,51 @@
 .post-content {
   margin-bottom: $spacing-unit;
 
+  > p {
+    > img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    word-spacing: 1px;
+  }
+
+  ul.resources-link {
+    list-style: none; 
+    margin-left: 1.9em;
+
+      @include media-query($on-palm) {
+        margin-left: 0;
+
+        > li {margin-bottom: 0.75em;}
+      }
+  }
+
+  > h1:not(:first-of-type){margin-top: $spacing-unit * 1.65;}
+
   h2 {
     @include relative-font-size(2);
 
-    &::after {
+    &::after, &::before {
       content: "";
       display: block;
-      border-bottom: 2px solid black;
+      border-bottom: 1px dashed black;
     }
+
+    &::after {margin-top: .2em;}
+    &::before {margin-bottom: .2em;}
+
+    &:first-of-type {margin-top: $spacing-unit * 1.5;}
+
+    &:not(:first-of-type) {margin-top: $spacing-unit * 2.5;}
 
     @include media-query($on-laptop) {
       @include relative-font-size(1.75);
     }
   }
+
+  h2 ~ h3 {margin-top: $spacing-unit * 1.45;}
+  h2 + h3 {margin-top: 0;}
 
   h3 {
     @include relative-font-size(1.625);
@@ -40,6 +72,9 @@
       @include relative-font-size(1.375);
     }
   }
+
+  h3 ~ h4 {margin-top: $spacing-unit * 1.35;}
+  h3 + h4 {margin-top: 0;}
 
   h4 {
     @include relative-font-size(1.25);
@@ -56,6 +91,7 @@
   padding-bottom: 1.5em;
   text-align: center;
   width: 100%;
+  display: block;
 }
 
 .relative-posts {
@@ -65,33 +101,27 @@
   justify-content: space-between;
   margin-top: 2em;
 
-  a {
-      font-size: $base-font-size * 1.2;
-  }
+  a {font-size: $base-font-size * 1.2;}
 
   .previous-post {
-      text-align: left;
-      max-width: 45%;
+    text-align: left;
+    max-width: 45%;
   }
 
   .next-post {
-      text-align: right;
-      max-width: 45%;
+    text-align: right;
+    max-width: 45%;
   }
 
   @include media-query($on-laptop) {
-      flex-flow: column wrap;
-      align-content: center;
-      justify-content: center;
-      text-align: center;        
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;        
 
-      > * {
-          margin-top: 2em;
-      }
+    > * {margin-top: 2em;}
 
-      .previous-post, .next-post {
-          text-align: center;
-      }
+    .previous-post, .next-post {text-align: center;}
   }
 }
 

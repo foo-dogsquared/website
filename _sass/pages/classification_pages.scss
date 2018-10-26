@@ -15,8 +15,8 @@
     &:hover, &:visited {color: white;}
 }
 
-.datum__post_list:not(:last-of-type){
-    margin-bottom: 4em;
+.datum__post_list{
+    &:not(:last-of-type) {margin-bottom: 4em;}
 
     > ul {
         > li {

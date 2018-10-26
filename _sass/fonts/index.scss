@@ -1,0 +1,10 @@
+$latin-modern-math: "./fonts/latinmodern-math/latinmodern-math.min";
+
+@font-face {
+    font-family: "Latin Modern Math";
+    src: url($latin-modern-math + ".otf") format("otf"),
+    url($latin-modern-math + ".ttf") format("truetype"),
+    url($latin-modern-math + ".eot") format("embedded-opentype"),
+    url($latin-modern-math + ".svg") format("svg"),
+    url($latin-modern-math + ".woff") format("woff");
+}

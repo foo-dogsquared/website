@@ -22,14 +22,9 @@ hr {
     margin: 2em 0;
 }
 
-img {
-    height: auto;
-    max-width: 100%;
-    padding: 1em 0;
-}
-
 iframe {
-    margin: 1.5em 0;
+    display: block;
+    margin: 1.5em auto;
     max-width: 100%;
 }
 
@@ -42,26 +37,6 @@ ul.social-media-list > li, #list-container > ul > li {
 }
 
 // Table custom properties
-table:not(.rouge-table) {
-    th {
-        background: linear-gradient(to bottom, lighten($brand-color, 25%), $brand-color_l);
-        color: $super-platinum;
-    }
-    tr {
-        overflow: auto;
-        code {
-            color: $text-color;
-        }
-        &:nth-child(odd) {
-            background: linear-gradient(to right, $brand-color_d, $brand-color);
-            color: $super-platinum;
-        }
-        &:nth-child(even) {
-            background: linear-gradient(to right, $brand-color_d, $brand-color_l);
-            color: $super-platinum;
-        }
-    }
-}
 
 .table {
     margin: 1em 0;
@@ -96,9 +71,12 @@ figure.highlight {
 
 .mathjax {
     &-text {
-        font-family: "Georgia", $base-font-family;
+        font-family: "Latin Modern Math", "Georgia", $base-font-family;
+        font-size: 1.1em;
     }
 }
+
+.MJXc-display {font-size: 1.6em !important;}
 
 // custom properties for several layout items
 #personal-logo {
@@ -108,13 +86,28 @@ figure.highlight {
 }
 
 // Specific parts in content
-.word-definition {
-    text-decoration: underline;
+em[data-descr], i[data-descr] {
+    cursor: help;
+    text-decoration: underline dashed;
+    position: relative;
+
+    &:hover::after {
+        content: attr(data-descr);
+        position: absolute;
+        right: 24px;
+        top: 24px;
+        min-width: 200px;
+        border: 1px #aaaaaa solid;
+        border-radius: 10px;
+        background-color: $brand-color_l;
+        padding: 12px;
+        color: white;
+        font-size: 14px;
+        z-index: 1;
+    }
 }
 
-code.fileName {
-    color: darken($code-keywords, 10%);
-}
+.file-name {color: darken($code-keywords, 10%);}
 
 .dt-updated, .reading-minutes {
     color: $grey-color;

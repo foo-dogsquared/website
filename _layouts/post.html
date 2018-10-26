@@ -6,7 +6,7 @@ layout: default
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}{% if page.subtitle %}: <span class="post-subtitle">{{ page.subtitle | escape }}</span>{% endif %}
     </h1>
-    {%- include post_meta.html page=page include_link=false -%}
+    {%- include post_meta.html page=page include_link=true -%}
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
@@ -18,6 +18,15 @@ layout: default
   <br>
   {%- if page.updatedOn -%}
         <div class="post-updatedOn">Updated: <span class="updatedPostDate">{{ page.updatedOn | escape }}</span></div>
+  {%- endif -%}
+  {%- if page.categories -%}
+  <div class="post-tags">
+    <img src="{{ 'assets/main/icons/categories.svg' | relative_url }}" style="width: 2em; height: 2em">
+    {% for category in page.categories %}
+    <a class="link-tag" href="{{site.baseurl}}/data/categories#{{category|slugize}}">{{category}}</a>
+    {% unless forloop.last %}&nbsp;{% endunless %}
+    {% endfor %}
+  </div>
   {%- endif -%}
   {%- if page.tags -%}
   <div class="post-tags">
