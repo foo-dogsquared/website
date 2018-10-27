@@ -1,4 +1,7 @@
-$latin-modern-math: "./fonts/latinmodern-math/latinmodern-math.min";
+$fonts-relative-location: "./fonts/";
+
+$latin-modern-math: $fonts-relative-location + "latinmodern-math/latinmodern-math.min";
+$georgia: $fonts-relative-location + "georgia/georgia.min";
 
 @font-face {
     font-family: "Latin Modern Math";
@@ -7,4 +10,12 @@ $latin-modern-math: "./fonts/latinmodern-math/latinmodern-math.min";
     url($latin-modern-math + ".eot") format("embedded-opentype"),
     url($latin-modern-math + ".svg") format("svg"),
     url($latin-modern-math + ".woff") format("woff");
+}
+
+@font-face {
+    font-family: "Georgia";
+    src: url($georgia + ".ttf") format("truetype"),
+    url($georgia + ".eot") format("embedded-opentype"),
+    url($georgia + ".svg") format("svg"),
+    url($georgia + ".woff") format("woff")
 }

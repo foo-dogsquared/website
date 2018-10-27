@@ -1,7 +1,5 @@
 // custom default properties for normal tags
-html {
-    scroll-behavior: smooth
-}
+html {scroll-behavior: smooth}
 
 blockquote {
     font-family: "Georgia", $base-font-family;
@@ -13,14 +11,10 @@ blockquote {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    code {
-        font-size: 1em;
-    }
+    code {font-size: 1em;}
 }
 
-hr {
-    margin: 2em 0;
-}
+hr {margin: 2em 0;}
 
 iframe {
     display: block;
@@ -28,25 +22,17 @@ iframe {
     max-width: 100%;
 }
 
-li > ul, li > ol, ul > li, ol > li {
-    margin-bottom: 1em;
-}
+li > ul, li > ol, ul > li, ol > li {margin-bottom: 1em;}
 
-ul.social-media-list > li, #list-container > ul > li {
-    margin: 0;
-}
+ul.social-media-list > li, #list-container > ul > li {margin: 0;}
 
 // Table custom properties
 
 .table {
     margin: 1em 0;
     overflow-x: auto;
-    table {
-        margin: 0;
-    }
-    @include media-query($on-palm) {
-        height: 300px;
-    }
+    table {margin: 0;}
+    @include media-query($on-palm) {height: 300px;}
 }
 
 // code syntax table
@@ -63,9 +49,7 @@ figure.highlight {
     td.gutter.gl {
         border-right: 1px solid $grey-color-light;
 
-        > pre.lineno {
-            padding-left: 0;
-        }
+        > pre.lineno {padding-left: 0;}
     }
 }
 
