@@ -64,6 +64,7 @@ these sorting algorithm all have the same goal of sorting through a list but the
 The merge sort, for example, uses the divide and conquer approach which makes the number of steps in the process to go by in 
 half thus, the number of steps whenever the dataset is increasing will be minimal. While the other approach such as the 
 insertion sort goes through the whole list for once and it involves manipulating the elements whilst in the process.
+
 ### Recursion
 I know about recursion but I haven't still wrote a recursive function other than the factorial function and the things you 
 would usually code from a tutorial. I always go through whether I have to use iterations/loops or recursion. Anyway, I have 
@@ -75,6 +76,7 @@ For example, some languages are slower when compared to using an iterative versi
 frame in the memory space. In some cases, there are languages that implemented to adapt to recursive function 
 like, for example, the tail call optimization wherein the function returns the value when the recursive function gets called, 
 thus avoiding to allocate a new stack frame.
+
 ### Processing (the programming language)
 I took some break from the usual stuff I do when programming so I quickly glanced over some stuff that is outside of whatever 
 I am doing which is mostly about logic and data structures and whatnot. And I found the world of generative art. 
@@ -85,7 +87,7 @@ saying. So far, I've fun with it. Quite the potential stress reliever for me, un
 specialty, so...
 
 ## Article of the Week
-#### [The Art of Command Line by *jlevy*](https://github.com/jlevy/the-art-of-command-line)
+### [The Art of Command Line by *jlevy*](https://github.com/jlevy/the-art-of-command-line)
 It's not an article per se but whatever, looks like one to me. 😁 Anyways, this is actually a GitHub repo that guides you to be 
 a master in using the command line in one page. Sounds awesome, isn't it? This is basically a collection of tips on how to use 
 a command line (specifically Bash but it can apply to other scripting shells like PowerShell in Windows, for example). It has 
@@ -93,7 +95,7 @@ tips for basics usage, system debugging, processing of files and their data, etc
 different situations.
 
 ## Book of the Week
-#### [The Subtle Art of Not Giving a F\*ck by *Mark Manson*](https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/0062457713)
+### [The Subtle Art of Not Giving a F\*ck by *Mark Manson*](https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/0062457713)
 Another book with a self-explanatory title. I have a paperbook version of this and I'm halfway finished so at least I can say 
 the full (more like half) experience of reading this. Spoiler alert, this is a book that teaches you how to see the important 
 things and let go of everything else. Despite with the crude, vulgar language, the slap-in-the-face talks, and the brutally 
@@ -103,7 +105,7 @@ and its quirk. If you want to not want to spend for it, here's a
 [summarized version](https://fourminutebooks.com/the-subtle-art-of-not-giving-a-fck-summary/) of it.
 
 ## Podcast Episode of the Week
-#### [Self-Esteem from the *SadBoyz Podcast*](https://sadboyzpod.com/episodes/self-esteem)
+### [Self-Esteem from the *SadBoyz Podcast*](https://sadboyzpod.com/episodes/self-esteem)
 If you've never heard of name of the podcast series, *SadBoyz* is a podcast hosted by a pair of hosts, 
 [Jarvis](http://twitter.com/jarvis) (who has a [YouTube channel](http://youtube.com/jarvisjohnson)) and 
 [Jordan](http://twitter.com/jordanadika) and a guest, if they have one. This podcast is generally about almost everything, 
@@ -112,18 +114,18 @@ from careers, self issues, to societal problems. *Almost everything*, really. Al
 podcast if you want to watch them speak.
 
 ## Site of the Week
-#### [Regexr](https://regexr.com/)
+### [Regexr](https://regexr.com/)
 A site that focuses on regular expressions. It has features like real-time searches and results, an in-site reference, and even 
 a search function for community-built patterns so you can use other people's regex. Quite the stuff if you are looking to build 
 up your regex building skills.  
 
 ## Tools of the Week
-#### [Materials Theme by *equinosocio*](https://equinsuocha.io/projects/material-theme/)
+### [Materials Theme by *equinosocio*](https://equinsuocha.io/projects/material-theme/)
 Well, a theme is probably not categorized in the hard definition of a 'tool' but for me, it is. It can be used as a tool in 
 helping you to code more efficiently because you gotta take care of your eyes, you know. Anyway, I recently discovered this 
 theme from the Gatsby tutorial by Scott in *LevelUpTuts*. I find the darker+high-contrast theme to be absolutely fantastic 
 especially on JavaScript files and it is quite pleasing on the eyes and now discovered the ❤ for high contrast themes. 😁
-#### [nativefier by *jiahaog*](https://github.com/jiahaog/nativefier)
+### [nativefier by *jiahaog*](https://github.com/jiahaog/nativefier)
 This has been referred to me by someone on Discord (you know who you are 😀). This is a CLI program that converts web page into 
 a desktop application as in an `.exe` program on Windows and similar stuff on Mac and Linux. It uses Electron (the framework 
 VS Code and Atom was built upon) to make your web apps executable on a desktop system. I've used this one to convert 
@@ -133,7 +135,7 @@ think my web app is worth the [117 MB](https://i.imgur.com/jGHYJjo.png) for just
 of input areas from a JSON file.
 
 ## Watch of the Week
-#### [Why our screens make us less happy? by *Adam Alter* from TED](https://www.youtube.com/watch?v=0K5OO2ybueM)
+### [Why our screens make us less happy? by *Adam Alter* from TED](https://www.youtube.com/watch?v=0K5OO2ybueM)
 It's a TED talk by Adam Alter about the impact of using technology in our lives. Aside that it is kind of fitting for me 
 since I am trying to get away with less time, I think this is a wonderful video overall. While this talk will leave different 
 impact for different people, this talk can be much more valuable if you can get the message that can be applicable to you. 
@@ -143,7 +145,7 @@ I was about to say my whole idea that I got from this talk but it is going to ta
 at that. Go watch it, you may get a few meaningful lessons from there that you can keep in mind, hopefully. 
 
 ## Channel of the Week
-#### [Kollektivet2](https://www.youtube.com/channel/UCBtvGVEUmTuR7bKBDT03_FA) 
+### [Kollektivet2](https://www.youtube.com/channel/UCBtvGVEUmTuR7bKBDT03_FA) 
 A YouTube channel of a now-ended TV show in Norwegian about funny skits and funny music videos. It also has some exclusive YouTube 
 content for it. Even though they have some content in Norwegian, they have English skits too, fortunately for us English-using 
 people to join in on the fun. I discovered it through a random search of one of their song's lyrics (which is named a Hit Song) 

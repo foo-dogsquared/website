@@ -22,7 +22,7 @@ Also reading this means that assuming you have basic familiarity*
 
 <!-- Node.js logo -->
 <img src="{{ '/assets/pictures/nodejs-logo.png' | relative_url }}" alt="Node.js logo" style="width:300px">
-<p class="caption">Node.js Logo (as of 2018)</p>
+*Node.js Logo (as of 2018)*{: .caption}
 
 ## What is Node.js?
 According to the [official Node.js website](https://nodejs.org/en/):
@@ -56,7 +56,7 @@ languages. To not further waste any time, we'll just go by bullet points:
 OK. Now that being said. Let's get right into the ---
 
 ## Concepts
-Basically, Node is an extension of JavaScript in a way that deals mainly with <span class="word-definition" title="type of code that will be executed in an unknown time">asynchronous code</span>. Often this type of 
+Basically, Node is an extension of JavaScript in a way that deals mainly with *asynchronous code*{: data-descr="type of code that will be executed in an unknown time"}. Often this type of 
 code deals with sending data, receiving data, and fetching resources. JavaScript does have ways to deal with those (especially 
 nowadays with AJAX techniques and built-in code that deals with this exact type of work such as promises) but not often for a full 
 time web app that really needs its data to be sent on a server or something(?). 
@@ -113,7 +113,7 @@ One of the concepts that we have to know about is **modules**.
 Everything that we use in Node are called modules. Whether be it a built-in library, a third-party framework, a preprocessor, that 
 is a module (at least that's what it said on the command line when executing something, anyway). Queue the meme...
 
-<img src="{{ '/assets/pictures/oprah-module-meme.jpg' | relative_url }}" alt="A meme used in the wrong way, don't mind me here." style="width:400px;"><p class="caption">Cue the cringe...</p>
+<img src="{{ '/assets/pictures/oprah-module-meme.jpg' | relative_url }}" alt="A meme used in the wrong way, don't mind me here." style="width:400px;">*Cue the cringe...*{: .caption}
 
 This, in concept, is quite similar to how we import modules in other languages, say in Python:
 
@@ -122,7 +122,7 @@ This, in concept, is quite similar to how we import modules in other languages, 
 
     print(os.path.join(os.getcwd(), 'foo.txt'))
 ```
-<p class="caption">module-import.py</p>
+*module-import.py*{: .caption}
 
 We imported a module named `os` to access its properties/methods that is available from that module.
 
@@ -133,7 +133,7 @@ In Node, the syntax is different but it has the same concept:
 
     console.log(path.join(__dirname, 'foo.txt'));
 ```
-<p class="caption">module-import.js</p>
+*module-import.js*{: .caption}
 
 We imported a module name `path` to access its properties/methods that is available from that module and did some 
 code that is functionally similar to the example given in Python.
@@ -173,7 +173,7 @@ const basicMath = {
 
 module.exports = basicMath;
 ```
-<p class="caption">basicMath.js</p>
+*basicMath.js*{: .caption}
 
 <!-- Second file -->
 ```js
@@ -185,11 +185,11 @@ console.log(basicMath.power(2, 5),
             basicMath.floorDivision(10, 3)
         ); // 32 204 0.8 3
 ```
-<p class="caption">demo.js</p>
+*demo.js*{: .caption}
 
 OK! Now we get to create our own modules! If you run it with `node ./demo.js` on your console, you'll see
 two lines that will pop up: `Module demonstration` and whatever the results those properties you logged in 
-<code class="fileName">demo.js</code>.
+`demo.js`{: .file-name}.
 
 In the last line of the same file, as you might have guessed, this exports the object to be used 
 whenever the file was required by another file.
@@ -208,17 +208,17 @@ that could be any of the following:
 | A native module | `require('http')`
 | A third-party module installed through *npm* | `require('express')`
 | A path to a `.js` or `.json` file | `require('./path/to/your/module.js')`
-| A path to a directory with a `.js` of the same name of the directory (or <code class="fileName">index.js</code> if none) | `require('./path/to/your/folder')`
+| A path to a directory with a `.js` of the same name of the directory (or `index.js`{: .file-name} if none) | `require('./path/to/your/folder')`
 
 </div>
 
 This doesn't mean that the module that we imported only gave the object. In the second file, we used the `require()` to 
-access <code class="fileName">basicMath.js</code> and we see in the console logs that we also saw something that we did not 
+access `basicMath.js`{: .file-name} and we see in the console logs that we also saw something that we did not 
 intended to call which is the first log that says `Module demonstration`. This came from the first line of the first 
 file. So we can say that when we require a file, it will also go through the entire file --- BUT those code that are not included 
 in `module.exports` in any way will only go through it once.
 
-To prove this, let's modify our <code class="fileName">demo.js</code> a little bit, let's add another call into the same file:
+To prove this, let's modify our `demo.js`{: .file-name} a little bit, let's add another call into the same file:
 ```js
 const basicMath = require('./basicMath.js');
 
@@ -232,7 +232,7 @@ const basicMath2 = require('./basicMath.js');
 
 console.log(basicMath2.sum(10, 45)); // 55
 ```
-<p class="caption">demo.js (again)</p>
+*demo.js (again)*{: .caption}
 
 And you will see... that the console log from the file that we required only happened once.
 
@@ -249,7 +249,7 @@ Here's a rundown for using *npm* (make sure the command line's current directory
 
 <div class="table" markdown="1">
 
-| `npm init` | it will create <code class="fileName">package.json</code> that (somewhat) acts as a configuration file for *npm*
+| `npm init` | it will create `package.json`{: .file-name} that (somewhat) acts as a configuration file for *npm*
 | `npm install name-of-module` | it will install `name-of-module` as a local package
 | `npm install -g name-of-module` | it will install the module *globally*; this is mostly recommended for modules that has a command-line interface like `ember-cli` or `express-generator`
 | `npm install -g npm` | this is how you would upgrade *npm*

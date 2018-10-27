@@ -38,11 +38,11 @@ Then, how we start with utilizing *npm* depends on what you want to go.
 Let's start with the basics. First, let's run `npm init`.
 
 After that you shall see a bunch of questions that you shall answer. Most of them can be skipped, anyway, but that depends on you.
-If you want to create a <code class="fileName">package.json</code> right away, you can run `npm init -y` with the `-y` or `--yes` 
+If you want to create a `package.json`{: .file-name} right away, you can run `npm init -y` with the `-y` or `--yes` 
 flag that kind of stand for "YES TO ALL OF THEM! NOW GIVE ME THAT JSON!", then you can just edit the information over there if you 
 want to.
 
-You'll see the <code class="fileName">package.json</code> and its keys (or fields). Most of them are pretty much self-explanatory. 
+You'll see the `package.json`{: .file-name} and its keys (or fields). Most of them are pretty much self-explanatory. 
 The only required fields in there are the `name` and the `version`.
 Most likely the ones that are going to get your curiousity is the `main` and `script` keys in the `.json` file. `main` denotes the 
 main entry point for your program. Let's say you've published your package and named it `the_dog` and a user installed your 
@@ -52,12 +52,12 @@ other hand, `scripts` is a field containing a list of aliases that represents a 
 Well, that aside, you can just refer [here](https://docs.npmjs.com/files/package.json), if you want a more concise explanation of 
 each field.
 
-If you predict that you are going to create a bunch of <code class="fileName">package.json</code>, you can set some configurations 
+If you predict that you are going to create a bunch of `package.json`{: .file-name}, you can set some configurations 
 to be the default value when you create those initialized `.json` files by `npm set init.<configuration>` in which `configuration` 
-stands for the keys that will appear on your <code class="fileName">package.json</code> (although you might have to refer to the 
+stands for the keys that will appear on your `package.json`{: .file-name} (although you might have to refer to the 
 documentary to search how to reach to that key/field).
 
-For example, when you don't want to edit to get your name and license on each <code class="fileName">package.json</code>, you can 
+For example, when you don't want to edit to get your name and license on each `package.json`{: .file-name}, you can 
 set your configurations with this:
 ```bash
     npm set init.author.name "AUTHOR_NAME"
@@ -149,7 +149,7 @@ modules installed in your project, run the same command without the `-g` flag.
 ```
 
 If you saw the output from the above command, you'll notice some name with a version number is outputted before the directory 
-of the `node_modules`. Well, that came from the <code class="fileName">package.json</code>.
+of the `node_modules`. Well, that came from the `package.json`{: .file-name}.
 
 What about uninstalling it? Pfft, mostly the same, too!
 ```bash
@@ -157,12 +157,12 @@ What about uninstalling it? Pfft, mostly the same, too!
     npm un NAME_OF_MODULE
 ```
 
-## The <code class="fileName">package.json</code>
+## The `package.json`{: .file-name}
 The said file, as previously discussed, is created through `npm init`. This particular file is quite an important part when 
 it comes into your workflow. How?
 
-Remember how I said that <code class="fileName">package.json</code> serves as a configuration file (in some way)? Well, we can 
-put that into practice. You can paste this code, name the file <code class="fileName">package.json</code> and put it in a 
+Remember how I said that `package.json`{: .file-name} serves as a configuration file (in some way)? Well, we can 
+put that into practice. You can paste this code, name the file `package.json`{: .file-name} and put it in a 
 empty directory (or you can just download it <a href="{{ '/assets/dl-files/node-js-npm/package.json' | prepend: site.baseurl }}" download="package.json">here</a> and put it in an empty folder).
 
 ```json
@@ -188,16 +188,16 @@ empty directory (or you can just download it <a href="{{ '/assets/dl-files/node-
   "license": "MIT"
 }
 ```
-<p class="caption">package.json</p>
+*package.json*{: .caption}
 
 Then once you have the file in place, run `npm install` then wait until it has been resolved. Next, enter `npm ls --depth=0` to 
 see the packages installed and you'll see the packages listed in the `dependencies` field in the `.json` file has been installed.
 Then, pretend that you're amazed that you have got another trick in your sleeve. Lastly, absorb the knowledge that `npm install` 
-basically looks for the dependencies in the <code class="fileName">package.json</code> file if the tool found one on the current 
+basically looks for the dependencies in the `package.json`{: .file-name} file if the tool found one on the current 
 working directory.
 
 Due to this function, it lets us to be more portable and more accessible. Instead of transferring what could be thousands of small 
-files due to the packages and their dependencies, we can just send the <code class="fileName">package.json</code> to 
+files due to the packages and their dependencies, we can just send the `package.json`{: .file-name} to 
 other developers and be done with it. Well, that is the halfway of the whole picture, anyway.
 
 
@@ -234,7 +234,7 @@ Else if you want the exact version of a package and lock it in the file:
     npm install NAME_OF_MODULE -E # saving the package with the exact version number
 ```
 
-And if you don't want to list packages into <code class="fileName">package.json</code>, you can use:
+And if you don't want to list packages into `package.json`{: .file-name}, you can use:
 ```bash
     npm install NAME_OF_MODULE --no-save # IDK what's this for but why not?
 ```
@@ -258,8 +258,8 @@ use it if you know what you are doing).
 In summary:
 * `npm init` first for your app
 * `npm install NODE_MODULE` to install *npm* packages
-* <code class="fileName">package.json</code> is important and serves as a configuration file for your app (in a way)
-* `npm install` to install stuff from a <code class="fileName">package.json</code>
+* `package.json`{: .file-name} is important and serves as a configuration file for your app (in a way)
+* `npm install` to install stuff from a `package.json`{: .file-name}
 * how to uninstall packages again?
 * you can do a bunch of stuff and you can know it by referring to the [official documentation](https://docs.npmjs.com/)
 * something about dependencies and how to lock those packages in order to be more reproducible for others

@@ -148,7 +148,7 @@ sure if this is one) application of the subject, and this is one of the nicest t
 ahead. And another plus, more stuff to put for the next week entry and it is not all about computer stuff. 😁
 
 ## Article of the Week
-#### [The Work Required to Understand the Obvious (Or How to Be Wise) by *Zat Rana*](https://medium.com/@ztrana/the-work-required-to-understand-the-obvious-or-how-to-be-wise-e57a6bc542cf)
+### [The Work Required to Understand the Obvious (Or How to Be Wise) by *Zat Rana*](https://medium.com/@ztrana/the-work-required-to-understand-the-obvious-or-how-to-be-wise-e57a6bc542cf)
 I took notice of this through inspecting my email and I think this article leaves me profoundly thinking. An article that speaks 
 the issue which is the things we mostly ignore (that may or may not have values to it) especially the things that have been 
 discovered long before us (or our acknowledgement of it) and how and why cliches are often undermined. I'm pretty sure there 
@@ -156,7 +156,7 @@ are some things you all have heard a lot of times to the point of ignoring it ei
 understood it well. Well, this is a chance for you to go for a introspection and perhaps a look into this article as well.
 
 ## Books of the Week
-#### [Programming Notes for Professional books](https://goalkicker.com/)
+### [Programming Notes for Professional books](https://goalkicker.com/)
 I know this has been featured as one of the very much recommended items on my 
 [free resource list]({{ site.baseurl }}{% post_url 2018-05-1-free-resource-list %}) but man, I really can't recommend it enough, it's very 
 good in my opinion. This is basically like an unofficial, offline documentation of the languages but they way they 
@@ -171,7 +171,7 @@ Also, related stuff, I've made a [little project](https://foo-dogsquared.github.
 from the website. I've saved you a click (and a few seconds), right there.
 
 ## Podcast Episode of the Week
-#### [How to Learn Things Quickly from *Syntax*](https://syntax.fm/show/044/how-to-learn-new-things-quickly)
+### [How to Learn Things Quickly from *Syntax*](https://syntax.fm/show/044/how-to-learn-new-things-quickly)
 [Syntax](https://syntax.fm/) is a podcast hosted by a pair of developers, [Wes Bos](https://www.youtube.com/user/wesbos/)
 whose famous for his courses such as [CSS Grids](https://cssgrid.io/) and [JavaScript30](https://javascript30.com/) (which 
 both of them are free, by the way) and [Scott Tolinski](https://www.youtube.com/user/LevelUpTuts/) whose famous for 
@@ -181,7 +181,7 @@ to learn quickly and efficiently, seeing as one of their aspects of being a deve
 of the technology.
 
 ## Site of the Week
-#### [Instructables](https://instructables.com)
+### [Instructables](https://instructables.com)
 Instructables is a site with a community of engineers, programmers, DIYers, and so much more. The main reason I was able to 
 find this site is through finding a community that revolves around electronics which is a topic I'm starting to touch upon. 
 This site usually features tutorials and classes on electronics, programming, 
@@ -190,7 +190,7 @@ This site usually features tutorials and classes on electronics, programming,
 [baking](https://www.instructables.com/class/Science-of-Baking). This is quite a nice find, overall, for me.
 
 ## Tools of the Week
-#### [Relaxio's White Noise Generator](https://play.google.com/store/apps/details?id=net.relaxio.relaxio)
+### [Relaxio's White Noise Generator](https://play.google.com/store/apps/details?id=net.relaxio.relaxio)
 Yeah, that's my pick for this week. If you haven't heard what's with the ambient sound / white noise (pun intended) all about, 
 they're basically tools that can help with studying, meditating, sleeping, or just relaxing. I've been using this app last 
 month to aid me in sleeping so that I can tolerate sleeping even with the noisiest of noises. It has a bunch of features for 
@@ -203,7 +203,7 @@ even non-Android users can join in the ambient noise hype, whatever that is. Als
 version for both iOS and Android users.  
 
 ## Watch of the Week
-#### [Why I don't have long term goals? by *Jarvis Johnson*](https://www.youtube.com/watch?v=h3sXskf1gcg)
+### [Why I don't have long term goals? by *Jarvis Johnson*](https://www.youtube.com/watch?v=h3sXskf1gcg)
 A video by Jarvis Johnson, one of the YouTubers that I can recommend with a full approval. Funny, informative, and profounding --- 
 those are the words I can think whenever I describe his content. Anyways, it's a video that explains why long term goals are not 
 quite the interest for him. Oh, he also talked about the opposite of a long term goal: short term goals and how they would help 
@@ -220,7 +220,7 @@ pick your long term goal based on the relative future. Yes, it mostly involves y
 because you felt to. 
 
 ## Person of the Week
-#### [Lazy Game Reviewer (LGR)](https://www.youtube.com/user/phreakindee/) 
+### [Lazy Game Reviewer (LGR)](https://www.youtube.com/user/phreakindee/) 
 A YouTuber that specializes in retro PC gaming and hardware mixed with some modern stuff whenever he wants to especially with The 
 Sims series, SimCity, and the Cities: Skylines, I guess. It is quite a good channel with the snark reviews, somewhat niche 
 content (I guess), and that voice... I mean, really, it will make listening a very, very soothing experience. Give it a try if 

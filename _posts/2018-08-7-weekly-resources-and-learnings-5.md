@@ -82,7 +82,7 @@ sound when those two rods touch. Sadly, I can't find it anymore (if you do, plea
 nonetheless memorable, funny and amazing, in a way.
 
 ## Article of the Week
-#### [How to Ask Smart Questions by *Eric Steven Raymond* & *Rick Moen*](http://www.catb.org/~esr/faqs/smart-questions.html)
+### [How to Ask Smart Questions by *Eric Steven Raymond* & *Rick Moen*](http://www.catb.org/~esr/faqs/smart-questions.html)
 I know that the site looks very outdated (or it is probably just me) but still have a look at the content, not the aesthetics. 
 This is a very long article on how to give smart technical questions that targeted towards the developers. I think this is one 
 of the skills developers, or rather all, could improve their success not only in their career but also for life. Another thing 
@@ -90,7 +90,7 @@ that can be affected here is the researching (or googling) skills which you're a
 sentence, as long as you know the name what and where you are looking for.
 
 ## Book of the Week
-#### [Mindset: The New Psychology of Success by *Carol S. Dweck*](https://www.amazon.com/Mindset-Psychology-Carol-S-Dweck/dp/0345472322)
+### [Mindset: The New Psychology of Success by *Carol S. Dweck*](https://www.amazon.com/Mindset-Psychology-Carol-S-Dweck/dp/0345472322)
 Since I did said I'm going to research about growth mindset this week, I've noted a book for you which is Mindset by Carol 
 Dweck which is a psychologist famous for her statements and theories about mindsets and how it can affect the success of 
 whatever people are doing especially if it is for the future. I said pretty much everything I had about mindsets in the 
@@ -98,7 +98,7 @@ whatever people are doing especially if it is for the future. I said pretty much
 summary site in which one of them is right [here](https://fourminutebooks.com/mindset-summary/).
 
 ## Podcast Episode of the Week
-#### [Developing Confidence, Finding Happiness, and Saying "No" to Millions from *The Tim Ferris Show*](https://tim.blog/2015/12/14/derek-sivers-on-developing-confidence-finding-happiness-and-saying-no-to-millions/)
+### [Developing Confidence, Finding Happiness, and Saying "No" to Millions from *The Tim Ferris Show*](https://tim.blog/2015/12/14/derek-sivers-on-developing-confidence-finding-happiness-and-saying-no-to-millions/)
 OK. Can I feature another episode on a podcast series that was previously featured now? Because here's another new podcast series! 
 It's the Tim Ferris Show podcast which covers deconstructions of how world-class performers from different areas like in music, 
 art, investing, and acting, succeed in their field. It mostly giving you insights on their routines, habits, tricks, and a lot 
@@ -109,14 +109,14 @@ it's two hours long. I just cut out through sessions since I have slow internet 
 solely to finish the whole podcast episode, I accomplish nothing. Hooray for finding ways.
 
 ## Site of the Week
-#### [Dictionary of Obscure Sorrows](http://www.dictionaryofobscuresorrows.com/)
+### [Dictionary of Obscure Sorrows](http://www.dictionaryofobscuresorrows.com/)
 Yeah, this is a very interesting find to me. No, this is not a site about depression or sorrow (well, a little). It's a site 
 to a project (named Dictionary of Obscure Sorrows, of course) that lists out words to describe an obscure emotion. This project 
 also has a [YouTube channel](https://www.youtube.com/channel/UCDetdM5XDZD1xrQHDPgEg5w) which takes on the definition of the 
 new words hoping to enter the common vocabulary (which apparently called neologism) in video form. 
 
 ## Tool of the Week
-#### [Habitica](https://habitica.com)
+### [Habitica](https://habitica.com)
 Another tool that I've been using for a some time now. This is a program that helps you with doing your tasks by making it into 
 a game. It is quite cool and an awesome way of reminding you to do those tasks combine that with a few of productivity tricks 
 that is up in your sleeve like a pomodoro timer or a loud alarm. For me, I just add a note with a persona of a mad snarky boss 
@@ -125,7 +125,7 @@ in the level of a rockstar programmer. It is also available as an app in Android
 what kind of user you are whether an Anroid or an iOS (or none or why not both).
 
 ## Watch of the Week
-#### [How to Excel at Math and Science by *MajorPrep*](https://www.youtube.com/watch?v=yjdhNyEmYpo)
+### [How to Excel at Math and Science by *MajorPrep*](https://www.youtube.com/watch?v=yjdhNyEmYpo)
 This is a YouTube video that is covers the topic given by this book, [A Mind For Numbers by *Barbara Oakley*](https://www.goodreads.com/book/show/18693655-a-mind-for-numbers). 
 Most of the topics found on the book can also be gotten from a very famous Coursera course, [Learning How To Learn](https://www.coursera.org/learn/learning-how-to-learn/) 
 which the author, Barbara Oakley, is included as one of the instructors of the course. It's a very good video covering the 
@@ -134,7 +134,7 @@ Hopefully, you're not stuck on a YouTube watching spiral that is still happening
 start applying it immediately or as soon as possible.
 
 ## Channel of the Week
-#### [Overly Sarcastic Productions](https://www.youtube.com/channel/UCodbH5mUeF-m_BsNueRDjcw) 
+### [Overly Sarcastic Productions](https://www.youtube.com/channel/UCodbH5mUeF-m_BsNueRDjcw) 
 If you would watch their trailer, you know that their chanel is about making classical works such as Beowulf (the first video 
 I've watched from their channel), Dante's Inferno, and Illiad into a much digestible and entertaining way. I really like this 
 channel, I'm not much of a fan of classical works but seeing this kind of content is quite entertaining to me.

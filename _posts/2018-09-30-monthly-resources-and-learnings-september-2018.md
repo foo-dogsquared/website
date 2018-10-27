@@ -191,31 +191,31 @@ concise especially with its examples.
 
 ## What I've been reading
 <!-- Books, articles, and other textual references -->
-#### [3 Actions You Can Take Right Now to Be More Organized from *LinkedIn Learning Blog*](https://learning.linkedin.com/blog/productivity-tips/3-actions-you-can-take-right-now-to-be-more-organized)
+### [3 Actions You Can Take Right Now to Be More Organized from *LinkedIn Learning Blog*](https://learning.linkedin.com/blog/productivity-tips/3-actions-you-can-take-right-now-to-be-more-organized)
 It's a simple article for giving tips on how to be more organized towards your work. Despite being a LinkedIn article which is mostly 
 targeted towards professionals at work, this is a helpful one for everyone who's looking for a way to make their workflow or homeflow a bit 
 better.
 
-#### [Arduino For Dummies](https://www.amazon.com/Arduino-Dummies-John-Nussey/dp/1118446372)
+### [Arduino For Dummies](https://www.amazon.com/Arduino-Dummies-John-Nussey/dp/1118446372)
 Another *For Dummies* series book, it is a good introductory series, after all. Anyway, after I found the subsequent lessons on electronics 
 a little bit too far for the scope I've been aiming for, I've decided to jump on something related which is Arduino. Sure enough, the series 
 also has a book on Arduino.
 
 ## What I've been listening to
 <!-- Audiobooks, podcast episodes, videos and other auditory references -->
-#### [5 Questions: Bad at Math, Choosing Goals, and Relationship Productivity from *College Info Geek Podcast*](https://collegeinfogeek.com/reader-qa-23/)
+### [5 Questions: Bad at Math, Choosing Goals, and Relationship Productivity from *College Info Geek Podcast*](https://collegeinfogeek.com/reader-qa-23/)
 I haven't listened to a whole lot of podcast this month so there's only one. It's another episode from College Info Geek podcast. 
 Self-explanatory and long title, at that. The part that I'm most interested in is the 'Bad in Math' and 'Choosing Goals' since I'm not 
 good in math and I tend to be in places when choosing a goal.
 
 ## What I've been watching to
-#### [Data Structures and Algorithms in JavaScript from *freeCodeCamp*](https://www.youtube.com/watch?v=t2CEgPsws3U)
+### [Data Structures and Algorithms in JavaScript from *freeCodeCamp*](https://www.youtube.com/watch?v=t2CEgPsws3U)
 It's a video from the freeCodeCamp channel that introduces you to the data structures and algorithms, using JavaScript as the instrument. 
 It is a long video, lasting from almost 2 hours. I applied the same strategy watching long videos: do it in sessions but make sure to 
 review the previously discussed matters at that point, no matter how well I understood it, I never know how well I understood it, anyway. 
 
 ## What tools I want to share
-#### [Mozilla Thunderbird](https://www.thunderbird.net/)
+### [Mozilla Thunderbird](https://www.thunderbird.net/)
 Thunderbird is *the* most solid option when choosing an email client in my opinion: solid extensions/add-ons, responsive receiving time, 
 and great app performance. Anyways, as you can tell, Thunderbird is one of the projects developed by Mozilla. 
 All in all, its reception got great and led to a solid foundation for open-sourced projects, being included as the default email client 
@@ -224,43 +224,43 @@ in August 2018 and decided to skip versions 5x because it's a *real* comeback th
 Quantum, the new version of Mozilla's web browser. 
 
 ## What sites I've been visiting
-#### [All About Circuits](https://www.allaboutcircuits.com/)
+### [All About Circuits](https://www.allaboutcircuits.com/)
 This is a site that focuses on electronics where you can find an assortment of stuff from textbooks to video lectures. Those offer came from 
 the community which has a forum for discussing electronics-related: some basic electronics to embedded systems. I've been lurking to this 
 site only last week and I found a lot of useful stuff like with [this textual references covering the basics of electronics on a technical level](https://www.allaboutcircuits.com/textbook/). 
 
-#### [Scott Young](https://www.scotthyoung.com/)
+### [Scott Young](https://www.scotthyoung.com/)
 It's the site of Scott Young, a programmer and entrepreneur. His blog focuses on ways on how to be efficient on learning and be productive, 
 overall. Accumulating over 2000 articles, you'll have plenty of articles to search around. Young is also known to be an efficient learner, 
 starting the MIT challenge, a self-challenge that is basically leveling yourself up by modifying MIT's cirriculum on their 4-year computer 
 science course and learning it for a year. The challenge showcases and focuses on how you can learn a lot more efficient and does not 
 necessarily mean that you are an equivalent of a student of MIT.
 
-#### [Teach Yourself CS](https://teachyourselfcs.com/)
+### [Teach Yourself CS](https://teachyourselfcs.com/)
 It's a website that serves as a pointer to the references that you can get when studying a particular subfield in the world of computer 
 science. There is a resource pool for you when you want to learn programming, computer architecture, data structures and algorithms, some 
 mathematics, networking, databases, and a bunch of other computer science-related stuff. It's a handy website, I'll say.
 
-#### [Learn CPP](https://learncpp.com)
+### [Learn CPP](https://learncpp.com)
 I've been wanting to learn about C++ simply because I find a lot of resources on it compared to C. This is simply a tutorial site that teaches 
 you to program with C++. You have your standard programming for beginners tutorial stuff: introducing the concept of variables, iteration, 
 recursion, and other intermediate stuff (did I just mention it is a tutorial site for beginners).
 
 ## Who are the creators I've been following
 <!-- Channels of the creators, entertainers, etc. -->
-#### [Draw With Jazza](https://www.youtube.com/user/drawwithjazza)
+### [Draw With Jazza](https://www.youtube.com/user/drawwithjazza)
 The YouTube channel of Jazza, a professional artist. You know, the one that paints with stuff. Having a YouTube channel that revolves around 
 art, you will get some crazy stuff. His videos range from a simple demonstration of the creation process of an art, speedpaintings, tutorials, 
 and all sorts of crazy challenges with things that never meant to be used as an art tool. Everything is an art tool for Jazza. Anyways, he 
 has founded a studio on his own and has [a website](https://jazzastudios.com/) on it so that's another thing to go.
 
-#### [Kevin MacLeod](https://www.youtube.com/channel/UCSZXFhRIx6b0dFX3xS8L1yQ)
+### [Kevin MacLeod](https://www.youtube.com/channel/UCSZXFhRIx6b0dFX3xS8L1yQ)
 If you have been watching videos or listening audio by other content creators for too long, then you might have encountered this name before. 
 If you have remembered it, congratulations! For those who did not rung a bell, this is the guy mostly famous through his royalty-free 
 CC-licensed tracks that can be used for everybody since the early 2000s. And here's his official YouTube channel that I linked for some 
 reason. I just find it amusing.
 
-#### [Punished Props Academy](https://www.youtube.com/channel/UC27YZdcPTZM24PgjztxanEQ)
+### [Punished Props Academy](https://www.youtube.com/channel/UC27YZdcPTZM24PgjztxanEQ)
 I've found this channel through one of Jazza's video where he created the concept art for his virtual reality-themed superhero costume, VRtist 
 (geddit, it's a combo of VR and ARtist, ok, I'll stop explaining the joke). I've gotta say, I find their content amazing. This is another 
 YouTube channel that revolves around art: the art of making costumes. Well, mostly cosplay costumes but still, COSTUMES! Their videos are 

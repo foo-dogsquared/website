@@ -138,21 +138,21 @@ Despite that a doubly linked list sounds more useful than the other one, singly 
 table with the singly linked list to easily create a chain of nodes in a single hash node in case that the hash code from both data is similar.
 
 ## Article of the Week
-#### [Thinking About Errors in Your Code Differently from *Codecademy*](https://news.codecademy.com/errors-in-code-think-differently)
+### [Thinking About Errors in Your Code Differently from *Codecademy*](https://news.codecademy.com/errors-in-code-think-differently)
 An article that encourages you to think about errors as a programmer and as a person living in life. I guess that sounds to dramatic but 
 it can also change the way you think about errors outside of programming. One of the most crucial benefits I've gained from practicing 
 programming is the acceptance of mistakes. I admit that I still can't get over some of the errors I made but I'm slightly improving of 
 how I recieve errors, mistakes, and such.
 
 ## Book of the Week
-#### [Electronics For Dummies, 3rd Edition](https://www.amazon.com/Electronics-Dummies-Cathleen-Shamieh/dp/1119117976)
+### [Electronics For Dummies, 3rd Edition](https://www.amazon.com/Electronics-Dummies-Cathleen-Shamieh/dp/1119117976)
 Since I'm studying electronics, well here's my recommended book for the wook. As always, as one of the book of the famous introductory 
 book series, For Dummies, this is a good book to enter the world of electronics. It gives you the information you need to be familiar 
 with the basics, sets you up for the practical applications through a thorough discussion on the inner workings of an electronic system. Or 
 is it? IDK, I only read the first unit of this book.
 
 ## Podcast Episode of the Week
-#### [Paid Attention (Season 3, Episode 3) from *Mozilla IRL Podcast*](https://irlpodcast.org/season3/episode3/)
+### [Paid Attention (Season 3, Episode 3) from *Mozilla IRL Podcast*](https://irlpodcast.org/season3/episode3/)
 Yeah, Mozilla has a podcast series named IRL, apparently. In this series, they are focusing on the aspects of real life such as real life 
 stories and relate it into our online lives and the future of the web, as a whole. This is an interesting episode, I have to say. It's 
 about how the value of attention affects our lives especially how it affects from a business perspective and as individuals living out 
@@ -160,20 +160,20 @@ in real life. Several examples are given and some of those examples and perspect
 marketing industry.
 
 ## Site of the Week
-#### [Explain That Stuff](https://www.explainthatstuff.com/)
+### [Explain That Stuff](https://www.explainthatstuff.com/)
 I wish I've seen this site way before but better late than never, I guess. This is a site full of introductory technical guide to different 
 sciences like in electricity, nature, space, and all sorts of cool stuff. One of the nicest feature that this site has is that each of its 
 article has a nice list of different materials that you can refer to.
 
 ## Tool of the Week
-#### [Forest](https://www.forestapp.cc/)
+### [Forest](https://www.forestapp.cc/)
 This is an app that helps you focus on the task and get away from using your smartphone by simply setting the timer. It's basically some type 
 of pomodoro app but with TREES! You have a virtual tree and each time you initiated a focus session with the app, the tree will grow. 
 Neglect the tree, then it will wither and die. Yeah, basically it helps you focus on that by making you feel about tress, virtual trees in 
 particular.
 
 ## Watch of the Week
-#### [Angel City Chorale Rendition of Africa by Toto](https://www.youtube.com/watch?v=-c9-poC5HGw)
+### [Angel City Chorale Rendition of Africa by Toto](https://www.youtube.com/watch?v=-c9-poC5HGw)
 Let's relax for a while and have some different kind of watch for today, shall we! This is a video of the Angel City Chorale singing "Africa" 
 by Toto, which is getting a lot more mentions on the internet now lately. Also by the time I put this on my list for future referrals, that's 
 when I know that they apparently entered America's Got Talent and got a [golden buzzer on their latest performance which they sung "Baba Yetu", a famous song from the video game, Civ IV (which I recommend a lot, by the way)](https://www.youtube.com/watch?v=XStvwK6yKvs). 
@@ -181,7 +181,7 @@ I recommend giving them a watch on one of their performances, you can really tel
 in the meaning of the song.
 
 ## Channel of the Week
-#### [Thomas Frank](https://www.youtube.com/user/electrickeye91) 
+### [Thomas Frank](https://www.youtube.com/user/electrickeye91) 
 This is the guy behind [College Info Geek](https://collegeinfogeek.com/). The kind of videos he produces are quite interesting to me, to say 
 the least. Most of the time, it's about upping your productivity levels and gaining new perspectives about doing work. In fact, seems like his 
 content that is being released is affiliated with the site. Also, his main site also has a [podcast](https://collegeinfogeek.com/cast/) and 

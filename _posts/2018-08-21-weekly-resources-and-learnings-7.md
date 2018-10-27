@@ -66,14 +66,14 @@ it's cool. Anyways, a bit of summary for each components:
 - *integrated circuit* — Integrated circuit or IC, for short, is basically a circuit that is compressed into one tiny chip. This is one of the most important component as they come in different forms and different functions. In order to understand an integrated circuit, you would have to refer to their datasheet which describes the arrangement of the components and the function of different pins as it is one of the ways how you can put some input and get some output.
 
 ## Article of the Week
-#### [Follow these simple rules and you’ll become a Git and GitHub master by *Ariel Camus*](https://medium.freecodecamp.org/follow-these-simple-rules-and-youll-become-a-git-and-github-master-e1045057468f)
+### [Follow these simple rules and you’ll become a Git and GitHub master by *Ariel Camus*](https://medium.freecodecamp.org/follow-these-simple-rules-and-youll-become-a-git-and-github-master-e1045057468f)
 Speaking of Git, here's an article I found about standard practices of using Git. It's not a law or something that is set in stone but it 
 is good recommendation of utilizing it in order to make the development process easier. If you're already familiar with Git and GitHub, you 
 probably won't have much to learn here but in case you're in the same level of familiarity as mine, you'll learn a few tidbits here and 
 there.
 
 ## Book of the Week
-#### [Self Debug by *Karan Kurani*](https://leanpub.com/selfdebug/)
+### [Self Debug by *Karan Kurani*](https://leanpub.com/selfdebug/)
 It's a book for those who are in software development industry at any point in their career, whether you're a professional or someone's 
 who's just starting out. It is not complete yet and it might have some glaring errors here and there but the most important thing that 
 we should focus on is the content. This is a book that talks about how you can improve as a software developer just not technically 
@@ -81,7 +81,7 @@ because there's still a lot of stuff outside of code that you have to deal and p
 also a [video from freeCodeCamp](https://www.youtube.com/watch?v=ZU1B9LGjnAA) about it so be sure to check it out, I guess?
 
 ## Podcast Episode of the Week
-#### [Advice For Beginners - Tech Skills, Applying for Jobs, Focus, Imposter Syndrome + More from *Syntax*](https://syntax.fm/show/058/advice-for-beginners-tech-skills-applying-for-jobs-focus-imposter-syndrome-more)
+### [Advice For Beginners - Tech Skills, Applying for Jobs, Focus, Imposter Syndrome + More from *Syntax*](https://syntax.fm/show/058/advice-for-beginners-tech-skills-applying-for-jobs-focus-imposter-syndrome-more)
 Another week, another Syntax podcast episode. As you can tell from the long title, this is a podcast episode mainly targeted for 
 beginners like me. It's a perfect podcast episode at this time. It's a bunch of tips about how you can start out as someone who is 
 starting to gain a foot inside the industry house. Very good podcast episode especially that it comes from the two credible developers, 
@@ -89,14 +89,14 @@ starting to gain a foot inside the industry house. Very good podcast episode esp
 channel for their content. Really recommend this one.
 
 ## Site of the Week
-#### [The Noun Project](http://thenounproject.com/)
+### [The Noun Project](http://thenounproject.com/)
 A site that features free icons, although you can pay for it, you can still use it for free as long as you give the right amount of 
 attribution to the creator. I've been using this only about a week ago when making a slight overhaul for my blogsite with the new 
 icons and everything. You can find some stuff on almost everything: icon to indicate updates, notifications, or errors? They have that. 
 Pretty cool stuff and pretty much worth it.
 
 ## Tool of the Week
-#### [Grammarly](https://app.grammarly.com/)
+### [Grammarly](https://app.grammarly.com/)
 It's a proofreading tool that checks and correct your grammar and stuff. Also, you can know the definitions of the words on-the-fly with this 
 tool. Anyways, this has been recommended to me after giving some feedback about the pros and cons of a two-parter post (which my previous 
 *Simplified!* entry is). Anyways, it also has a premium option but the free version is mostly enough for me. Although I forgot to use it 
@@ -104,7 +104,7 @@ on my most recent *Simplified!* post, I'm now working with this tool to improve 
 include it in my writing toolbelt.
 
 ## Watch of the Week
-#### [Learning and Memory: How it Works and When it Fails](https://www.youtube.com/watch?v=a_HfSnQqeyY)
+### [Learning and Memory: How it Works and When it Fails](https://www.youtube.com/watch?v=a_HfSnQqeyY)
 If you have a *lot* of time to watch this 2-hour video, then go ahead and watch this in one gulp or you can go and watch it in sessions just 
 like what I did. Anyways, this is a video that tackles how our memory works and how it interacts with the different parts of it 
 subconsciously. I found some parts of the lecture to be discussed on other references on memory, specifically the book, [A Mind For Numbers](https://www.goodreads.com/book/show/18693655-a-mind-for-numbers)
@@ -112,7 +112,7 @@ and its associated course at Coursera, [Learning How to Learn](https://www.cours
 lot, too.
 
 ## Channel of the Week
-#### [Professor Messer](https://www.youtube.com/channel/UCkefXKtInZ9PLsoGRtml2FQ) 
+### [Professor Messer](https://www.youtube.com/channel/UCkefXKtInZ9PLsoGRtml2FQ) 
 Professor Messer is a figure in IT industry who's pretty much known for his free IT course that provides knowledge for those who will take 
 some IT certifications like the CompTIA A+ training. His videos in the site is pretty embedded from YouTube and this is where you can take 
 a look on his contents. If you are someone who are siding on the software side on the computer often, you might want to take a primer on 

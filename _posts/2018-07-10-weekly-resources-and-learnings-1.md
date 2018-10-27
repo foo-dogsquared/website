@@ -39,7 +39,7 @@ Yeah, another one on C; as it turns out, the data type `char` is closely related
 I know what the modulo arithmetic does through the `%` operator on some languages like C and JavaScript but I've never thought about more use cases of it. This realization of what the modulo arithmetic can do came from the problem sets of CS50 (which I recommend you to take a quick glance if you want to get started on programming) from getting the digit in the `n`th place (even though I did it wrong, probably) and using it on data that needs repetition that comes to a circle. Yeah, shallow and wrong stuff but I'll take a closer look on it some day.
 
 ## Article of the Week
-#### [The Collector’s Fallacy: Why We Gather Things We Don’t Need by *Charles Chu*](https://medium.com/the-polymath-project/the-collectors-fallacy-why-we-gather-things-we-don-t-need-9a55ef9979ef)
+### [The Collector’s Fallacy: Why We Gather Things We Don’t Need by *Charles Chu*](https://medium.com/the-polymath-project/the-collectors-fallacy-why-we-gather-things-we-don-t-need-9a55ef9979ef)
 An article that hits me right in the heart. As a self-learner trying to get as much resources as possible, I'm guilty of this in 
 lots of ways: bookmarking links, downloading e-books, saving videos and posts, and whatnots, you name it! Chances are, I did it. 
 Phoenix Wright would probably do his trademark "OBJECTION!" right away about my crimes of obsession of collecting stuff at the 
@@ -48,7 +48,7 @@ sentimental with it). I'm not going to delete my e-books, though. Those precious
 and share them, that's a lot more helpful, surely.
 
 ## Book of the Week
-#### [High Performance Habits: How Extraordinary People Become That Way by *Brendon Burchard*](https://www.amazon.com/dp/1401952852/?tag=gooseducmedi-20)
+### [High Performance Habits: How Extraordinary People Become That Way by *Brendon Burchard*](https://www.amazon.com/dp/1401952852/?tag=gooseducmedi-20)
 Self-explanatory title, yeah. It gives you insight on how to be consistently best (not constantly best, those are different) at 
 times you're doing what you're supposed to do for your work or for yourself in order to gain success. I did not buy an physical or 
 an e-book version of it but rather I went through the 
@@ -56,13 +56,13 @@ an e-book version of it but rather I went through the
 deeper, you can buy the book.
 
 ## Podcast Episode of the Week
-#### [How to Take Criticism from the *College Info Geek Podcast*](https://collegeinfogeek.com/criticism/)
+### [How to Take Criticism from the *College Info Geek Podcast*](https://collegeinfogeek.com/criticism/)
 A gift in perfect timing for me. In this episode of the podcast of College Info Geek, the two hosts (Thomas Frank and his co-host) 
 gives their insights on the subject, taking criticisms. As expected from their podcast, I find this one to be good and 
 spontaneous, speaking from their experiences to further cement their advices and insights to be absorbed by you, the listener.
 
 ## Site of the Week
-#### [Deconstructing Excellence](http://www.deconstructingexcellence.com/)
+### [Deconstructing Excellence](http://www.deconstructingexcellence.com/)
 It's a site that contains the summaries of thousands of books submitted by its members. 
 Yeah, Actionable Books from the previous link is also one but I find it a bit low on choices. Anyway, Deconstructing Excellence 
 has ton of choices of good books (what I mean on good books is related to self-management) like 
@@ -70,20 +70,20 @@ has ton of choices of good books (what I mean on good books is related to self-m
 [The Power of Habit by *Charles Duhigg*](https://www.amazon.com/Power-Habit-What-Life-Business/dp/081298160X), and more.
 
 ## Tools of the Week
-#### [Wakatime](http://wakatime.com/)
+### [Wakatime](http://wakatime.com/)
 It's a time tracker tool for how long have you been coding. This tool comes as an extension to a plethora of code editors such as 
 Visual Studio IDE, Brackets, Atom, and Sublime so most chances are, you can get your hands on this. Also, you have to create an 
 account but it's worth a shot.
 
 ## Watch of the Week
-#### [Thinking like a Programmer from *O'Reilly*](https://www.youtube.com/watch?v=LjiYNyI8Ap4)
+### [Thinking like a Programmer from *O'Reilly*](https://www.youtube.com/watch?v=LjiYNyI8Ap4)
 It's an insightful interview with Allen Downey, author of several free books from [Green Tea Press](https://greenteapress.com/wp/).
 He explains how writing code can help into that programmer's mindset and set some experiences as examples of that concept (which 
 is cool since it is adding authenticity with the message he's trying to express). I've been searching some insights on how to get 
 into the programmer's thinking for a while now and I think his interview hits the nail on the answer. 
 
 ## Channel of the Week
-#### [Vinheteiro](https://www.youtube.com/channel/UCSE6yilNScIz1SLTNQvrXMw) 
+### [Vinheteiro](https://www.youtube.com/channel/UCSE6yilNScIz1SLTNQvrXMw) 
 He's a pianist with a YouTube channel with videos that features songs from video games, animes, TV shows, memes, and all things 
 between. IDK, I'm just amused by this guy. You'll see why once you've seen enough of his content.
 
