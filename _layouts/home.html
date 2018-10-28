@@ -26,17 +26,6 @@ layout: default
       {%- include post_meta.html page=post include_link=true -%}
     </div>
     {% endfor %}
-    <script>
-        function convert_to_wpm(number_of_words = document.querySelectorAll(".no-of-mins")) {
-          number_of_words.forEach((num) => {
-              const wpm = 225 /* avg wpm for an adult */
-              num.textContent = Math.round((Number(num.textContent) / wpm) + 1);
-              return;
-          })
-        }
-
-        convert_to_wpm();
-    </script>
 
     <!-- Pagination links -->
     <div class="pagination">

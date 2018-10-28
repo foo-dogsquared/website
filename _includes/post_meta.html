@@ -8,7 +8,7 @@
     </time>
 
     <span class="reading-minutes" style="margin-left: 1.25em">
-        <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" class="post-meta-icons"><span class="no-of-mins">{{ page.content | number_of_words }}</span> minutes
+        <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" class="post-meta-icons"><span class="no-of-mins">{{ page.content | number_of_words | divided_by: 225 }}</span> minutes
     </span>
 
     {%- if page.categories -%}

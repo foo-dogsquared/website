@@ -53,20 +53,8 @@
         };
     }
 
-    function convert_to_wpm(number_of_words = document.querySelectorAll(".no-of-mins")) {
-        if (number_of_words === undefined) return null;
-        number_of_words.forEach((num) => {
-            const wpm = 225 /* avg wpm for an adult */
-            const minutes = Math.round((Number(num.textContent) / wpm) + 1)
-            num.textContent = minutes;
-            return minutes;
-        })
-    }
-
     insertHeaderLink();
     // insertCenterTags();
     resourcesLink();
-
-    convert_to_wpm();
 
 </script>
