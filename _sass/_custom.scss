@@ -1,15 +1,6 @@
 // custom default properties for normal tags
 html {scroll-behavior: smooth}
 
-blockquote {
-    font-family: "Georgia", $base-font-family;
-    border-left: $brand-color solid 5px;
-    color: $grey-color-dark;
-    font-style: italic;
-    padding: 1em;
-    word-spacing: 1px;
-}
-
 h1, h2, h3, h4, h5, h6 {
     code {font-size: 1em;}
 }
@@ -97,4 +88,8 @@ em[data-descr], i[data-descr] {
     color: $grey-color;
     font-size: $small-font-size;
     margin-top: 0;
+}
+
+::selection {
+    background: lighten($brand-color_l, 37.5%);
 }

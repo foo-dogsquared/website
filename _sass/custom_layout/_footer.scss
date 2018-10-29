@@ -3,6 +3,10 @@
     border-top: 1px solid $grey-color-light;
     color: $platinum;
     padding: $spacing-unit 0;
+
+    ::selection {
+        background: darken($footer-link, 30%);
+    }
 }
 
 .footer-col-1 {

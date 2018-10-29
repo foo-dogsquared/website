@@ -194,6 +194,8 @@
   margin: .25em;
 
   a:visited, a:hover {color: $brand-color_l}
+
+  & > :not(:first-child) {margin-left: 1.25em;}
 }
 
 .post-link {
