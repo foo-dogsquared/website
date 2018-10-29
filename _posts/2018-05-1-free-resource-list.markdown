@@ -5,7 +5,7 @@ date:   2018-05-01 09:25:57 +0800
 author: foo-dogsquared
 categories: freebies
 tags: [freebies, others]
-updatedOn: Aug 19, 2018
+updatedOn: Oct 28, 2018
 ---
 
 This is a free resource list that gradually grew over the past few months. Admittedly, I don't
@@ -64,8 +64,8 @@ stuff outside of programming (say [Khan Academy](https://khanacademy.org) for ma
 - [/r/dailyprogrammer](https://old.reddit.com/r/dailyprogrammer/)
 - [Coderbyte](http://coderbyte.com)
 - [Codewars](http://codewars.com/) — **(recommended)**
-- [Euler Project](https://projecteuler.net/) — has more focus on applying mathematical concepts than programming
-- [Exercism](https://exercism.io)
+- [Euler Project](https://projecteuler.net/) — **(recommended, if you want to be more challenged)**; has more focus on applying mathematical concepts than programming
+- [Exercism](https://exercism.io) — a site that focuses improving you through the mentor-mentee model
 - [HackerRank](http://hackerrank.com/) — **(recommended, if you want to be more challenged)**
 - [Pramp](https://www.pramp.com/) — you get to practice some programming interview questions and it's free
 
@@ -74,7 +74,7 @@ stuff outside of programming (say [Khan Academy](https://khanacademy.org) for ma
 - [Explain That Stuff](https://www.explainthatstuff.com/)
 - [GeeksforGeeks](https://www.geeksforgeeks.org/) — **(recommended)**; a computer science portal (for geeks)
 - [Medium](https://medium.com/)
-- [Preadr](https://preadr.com/)
+- [Preadr](https://preadr.com/) — an article link collector collecting articles related to your configured interests
 - [Wikipedia](https://www.wikipedia.org/) — if you want to learn random things
 
 ## Communities
@@ -93,6 +93,7 @@ stuff outside of programming (say [Khan Academy](https://khanacademy.org) for ma
 - [Coding Blocks Podcast](https://www.codingblocks.net/category/podcast/) — great for beginners 
 - [College Info Geek Podcast](https://collegeinfogeek.com/cast/) — not related to programming; a good refresher about a variety of stuff
 - [DevChat](https://devchat.tv/) — a list of podcast
+- [Developer Tea](https://developertea.simplecast.fm/)
 - [Syntax](https://syntax.fm/) — **(recommended if you're into web dev't)**
 - [Programming Throwdown](https://www.programmingthrowdown.com/) — beginner-friendly
 - [Soft Skills Engineering](https://softskills.audio/) — **(recommended)**; it's a podcast series about the things that relate to software engineering that are not mostly coding-related
@@ -131,6 +132,7 @@ stuff and I really like psychological stuff so that's why it's here
 - [Majorprep](https://www.youtube.com/channel/UCpCSAcbqs-sjEVfk_hMfY9w)
 - [Mozilla Hacks](https://www.youtube.com/user/mozhacks) — web video series "Web Demystified"
 - [patrickJMT](https://www.youtube.com/channel/UCFe6jenM1Bc54qtBsIJGRZQ) — focuses on mathematics so if you want to learn math through YouTube, here is one channel that specializes on it
+- [Professor Leonard](https://www.youtube.com/channel/UCoHhuummRZaIVX7bD4t2czg) — a YouTube channel that focuses on giving topics on calculus 
 - [The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw)
 - [Wes Bos](https://www.youtube.com/channel/UCoebwHSTvwalADTJhps0emA)
 
@@ -173,11 +175,13 @@ stuff and I really like psychological stuff so that's why it's here
     - [Notion](https://www.notion.so/) — distraction-free app for taking notes in Markdown
     - [Rainy Mood](http://www.rainymood.com/) — lets you focus through the ambience (if you're the type who find rain to be relaxing) 
     - [Trello](https://trello.com) — a project management tool
+- ### Others
+    - [Calibre](https://calibre-ebook.com/) — an e-book library management tool
 
 ## Platforms For Your Future Apps
 - [Amazon Web Services (AWS) — Free Tier](https://aws.amazon.com/free/)
 - [GitHub](https://github.com) — **(recommended)**; yeah
-- [GitLab](https://gitlab.com/) — **(recommended)**; I guess? You can join the diaspora happening right now
+- [GitLab](https://gitlab.com/) — **(recommended)**;
 - [Heroku](http://heroku.com/) — **(recommended, if you're starting)**; pretty much free
 - [Microsoft Azure — Free Tier](https://azure.microsoft.com/en-us/free/)
 - [Netlify](http://netlify.com/) — **(recommended)**; their free options is pretty much amazing
