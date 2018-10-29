@@ -29,7 +29,7 @@ Furthermore, HTTP is a stateless protocol, meaning none of the data will be save
 
 In a communication context that uses HTTP, we know that the machine that sends out data is called the *client* while the machine that listen to the requests and responds with the appropriate data is the *server*.
 
-![HTTP with the client-server model]({{ 'assets/pictures/self-learning-series/october-2018/http-client-server-model.svg' | relative_url}})
+![HTTP with the client-server model]({{ 'assets/pictures/self-learning-series/october-2018/http-client-server-model.png' | relative_url}})
 *HTTP with the client-server model*{: .caption}
 
 OK. So we know that the communication process between two machines starts with the client requesting something. From the client, it sends out an *HTTP request* which consist of the headers and the body.
@@ -40,7 +40,7 @@ The body, on the other hand, contains the appropriate data needed for the server
 
 Think of the request as the old-fashioned snail mail envelope. The headers is in the outside of the envelope, containing the address of the server where the request is to be sent, the address of the client where the response is to be sent back, and the other headers that the server may parse through - sort of like a secret keyword between two people. The body is obviously the letter that is inside of the envelope, containing the message (data) for the server to read and figure out which of the data is appropriate to be sent regarding the request. 
 
-![HTTP as an envelope]({{ 'assets/pictures/self-learning-series/october-2018/http-as-envelope.svg' | relative_url }})
+![HTTP as an envelope]({{ 'assets/pictures/self-learning-series/october-2018/http-as-envelope.png' | relative_url }})
 
 Now what does those have to do with Node? Of course, everything really! Node is a JavaScript runtime environment that specializes in running servers. It simply means that you can program the back-end stuff with JavaScript: the syntax, the concepts, and other stuffs. 
 
@@ -165,7 +165,7 @@ Here's how we would define a set $S$ verbally: let $S$ be the set of vowels in t
 
 If we would to read sets in set-builder notation, we could read (of what was denoted in the above example) as: *the set of all $x$ such that $x$ is a vowel*.
 
-![Reading a set in set-builder notation]({{ 'assets/pictures/self-learning-series/october-2018/set-builder-notation-example-read.svg' | relative_url }})
+![Reading a set in set-builder notation]({{ 'assets/pictures/self-learning-series/october-2018/set-builder-notation-example-read.png' | relative_url }})
 *How to read the expression*{: .caption}
 
 Of course, each way of denoting sets have its pros and cons. With verbal form, we have a free way on how we could describe the elements on our set but given with the precise nature of mathematics, it needs to be accurate and stick to the usual indicators to be used in our sentences. In roster form needing to list every elements in the set, it depends on the size of the set. Lastly, with the set-builder notation, it gives us what I think the most flexible option but in some cases like a smaller set, it is better and more concise to describe the set in roster method.
@@ -200,7 +200,7 @@ $$ A = B $$
 #### Set combinations
 We can also combine sets. There are two main ways on combining sets: *intersection* and *union*.
 
-![Visualization of set combinations on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/set-combo-venn-ex.svg' | relative_url }})
+![Visualization of set combinations on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/set-combo-venn-ex.png' | relative_url }})
 *Visualization of set combinations on a Venn diagram*{: .caption}
 
 **The intersection of the sets refers to the overlap between the members of the sets. It can be denoted by $S \cap E$, referring to the elements that overlap in all sets.** 
@@ -210,7 +210,7 @@ $$ A \cap B $$
 If we have two sets say $C=$ **{4, 3, 10, 9, 11, 23, 1}**{: .mathjax-text} and $D=$ **{3, 6, 9, 12, 15}**{: .mathjax-text}, we would say that the intersection of sets $C$ and $D$, $C \cap D$, is **{3, 9}**{: .mathjax-text}.
 
 <!-- PICTODO: visualization of set intersections -->
-![Visualization of set intersections on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/intersection-venn-ex.svg' | relative_url }})
+![Visualization of set intersections on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/intersection-venn-ex.png' | relative_url }})
 *Visualization of set intersections on a Venn diagram*{: .caption}
 
 **Meanwhile, a union refers to the totality of all sets. Usually denoted with $S \cup E$, referring to all elements included in the sets.**
@@ -219,7 +219,7 @@ $$ A \cup B $$
 
 From the example that was given a few sentences earlier, the union of sets $C$ and $D$ will be **{1, 3, 4, 6, 9, 10, 11, 12, 15, 23}**{: .mathjax-text}.
 
-![Visualization of set unions on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/union-venn-ex.svg' | relative_url }})
+![Visualization of set unions on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/union-venn-ex.png' | relative_url }})
 *Visualization of set unions on a Venn diagram*{: .caption}
 
 There are more than this than sets, it is just the start of journey into reviewing pre-calculus stuff again so I'll just refer to a book which will be in the next section. 🙂
