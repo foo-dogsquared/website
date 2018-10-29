@@ -31,7 +31,7 @@ After you've made decision with the list of icons to be included inside of the S
 
 This is an app composed of two parts: the front-end and the back-end with each having its libraries as shown in the representation of the app's components below:
 
-![The app components]({{ 'assets/pictures/side-projects/simplesvg-sprites/app-components.svg' | relative_url }})
+![The app components]({{ 'assets/pictures/side-projects/simplesvg-sprites/app-components.png' | relative_url }})
 
 The most important thing here (aside from Express) is the [Simple Icons npm package](https://www.npmjs.com/package/simple-icons) since it serves as the database of the whole collection from Simple Icons.
 
@@ -89,7 +89,7 @@ The front-end is mostly built with Vue so that I can easily create the UI that I
 
 The front-end then requests the entire catalog of icons through an HTTP request to `/database` (origin included if you're requesting it outside of the app) and store them to the local storage including with a timestamp. Of course, I made sure to update the database in the front-end by making it request for the database in the same location if it detects that the local day of the user is not the same as before. 
 
-![How I "cache" the database]({{ 'assets/pictures/side-projects/simplesvg-sprites/database-mechanism.svg' | relative_url }})
+![How I "cache" the database]({{ 'assets/pictures/side-projects/simplesvg-sprites/database-mechanism.png' | relative_url }})
 
 This way, I can easily reduce the possible workload of the server by limiting it since the Simple Icons package is surely locked and installed in one version. Although this also leads it to be very disadvantageous when the database is updated in the middle of the day. 
 
