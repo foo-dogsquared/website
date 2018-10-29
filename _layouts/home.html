@@ -9,37 +9,37 @@ layout: default
 
   {{ content }}
 
-  {% if site.pinpost %}
+  {%- if site.pinpost -%}
     <section id="pinned-section">
       <h3>Pinned Posts:</h3>
       {%- include pinpost.html -%}
     </section>
-  {% endif %}
+  {%- endif -%}
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
 
     <!-- Pagination links -->
-    {% for post in paginator.posts %}
+    {%- for post in paginator.posts -%}
     <div class="home-post">
       <h2><a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a></h2>
       {%- include post_meta.html page=post include_link=true -%}
     </div>
-    {% endfor %}
+    {%- endfor -%}
 
     <!-- Pagination links -->
     <div class="pagination">
-      {% if paginator.previous_page %}
+      {%- if paginator.previous_page -%}
         <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">Previous</a>
-      {% else %}
+      {%- else -%}
         <span class="previous disabled">Previous</span>
-      {% endif %}
+      {%- endif -%}
       <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-      {% if paginator.next_page %}
+      {%- if paginator.next_page -%}
         <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next</a>
-      {% else %}
+      {%- else -%}
         <span class="next disabled">Next</span>
-      {% endif %}
+      {%- endif -%}
     </div>
       
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>

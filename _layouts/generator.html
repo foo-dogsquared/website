@@ -2,6 +2,10 @@
 layout: default
 ---
 
+{%- if page.title -%}
+    <h1>{{ page.title }}</h1>
+{%- endif -%}
+
 {%- if content -%}
     {{ content }}
 {%- endif -%}
@@ -11,36 +15,36 @@ layout: default
     https://codinfox.github.io/dev/2015/03/06/use-tags-and-categories-in-your-jekyll-based-github-pages/
  -->
 {%- if page.data -%}
-    {% assign page_data = page.data %}
-    {% assign rawdata = "" %}
-    {% for post in site.posts %}
-        {% assign tdata = post[page_data] | join:'|' | append:'|' %}
-        {% assign rawdata = rawdata | append:tdata %}
-    {% endfor %}
-    {% assign rawdata = rawdata | split:'|' | sort %}
+    {%- assign page_data = page.data -%}
+    {%- assign rawdata = "" -%}
+    {%- for post in site.posts -%}
+        {%- assign tdata = post[page_data] | join:'|' | append:'|' -%}
+        {%- assign rawdata = rawdata | append:tdata -%}
+    {%- endfor -%}
+    {%- assign rawdata = rawdata | split:'|' | sort -%}
 
-    {% assign data = "" %}
-    {% for datum in rawdata %}
-        {% if datum != "" %}
-            {% if data == "" %}
-                {% assign data = datum | split:'|' %}
-            {% endif %}
-            {% unless data contains datum %}
-                {% assign data = data | join:'|' | append:'|' | append:datum | split:'|' %}
-            {% endunless %}
-        {% endif %}
-    {% endfor %}
+    {%- assign data = "" -%}
+    {%- for datum in rawdata -%}
+        {%- if datum != "" -%}
+            {%- if data == "" -%}
+                {% assign data = datum | split:'|' -%}
+            {%- endif -%}
+            {%- unless data contains datum -%}
+                {%- assign data = data | join:'|' | append:'|' | append:datum | split:'|' -%}
+            {%- endunless -%}
+        {%- endif -%}
+    {%- endfor -%}
 
 <div class="keyword__grid">
-    {% for datum in data %}<a class="keywords" href="#{{ datum | slugify }}"> {{ datum }} </a>{% endfor %}
+    {%- for datum in data -%}<a class="keywords" href="#{{ datum | slugify }}"> {{ datum }} </a>{%- endfor -%}
 </div>
 
-{% for datum in data %}
+{%- for datum in data -%}
 <div class="datum__post_list">
     <h2 id="{{ datum | slugify }}">{{ datum }}</h2>
     <ul>
-    {% for post in site.posts %}
-    {% if post[page_data] contains datum %}
+    {%- for post in site.posts -%}
+    {%- if post[page_data] contains datum -%}
     <li>
         <h3>
             <a href="{{site.url}}{{site.baseurl}}{{ post.url }}">
@@ -49,9 +53,9 @@ layout: default
             <small>{{ post.date | date_to_string }}</small>
         </h3>
     </li>
-    {% endif %}
-    {% endfor %}
+    {%- endif -%}
+    {%- endfor -%}
     </ul>
 </div>
-{% endfor %}
+{%- endfor -%}
 {%- endif -%}

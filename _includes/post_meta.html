@@ -7,12 +7,14 @@
         <span title="{{ page.date }}">{{ page.date | date: date_format }}</span>
     </time>
 
-    <span class="reading-minutes" style="margin-left: 1.25em">
-        <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" class="post-meta-icons"><span class="no-of-mins">{{ page.content | number_of_words | divided_by: 225 }}</span> minutes
+    <span class="reading-minutes">
+        <img src="{{ 'assets/main/icons/time-clock.svg' | relative_url }}" class="post-meta-icons">
+        {%- assign wpm = page.content | number_of_words | divided_by: 225 -%}{%- if wpm <= 0 -%}1{%- else -%}{{ wpm }}{%- endif -%} 
+        <span> minute{%- if wpm > 1 -%}s{%- endif -%}</span>
     </span>
 
     {%- if page.categories -%}
-    <span class="post-category" style="margin-left: 1.25em">
+    <span class="post-category">
         <img src="{{ 'assets/main/icons/categories.svg' | relative_url }}" class="post-meta-icons">
         {%- if include_link -%}<a href="{{ site.baseurl }}/data/categories#{{ page.categories }}">{{ page.categories }}</a>
         {%- else -%}<span>{{ page.categories }}</span>{%- endif -%}
@@ -20,6 +22,8 @@
     {%- endif -%}
 
     {%- if page.updatedOn -%}
-    <p class="dt-updated">Updated: <span>{{ page.updatedOn | escape }}</span></p>
+    <span class="dt-updated">
+        <img src="{{ 'assets/main/icons/update.svg' | relative_url }}" class="post-meta-icons"><span>{{ page.updatedOn | escape }}</span>
+    </span>
     {%- endif -%}
 </p>
