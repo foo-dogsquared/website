@@ -267,7 +267,7 @@ I happen to know the consequences of having more voltage and having no resistanc
 Also note that I may create a post on basic electronics once I got the hang of it. ~~Yeah, rest in peace, my savings, you're now free.~~
 
 ## Article of the Week
-#### [Give Yourself Permission to Suck: It's the Only Way to Learn by *Alan Henry*](https://lifehacker.com/5957937/give-yourself-permission-to-suck-its-the-only-way-to-learn)
+### [Give Yourself Permission to Suck: It's the Only Way to Learn by *Alan Henry*](https://lifehacker.com/5957937/give-yourself-permission-to-suck-its-the-only-way-to-learn)
 It's a timely article of my year... Yeah, this tells you about how you should make expectations of yourself especially when 
 you want to have another skill in your belt. It is common sense when you think about it but we all start from nothing. To reach 
 at the top of the mountain, we have to climb it and those who stays only stays wherever they are. 
@@ -280,7 +280,7 @@ ahead and read some stuff about that and let yourself unstuck from the chains of
 yourself from the very nothing and build from there.
 
 ## Book of the Week
-#### [Think Like a Programmer from *V. Anton Spraul*](https://www.amazon.com/Think-Like-Programmer-Introduction-Creative/dp/1593274246)
+### [Think Like a Programmer from *V. Anton Spraul*](https://www.amazon.com/Think-Like-Programmer-Introduction-Creative/dp/1593274246)
 To be honest with you, I barely started reading this book but I'll give my recommendation to you for this week ~~since I don't 
 have any other good picks for this entry~~. I think the title pretty much sums it up what is it all about: it teaches you how 
 to think computationally (apparently, it is a word). Well, it does expects from the reader to know something about C++ but 
@@ -289,7 +289,7 @@ outside of code and apply it into your code in order to solve problems because i
 after all. Yeah, that's all I can say about it, NEXT!
 
 ## Podcast Episode of the Week
-#### [Autodidactism from *Adam Savage's Tested*](https://www.tested.com/science/452732-autodidacticism-182013/)
+### [Autodidactism from *Adam Savage's Tested*](https://www.tested.com/science/452732-autodidacticism-182013/)
 Another week, another podcast episode from another podcast series. This time is a podcast series called 
 [Tested](https://www.tested.com/) by Adam Savage, one of the former hosts of the famous show MythBusters, according to my 
 research. I only heard one episode from this podcast which is the podcast episode of the week, obviously. So the subject is 
@@ -299,7 +299,7 @@ looking for one. People telling their experiences about a particular subject is 
 unique take or not. It is the biggest reason why I picked it as the podcast episode of the week. 
 
 ## Site of the Week
-#### [Freebbbles](http://freebbble.com/)
+### [Freebbbles](http://freebbble.com/)
 I'm prettty sure I got the spellling right. Anyways, if you are familiar with [dribbble](https://dribbble.com/), you'll notice 
 the similarities and probably get the feeling that this is something about a site on design resources. Well, if you have that 
 gut feeling, you'd be right. It is in fact, a site with design freebies made by the Dribbble community. Fonts, icon sets, 
@@ -310,7 +310,7 @@ make into the reader --- something that feels like a font written by a semi-prof
 I'll just look more into it in the meantime.
 
 ## Tool of the Week
-#### [Xtreme Download Manager](https://subhra74.github.io/xdm/)
+### [Xtreme Download Manager](https://subhra74.github.io/xdm/)
 It is one of the tools that I used in a *very* long time because of its usability. The function is in the name: a download 
 manager, you know along the likes of [IDM](https://www.internetdownloadmanager.com/) on Windows, or 
 [uget](http://ugetdm.com/) on Linux. It has the same features as your regular download manager: resuming downloads in case it is 
@@ -322,7 +322,7 @@ for that) and an option to automatically shut down whenever you finished your qu
 have is that you have to download an appropriate extension of your browser in order to get automatic takeover of the download. 
 
 ## Watch of the Week
-#### [Flow: the Secret to Happiness by *Mihaly Csikszentmihalyi*](https://www.youtube.com/watch?v=fXIeFJCqsPs)
+### [Flow: the Secret to Happiness by *Mihaly Csikszentmihalyi*](https://www.youtube.com/watch?v=fXIeFJCqsPs)
 You know those moments where you feel like in the zone, a continuous feeling that makes you very focused and pretty much into 
 it whatever you're doing. That is the subject of the talk given by a famed psychologist, Mihaly Csikszentmihalyi. I 
 will very much butcher the pronounciation of it if I were to orally speak that name (also, his last name is pronounced as 
@@ -346,7 +346,7 @@ the challenges, in effect going on through failures and mistakes, the person can
 a couple of frustration, probably.
 
 ## Channel of the Week
-#### [Daniel Shiffman from The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw) 
+### [Daniel Shiffman from The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw) 
 I've watched this guy before from the official tutorial of [Processing](https://processing.org), 
 [Hello Processing](http://hello.processing.org/). All I can say about him is that he is quite energetic and makes me listen to 
 his videos even more. Which is now why I recommend to you his YouTube channel. Once you get past of his presentation around his 
