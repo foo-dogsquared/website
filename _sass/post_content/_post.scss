@@ -83,6 +83,28 @@
       @include relative-font-size(1.125);
     }
   }
+
+  h4 ~ h5 {margin-top: $spacing-unit * 1.25;}
+  h4 + h5 {margin-top: 0;}
+
+  h5 {
+    @include relative-font-size(1.20);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.120);
+    }
+  }
+
+  h5 ~ h6 {margin-top: $spacing-unit * 1.20;}
+  h5 + h6 {margin-top: 0;}
+
+  h6 {
+    @include relative-font-size(1.15);
+
+    @include media-query($on-laptop) {
+      @include relative-font-size(1.115);
+    }
+  }
 }
 
 .caption {
