@@ -57,6 +57,9 @@ layout: default
     {%- include disqus_comments.html -%}
   {%- endif -%}
   
+  <a href="{{ site.home_link }}" class="home-link-logo">
+    <img src="{{ 'assets/main/personal-logo.svg' | relative_url }}">
+  </a>
   {%- include addl-post-fns.html -%}
   {%- include libraries.html -%}
 </article>

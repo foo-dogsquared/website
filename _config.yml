@@ -45,6 +45,7 @@ plugins:
   - jekyll-redirect-from
 
 pinpost: ["A Freebie's Resource List (Mostly Related to Programming)"]
+home_link: https://foo-dogsquared.github.io
 
 google_analytics: UA-126718538-1
 

@@ -152,3 +152,14 @@
   height: 1.5em;
   padding: 0 .2em;
 }
+
+.home-link-logo {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  transition: .3s;
+  opacity: .5;
+  margin-top: 2em;
+
+  &:hover {opacity: 1;}
+}
