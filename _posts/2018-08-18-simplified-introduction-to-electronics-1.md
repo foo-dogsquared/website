@@ -43,7 +43,7 @@ components and you won't have a big worry, probably.)
 
 <!-- PICTODO: example of a workspace -->
 <img src="{{ 'assets/pictures/intro-to-electronics/my-workspace.png' | relative_url }}" alt="My workspace.">
-*Also, welcome to my chaotic workspace, everybody.*{: .caption}
+<p class="caption">*Also, welcome to my chaotic workspace, everybody.*</p>
 
 Usually, with electronics, you would want to have some basic components like LEDs, resistors, capacitors, switches, integrated circuits, and 
 transistors and some tools like a breadboard, wire splicer, tweezers, and your ol' handy-dandy paper and pen because we are not 
@@ -61,7 +61,7 @@ for a very quick headstart:
 
 <!-- PICTODO: insert image here of the different electronic components like the breadboard, transistors, resistors, wires, and such -->
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Componentes.JPG/1200px-Componentes.JPG">
-*Can you identify some parts at the end of the part two of this entry?*{: .caption}
+<p class="caption">*Can you identify some parts at the end of the part two of this entry?*</p>
 
 With all of these said, it is usually recommended for a complete beginner to just buy an beginners' electronic kit since all of the materials 
 needed to get started are already there. You would just have to practice to choose components yourself on the later part when you are more 
@@ -174,7 +174,7 @@ Take note of this analogy as we will continuously add comparisons as we go on fu
 
 <!-- PICTODO: electrical circuit and water pipe analogy -->
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Electronic-hydraulic_analogy.svg" alt="Water pipe analogy">
-*Water pipe analogy (I have to put a picture there)*{: .caption}
+<p class="caption">*Water pipe analogy (I have to put a picture there)*</p>
 
 How does an electric flow occurs?
 
@@ -188,13 +188,13 @@ around them.
 
 <!-- PICTODO: picture of a chain of atoms -->
 <img src="{{ 'assets/pictures/intro-to-electronics/chain-of-atoms.jpg' | relative_url }}" alt="A chain of atoms">
-*A chain of atoms*{: .caption}
+<p class="caption">*A chain of atoms*</p>
 
 Let's imagine there's an electron is moving for whatever reason.
 
 <!-- PICTODO: picture of a moving electron with its path -->
 <img src="{{ 'assets/pictures/intro-to-electronics/atom-chain-movement.jpg' | relative_url }}" alt="A chain of atoms">
-*Then a chain reaction will occur*{: .caption}
+<p class="caption">*Then a chain reaction will occur*</p>
 
 Since electrons repel from each other, whenever there's a movement of an electron, surely there will be other electrons that will be affected 
 from it. Even though this is not true for most of the time, we can say that we can move one electron without affecting the other.
@@ -203,7 +203,7 @@ From the example above, let's scale things up from a chain of atoms to an assemb
 
 <!-- PICTODO: atom arrangement of a conductor -->
 <img src="{{ 'assets/pictures/intro-to-electronics/conductor-atom-composition.jpg' | relative_url }}" alt="The atoms inside of a conductor, probably">
-*Simplified representation of the atom structure inside of a conductor*{: .caption}
+<p class="caption">*Simplified representation of the atom structure inside of a conductor*</p>
 
 Since conductors have an arrangement that is loosely bound only held by protons that stay in one place preserving the structure of the 
 metal, electrons can freely move jumping from one atom to another. From that point, we can really see the chaotic and numerous movements that 

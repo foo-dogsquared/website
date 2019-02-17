@@ -36,7 +36,7 @@ Let's say that we are an archaeologist (you know, like Indiana Jones) trying to 
 If we want to extract what is the exact story in the hieroglyphics, we might want the light to shine only on a limited area to prevent distracting ourselves from reading other parts and cutting our reading and translating session. Not only do we have a light that limits to a certain area but also it gives off a brighter light compared when we move the flashlight far away from the wall.
 
 ![The area of the light when it is near from the surface]({{ 'assets/pictures/self-learning-series/personal-workflow/flashlight-focus-mode-analogy.png' | relative_url }})
-*What usually when we have the flashlight near the surface*{: .caption}
+<p class="caption">*What usually when we have the flashlight near the surface*</p>
 
 That's our focus mode from a learning perspective. Obviously, the light represents our brain and the writings in the wall represent the idea or the concept that we try to understand or solve. **We only shine on certain information to be used in our situation that mostly needs concentration.** Examples include solving a math problem, giving directions to a known place, programming a simple app, and reading a textbook. When we have entered in this mode, not only that the scope of our focus narrows but also we have a higher precision to retrieve more relevant information.
 
@@ -50,7 +50,7 @@ That's where the other mode comes into the scene: the diffused mode. But first, 
 On the other hand, when we want to skim through the hieroglyphics to know what it is about, we may want to move the flashlight farther away from the wall to produce a larger but softer light, enabling us to see the writings altogether. From there, we just dart our eyes around the different hieroglyphics, getting clues everywhere we could salvage, and trying to connect to make up a summary.
 
 ![The area of the light when it is far away from the surface]({{ 'assets/pictures/self-learning-series/personal-workflow/flashlight-diffused-mode-analogy.png' | relative_url }})
-*What usually when we move the flashlight farther away*{: .caption}
+<p class="caption">*What usually when we move the flashlight farther away*</p>
 
 This is our diffused mode in that perspective. **Diffused mode is the mode wherein we feel relaxed and move away from focusing**. It may also make us feel like we're not learning at all but it is generally not the case. 
 
@@ -138,7 +138,7 @@ Basically, you have a set number of the box. Each of those boxes represents the 
 Now that we have the set of boxes ready, we have to make the solutions through flash cards. 
 
 ![Leitner system example]({{ 'assets/pictures/self-learning-series/personal-workflow/leitner-system-example.png' | relative_url }})
-*An example of using the Leitner system*{: .caption}
+<p class="caption">*An example of using the Leitner system*</p>
 
 All of the flash cards start with the first box. Basically, you try to recall information that is written in the flash card. If you succeed, you promote the card into the next box. **Otherwise, it would be there to stay or if the card is already promoted, it would go back to the first box, no matter where it is**. This is to force you to learn more about it. 
 
@@ -205,7 +205,7 @@ Here's how to use the Cornell paper [based on the university that is named after
 First, divide the Cornell note paper into 4 sections. While there is no set rules or anything, most of the time, the Cornell notes are usually divided in this way: 
 
 ![Parts of a Cornell note]({{ 'assets/pictures/self-learning-series/personal-workflow/cornell-note-parts.png' | relative_url }})
-*Parts of a Cornell note*{: .caption}
+<p class="caption">*Parts of a Cornell note*</p>
 
 As you can see, the biggest section belongs to the note-taking column. While the cue column is on the other side of the note-taking column, as long as they are in the same line and leaving the cue column a moderate amount of space. The summary is at the bottom of the paper, leaving a considerate amount of space. With that said, obviously, the name of the subject has the smallest section.
 
@@ -267,7 +267,7 @@ Instead of practicing overlearning from the get-go, we should move on to the nex
 The practice of deliberate practice is indeed nice but there are some points that we have to make. This particular method at the end of the day is still a kind of practice. All practices have the tendency to instill some ideas into our minds. Overlearning can hammer down the points we have learned. Deliberately practicing can instill new perspectives, ideas, and concepts that we often need to learn and understand in order to become a more effective student of our chosen field. 
 
 ![Both methods in an example workflow]({{ 'assets/pictures/self-learning-series/personal-workflow/overlearning-and-deliberate-practice-workflow.png' | relative_url }})
-*Both methods in an example workflow*{: .caption}
+<p class="caption">*Both methods in an example workflow*</p>
 
 However, there are also moments that we practice without the prerequisite knowledge as some sort of a practice test. This could lead to a bad start of a learning session. There is this phenomenon called the *Einstellung effect* **wherein our pre-existing knowledge can impede our ability to learn about the new ideas**. 
 
@@ -328,7 +328,7 @@ You can make up other options that are suited in your learning style. In my case
 Remember the [remote repository that contains notes on stuff I didn't know](https://github.com/foo-dogsquared/a-remote-repo-full-of-notes-of-things-i-do-not-know-about)? Yes, that's where my second version of notes are kept. After I learn about a concept or a subject matter and a few weeks or sessions have passed, I will take a look on my paper notebook, remember as much as I can, and start writing on my text editor as if I'm explaining it to my colleagues.
 
 ![The two notes system workflow]({{ 'assets/pictures/self-learning-series/personal-workflow/two-notes-system-workflow.png' | relative_url }})
-*The two notes system workflow*{: .caption}
+<p class="caption">*The two notes system workflow*</p>
 
 Basically, this so-called "two notes system" that I created is just a review note or making a second version of the notes.
 

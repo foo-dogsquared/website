@@ -90,7 +90,7 @@ Now this allocated resource, the memory set, do have individual segments that ma
 
 <!-- TODO: Introduce the main segments of the memory in C (DONE) -->
 <img src="{{ 'assets/pictures/intro-to-memory/memory_segment.jpg' | relative_url }}" style="width:500px;" alt="Memory segment in C">
-*The mistake in writing on the 'heap' part is glaring.*{: .caption}
+<p class="caption">*The mistake in writing on the 'heap' part is glaring.*</p>
 <!-- insert memory segment drawing here -->
 
 Starting from the low address, we have the:
@@ -208,7 +208,7 @@ value*.
 Well, we can take the idea outside, shall we.
 We can say that the concept of pointers are similar to URLs, which is a form of address to the file.
 <img src="{{ 'assets/pictures/intro-to-memory/diff_url_addresses.jpg' | relative_url }}" alt="Another visualization of my stuff, don't mind the drawing.">
-*Like I said, don't mind the drawing.*{: .caption}
+<p class="caption">*Like I said, don't mind the drawing.*</p>
 
 We can get the very exact file through different addresses but then, on the computer's term, they are considered different. 
 Plus if one of the maintainer updates a file, only one of them would be updated.
@@ -247,7 +247,7 @@ As one might conclude, the pointer variable needs an address in order to make it
 the initialization of the pointer variable.
 
 <img src="{{ 'assets/pictures/intro-to-memory/pointers.jpg' | relative_url }}" alt="Simple pointer visualization">
-*Uhh... the design around the text is a design decision, yup. Not a mistake that has been decided into a design by accident at all. Yeah, it looks worse than I thought.*{: .caption}
+<p class="caption">*Uhh... the design around the text is a design decision, yup. Not a mistake that has been decided into a design by accident at all. Yeah, it looks worse than I thought.*</p>
 
 If we would describe it what happening on line 6 on the code example above, we would say that we assign a pointer named `i` that 
 points to the memory location which contains an integer, `7`. On line 8, we assign a pointer named `f` that points to the memory 

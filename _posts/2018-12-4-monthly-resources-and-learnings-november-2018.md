@@ -154,7 +154,7 @@ As previously said, in mathematics, we usually represent numbers in formulas wit
 
 $$ a^2 + b^2 = c^2 $$
 
-*The Pythagorean theorem*{: .caption}
+<p class="caption">*The Pythagorean theorem*</p>
 
 We could plug any values and solve for the unknown, if possible.
 
@@ -168,7 +168,7 @@ Assuming $a$ is equal to 3 and $c$ is equal to 5, find the value of $b$.
 - $ \sqrt{b^2} = \sqrt{16} $
 - $ b = 4 $
 
-*Step-by-step solution of the problem*{: .caption}
+<p class="caption">*Step-by-step solution of the problem*</p>
 
 Logic has a concept similar to representing values with symbols. 
 
@@ -234,7 +234,7 @@ $$ \text{~}A $$
 
 $$ \text{It is not the case that } A $$
 
-*Symbolic representation of the usage*{: .caption}
+<p class="caption">*Symbolic representation of the usage*</p>
 
 Example:
 - It is not the case that all dogs are ferocious animals.
@@ -271,7 +271,7 @@ $$ A \text{ & } B $$
 
 $$ A \text{ and } B $$
 
-*Symbolic representation of the usage*{: .caption}
+<p class="caption">*Symbolic representation of the usage*</p>
 
 Example:
 - Ferris has no multimeter and Gremlinda has no soldering tools.
@@ -298,7 +298,7 @@ $$ A \wedge B $$
 
 $$ A \text{ or } B $$
 
-*Symbolic representation of the usage*{: .caption}
+<p class="caption">*Symbolic representation of the usage*</p>
 
 This time, statements that are connected by the operator is now called a *disjunct*. If either disjunct is true then the whole statement is considered to be true. The compound statement will only be false if all disjuncts were false.
 
@@ -325,7 +325,7 @@ Formal symbols for the conditional operator is an arrow ($\implies$) or a horses
 
 $$ A \implies B $$
 
-*Symbolic representation of the usage*{: .caption}
+<p class="caption">*Symbolic representation of the usage*</p>
 
 For verbal representation of the statement, it could look like this:
 

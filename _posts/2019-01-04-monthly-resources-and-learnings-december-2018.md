@@ -39,12 +39,12 @@ The process of testing depends on your approach on the way to realizing your pro
 Test-first development, as indicated by its name, is the approach of developing programs by building tests first before we start actually starting the development process. 
 
 ![Test-first development workflow]({{ 'assets\pictures\self-learning-series\december-2018\test-first-development-workflow.png' | relative_url }})
-*Test-first development workflow*{: .caption}
+<p class="caption">*Test-first development workflow*</p>
 
 A repetition of this process throughout the development process turns test-first development into test-driven development. A very simple way on how to think about this revolves around the phrase, **red, green, refactor**, as you'll see why that is. 
 
 ![Visualization of the phrase]({{ 'assets\pictures\self-learning-series\december-2018\red-green-refactor.png' | relative_url }})
-*Visualization of the phrase*{: .caption}
+<p class="caption">*Visualization of the phrase*</p>
 
 The core of this technique revolves around these three phases that are indicated in each word of the phrase:
 
@@ -78,7 +78,7 @@ Like a security guard, you would have to "hire" (install) a CI system. Well, jus
 Using a CI system is one way on how to effective use code tests. In certain situations where everyone has their clone of the source code, they would have done some testing on their own machine.
 
 ![CI system example workflow]({{ 'assets/pictures/self-learning-series/december-2018/ci-system-workflow.png' | relative_url }})
-*CI system example workflow*{: .caption}
+<p class="caption">*CI system example workflow*</p>
 
 However, this also opens up the possibility of someone forgetting to test whenever they contribute into the codebase. Wouldn't be easier if there is one central server that can check and test their contribution? That's what modern CI systems thrive to solve.
 

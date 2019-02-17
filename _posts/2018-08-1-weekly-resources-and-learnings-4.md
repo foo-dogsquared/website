@@ -329,7 +329,7 @@ will very much butcher the pronounciation of it if I were to orally speak that n
 'chik-sent-mi-ha-yi', according to the YouTube comments).
 
 <img src="https://78.media.tumblr.com/f346da16707adaeec7e5e5c490070c4d/tumblr_nnsu1r37wH1qe60t4o1_400.gif">
-*Into the zone we go*{: .caption}
+<p class="caption">*Into the zone we go*</p>
 
 I suggest that you watch the video in order to get the idea from the psychologist himself since the following statements are 
 pretty much the fruit of my researching labors (and unlike Csikszentmihalyi, I'm not certified for this so you better watch it).

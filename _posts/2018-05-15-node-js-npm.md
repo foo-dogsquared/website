@@ -188,7 +188,7 @@ empty directory (or you can just download it <a href="{{ '/assets/dl-files/node-
   "license": "MIT"
 }
 ```
-*package.json*{: .caption}
+<p class="caption">*package.json*</p>
 
 Then once you have the file in place, run `npm install` then wait until it has been resolved. Next, enter `npm ls --depth=0` to 
 see the packages installed and you'll see the packages listed in the `dependencies` field in the `.json` file has been installed.
