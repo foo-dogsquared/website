@@ -74,6 +74,7 @@ stuff outside of programming (say [Khan Academy](https://khanacademy.org) for ma
 - [MDN Web Docs](https://developer.mozilla.org/en-US/) &mdash; **(very much recommended)**; if you're trying to learn web development and programming in general, this can be a hub for it
 
 ## Books
+- [The Architecture on Open Source Applications](http://aosabook.org/en/index.html) &mdash; A bundle of books that are free to read online
 - [Algorithms (by *Jeff Erickson*)](http://algorithms.wtf/) &mdash; it's a good book on algorithms (though not recommended as a first book on data structures and algorithms)
 - [BC Campus Open Ed Open Textbook Database](https://open.bccampus.ca/)
 - [Bookboon](https://bookboon.com/) &mdash; offers premium books as well
@@ -82,9 +83,12 @@ stuff outside of programming (say [Khan Academy](https://khanacademy.org) for ma
 - [Free Computer Books](http://freecomputerbooks.com)
 - [Free Programming Books](https://github.com/EbookFoundation/free-programming-books) &mdash; **(recommended)**; a GitHub repo by the E-Book Foundation
 - [Free Science Books](https://github.com/EbookFoundation/free-science-books) &mdash; another GitHub repo by the E-Book Foundation
+- [Game Programming Patterns](http://gameprogrammingpatterns.com)
 - [Green Tea Press](https://greenteapress.com/wp/) &mdash; free computer science-related ebooks
 - [How to Design Programs, 2nd Edition (HTML version)](https://htdp.org/)
 - [Introduction to Embedded Systems, 2nd Edition (2017, Lee and Seshia)](https://ptolemy.berkeley.edu/books/leeseshia/download.html)
+- [Invent with Python](https://inventwithpython.com/) &mdash; A collection of free Python online books authored by Al Sweigart
+- [Learn You A Haskell](http://learnyouahaskell.com/) 
 - [Math Wiki](https://math.wikia.com/wiki/Math_Wiki) &mdash; well, it is structured like a textbook and it is said that the Math Wiki is a textbook so there's that
 - [MIT Press Open](https://mitpress.mit.edu/mit-press-open) &mdash; yes, free and open access books from MIT Press
 - [Notes for Professionals](http://book.goalkicker.com/) &mdash; **(very much recommended)**; made by folks at Stack Overflow from the Stack Overflow documentation for variety of languages and despite the title, it is quite helpful for beginners like me, as well; also, it is frequently updated like once per week
