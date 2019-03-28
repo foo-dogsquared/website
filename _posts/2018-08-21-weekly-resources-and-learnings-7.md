@@ -103,6 +103,10 @@ tool. Anyways, this has been recommended to me after giving some feedback about 
 on my most recent *Simplified!* post, I'm now working with this tool to improve on it. Well, that reminds me to make this as a habit and 
 include it in my writing toolbelt.
 
+UPDATE FROM THE FUTURE: Hello! I'm from the future and I just want to say something about typos. Irene Chrysler have contacted me about the potential effects of typos (and implicitly more reasons to use this app 😛) and linked me to this [report about the costs of typos in your website and advertisements](https://www.websiteplanet.com/blog/grammar-report/). It's kinda common sense when you think about but the linked report does the hard work to give a detailed answer for that. Follow the link and read through it to see more details about it.
+
+Thanks once again to Irene Chrysler for sharing it.
+
 ## Watch of the Week
 ### [Learning and Memory: How it Works and When it Fails](https://www.youtube.com/watch?v=a_HfSnQqeyY)
 If you have a *lot* of time to watch this 2-hour video, then go ahead and watch this in one gulp or you can go and watch it in sessions just 
