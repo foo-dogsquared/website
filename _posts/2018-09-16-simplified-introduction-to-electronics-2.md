@@ -57,19 +57,19 @@ Closed circuits are basically what circuits are, providing the electronic compon
 work since electrons continuously move.
 
 ![A closed circuit example in schematics]({{ 'assets/pictures/intro-to-electronics/closed-circuit.svg' | relative_url }})
-<p class="caption">*A closed circuit of an LED with a resistor*</p>
+<p class="caption">A closed circuit of an LED with a resistor</p>
 
 Open circuits, on the other hand, did not make a complete closure or a break in the path, leaving the electrons to move but not 
 continuously go in a loop. In other words, there will be no flow or current of electrons despite that there is a source of voltage.
 
 ![An open circuit example in schematics]({{ 'assets/pictures/intro-to-electronics/open-circuit.svg' | relative_url }})
-<p class="caption">*An open circuit of an LED with a resistor*</p>
+<p class="caption">An open circuit of an LED with a resistor</p>
 
 You might notice that the term *open circuit* is a bit of an oxymoron since the characteristic of a circuit is that it must complete a 
 loop. To make things less confusing, we mostly refer the term by classifying the design of the circuit. 
 
 ![A switch circuit in schematics]({{ 'assets/pictures/intro-to-electronics/switch-circuit.svg' | relative_url }})
-<p class="caption">*A switch circuit*</p>
+<p class="caption">A switch circuit</p>
 
 Take note of a switch circuit as an example. Referring to the schematic given above, we have a simple circuit with an LED, a resistor, and a 
 push button switch which will only let electric charges flow when the button is pushed. An inactive switch basically makes the circuit open 
@@ -94,7 +94,7 @@ current once we are more familiar with those elements integrated into circuit bu
 You've already saw some examples if you did not skip some parts, mostly referring the open and closed circuit illustration above. 
 
 ![A simple schematic]({{ 'assets/pictures/intro-to-electronics/closed-circuit.svg' | relative_url }})
-<p class="caption">*A very simple example of an electronic schematic*</p>
+<p class="caption">A very simple example of an electronic schematic</p>
 
 Reading and understanding a schematic is a very important skill for an engineer even when it is not about electronics. Without it, we 
 won't be able to understand what the circuit is all about, thus we would not be able to troubleshoot and debug it as effective as we would 
@@ -145,7 +145,7 @@ resistance in the triangle, in this case, the \\(R\\), then you would see the fo
 remember it. Just remember one of the formula then you have the whole menu. You can just derive the other formulas algebraically.
 
 ![Example usage]({{ 'assets/pictures/intro-to-electronics/ohms-law-triangle-use.jpg' | relative_url }})
-<p class="caption">*An example usage of the triangle*</p>
+<p class="caption">An example usage of the triangle</p>
 
 <!-- TODO: Individual parts of the components and materials -->
 ## Battery
@@ -157,7 +157,7 @@ There are different kinds of batteries but knowing what kind of current they gen
 generates DC or electricity that flows only in one direction commonly looks like this:
 
 ![Schematic symbol of a battery](https://upload.wikimedia.org/wikipedia/commons/b/be/Symbol_baterie_2.svg)
-<p class="caption">*Schematic symbol of a battery*</p>
+<p class="caption">Schematic symbol of a battery</p>
 
 There are different sources of voltage but as a beginner, we'll start out with something simple and something that we're quite familiar with: 
 the battery cell. I call it a battery cell since it turns out that a battery is *group of units working together* and a 
@@ -194,7 +194,7 @@ LED is just one of those kinds of diode.
 The symbol of the LED is simply the symbol of the diode but with two arrows.
 
 ![Schematic symbol of an LED]({{ 'assets/pictures/intro-to-electronics/led-symbol.svg' | relative_url }})
-<p class="caption">*Schematic symbol of an LED*</p>
+<p class="caption">Schematic symbol of an LED</p>
 
 Just a simple note: the line after the triangle represents the cathode or the negative electrode of the LED. It is easier to think that 
 the line is simply the negative sign just rotated 90°.
@@ -229,7 +229,7 @@ A resistor's symbol may vary but the common variations of it is a zigzag symbol 
 resistors, the symbols for each is different.
 
 ![Schematic symbol of a resistor]({{ 'assets/pictures/intro-to-electronics/resistors-symbol.svg' | relative_url }})
-<p class="caption">*Schematic symbol of a resistor*</p>
+<p class="caption">Schematic symbol of a resistor</p>
 
 To see the utmost importance of resistors, you can try to connect an LED directly without any resistors if you have a spare LED. If you did 
 that, the LED might light but it goes out quickly and burn out, as in literally burst and destroyed from the heat from taking too much 
@@ -295,7 +295,7 @@ The symbols for both types of capacitors are the same except the polarized capac
 capacitor has a polarity.
 
 ![Schematic symbol of a capacitor]({{ 'assets/pictures/intro-to-electronics/capacitors-symbol.svg' | relative_url }})
-<p class="caption">*Schematic symbol of a polarized and non-polarized capacitor*</p>
+<p class="caption">Schematic symbol of a polarized and non-polarized capacitor</p>
 
 Fun fact, the RAM in your computer is made up of billions of these things representing 0s and 1s. [Put some shameless plugging of one of your articles in here]({{ site.baseurl }}{% post_url 2018-08-7-simplified-introduction-to-the-memory-and-memory-management %}).
 
@@ -382,7 +382,7 @@ shall we?
 Before we discuss how it works, here's the symbol for the inductor which is just a wavy line or something.
 
 ![Schematic symbol of the inductor]({{ 'assets/pictures/intro-to-electronics/inductor-symbol.svg' | relative_url }})
-<p class="caption">*Schematic symbol of the inductor*</p>
+<p class="caption">Schematic symbol of the inductor</p>
 
 As you may have encountered on your high school physics classes, electricity and magnetism are related in a way. As (accidentally) discovered 
 then observed by Hans Christian Oersted in the 19th century through a compass needle nearby a battery, a magnetic field can be generated 
@@ -516,7 +516,7 @@ pn-junctions, creating a layer depending on the variants placed on the center. M
 
 <!-- PICTODO: NPN transistor and PNP transistor junction picture -->
 ![BJT types]({{ 'assets/pictures/intro-to-electronics/bjt-transistor-types.jpg' | relative_url }})
-<p class="caption">*The types of BJT: there's the PNP transistor (left) and the NPN transistor (right).*</p>
+<p class="caption">The types of BJT: there's the PNP transistor (left) and the NPN transistor (right).</p>
 
 Commonly, there are three leads in a transistor: the *emitter*, the *base*, and the *collector*. Each of the leads are attached to one of the 
 section in the junction. The base is usually in the center but you would have to search the datasheet for the transistor first to verify it. 
@@ -590,7 +590,7 @@ electrical pins. This kind of form factor is also suitable for building circuits
 gutter in order to fit them easily.
 
 ![DIP](https://upload.wikimedia.org/wikipedia/commons/8/80/Three_IC_circuit_chips.JPG)
-<p class="caption">*Integrated circuits in dual in-line package*</p>
+<p class="caption">Integrated circuits in dual in-line package</p>
 
 With all of those functions and not to mention, the massive amount of possibilities of differences between each chips, you have to find 
 what they do exactly. Fortunately, you can easily reference that by looking at the model/part number that is imprinted at the front and 
@@ -607,7 +607,7 @@ boolean outputs. If you're familiar with programming, you most likely encountere
 that lies on both of those which is boolean algebra.
 
 ![Different logic gates]({{ 'assets/pictures/intro-to-electronics/diff-logic-gates.svg' | relative_url }})
-<p class="caption">*Different logic gates*</p>
+<p class="caption">Different logic gates</p>
 
 <!-- TODO: Introduce the breadboard -->
 ## The breadboard
@@ -632,7 +632,7 @@ If we would remove the piece that holds our breadboard and get the insides of it
 strips of metal. I'll discuss that at a later point in the post.
 
 ![Electrical connections of a breadboard]({{ 'assets/pictures/intro-to-electronics/breadboard-electrical-connections.jpg' | relative_url }})
-<p class="caption">*Electrical connections of a typical breadboard*</p>
+<p class="caption">Electrical connections of a typical breadboard</p>
 
 As said from [a video from ScienceBuddiesTV](https://www.youtube.com/watch?v=6WReFkfrUIk):
 > To use the breadboard, you need to understand how the strips are connected into each hole.

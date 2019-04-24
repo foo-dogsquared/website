@@ -30,7 +30,7 @@ Furthermore, HTTP is a stateless protocol, meaning none of the data will be save
 In a communication context that uses HTTP, we know that the machine that sends out data is called the *client* while the machine that listen to the requests and responds with the appropriate data is the *server*.
 
 ![HTTP with the client-server model]({{ 'assets/pictures/self-learning-series/october-2018/http-client-server-model.png' | relative_url}})
-<p class="caption">*HTTP with the client-server model*</p>
+<p class="caption">HTTP with the client-server model</p>
 
 OK. So we know that the communication process between two machines starts with the client requesting something. From the client, it sends out an *HTTP request* which consist of the headers and the body.
 
@@ -166,7 +166,7 @@ Here's how we would define a set $S$ verbally: let $S$ be the set of vowels in t
 If we would to read sets in set-builder notation, we could read (of what was denoted in the above example) as: *the set of all $x$ such that $x$ is a vowel*.
 
 ![Reading a set in set-builder notation]({{ 'assets/pictures/self-learning-series/october-2018/set-builder-notation-example-read.png' | relative_url }})
-<p class="caption">*How to read the expression*</p>
+<p class="caption">How to read the expression</p>
 
 Of course, each way of denoting sets have its pros and cons. With verbal form, we have a free way on how we could describe the elements on our set but given with the precise nature of mathematics, it needs to be accurate and stick to the usual indicators to be used in our sentences. In roster form needing to list every elements in the set, it depends on the size of the set. Lastly, with the set-builder notation, it gives us what I think the most flexible option but in some cases like a smaller set, it is better and more concise to describe the set in roster method.
 
@@ -201,7 +201,7 @@ $$ A = B $$
 We can also combine sets. There are two main ways on combining sets: *intersection* and *union*.
 
 ![Visualization of set combinations on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/set-combo-venn-ex.png' | relative_url }})
-<p class="caption">*Visualization of set combinations on a Venn diagram*</p>
+<p class="caption">Visualization of set combinations on a Venn diagram</p>
 
 **The intersection of the sets refers to the overlap between the members of the sets. It can be denoted by $S \cap E$, referring to the elements that overlap in all sets.** 
 
@@ -211,7 +211,7 @@ If we have two sets say $C=$ **{4, 3, 10, 9, 11, 23, 1}**{: .mathjax-text} and $
 
 <!-- PICTODO: visualization of set intersections -->
 ![Visualization of set intersections on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/intersection-venn-ex.png' | relative_url }})
-<p class="caption">*Visualization of set intersections on a Venn diagram*</p>
+<p class="caption">Visualization of set intersections on a Venn diagram</p>
 
 **Meanwhile, a union refers to the totality of all sets. Usually denoted with $S \cup E$, referring to all elements included in the sets.**
 
@@ -220,7 +220,7 @@ $$ A \cup B $$
 From the example that was given a few sentences earlier, the union of sets $C$ and $D$ will be **{1, 3, 4, 6, 9, 10, 11, 12, 15, 23}**{: .mathjax-text}.
 
 ![Visualization of set unions on a Venn diagram]({{ 'assets/pictures/self-learning-series/october-2018/union-venn-ex.png' | relative_url }})
-<p class="caption">*Visualization of set unions on a Venn diagram*</p>
+<p class="caption">Visualization of set unions on a Venn diagram</p>
 
 There are more than this than sets, it is just the start of journey into reviewing pre-calculus stuff again so I'll just refer to a book which will be in the next section. 🙂
 

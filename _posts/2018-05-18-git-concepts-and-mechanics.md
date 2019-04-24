@@ -15,7 +15,7 @@ Well, IDK how to write an introduction for this, so let's get on to the main bra
 what Git really is.
 
 <img src="{{ 'assets/pictures/git-logo.png' | relative_url }}" alt="Git Logo" width="250px">
-<p class="caption">*Git Logo (as of 2018)*</p>
+<p class="caption">Git Logo (as of 2018)</p>
 
 ## Primary Primer on Version Control Systems
 Version control, it may sound fancy, but it is a simple thing. You probably have done some form of version control in some 
@@ -161,7 +161,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 {% endhighlight %}
-<p class="caption">*`git status` output example*</p>
+<p class="caption">`git status` output example</p>
 
 ...that as your output.
 
@@ -212,7 +212,7 @@ line (my shell opens *vim* as the editor), I'll just add an `-m` flag with the m
 {% highlight bash %}
 git commit -m "Your commit massage"
 {% endhighlight %}
-<p class="caption">*Command for reference*</p>
+<p class="caption">Command for reference</p>
 
 Which will be added to the local database and containing the reference to those files that you've added.
 
@@ -233,7 +233,7 @@ and easy to be referenced to but also helping towards other people not wasting t
 I think this [*xkcd* strip](https://xkcd.com/1296/) portrays a situation of writing not-good commit messages.
 
 <img src="{{ 'assets/pictures/xkcd-git-commit.png' | relative_url }}" alt="A xkcd comic strip">
-<p class="caption">*Me when my site build failed*</p>
+<p class="caption">Me when my site build failed</p>
 
 If you have read a handful of tutorials and articles about the basics of Git, you probably minded about writing a good 
 commit message. The following rules are ripped from the book 

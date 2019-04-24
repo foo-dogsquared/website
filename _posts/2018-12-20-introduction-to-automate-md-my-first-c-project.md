@@ -41,7 +41,7 @@ The mere difference for this one though is that internally, functions are made u
 Furthermore, if you want a more focused process abstraction on how the program works. Here's the algorithm model I've put on how each function in the program should work with the file:
 
 ![A more detailed version of the process model]({{ 'assets/pictures/side-projects/automate-md/focused-algorithm-model.png' | relative_url }})
-<p class="caption">*A more detailed version of the process model*</p>
+<p class="caption">A more detailed version of the process model</p>
 
 ### Interface
 As I said before, this is like the front-end part of the web app. Except in a CLI program, it is much easier since you don't have to worry about the graphics design, more on the application design on how to parse such arguments.
@@ -81,7 +81,7 @@ In my plan, the program should be able to flexibly add and update the program wi
 Now, the interface's logic is appropriately stored in the `interface.cpp` (in the `src` directory). That's also where the optional parameters and the optional command parameters are usually parsed through to make a map. All of the optional parameters of any kind are stored on a map data structure so that I can implement the future features consistently and let from the body of the action functions themselves do the checking. 
 
 ![Application model in code form]({{ 'assets/pictures/side-projects/automate-md/application-model-code-form.png' | relative_url }})
-<p class="caption">*Application model in code form*</p>
+<p class="caption">Application model in code form</p>
 
 Also, if you want to see, most of the interface logic are coded in appropriately named [`src/interface.cpp`](https://github.com/foo-dogsquared/automate-md/blob/master/src/interface.cpp).
 
@@ -91,7 +91,7 @@ The actions are basically the middleman of the program. In this case, these are 
 If you want to see how I made the actions' function structure, you can see it on [`src/cli/cli_actions.hpp`](https://github.com/foo-dogsquared/automate-md/blob/master/src/cli/cli_actions.hpp).
 
 ![Function actions basic form]({{ 'assets/pictures/side-projects/automate-md/application-action-basic-flowchart.png' | relative_url }})
-<p class="caption">*Function actions basic flowchart form*</p>
+<p class="caption">Function actions basic flowchart form</p>
 
 Each of the actions has to interact with a key-value object that represents the frontmatter. The frontmatter object contains all of the relevant parameters needed to execute the functions that'll be passed at the end of each action.
 

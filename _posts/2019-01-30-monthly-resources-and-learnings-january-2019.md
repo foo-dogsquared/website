@@ -20,7 +20,7 @@ As you can tell from the header, with cookies and sessions!
 Web cookies (for clarification) is a small piece of information sent by the server that is stored by the client. In the next requests, the client will send a request with the cookie attached and that is where the server will be able to keep track of it (although not securely keep track of it). 
 
 <img src="{{ 'assets/pictures/self-learning-series/january-2019/server-client-diagram-model.png' | relative_url }}" alt="Simple client-server model with cookies">
-<p class="caption">*Simple client-server model with cookies*</p>
+<p class="caption">Simple client-server model with cookies</p>
 
 Basically, think of the web cookies as an ID for your school. When your application request for the school has been accepted (and passed the prerequisite tests), you're now a student of the school/university/college/whatever-educational-institution-that-may-be and you'll granted a student ID as part of recognizing you as a student of the school/university/college/whatever-educational-institution-that-may-be. The next time you'll visit the school, you may be get checked for your ID in order to validate that you're a student of the school/university/college/whatever-educational-institution-that-may-be and continue your way in to do school-related stuff such as checking for your fees, entering classes, and other school shenanigans that requires the previlege of being a validated student of the school/university/college/whatever-educational-institution-that-may-be.
 
@@ -33,7 +33,7 @@ A session is basically a way to hide those very precious data. A session also le
 One basic implementation of a session is with a database. Let's say that you have a database of users with their username, email address, and their password (hashed, of course). Then a visitor tried to log in and entered their account credentials (their username and password, for example) and it hit a jackpot with one of the user in the users database. In order to make that request with the correct credentials associate with the user from that point. You can generate a random string and store it in the session database then send that generated string as the session ID cookie to the client. As long as the visitor has the valid session ID, they would continue to explore the website as a user.
 
 <img src="{{ 'assets/pictures/self-learning-series/january-2019/session-store-implementation.png' | relative_url }}" alt="Basic implementation of server-sided sessions">
-<p class="caption">*Basic implementation of server-sided sessions*</p>
+<p class="caption">Basic implementation of server-sided sessions</p>
 
 There's one thing with sessions, though. They're designed to be temporary. Sessions need to have an expiration. In cases that you didn't set an expiration for a session means that a hacker may just get a session ID and hijack the user. While the chances may be low (also depends on a lot of factors), it's still a possibility. You may just set the age of a session to be shorter though that will affect the user experience. Overall, it's a decision that you (and your team, if you have any) should consider to balance the security and the UX.
 

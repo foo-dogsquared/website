@@ -22,7 +22,7 @@ Also reading this means that assuming you have basic familiarity*
 
 <!-- Node.js logo -->
 <img src="{{ '/assets/pictures/nodejs-logo.png' | relative_url }}" alt="Node.js logo" style="width:300px">
-<p class="caption">*Node.js Logo (as of 2018)*</p>
+<p class="caption">Node.js Logo (as of 2018)</p>
 
 ## What is Node.js?
 According to the [official Node.js website](https://nodejs.org/en/):
@@ -122,7 +122,7 @@ This, in concept, is quite similar to how we import modules in other languages, 
 
     print(os.path.join(os.getcwd(), 'foo.txt'))
 ```
-<p class="caption">*module-import.py*</p>
+<p class="caption">module-import.py</p>
 
 We imported a module named `os` to access its properties/methods that is available from that module.
 
@@ -133,7 +133,7 @@ In Node, the syntax is different but it has the same concept:
 
     console.log(path.join(__dirname, 'foo.txt'));
 ```
-<p class="caption">*module-import.js*</p>
+<p class="caption">module-import.js</p>
 
 We imported a module name `path` to access its properties/methods that is available from that module and did some 
 code that is functionally similar to the example given in Python.
@@ -173,7 +173,7 @@ const basicMath = {
 
 module.exports = basicMath;
 ```
-<p class="caption">*basicMath.js*</p>
+<p class="caption">basicMath.js</p>
 
 <!-- Second file -->
 ```js
@@ -185,7 +185,7 @@ console.log(basicMath.power(2, 5),
             basicMath.floorDivision(10, 3)
         ); // 32 204 0.8 3
 ```
-<p class="caption">*demo.js*</p>
+<p class="caption">demo.js</p>
 
 OK! Now we get to create our own modules! If you run it with `node ./demo.js` on your console, you'll see
 two lines that will pop up: `Module demonstration` and whatever the results those properties you logged in 
@@ -232,7 +232,7 @@ const basicMath2 = require('./basicMath.js');
 
 console.log(basicMath2.sum(10, 45)); // 55
 ```
-<p class="caption">*demo.js (again)*</p>
+<p class="caption">demo.js (again)</p>
 
 And you will see... that the console log from the file that we required only happened once.
 
