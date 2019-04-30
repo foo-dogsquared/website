@@ -5,8 +5,10 @@ date:   2018-05-01 09:25:57 +0800
 author: foo-dogsquared
 categories: freebies
 tags: [freebies, others]
-updatedOn: Dec 20, 2018
+updatedOn: Apr 30, 2019
 ---
+
+> UPDATE: This list is now deprecated. It'll recieve minimal maintenance, if there's any. Any new updates are now actively developed in my [new freebies resource site](http://freebies-hunt.netlify.com/). 
 
 This is a free resource list that gradually grew over the past few months. Admittedly, I don't
 use all of them so why not just share it, right?
