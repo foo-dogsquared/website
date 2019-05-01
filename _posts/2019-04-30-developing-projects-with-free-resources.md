@@ -5,13 +5,36 @@ date: 2019-04-30 12:32:40 +0800
 layout: post
 tags: ["projects", "foss", "software-development"]
 title: Developing projects with free resources
+updatedOn: May 1, 2019
 ---
+
+> BIG UPDATE: Added a section for publishing your projects. I simply forgot to add it which is why I felt it's complete by the time I published this post. Apologies about that. :facepalm:
 
 In a world where technology has made it possible to inform and share experiences with other people through multiple devices, the technology sure came to advance at a point where the people themselves have the resources needed to establish and maintain businesses on their garage or bedroom.
 
 The same can be said with creating projects. Being a student on a financial tightrope, it will be a fun and frustrating challenge to create projects with only free resources and services.
 
 In this article, I'll share my experiences and tools I've used throughout my side-project and self-learning development journey while getting around paid services.
+
+## TL;DR version
+Here are the tools I've used usually for planning and brainstorming software ideas:
+- [Draw.io](https://www.draw.io/)
+- [Figma](https://www.figma.com/)
+- [Quire](https://quire.io/)
+- just a plain pen & paper
+
+When a plan is up, time to make it real. Here are the tools I'm using:
+- [Git](https://git-scm.com/)
+- [Jetbrains IDE](https://www.jetbrains.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- a lot more tools as you read on
+
+When the project has been realized (if not dropped). These services and platforms let you share your project for free:
+- [GitHub](https://github.com/)
+- [Netlify](https://www.netlify.com/)
+- [Heroku](http://heroku.com/)
+
+Of course, this list is not really complete. You can see more tools that deserve honorable mentions as you read on.
 
 ## Planning my projects
 Planning is a part of the process. It's an ever-important process that prevents your software project (or any project) to be an aftermath of a great natural disaster. It's not guaranteed for your project to go smooth accordingly but it's better to have a plan than going straight into the battlefield.
@@ -151,6 +174,19 @@ One objective of using a version control system like Git is not only acts as an 
 
 Git is my go-to version control software. It is nice to work with and it has ton of free services that are integrated with it. Despite it's mostly used for software projects, it can be useful for non-software stuff though better solutions exist.
 
+### Other tools
+Well, here's a list of tools that deserves an honorable mention:
+
+- [Asciidoctor](https://asciidoctor.org/) &mdash; A free and open source text processor for [Asciidoc](https://asciidoctor.org/docs/what-is-asciidoc/), a lightweight text formatting language similar to [Markdown](https://daringfireball.net/projects/markdown). Unlike Markdown, the scope of Asciidoc is much higher that it enables you to create an entire book with complete features using only the vanilla syntax of Asciidoc. I think this is a solid alternative to Markdown with more out-of-the-box features and it is standardized so we won't have to worry more on using a particular Markdown flavor. I recommend to get started with [the docs](https://asciidoctor.org/docs/), there's seriously a ton of stuff to be explored here.
+- [Kile](https://kile.sourceforge.io/) &mdash; My most recent tool in my belt. It's an IDE (or rather integrated writing environment? IWE?) for writing [LaTeX](https://www.latex-project.org/) documents. I've recently made my technical notes into LaTeX documents and it is amazing so far. I haven't tried all of the features yet but I can see continuing to write notes with it and find a way on how to publish them on the web painlessly.
+- [Make](https://www.gnu.org/software/make/manual/make.html) &mdash; A cross-platform free and open source automation tool usually used for software projects. If you're not familiar with it and want to try and experiment with it, you can [refer to this article](https://opensource.com/article/18/8/what-how-makefile) to get started.
+- [Pandoc](https://pandoc.org/) &mdash; A cross-platform free and open source universal document converter for various file formats and even your own formats. It supports major writing file formats like LaTeX, HTML, Asciidoc, Markdown (along with other flavors), and Textile. From there, you can convert one file from another with PDF, EPUB, and other file formats.
+- [Octave](https://www.gnu.org/software/octave/) &mdash; A free and open source computational environment made by [GNU Software](https://www.gnu.org/) so you know it's good stuff. It mostly serve as an alternative to [MATLAB](https://www.mathworks.com/products/matlab.html) for me. Speaking of MATLAB, it's also mostly (READ: mostly) compatible with MATLAB syntax so you don't have to do a full-on porting of the computations (if there's any). I mostly use this just for the more complex mathematical graphics though I may use LaTeX or maybe [Asymptote](http://asymptote.sourceforge.net/) for the later notes.
+- [TiddlyWiki](https://tiddlywiki.com/) &mdash; A single-file personal wiki made in JavaScript with the one file being an HTML file. This is absolutely one of the most fascinating projects I've ever seen out there. Not only that it's quite cool on the programming aspect but also on the note-taking aspect. It features a wiki that is both portable and distributable for you and your readers. You can also customize your TiddlyWiki at your own whim to its appearances and its function by creating plugins. With all of those features, I think this is a perfect platform to share my notes without much hassle.
+
+## Publishing my project
+If you want your project to be available for the whole world to see, you have available free options that lets you do that. Starting with...
+
 ### [GitHub](https://github.com/)
 When you want to share your project with the world for everyone to see, you need a server to do that. Fortunately, there are free services that does exactly that. Enter GitHub.
 
@@ -176,20 +212,44 @@ Anyways, if you're looking for an alternative to GitHub, here's some other Git-b
     - Can be self-hosted (meaning you can run GitLab locally in your own machine).
 - [Bitbucket](https://bitbucket.org/) is another competitor to GitHub. Its core feature set is quite similar to GitLab: having built-in CI/CD tools, can be self-hosted, and has a ton of built-in integration with other services such as Trello and Slack.
 
-### Other tools
-Well, here's a list of tools that deserves an honorable mention:
+### [Heroku](http://heroku.com/)
+If you're looking to deploy your dynamic web app, look no further to Heroku. Heroku offers an infrastructure as a service that is made sure to be as easy as possible and it is sure easy in my experience so far. 
 
-- [Asciidoctor](https://asciidoctor.org/) &mdash; A free and open source text processor for [Asciidoc](https://asciidoctor.org/docs/what-is-asciidoc/), a lightweight text formatting language similar to [Markdown](https://daringfireball.net/projects/markdown). Unlike Markdown, the scope of Asciidoc is much higher that it enables you to create an entire book with complete features using only the vanilla syntax of Asciidoc. I think this is a solid alternative to Markdown with more out-of-the-box features and it is standardized so we won't have to worry more on using a particular Markdown flavor. I recommend to get started with [the docs](https://asciidoctor.org/docs/), there's seriously a ton of stuff to be explored here.
-- [Kile](https://kile.sourceforge.io/) &mdash; My most recent tool in my belt. It's an IDE (or rather integrated writing environment? IWE?) for writing [LaTeX](https://www.latex-project.org/) documents. I've recently made my technical notes into LaTeX documents and it is amazing so far. I haven't tried all of the features yet but I can see continuing to write notes with it and find a way on how to publish them on the web painlessly.
-- [Make](https://www.gnu.org/software/make/manual/make.html) &mdash; A cross-platform free and open source automation tool usually used for software projects. If you're not familiar with it and want to try and experiment with it, you can [refer to this article](https://opensource.com/article/18/8/what-how-makefile) to get started.
-- [Pandoc](https://pandoc.org/) &mdash; A cross-platform free and open source universal document converter for various file formats and even your own formats. It supports major writing file formats like LaTeX, HTML, Asciidoc, Markdown (along with other flavors), and Textile. From there, you can convert one file from another with PDF, EPUB, and other file formats.
-- [Octave](https://www.gnu.org/software/octave/) &mdash; A free and open source computational environment made by [GNU Software](https://www.gnu.org/) so you know it's good stuff. It mostly serve as an alternative to [MATLAB](https://www.mathworks.com/products/matlab.html) for me. Speaking of MATLAB, it's also mostly (READ: mostly) compatible with MATLAB syntax so you don't have to do a full-on porting of the computations (if there's any). I mostly use this just for the more complex mathematical graphics though I may use LaTeX or maybe [Asymptote](http://asymptote.sourceforge.net/) for the later notes.
-- [TiddlyWiki](https://tiddlywiki.com/) &mdash; A single-file personal wiki made in JavaScript with the one file being an HTML file. This is absolutely one of the most fascinating projects I've ever seen out there. Not only that it's quite cool on the programming aspect but also on the note-taking aspect. It features a wiki that is both portable and distributable for you and your readers. You can also customize your TiddlyWiki at your own whim to its appearances and its function by creating plugins. With all of those features, I think this is a perfect platform to share my notes without much hassle.
+Heroku just needs a Git repo from GitHub, GitLab, Bitbucket, and other platforms and you're mostly done. Just tweak the app further, store your secret credentials, enable related services for your app, and your app will set ablaze live on the web.
+
+Alternatives:
+- [Glitch](https://glitch.com/) &mdash; One of the coolest alternative to Heroku. It's another app deployment platform but with the sense of community mixed in. It lets you remix other people's app as well as you let them remix your app (if you choose). This is a nice platform for your hobby projects though it [only supports Node.js for now (as of this writing)](https://glitch.com/help/languages/).
+- [Now](https://zeit.co/now) An app deployment service from Zeit. It offers a platform to deploy your web apps though you have to integrate it with your app instead of just placing your app and letting it run. Like Heroku, it also offers a generous free tier that is mostly enough for managing multiple hobby projects.
+- [Firebase](http://firebase.google.com/) &mdash; An infrastructure-as-a-service (IaaS) later acquired by Google. It offers a generous free tier services if you're starting out but later it gets expensive as your project made through the limit. The only downside when using this is you have to integrate your app and may use some proprietary solutions along with it. 
+- [Repl.it](https://repl.it/) &mdash; Possibly one of the best alternatives to Heroku. Similar to Glitch, it's an online IDE that [supports a lot of languages](https://repl.it/site/languages) and it got [a community of hackers behind it](https://repl.it/discord). It's a pretty cool tool especially for hobby projects and such. It is also open for other users in the Repl.it community, being able to fork your projects.
+
+### [Netlify](https://www.netlify.com/)
+If you want to publish your static website, no need to deploy it with Heroku since it'll just add to your monthly quota. [Netlify](https://www.netlify.com/) is one of the perfect platforms for that.
+
+Like Heroku, Netlify is a platform that aims to make web app deployment as easy as possible. Just create an account, login to Netlify, integrate your Git repo, and give configurations for deployment then celebrate!
+
+It offers out-of-the-box integration with common web workflow like task runners and Git repos and [automates them through a work pipeline](https://www.netlify.com/products/build/), doing all the dev-ops work for you. It's pretty fantastic especially if you're working solo.
+
+Of course, [Netlify offers a generous free tier](https://www.netlify.com/pricing/) limiting your account up to 100GB bandwidth for your list of deployed projects. For me, that is more than enough.
+
+Of course, tons of alternatives are available but here's the following that topped the list for me:
+- [Surge](https://surge.sh/) &mdash; One of the more popular static site deployment tool. It's simply a deployment tool available in the command line. Also provides out-of-the-box integration with common workflows.
+- [GitHub Pages](https://pages.github.com/) &mdash; If you're mainly a [GitLab](https://gitlab.com) user, [GitLab also offers a similar service](https://docs.gitlab.com/ee/user/project/pages/). It's the free static web hosting service offered in GitHub. You can set some configurations for your static website such as the branch specified to hold your site's files. You could also create a quick landing page for your repo with it.
+- [Now](https://zeit.co/now) &mdash; One of the more advanced alternative. It's a platform for static and dynamic sites. Available as a command line tool, the platform also offers a [generous free tier](https://zeit.co/pricing).
+
+With all of those above, you're practically set for life in your web development learning journey. It's pretty amazing that we get these stuff for FREE, mind you. Now go ahead and ship some apps.
+
+### Other tools
+Well, here's some honorable mentions:
+
+- [Travis CI](https://travis-ci.org/) &mdash; A continuous integration/continuous deployment (CI/CD) service that integrates very well with GitHub which is the reason why I list it here. If you're not familiar with CI/CD systems yet, you can view [this video series by @mpjme from FunFunFunction](https://www.youtube.com/watch?v=ymPOI4gWQFY&list=PL0zVEGEvSaeFFy32i5A4041qSTbYqtKqv) to get you started. The video series assumes that you're familiar with programming workflows (in which you're most likely to be since you're reading my posts right now).
+- Your own automation script. &mdash; In some cases or reason, you'll have to craft the deployment script yourself. You might write one of these since you don't want to rely on a CI/CD service or just want to deploy it yourself.
+- Your own backend, maybe? &mdash; If it's powerful enough, I guess you could but I recommend more to pass that responsibility to the companies that offer dedicated servers. Unless your project *revolves around deploying your own backend*, I don't see much reason to deploy it with your own.
 
 ## Conclusion
 There's my general workflow in its glory using only with (mostly) free and open source technologies. There's a lot more things to keep an eye on especially if you're looking for a specific set of technologies or needs. If you're looking for more open content, I can point you to the following:
 
-- [`awesome`](https://github.com/sindresorhus/awesome) &mdash; A list of resource list of various technologie and topics from software development, music, research, to game development. You should be able to get a start of your search of open content from there.
+- [`awesome`](https://github.com/sindresorhus/awesome) &mdash; A list of resource list of various technologies and topics from software development, music, research, to game development. You should be able to get a start of your search of open content from there.
 - [Freebies Hunt](https://freebies-hunt.netlify.com/) &mdash; I've created this website as a way of introducing you to free and open content, in general. It contains free resources for programming, music, design, and other interests I have. Quite similar to `awesome` but it stripped down to my preferred resources. Of course, for the spirit of open content (and software), everything on this website is open source from the [website](https://github.com/foo-dogsquared/freebies-hunt) and the [API](https://github.com/foo-dogsquared/freebies-hunt-api/) I've built.
 
 One of the most beneficial things on free and open content today is that they're easily accessible as they're easily created. Not only that it does help on making the technology to easily create interest on the public but also to create progress by everyone.
