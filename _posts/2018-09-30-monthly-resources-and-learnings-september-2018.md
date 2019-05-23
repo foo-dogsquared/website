@@ -189,6 +189,8 @@ And now we have created a functional toggle button that'll make the header show 
 You should visit the "Getting started" guide in the [official docs of Vue](https://vuejs.org/v2/guide/) since it is clearer and more 
 concise especially with its examples.
 
+> UPDATE FROM THE FUTURE: Hello! It's me from the future. Someone contacted me to include the following resource and I think it is good to put it [here](https://www.toptal.com/vue-js/interview-questions). It's basically a review of Vue.js in Q&A form and I think it is a good quick flashcard-type of question for you to do.
+
 ## What I've been reading
 <!-- Books, articles, and other textual references -->
 ### [3 Actions You Can Take Right Now to Be More Organized from *LinkedIn Learning Blog*](https://learning.linkedin.com/blog/productivity-tips/3-actions-you-can-take-right-now-to-be-more-organized)
