@@ -510,7 +510,7 @@ content and resources
 * https://opensource.com/[Open Source] — a site that talks all open
 source things
 
-*** - _if you're on a Windows OS, probably you're locked out of the
+\* - _if you're on a Windows OS, probably you're locked out of the
 option to download the ISO directly, to download it directly, you have
 to change the user profile from your browser usually, you can do that by
 going into 'Responsive Design Mode' (Ctrl + Shift + M) on Firefox (or
