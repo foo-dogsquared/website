@@ -1,0 +1,35 @@
+---
+title: About
+---
+
+= About the author
+
+Hello! I'm Gabriel Arazas, the author of this blog, _A Hack's Code_. 
+
+Just a hobbyist on software development and programming. 
+I'm also an aspiring engineer upping the ante on my mathematics skills.
+
+I also like the following stuff:
+
+* free and open source software (FOSS)
+* Linux
+* LaTeX
+* creative coding
+* 3D modelling
+* pixel art
+* mathematics (I'm working on this one)
+* writing (this one, too)
+* memes
+
+If you want a way on getting contact with me, you can shoot an email at 
+`foo.dogsquared at gmail dot com`.
+
+You can simply visit https://foo-dogsquared.github.io[my main site] or 
+https://keybase.io/foo_dogsquared[my Keybase profile] on more 
+ways on getting contact on me. 
+
+I'm open to your shenanigans as long as it's about dev-related or 
+hobby-related (and legal, of course).
+
+Welp, see you on the field, internet stranger. :)
+

@@ -1,0 +1,95 @@
+---
+title: A site overhaul has occurred
+date: 2019-08-13T18:10:07+08:00
+categories: ["meta"]
+tags: ["self", "meta"]
+draft: true
+---
+
+= A site overhaul has been occurred
+Gabriel Arazas <foo.dogsquared@gmail.com>
+
+ANNOUNCEMENT: A site overhaul has occurred. Please 
+see the changelog. A site overhaul has occurred. 
+Please see the changelog.
+
+== From Jekyll to Hugo
+First and foremost, the blog has moved from 
+https://jekyllrb.com[Jekyll] to https://gohugo.io/[Hugo].
+I could create a theme but it would take me way longer 
+than should just to migrate the blog so for now I settled 
+with the https://themes.gohugo.io/hugo-theme-terminal/[Terminal] 
+since I'm starting to appreciate terminal-themed websites 
+(also, I think it's easier for me to design a terminal-themed website 
+if I have to create one).
+
+I've ported the blog to Hugo for multitude of reasons:
+
+* Speed
+* Ease of content management
+* More organized approach for my content
+* Built-in support for blogging with https://asciidoctor.org/[Asciidoctor] 
+
+Built-in support for https://asciidoctor.org/[Asciidoctor] although 
+it's mostly done through calling external programs.
+ 
+Though Jekyll https://asciidoctor.org/[does have a plug-in for blogging with Asciidoctor],
+I don't really want another plug-in for that. I just want a 
+static site generator with built-in support for blogging with Asciidoctor and 
+Hugo just provides that. The speed and ease of configuration is 
+also a really large bonus.
+
+== Change of purpose
+The blog is in hiatus due to me taking notes in 
+https://www.latex-project.org/[LaTeX] now and a change of 
+purpose for my blog. I already have a 
+https://github.com/foo-dogsquared/personal-notes/[a storage for my notes]
+and
+https://github.com/foo-dogsquared/a-remote-repo-full-of-notes-of-things-i-do-not-know-about/[another for my lecture/detailed notes]
+so I don't see any point to make this as an all-around notes notebook. 
+It's too repetitive to have it around so the vision for my blog 
+has changed.
+
+Here's what I think my online notes should be divided with these three 
+outlets:
+
+* My notes storage would be short/slightly detailed notes on random things. 
+This is basically where my _Simplified!_-type of notes should get in.
+* My lecture notes are where detailed studies of subjects or concepts 
+should go.
+* My blog will be about... I don't know, really. I do have a set of ideas that I 
+think it's suitable for blogging about it so let's just find out along the 
+way.
+
+== Blog clean-up and revision
+Since the overall purpose of the blog has been changed, so does the little 
+details that make up the blog.
+
+I've cleaned up my blog by removing most of the posts that I think it's not 
+suitable for the blog anymore. The _Learnings and Resources_ series will be reset 
+(starting this month) with a couple of revisions and improvement for the reading experience.
+
+The _Simplified!_ series is still going to be up and coming with revisions and a new 
+style of technical writing. My https://github.com/foo-dogsquared/personal-notes/[personal notes] 
+is still going to have the style of _Simplified!_ series I was originally going for.
+
+I've been thinking about revising my writing style as well. I mostly view my 
+current style as too verbose. I've learned that it's became a 
+pain to read for my future self if I were to revisit a concept/study again. 
+
+With the revised writing style, I also want to improve my writing by adopting a new 
+writing workflow. This is basically the stuff you would encounter in a high school 
+writing class but I've been less compliant with it over the last few posts (before the 
+change).
+
+== Conclusion
+The blog is under change and it's not suitable to be a student's notebook anymore and 
+it goes on to my https://github.com/foo-dogsquared/personal-notes/[online] 
+https://github.com/foo-dogsquared/a-remote-repo-full-of-notes-of-things-i-do-not-know-about/[notes].
+
+Along with the change of purpose is a change of style and presentation for my 
+studies. Starting with the last quarter of the year is taking the more challenging route 
+for improvement and hopefully this change reflect that as well.
+
+Well, I still don't know how to end this post so have a nice day! :)
+

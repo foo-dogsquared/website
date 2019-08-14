@@ -1,0 +1,687 @@
+---
+categories: ["self"]
+date: 2019-04-30 12:32:40 +0800
+tags: ["projects", "foss", "software-development"]
+title: Developing projects with free resources
+---
+
+= Developing projects with free resources
+Gabriel Arazas <foo.dogsquared@gmail.com>
+
+In a world where technology has made it possible to inform and share
+experiences with other people through multiple devices, the technology
+sure came to advance at a point where the people themselves have the
+resources needed to establish and maintain businesses on their garage or
+bedroom.
+
+The same can be said with creating projects. Being a student on a
+financial tightrope, it will be a fun and frustrating challenge to
+create projects with only free resources and services.
+
+In this article, I'll share my experiences and tools I've used
+throughout my side-project and self-learning development journey while
+getting around paid services.
+
+____
+BIG UPDATE: Added a section for publishing your projects. I simply
+forgot to add it which is why I felt it's complete by the time I
+published this post. Apologies about that. :facepalm:
+____
+
+== TL;DR version
+
+Here are the tools I've used usually for planning and brainstorming
+software ideas:
+
+* https://www.draw.io/[Draw.io]
+* https://www.figma.com/[Figma]
+* https://quire.io/[Quire]
+* just a plain pen & paper
+
+When a plan is up, time to make it real. Here are the tools I'm using:
+
+* https://git-scm.com/[Git]
+* https://www.jetbrains.com/[Jetbrains IDE]
+* https://code.visualstudio.com/[Visual Studio Code]
+* a lot more tools as you read on
+
+When the project has been realized (if not dropped). These services and
+platforms let you share your project for free:
+
+* https://github.com/[GitHub]
+* https://www.netlify.com/[Netlify]
+* http://heroku.com/[Heroku]
+
+Of course, this list is not really complete. You can see more tools that
+deserve honorable mentions as you read on.
+
+== Planning my projects
+
+Planning is a part of the process. It's an ever-important process that
+prevents your software project (or any project) to be an aftermath of a
+great natural disaster. It's not guaranteed for your project to go
+smooth accordingly but it's better to have a plan than going straight
+into the battlefield.
+
+[quote, Captain Cold]
+There are only 4 rules you need to remember: make the plan, execute the
+plan, expect the plan to go off the rails, throw away the plan.
+
+If the plan failed, just go through another planning phase. The action
+does not apply well into a production workflow with the chaotic and
+larger-scale management but it can be easily apply for personal
+projects.
+
+Here are the tools I've used to practice my planning skills:
+
+=== https://quire.io/[Quire]
+
+Quire is an online tool for almost everything productivity-based. I mean
+they got https://quire.io/features[an exhaustive list of features] from
+kanban boards, simple task lists, integration to different services such
+as GitHub, Google Drive, and Slack, and much more!
+
+The best part about all of this is that it looks minimalistic with all
+of its features. It goes out of your way with all of its features to use
+as you intended. You want to look at your task board for your project
+and the website only shows you that.
+
+==== Alternatives
+If Quire is not your fancy, then may I introduce you to some of the
+alternatives?
+
+* https://trello.com/[Trello] — It's a good boi but not enough features
+for me. It features a powerful board with powerful integrations but for
+the most part, it limits right there and there's not much of a
+difference with the core features you'll be using with Quire.
+* https://www.notion.so/[Notion] — Well, this one is a solid
+alternative. This is mainly a minimalistic online note-taking tool
+suitable for your notes, projects, and other shenanigans but it also
+features a lightweight task and issue board for your projects, a
+lightweight database, and a lightweight customer relation management
+(CRM) system. I mainly use this app for a quick note-taking while saving
+it online but it can also go head-to-head with Quire as a productivity
+tool with a different twist.
+
+Now if you go with Notion, may I get you with a deal? You can click
+https://www.notion.so/?r=ed358a0e3f6d4e47a5db21a17beaa7dd[my referral
+link] and get $10 in credits while I get 5 USD in credits. It's a
+win-win situation and you'll be able to help me.
+
+=== https://www.draw.io/[Draw.io]
+
+This is my personal digital "drawing" tool (and also the tool I used to
+create visual aids for this blog). It's a web-based tool that allows you
+to create a wide range of visual design assets from flowcharts to not
+flowcharts. Speaking of web-based, you can also download
+https://about.draw.io/integrations/#integrations_offline[desktop
+versions] of it and use it offline though the site itself already
+features an offline web-based version of the tool.
+
+One of the best features of this app is that *it's free and
+https://github.com/jgraph/drawio[open source]*. Being open source not
+only means you can see the naked source code used to build the app but
+also you can directly contribute to it.
+
+Another one superb feature is that *no account registration is required
+to use this app*! When you open the website, you're already going
+straight into the business. No briefing, no meetup, no orientation.
+
+From that point, you can create universally almost any diagrams from
+concept maps, simple flowchart,
+https://en.wikipedia.org/wiki/Unified_Modeling_Language[UML diagrams],
+https://www.visual-paradigm.com/guide/data-modeling/what-is-entity-relationship-diagram/[database
+relationship diagrams], mathematical expressions, or even an
+illustration. It features a solid UI and a collection of features that
+makes visual aids creation to be as much pleasing as possible.
+
+==== Alternatives
+If you want to try out other similar tools for comparison, here are some
+alternatives I've gathered:
+
+* https://www.libreoffice.org/discover/draw/[LibreOffice Draw] (or
+Microsoft Visio, if you're into Windows) — LibreOffice free and
+https://www.libreoffice.org/about-us/source-code/[open source] software
+suite for office work. It offers a program to write documents, create
+and edit spreadsheets, make presentations, manage databases, and draw
+diagrams. It's a solid alternative and it has some stronger points such
+as how pathfinding was handled (especially with the lines and arrows).
+However, Draw.io being a web-based tool and having a solid feature list
+in its arsenal is too hard to beat for me. In any case, I would still
+give this a shot.
+* https://inkscape.org/[Inkscape] — It's another free and open source
+vector editing application that run on major desktop platforms. Despite
+its stronger points on vector illustration, it still has solid support
+for creating diagrams. Like LibreOffice Draw, it has more solid handling
+on the pathfinding part of the shapes compared to Draw.io. However, in
+order to fully use its full diagramming potential, you may have to take
+more time to get used to it. I think the efforts will pay off once you
+done it and in fact, you may create more expressive and powerful
+diagrams with it. Take note that the program (at the time of this
+writing) is not yet at its 1.0 version yet which means it still has
+issues to clean out. Being a free and open source project, you can help
+with the development through issues, bug reports, doc improvement, and
+code contribution.
+
+=== https://www.figma.com/[Figma]
+
+If have a core feature for my planned side project, it's time to make
+the idea closer to reality by making a user interface for that idea.
+Here's where I brainstorm forms and layouts my idea can have as a
+tangible service and it's where Figma comes in.
+
+Figma is another web-based program used to create GUI prototypes and
+designs. It can also serve as an alternative to Draw.io as a diagramming
+and illustration program but that's not the main point we will tackle.
+Also take note I have little experience with using this app so feel free
+to correct me on the stuff that I'll be saying here.
+
+Since the initial writing for this app is too long (it's really that
+good), I'll be making a quick list of features and discuss them shortly
+instead:
+
+* It is *free to use and web-based*. Though, it requires an account to
+use it, it's not much of an inconvenience once you get a hold of this
+app. Being a web-based tool, you can run this anywhere as long as the
+machine has WebGL and a compatible web browser.
+* It *features a strong user interface (UI) and user experience (UX)*.
+The UI is good that
+https://twitter.com/foo_dogsquared/status/1102486132648960000[I could
+create my first custom-made logo with it] despite being inexperienced
+with graphics design.
+* It *features a collaborative mode* similar to Google Docs. With the
+pain points of being in a collaborative environment, they also *feature
+a version control for the sketches*.
+* It *works offline* except for online functionalities such as saving
+your sketches on the cloud and collaboration mode.
+* Has *standard feature arsenal* such as shape tools, pen tool, gradient
+tool, importing images, and linking to individual pages. It does not
+stop there. They have *a
+https://www.youtube.com/watch?v=k74IrUNaJVk[component system] and a
+https://www.youtube.com/watch?v=b-xDRjf5B-8[powerful vector editing
+tool]* that'll expand your options of smoothly creating unique-looking
+assets.
+
+If you'll try this one, you can sign up for an account,
+https://www.youtube.com/playlist?list=PLXDU_eVOJTx7QHLShNqIXL1Cgbxj7HlN4[watch
+their Getting Started playlist on YouTube], and experiment ahead.
+
+==== Alternatives
+Is Figma too complex of a tool for your use case? Here are some
+alternatives you can search for:
+
+* https://pencil.evolus.vn/[Pencil] — A free and open source GUI
+prototyping platform. Unfortunately, it's not maintained anymore and the
+most recent version is from 2017 but it still offer a solid and simpler
+GUI prototyping process for websites and desktop apps.
+* https://www.draw.io/[Draw.io] — I already discussed this tool so I
+won't give much details but you can also use this for simpler
+prototyping processes. It just depends on how you would use these tools.
+
+=== Good ol' pen & paper
+
+Well all I need is a way of planning for my project. What a better way
+of planning than a good ol' P&P. One of its most useful feature is that
+it's quick to load! No internet connection needed! It's a universal
+alternative to all the apps listed so far. The only situation you're not
+able to boot this up is if you don't have the materials yourself.
+
+In all seriousness though, I think this is one of the most useful ones.
+Physically writing is actually more memorable (to me, at least) thus
+more things to remember. Besides, I don't want to stare at a digital
+screen all day.
+
+Usually when I'm going to plan with this method, I follow through a
+system I created for myself. The system is nothing fancy. It's just a
+color-coded system with each colored paper shows the priority level for
+each task I will make.
+
+If you want to try it for yourself, I'll give you my personal take on
+the system:
+
+Now there are three types of tasks in this system: low, normal, and
+essential. They're basically another way of indicating priorities on
+your tasks. There's also another type of paper which is basically a
+reviewer of related concepts to be integrated with the project.
+
+* *Green colored papers* _indicate low priority tasks_. This is usually
+the easy stuff and the low-hanging fruits of the project.
+* *Blue colored papers* _indicate normal priority tasks_. In the project
+development process, this is usually the things that is done after the
+core of the project has been completely (or mostly) developed.
+* *Yellow colored papers* _indicate essential tasks_. This is usually
+the core tasks and they're highly prioritized. I usually associate red
+with urgency but whatever fits your boat. I think yellow is a better
+choice since it stands out among the shades of blue and green.
+* *White colored papers* _indicate related concepts to the project_.
+This can be anything from a simple flashcard, an explainer, or a
+definition. Heck, you can put a thesis in there if you really want to.
+Speaking from personal experience, one of the role of this paper is to
+simply make you focus into the core concepts of your project so you
+couldn't easily sway and make a bunch of unrelated features and
+highlights in your project straight away. Also, it's just there to
+remind myself of the things I was supposed to learn.
+
+Take note you don't have to buy colored papers for this one. One of the
+beauty of life is the freedom on how to do things and this is no
+exception. You could do say, just a simple format to express the core
+feature of this system which is _prioritization_. You can list out tasks
+and create symbols to express different levels of priority.
+
+== Creating my projects
+
+When you have a plan in place, you can attack it in your own pace. This
+is the phase where you'll actually * get your envisioned project closer
+to reality*. Since we're in the context of software, I'll talking about
+the tools and experiences I was able to use and... experience.
+
+If you want to know the tools outside of software for some unspecified
+reason, you can get a rough idea http://freebies-hunt.netlify.com/[in my
+relatively recent launched website, Freebies Hunt]. As specified in its
+name, all of the resources listed there are free (and some being open)
+so you'll be able to have a similar toolset as mine.
+
+So what are the tools I used for this? Read on and find out.
+
+=== https://code.visualstudio.com/[Visual Studio Code]
+
+My go-to text editor and lightweight IDE. This tool is just phenomenal!
+It's free and https://github.com/Microsoft/vscode[open source],
+https://code.visualstudio.com/updates/[actively being developed], backed
+up by a huge community of developers, solid UI/UX for budding
+developers, https://code.visualstudio.com/docs[features an extensive
+documentation in using the app], and offers hackability that extends the
+app even further.
+
+Of course, this tool still has its
+https://github.com/Microsoft/vscode/issues[issues] but with the active
+development from the core maintainers and other contributors, you know
+that it'll have a great future. With that said, this tool is not a
+panacea for our development tool problems. The core scope of this tool
+is limited outside of web development especially when compared to
+comprehensive IDEs such as https://visualstudio.com/[Visual Studio] and
+https://www.jetbrains.com/[Jetbrains IDE product line]. Even though it
+can be extended with the user-created plugins, when compared to
+first-party solutions, it's not usually enough (though there are
+exceptions).
+
+==== Alternatives
+Want to try other text editors? Here's a list of it:
+
+* https://atom.io/[Atom] — A free and open source text editor made by
+the team at https://github.com/[GitHub] and it can be considered as the
+most fitting rival with Visual Studio Code. They're both made with
+https://electronjs.org/[Electron]. Both offer similar set of features
+from hackability to the user interface. Atom, however, has a stronger
+focus on Git integration (specifically with GitHub). Basing from
+personal experience, you can already have the same level of focus on
+Visual Studio Code with the
+https://marketplace.visualstudio.com/search?term=git&target=VSCode&category=All%20categories&sortBy=Relevance[third-party
+plugins] and improving Git integration.
+* https://www.gnu.org/software/emacs/[GNU Emacs] — A family of text
+editor mostly known for its extensibility but specifically were looking
+at GNU Emacs which is the most popular member of the family. Compared to
+other text editors we've featured so far, this text editor has a steeper
+learning curve to master it especially when going from absolute zero. It
+also features integration with https://www.gnu.org/software/gdb/[GDB] (a
+debugger) making it into a lightweight IDE, has tons of keyboard
+shortcuts, features multiple modes, and best of all, you can play tetris
+with it (seriously). If you want to look further, you can take
+https://www.gnu.org/software/emacs/tour/index.html[a tour of Emacs from
+the GNU website] and see what more things Emacs can do.
+* https://www.vim.org/[Vim] — If you're hardcore, take a look into a
+text editor infamously known for its... difficulty. Anyway, I'm pretty
+sure you've heard of Vim by now after seeing it being memed to death.
+Vim is a text editor that utilizes the modal philosophy where it
+utilizes a different mode for editing files and inserting text. Like
+Emacs, it has a steep learning curve with its unconventional way of
+manipulating files. It's also programmable and contains a _lot_ of
+keyboard shortcuts and configuration options that you'll find
+https://github.com/search?q=vimrc[a community of developers sharing
+their Vim configuration files]. If you want a shallow dive into Vim, you
+can use this https://hacker-tools.github.io/editors/[course lecture]
+I've used.
+
+=== https://www.jetbrains.com/[Jetbrains IDE]
+
+If my project is in a larger scope or is in need for a more specialized
+tool, I might use an IDE. A personal example could be making a project
+with C++ and I need to learn more on using https://cmake.org/[CMake]. If
+you need to develop in https://golang.org/[Go],
+https://docs.microsoft.com/en-us/dotnet/csharp/[C#], or in
+https://www.arduino.cc/[Arduino], there are specialized tools that are
+built for that.
+
+My IDEs of choice are from Jetbrains, a software development company
+whose product targets developers, where they offer a netful of IDEs for
+different programming languages and toolsets. Their IDEs have reached a
+wholesome reputation with plentiful of useful features and active
+development updates. Not to mention that they can run across all major
+platforms in Windows, Mac OS, and Linux which really sold me on this
+one. Though the only problem is that they're proprietary but they do
+offer free licenses on all of their tools
+https://www.jetbrains.com/student/[for students] (which I did) and
+https://www.jetbrains.com/opensource/[for developers of non-commercial
+open source projects].
+
+==== Alternatives
+Fortunately, some of the IDEs have a free community version though it's
+usually inferior compared to the proprietary versions. Though, they're
+mostly enough especially in the beginning of the development. However,
+if you're looking for a free and more robust IDE, you could look into
+the following alternatives:
+
+* https://visualstudio.com/[Visual Studio] — If you're using Windows or
+Mac OS, this could be a solid choice. Not only that it supports most of
+the popular programming languages and toolsets but it is also _free_.
+The Visual Studio installation process lets you customize your
+development environment according to your need whether you want to
+create cross-platform programs with C++ or want to get started on game
+development with Unity or even both, why not. There's plenty of choices
+you can make with this. The only gripe here is that it's not available
+in Linux/BSD systems. I use this in particular when developing in
+Windows since their free community edition is just too good to pass up.
+* https://www.eclipse.org/eclipseide/[Eclipse] — It's basically the
+cross-platform open source version of Jetbrains where their product line
+of IDEs offer support on most of programming languages such as C/C++,
+PHP, Java, Rust, and many others. I don't know how high of a candle they
+hold today but I found it to be useful enough to get started.
+
+This is not an exhaustive list of IDEs for you to try (I mean three
+items, really?) but I recommend to try and search if it doesn't make you
+satisfied. Here, https://github.com/sindresorhus/awesome[I got you a
+place to get started on your search].
+
+=== https://git-scm.com/[Git]
+
+Well, we all have our ways in saving our stuff. One of the ways I did
+(way back when I have completely no idea in programming) would be simply
+saving the file and adding a `+v2+` at the end of its name.
+
+image::https://imgs.xkcd.com/comics/documents.png[title="My archiving skills in high school",float="right",align="center"]
+
+Other would use a software that can automatically create backups.
+Nowadays, popular softwares for writing most likely have an auto-save
+feature built into the system: https://docs.google.com/[Google Docs],
+https://evernote.com/[Evernote], https://notion.so/[Notion],
+https://visualstudio.com[Visual Studio],
+https://code.visualstudio.com[Visual Studio Code],
+https://www.jetbrains.com/[Jetbrains IDEs] – you name it, they most
+likely have it. 
+
+For solo projects, it is practical enough but if you
+want to amp your version controlling skill then you can use a full-on
+_version control system_ (shortened as _VCS_). I won't discuss what a
+VCS here but you can take a quick overview from one of the training
+videos from GitHub.
+
+This is where Git
+(https://en.wikipedia.org/wiki/Comparison_of_version_control_software[and
+its other competitors]) comes in. You can refer to
+https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F[more
+well-written posts about it].
+
+One objective of using a version control system like Git is not only
+acts as an epic save button but it also makes collaborative works to
+progress smoother. This is great in cases that your project needs help
+from other people aside from you. Since you're in the same page as your
+other collaborators, you can go through the same process of adding
+contributions to your project.
+
+Git is my go-to version control software. It is nice to work with and it
+has ton of free services that are integrated with it. Despite it's
+mostly used for software projects, it can be useful for non-software
+stuff though better and more specialized solutions may exist.
+
+=== Other tools
+
+Well, here's a list of tools that deserves an honorable mention:
+
+* https://asciidoctor.org/[Asciidoctor] — A free and open source text
+processor for https://asciidoctor.org/docs/what-is-asciidoc/[Asciidoc],
+a lightweight text formatting language similar to
+https://daringfireball.net/projects/markdown[Markdown]. Unlike Markdown,
+the scope of Asciidoc is much higher that it enables you to create an
+entire book with complete features using only the vanilla syntax of
+Asciidoc. I think this is a solid alternative to Markdown with more
+out-of-the-box features and it is standardized so we won't have to worry
+more on using a particular Markdown flavor. I recommend to get started
+with https://asciidoctor.org/docs/[the docs], there's seriously a ton of
+stuff to be explored here.
+* https://kile.sourceforge.io/[Kile] — My most recent tool in my belt.
+It's an IDE (or rather integrated writing environment? IWE?) for writing
+https://www.latex-project.org/[LaTeX] documents. I've recently made my
+technical notes into LaTeX documents and it is amazing so far. I haven't
+tried all of the features yet but I can see continuing to write notes
+with it and find a way on how to publish them on the web painlessly.
+* https://www.gnu.org/software/make/manual/make.html[Make] — A
+cross-platform free and open source automation tool usually used for
+software projects. If you're not familiar with it and want to try and
+experiment with it, you can
+https://opensource.com/article/18/8/what-how-makefile[refer to this
+article] to get started.
+* https://pandoc.org/[Pandoc] — A cross-platform free and open source
+universal document converter for various file formats and even your own
+formats. It supports major writing file formats like LaTeX, HTML,
+Asciidoc, Markdown (along with other flavors), and Textile. From there,
+you can convert one file from another with PDF, EPUB, and other file
+formats.
+* https://www.gnu.org/software/octave/[Octave] — A free and open source
+computational environment made by https://www.gnu.org/[GNU Software] so
+you know it's good stuff. It mostly serve as an alternative to
+https://www.mathworks.com/products/matlab.html[MATLAB] for me. Speaking
+of MATLAB, it's also mostly (READ: mostly) compatible with MATLAB syntax
+so you don't have to do a full-on porting of the computations (if
+there's any). I mostly use this just for the more complex mathematical
+graphics though I may use LaTeX or maybe
+http://asymptote.sourceforge.net/[Asymptote] for the later notes.
+* https://tiddlywiki.com/[TiddlyWiki] — A single-file personal wiki made
+in JavaScript with the one file being an HTML file. This is absolutely
+one of the most fascinating projects I've ever seen out there. Not only
+that it's quite cool on the programming aspect but also on the
+note-taking aspect. It features a wiki that is both portable and
+distributable for you and your readers. You can also customize your
+TiddlyWiki at your own whim to its appearances and its function by
+creating plugins. With all of those features, I think this is a perfect
+platform to share my notes without much hassle.
+
+== Publishing my project
+
+If you want your project to be available for the whole world to see, you
+have available free options that lets you do that. Starting with...
+
+=== https://github.com/[GitHub]
+
+When you want to share your project with the world for everyone to see,
+you need a server to do that. Fortunately, there are free services that
+does exactly that. Enter GitHub.
+
+Majority of you readers might have heard of this before. After all, it
+is _one of the largest and most popular development platform_ out there
+for the software industry. It's also _the_ leading development platform
+for open source software. It is where the big kids of the tech industry
+hang out: Microsoft, Google, Linux Foundation, you name it.
+
+Couple of that with the number of developers signed up, being the
+de-facto platform for the open source community, and the nature of open
+source, the network value is just too good to not ignore it especially
+if you're looking for a first step through the door of the industry.
+
+GitHub offer practically free unlimited public and private repo (with
+limited collaborators) for your projects. Whether you want to show off
+your projects or to keep your projects safe in the cloud, GitHub has you
+covered. Being a software development platform, it has a variety of
+features to aid software development:
+
+* Issue tracking that is open for other people with GitHub accounts.
+* An easy-to-use interface for forking, code review, and merge conflicts
+management.
+* Organizations can be created and invite other people to join and grant
+them level of access for your projects. Whether you want non-members to
+have a read-only access or can contribute alongside is a decision you
+can make.
+* GitHub also has a https://github.com/marketplace[marketplace of
+different services] making a part of your development process to go much
+smoother.
+* Offers a social place for code snippets called
+https://gist.github.com[GitHub Gists].
+* Built-in tools for reporting and monitoring your projects.
+* https://education.github.com/pack/[Grants aid for students to get
+started on their software development journey] which further makes
+GitHub more of a de-facto platform not only for seasoned developers but
+also for newcomers.
+
+Anyways, if you're looking for an alternative to GitHub, here's some
+other Git-based web hosting sites:
+
+* https://gitlab.com/[GitLab] is probably the closest competitor to
+GitHub. It offers pretty much everything GitHub has (except for the
+student pack) but it has some other tricks GitHub doesn't have:
+** Offers true unlimited public and private repos with unlimited
+collaborators so you can make your projects truly private here.
+** Has built-in CI/CD tools making GitLab an out-of-the-box suitable
+platform for DevOps development.
+** Can be self-hosted (meaning you can run GitLab locally in your own
+machine).
+* https://bitbucket.org/[Bitbucket] is another competitor to GitHub. Its
+core feature set is quite similar to GitLab: having built-in CI/CD
+tools, can be self-hosted, and has a ton of built-in integration with
+other services such as Trello and Slack.
+
+=== http://heroku.com/[Heroku]
+
+If you're looking to deploy your dynamic web app, look no further to
+Heroku. Heroku offers an infrastructure as a service that is made sure
+to be as easy as possible and it is sure easy in my experience so far.
+
+Heroku just needs a Git repo from GitHub, GitLab, Bitbucket, and other
+platforms and you're mostly done. Just tweak the app further, store your
+secret credentials, enable related services for your app, and your app
+will set ablaze live on the web.
+
+Alternatives:
+
+* https://glitch.com/[Glitch] — One of the coolest alternative to
+Heroku. It's another app deployment platform but with the sense of
+community mixed in. It lets you remix other people's app as well as you
+let them remix your app (if you choose). This is a nice platform for
+your hobby projects though it https://glitch.com/help/languages/[only
+supports Node.js for now (as of this writing)].
+* https://zeit.co/now[Now] An app deployment service from Zeit. It
+offers a platform to deploy your web apps though you have to integrate
+it with your app instead of just placing your app and letting it run.
+Like Heroku, it also offers a generous free tier that is mostly enough
+for managing multiple hobby projects.
+* http://firebase.google.com/[Firebase] — An infrastructure-as-a-service
+(IaaS) later acquired by Google. It offers a generous free tier services
+if you're starting out but later it gets expensive as your project made
+through the limit. The only downside when using this is you have to
+integrate your app and may use some proprietary solutions along with it.
+* https://repl.it/[Repl.it] — Possibly one of the best alternatives to
+Heroku. Similar to Glitch, it's an online IDE that
+https://repl.it/site/languages[supports a lot of languages] and it got
+https://repl.it/discord[a community of hackers behind it]. It's a pretty
+cool tool especially for hobby projects and such. It is also open for
+other users in the Repl.it community, being able to fork your projects.
+
+=== https://www.netlify.com/[Netlify]
+
+If you want to publish your static website, no need to deploy it with
+Heroku since it'll just add to your monthly quota.
+https://www.netlify.com/[Netlify] is one of the perfect platforms for
+that.
+
+Like Heroku, Netlify is a platform that aims to make web app deployment
+as easy as possible. Just create an account, login to Netlify, integrate
+your Git repo, and give configurations for deployment then celebrate!
+
+It offers out-of-the-box integration with common web workflow like task
+runners and Git repos and
+https://www.netlify.com/products/build/[automates them through a work
+pipeline], doing all the dev-ops work for you. It's pretty fantastic
+especially if you're working solo.
+
+Of course, https://www.netlify.com/pricing/[Netlify offers a generous
+free tier] limiting your account up to 100GB bandwidth for your list of
+deployed projects. For me, that is more than enough.
+
+Of course, tons of alternatives are available but here's the following
+that topped the list for me:
+
+* https://surge.sh/[Surge] — One of the more popular static site
+deployment tool. It's simply a deployment tool available in the command
+line. Also provides out-of-the-box integration with common workflows.
+* https://pages.github.com/[GitHub Pages] — If you're mainly a
+https://gitlab.com[GitLab] user,
+https://docs.gitlab.com/ee/user/project/pages/[GitLab also offers a
+similar service]. It's the free static web hosting service offered in
+GitHub. You can set some configurations for your static website such as
+the branch specified to hold your site's files. You could also create a
+quick landing page for your repo with it.
+* https://zeit.co/now[Now] — One of the more advanced alternative. It's
+a platform for static and dynamic sites. Available as a command line
+tool, the platform also offers a https://zeit.co/pricing[generous free
+tier].
+
+With all of those above, you're practically set for life in your web
+development learning journey. It's pretty amazing that we get these
+stuff for FREE, mind you. Now go ahead and ship some apps.
+
+=== Other tools
+
+Well, here's some honorable mentions:
+
+* https://travis-ci.org/[Travis CI] — A continuous
+integration/continuous deployment (CI/CD) service that integrates very
+well with GitHub which is the reason why I list it here. If you're not
+familiar with CI/CD systems yet, you can view
+https://www.youtube.com/watch?v=ymPOI4gWQFY&list=PL0zVEGEvSaeFFy32i5A4041qSTbYqtKqv[this
+video series by @mpjme from FunFunFunction] to get you started. The
+video series assumes that you're familiar with programming workflows (in
+which you're most likely to be since you're reading my posts right now).
+* Your own automation script. — In some cases or reason, you'll have to
+craft the deployment script yourself. You might write one of these since
+you don't want to rely on a CI/CD service or just want to deploy it
+yourself.
+* Your own backend, maybe? — If it's powerful enough, I guess you could
+but I recommend more to pass that responsibility to the companies that
+offer dedicated servers. Unless your project _revolves around deploying
+your own backend_, I don't see much reason to deploy it with your own.
+
+== Conclusion
+
+There's my general workflow in its glory using only with (mostly) free
+and open source technologies. There's a lot more things to keep an eye
+on especially if you're looking for a specific set of technologies or
+needs. If you're looking for more open content, I can point you to the
+following:
+
+* https://github.com/sindresorhus/awesome[`+awesome+`] — A list of
+resource list of various technologies and topics from software
+development, music, research, to game development. You should be able to
+get a start of your search of open content from there.
+* https://freebies-hunt.netlify.com/[Freebies Hunt] — I've created this
+website as a way of introducing you to free and open content, in
+general. It contains free resources for programming, music, design, and
+other interests I have. Quite similar to `+awesome+` but it stripped
+down to my preferred resources. Of course, for the spirit of open
+content (and software), everything on this website is open source from
+the https://github.com/foo-dogsquared/freebies-hunt[website] and the
+https://github.com/foo-dogsquared/freebies-hunt-api/[API] I've built.
+
+One of the most beneficial things on free and open content today is that
+they're easily accessible as they're easily created. Not only that it
+does help on making the technology to easily create interest on the
+public but also to create progress by everyone.
+
+Though with the said nature of open content, there are problems that are
+bound to be manifested such as the large amount of open content that can
+be completely overwhelming to newcomers up to the quality of the open
+content seeing as it can be made by everyone.
+
+Overall, I don't think it can be a problem as long as there are leading
+bodies that govern and direct the advancement of the technology or the
+domain it operates with. (Of course there are problems bound with it as
+well but that's how life works, solving problem inherently creates
+another problem.)
+

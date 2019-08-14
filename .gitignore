@@ -1,13 +1,15 @@
-vendor/
-vendor/bundle/
 
-# Created by https://www.gitignore.io/api/jekyll
-# Edit at https://www.gitignore.io/?templates=jekyll
+# Created by https://www.gitignore.io/api/hugo
+# Edit at https://www.gitignore.io/?templates=hugo
 
-### Jekyll ###
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+### Hugo ###
+# Generated files by hugo
+/public/
+/resources/_gen/
 
-# End of https://www.gitignore.io/api/jekyll
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# End of https://www.gitignore.io/api/hugo

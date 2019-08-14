@@ -1,0 +1,520 @@
+---
+title:  A freebie's resource list (mostly related to programming)
+date:   2018-05-01 09:25:57 +0800
+categories: [foss]
+tags: [foss, freebies]
+---
+
+= A freebie's resource list (mostly related to programming)
+Gabriel Arazas <foo.dogsquared@gmail.com>
+
+____
+UPDATE: This list is now deprecated. It'll recieve minimal maintenance,
+if there's any. Any new updates are now actively developed in my
+http://freebies-hunt.netlify.com/[new freebies resource site].
+____
+
+This is a free resource list that gradually grew over the past few
+months. Admittedly, I don't use all of them so why not just share it,
+right?
+
+Just pick a few, don't be overwhelmed by the number of resource you have
+to refer to. Focus on one thing at a time. Well, the list is actually
+longer but I decided to pick the top contenders of the list (and some of
+them are still not being used, I just like to bookmark stuff and never
+checking out again sometimes).
+
+Do keep in mind, most of them are related to computer programming but
+some of the providers offer stuff outside of programming (say
+https://khanacademy.org[Khan Academy] for math).
+
+== Other Resource Lists
+
+* https://github.com/sindresorhus/awesome[awesome] — *(very much
+recommended)*; it's a curated list of lists; I guess you can say it's
+*awesome*, mwehehehehehehehe... 😎
+* https://www.reddit.com/r/math/comments/2mkmk0/a_compilation_of_useful_free_online_math_resources/[A
+Compilation of Useful, Free, Online Math Resources from /r/math]
+* https://www.reddit.com/r/learnmath/comments/8p922p/list_of_websites_ebooks_downloads_etc_for_mobile/[List
+of websites, ebooks, downloads, etc. for mobile users and people too
+lazy to read the sidebar from /r/learnmath]
+* https://medium.com/free-stuff/500-free-things-on-the-internet-to-start-your-new-year-11ae72266b66[This
+list on Medium]
+* https://www.reddit.com/r/BestofSoftwares/comments/6084vh/list_of_the_best_free_things_online_everyone_can/[List
+of the best free things online everyone can take advantage of on
+/r/BestOfSoftwares]
+* https://www.reddit.com/r/learnprogramming/wiki/tools[This specialized
+list for programming on Reddit]
+* https://github.com/sdmg15/Best-websites-a-programmer-should-visit/[Useful
+websites for programmers (by _sdmg15_ on GitHub)] — also here's
+https://dev.to/sahilrajput/useful-websites-for-programmers-36k#coding-practice-for-beginners[an
+mirror article by _Sahil Rajput_ on dev.to]
+* https://github.com/dargaCode/WebDevStudyResources[Web Dev't Study
+Resources (by _dargaCode_ on GitHub)]
+
+== Online Education Resources
+
+* https://edex.adobe.com/en/professional-development/courses[Adobe
+Education Exchange] — free courses offered by Adobe and its community
+* https://brilliant.org[Brilliant] — kind of like those MOOC but they
+teach you through solving problems
+* https://www.codecademy.com/[Codecademy]
+* https://www.cccoer.org/[Community College Consortium for Open
+Educational Resources] — you can find it
+https://www.cccoer.org/learn/find-oer/[here] for the most part if you
+want the open educational resources (OER)
+* https://coursera.org[Coursera] — *(recommended)*
+* http://cs50.harvard.edu/[CS50 Course by Harvard University] — *(very
+much recommended)*; a very good introductory course on computer science
+in general, just take it easy and follow the schedule then you'll be
+fine; I also recommend to take it with friends or a study group too,
+much easier unlike the way I took 😥, but still doable with solo
+* https://edx.org[edX] — *(recommended)*
+* http://www.fast.ai/[fast.ai] — free courses on machine learning, ooooh
+yeah
+* https://freecodecamp.org[freeCodeCamp] — *(recommended)*;
+project-based curriculum for web development
+* https://www.ixl.com/[IXL] — an educational resource and learning site
+on K-12 curriculum
+* https://khanacademy.org[Khan Academy] — *(recommended)*; there are
+also other topics outside of programming (i.e. mathematics, physics)
+* https://learnxinyminutes.com[Learn X in Y Minutes] — a
+community-created repository of summaries for you to learn the X
+programming languages
+* https://learning.linkedin.com/[LinkedIn Learning] — eLearning platform
+of LinkedIn
+* https://mva.microsoft.com/[Microsoft Virtual Academy] — yup, Microsoft
+has their own learning platform
+* https://ocw.mit.edu/index.htm[MIT OpenCourseWare] — *(recommended)*;
+contains courses from a lot of subjects; you also might want to check
+out their https://ocw.mit.edu/courses/ocw-scholar/[OCW Scholar Courses]
+wherein they are essentially more in-depth versions of the usual courses
+* https://university.mongodb.com/[MongoDB University] — official courses
+from MongoDB
+* https://online.stanford.edu/courses[Online Stanford Courses]
+* https://www.oercommons.org/[Open Educational Resources] —
+self-explanatory as to what their content is about
+* https://oyc.yale.edu/courses[Open Yale Courses]
+* https://scrimba.com/[Scrimba] — *(recommended)*; videos with
+interactive code
+* https://everythingmaths.co.za/[Siyavula] — mathematics- and
+science-focused open educational resources
+* https://www.skillshare.com/[SkillShare] — almost like Udemy, almost
+like Udemy
+* https://www.teachengineering.org/[Teach Engineering] — well, it's a
+educational resources site containing engineering stuff
+* https://www.theodinproject.com/[The Odin Project] — similar approach
+to freeCodeCamp
+* https://www.tutorialspoint.com/index.htm[Tutorials Point] —
+*(recommended)*; a good overview on a bunch of programming languages
+* https://tutsplus.com/[TutPlus] — a bunch of tutorials and courses
+* https://www.udacity.com/[Udacity] —most, if not all courses are
+focused on technology
+* https://udemy.com[Udemy] — HINT: they are discounted for almost
+all-year round; I also recommend to only look out for the top courses
+since there's a lot of cluttering stuff in there
+* https://www.w3schools.com/[W3Schools]
+* http://mathworld.wolfram.com/[Wolfram MathWorld]
+
+== Academics-focused Sites
+
+* https://www.academia.edu/[Academia.edu]
+* https://brainly.com/[Brainly] — *(recommended)*; for students and
+peer-to-peer engagement
+* https://mendeley.com/[Mendeley]
+* https://scholar.google.com/[Google Scholar]
+* https://www.researchgate.net/[Researchgate] — most published studies
+under their platform are free to view
+
+== Documentations
+
+* https://devdocs.io/[DevDocs] — *(very much recommended)*; a site
+wherein official documentation of different languages can be found;
+there's also an offline version of it if you are lacking of internet
+speed (like me)
+* https://www.gitbook.com/[GitBook] — easier finding for documentations
+* https://developer.mozilla.org/en-US/[MDN Web Docs] — *(very much
+recommended)*; if you're trying to learn web development and programming
+in general, this can be a hub for it
+
+== Books
+
+* http://aosabook.org/en/index.html[The Architecture on Open Source
+Applications] — A bundle of books that are free to read online
+* http://algorithms.wtf/[Algorithms (by _Jeff Erickson_)] — it's a good
+book on algorithms (though not recommended as a first book on data
+structures and algorithms)
+* https://open.bccampus.ca/[BC Campus Open Ed Open Textbook Database]
+* https://bookboon.com/[Bookboon] — offers premium books as well
+* http://mfleck.cs.illinois.edu/building-blocks/[Building Blocks for
+Theoretical Computer Science] — self-explanatory title is
+self-explanatory
+* https://betterexplained.com/calculus/[Calculus (by _Kalid Azad_ from
+_Better Explained_)]
+* http://freecomputerbooks.com[Free Computer Books]
+* https://github.com/EbookFoundation/free-programming-books[Free
+Programming Books] — *(recommended)*; a GitHub repo by the E-Book
+Foundation
+* https://github.com/EbookFoundation/free-science-books[Free Science
+Books] — another GitHub repo by the E-Book Foundation
+* http://gameprogrammingpatterns.com[Game Programming Patterns]
+* https://greenteapress.com/wp/[Green Tea Press] — free computer
+science-related ebooks
+* https://htdp.org/[How to Design Programs, 2nd Edition (HTML version)]
+* https://ptolemy.berkeley.edu/books/leeseshia/download.html[Introduction
+to Embedded Systems, 2nd Edition (2017, Lee and Seshia)]
+* https://inventwithpython.com/[Invent with Python] — A collection of
+free Python online books authored by Al Sweigart
+* http://learnyouahaskell.com/[Learn You A Haskell]
+* https://math.wikia.com/wiki/Math_Wiki[Math Wiki] — well, it is
+structured like a textbook and it is said that the Math Wiki is a
+textbook so there's that
+* https://mitpress.mit.edu/mit-press-open[MIT Press Open] — yes, free
+and open access books from MIT Press
+* http://book.goalkicker.com/[Notes for Professionals] — *(very much
+recommended)*; made by folks at Stack Overflow from the Stack Overflow
+documentation for variety of languages and despite the title, it is
+quite helpful for beginners like me, as well; also, it is frequently
+updated like once per week
+* http://opendatastructures.org/[Open Data Structures] — offers book
+* https://openlibrary.org/[Open Library]
+* https://textbooks.opensuny.org/[Open SUNY Textbooks]
+* https://open.umn.edu/opentextbooks[Open Textbook Library] —
+*(recommended)*; same as OpenStax
+* https://cnx.org/[OpenStax CNX] — a database of open educational
+resources
+* https://openstax.org/[OpenStax] — *(very much recommended in
+sciences)*; a library of open-licensed expert-curated college textbook
+and resources
+* https://divakarvi.github.io/bk-spca/spca.html[Scientific Programming
+and Computer Architecture]
+* https://sarabander.github.io/sicp/[Structure and Interpretation of
+Computer Programs, 2nd Edition (HTML version)] — unofficial (and
+prettier) version of
+https://mitpress.mit.edu/sites/default/files/sicp/index.html[one of
+MIT's famous programming book (that can also be found online)]
+* http://www.feynmanlectures.caltech.edu/[The Feynman's Lectures on
+Physics]
+* https://www.wikitolearn.org/[WikiToLearn]
+
+== Katas (Practice Sites)
+
+* https://old.reddit.com/r/dailyprogrammer/[/r/dailyprogrammer]
+* http://coderbyte.com[Coderbyte]
+* http://codewars.com/[Codewars] — *(recommended)*
+* https://projecteuler.net/[Euler Project] — *(recommended, if you want
+to be more challenged)*; has more focus on applying mathematical
+concepts than programming
+* https://exercism.io[Exercism] — a site that focuses improving you
+through the mentor-mentee model
+* http://hackerrank.com/[HackerRank] — *(recommended, if you want to be
+more challenged)*
+* https://www.pramp.com/[Pramp] — you get to practice some programming
+interview questions and it's free
+
+== Articles
+
+* https://www.brainpickings.org[Brain Pickings] — it's about whatever
+your brain might be piqued to
+* https://dev.to/[Dev.to]
+* https://www.explainthatstuff.com/[Explain That Stuff]
+* https://www.geeksforgeeks.org/[GeeksforGeeks] — *(recommended)*; a
+computer science portal (for geeks)
+* https://medium.com/[Medium]
+* https://preadr.com/[Preadr] — an article link collector collecting
+articles related to your configured interests
+* http://scratchapixel.com/[Scratch A Pixel] — a list of articles on
+computer graphics
+* https://www.wikipedia.org/[Wikipedia] — if you want to learn random
+things
+
+== Communities
+
+* https://www.codenewbie.org/[CodeNewbie]
+* https://www.codingblocks.net/[Coding Blocks] — they also have a
+podcast
+* https://dev.to/[Dev.to] — *(recommended)*; beginner-friendly
+* https://forum.freecodecamp.org[freeCodeCamp Community]
+* https://github.com[GitHub] *(of course)*
+* https://news.ycombinator.com/[HackerNews]
+* https://www.reddit.com/r/coding/[Reddit /r/coding]
+* https://www.reddit.com/r/learnprogramming/[Reddit /r/learnprogramming]
+* https://stackoverflow.com[Stack Overflow] — look for the whole Meta
+Exchange network if you want to visit more communities other than Stack
+Overflow
+
+== Podcasts
+
+* https://www.codenewbie.org/basecs[BaseCS]
+* https://www.codenewbie.org/podcast[CodeNewbie Podcast]
+* https://www.codingblocks.net/category/podcast/[Coding Blocks Podcast]
+— great for beginners
+* https://collegeinfogeek.com/cast/[College Info Geek Podcast] — not
+related to programming; a good refresher about a variety of stuff
+* https://devchat.tv/[DevChat] — a list of podcast
+* https://developertea.simplecast.fm/[Developer Tea]
+* https://syntax.fm/[Syntax] — *(recommended if you're into web dev't)*
+* https://www.programmingthrowdown.com/[Programming Throwdown] —
+beginner-friendly
+* https://realtalkjavascript.simplecast.fm/[Real Talk JavaScript]
+* https://softskills.audio/[Soft Skills Engineering] — *(recommended)*;
+it's a podcast series about the things that relate to software
+engineering that are not mostly coding-related
+* https://youarenotsosmart.com/podcast/[You Are Not So Smart] — it's a
+podcast series about exploring self-delusions and some psychological
+stuff and I really like psychological stuff so that's why it's here
+
+== Blogs
+
+=== Learning
+* https://calnewport.com/[Cal Newport]
+* https://collegeinfogeek.com/[College Info Geek]
+* https://scotthyoung.com/[Scott Young] — a blog that mainly focuses on
+learning
+
+=== Programming
+* https://blog.codinghorror.com/[Coding Horror]
+* https://css-tricks.com/[CSS Tricks] — a blog that focuses on
+front-end development
+* https://sivers.org/[Derek Sivers] — a blog from a guy who had a lot
+of things to say on a lot of topics
+* https://flaviocopes.com/[Flavio Copes] — another blog that focuses on
+front-end development
+* https://jeremykun.com/[Jeremy Kun] — a programmer with a focus on
+mathematics
+* https://www.joelonsoftware.com[Joel On Software] — a software-related
+blog from Joel Spolsky, the CEO from Stack Overflow
+* https://codeblog.jonskeet.uk/[Jon Skeet's Coding Blog] — Jon Skeet's
+blog; * insert Jon Skeet fact here *
+* https://joshuapullen.com/blog/[Joshua Pullen]
+* http://hacks.mozilla.org/[Mozilla Hacks] — mainly focuses on web
+development progress
+* https://blog.scottlogic.com/[Scott Logic] — it's a blog that focuses
+on a broad spectrum of stuff
+* https://webapplog.com/[webapplog] — mainly focuses on Node.js
+* https://wesbos.com/blog/[Wes Bos] — creator of several courses and
+some helpful posts along the way
+
+== Newsletter
+
+* https://frontendfoc.us/[Frontend Focus] — another weekly newsletter
+about front-end development
+* http://gamedevjsweekly.com/[Gamedev.js Weekly] — weekly newsletter
+about HTML5 Game Development
+* https://javascriptweekly.com/[JavaScript Weekly]
+* http://nodeweekly.com/[Node Weekly]
+* https://newsletter.nodejs.org/[Official Node.js Weekly Newsletter]
+* https://postanly.ongoodbits.com/[Postanly] — a weekly digest of
+productivity life articles
+* https://pycoders.com/[Pycoders Weekly] — a weekly newsletter on Python
+
+== YouTube Channel
+
+* https://www.youtube.com/user/crashcourse/[Crash Course] —
+*(recommended)*; a YouTube channel that specializes in introducing you
+to a lot of concepts and subjects such as computers, sciences, and
+computer science
+* https://www.youtube.com/channel/UCyIe-61Y8C4_o-zZCtO4ETQ[DevTips] —
+*(recommended)*; beginner-friendly
+* https://www.youtube.com/channel/UCVk8weS4S2kJfja72fTxh5A[freeCodeCamp
+Talks]
+* https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ[freeCodeCamp]
+* https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q[Fun Fun
+Function] — *(recommended)*; your metaphorical caffeine every Monday
+* https://www.youtube.com/channel/UCoLUji8TYrgDy74_iiazvYA[Jarvis
+Johnson] — comedy channel with a slight focus on tech
+* https://www.youtube.com/channel/UC4a-Gbdw7vOaccHmFo40b9g[Khan Academy]
+— videos on various academic topics
+* https://www.youtube.com/channel/UCVTlvUkGslCV_h-nSAId8Sw[LearnCode.academy]
+* https://www.youtube.com/user/LevelUpTuts/[LevelUpTuts] —
+*(recommended)*; a beginner-friendly channel that mostly contains
+tutorials and introductions on various topics
+* https://www.youtube.com/channel/UCpCSAcbqs-sjEVfk_hMfY9w[Majorprep]
+* https://www.youtube.com/user/mozhacks[Mozilla Hacks] — web video
+series "Web Demystified"
+* https://www.youtube.com/channel/UCFe6jenM1Bc54qtBsIJGRZQ[patrickJMT] —
+focuses on mathematics so if you want to learn math through YouTube,
+here is one channel that specializes on it
+* https://www.youtube.com/channel/UCoHhuummRZaIVX7bD4t2czg[Professor
+Leonard] — a YouTube channel that focuses on giving topics on calculus
+* https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw[The Coding
+Train]
+* https://www.youtube.com/user/Vsauce[Vsauce] — need to say more?
+* https://www.youtube.com/channel/UCoebwHSTvwalADTJhps0emA[Wes Bos]
+
+== Operating Systems (yes, some of them are free)
+
+=== https://www.microsoft.com/en-us/software-download/windows10ISO[Windows 10] *(I guess it is free now, also recommended)*
+
+=== Linux — overwhelming majority of them are free and open source
+* http://archlinux.org/[Arch Linux] — not recommended for beginners
+* https://fedoraproject.org/[Fedora] — kind of similar to Ubuntu
+* https://www.linuxmint.com/[Linux Mint] — *(recommended for
+beginners)*
+* https://manjaro.org/[Manjaro] — another one of the beginner-friendly
+distro
+* https://www.opensuse.org/[OpenSUSE] — available in two distinct
+versions: Tumbleweed and Leap
+* https://getsol.us/[Solus]
+* http://ubuntu.com/[Ubuntu] — *(recommended for beginners)*
+
+== Programming Tools
+
+=== Offline IDE
+* https://www.eclipse.org/[Eclipse] — Linux alternative; also has
+Windows version
+* https://www.jetbrains.com/[Jetbrains] — *(recommended)*; has an
+assortment of tools for different programming languages and environment;
+also has support for students so you can apply for an educational pack,
+if you're eligible
+* https://www.visualstudio.com/[Visual Studio (IDE)] — *(recommended)*;
+Windows-only
+
+=== Online IDE
+* http://codeanywhere.com/[Codeanywhere]
+* https://codesandbox.io/[CodeSandbox] — *(recommended)*; really acts
+as a solid online alternative in case you want to work on the go
+(mostly, for JavaScript-oriented web development)
+* https://codepen.io[Codepen] — focuses on the front-end dev't
+* https://repl.it/[Repl.it] — has stronger support for a back-end dev't
+
+=== Text Editors
+* https://atom.io/[Atom]
+* https://www.vim.org/[Vim] — I have no words for this, yet
+* https://code.visualstudio.com/[Visual Studio Code] — *(very much
+recommended)*; platform-agnostic (found on Windows, Mac, & Linux)
+
+=== Web Browsers
+* https://www.mozilla.org/en-US/firefox/developer/all/[Firefox
+Developer Edition]
+* https://www.mozilla.org/en-US/firefox/all/[Firefox]
+* https://www.google.com/chrome/browser/beta.html[Google Chrome Beta] —
+slight alternative for Google Canary
+* https://www.google.com/chrome/browser/canary.html[Google Chrome
+Canary] — Windows-only
+* https://www.google.com/intl/en/chrome/[Google Chrome]
+
+=== Communication
+* https://discordapp.com/[Discord] — client messenger
+* https://pidgin.im/[Pidgin] — also a client messenger
+* https://slack.com/[Slack] — *(recommended)*; a very good chat client
+between teams
+* https://www.thunderbird.net/en-US/[Thunderbird] — *(recommended)*;
+e-mail client
+
+=== Productivity Tools
+* https://asoftmurmur.com/[A Soft Murmur] — an ambient noise generator
+with a lot more sounds than rain
+* https://lastpass.com[LastPass] — cloud password manager
+* https://medleytext.net/[MedleyText] — Evernote but targeted towards
+developers
+* https://www.notion.so/?r=ed358a0e3f6d4e47a5db21a17beaa7dd[Notion] —
+distraction-free app for taking notes in Markdown
+* http://www.rainymood.com/[Rainy Mood] — lets you focus through the
+ambience (if you're the type who find rain to be relaxing)
+* https://trello.com[Trello] — a project management tool
+
+=== Others
+* https://calibre-ebook.com/[Calibre] — an e-book library management
+tool
+
+== Mathematical Tools
+
+* https://www.fxsolver.com/[fxSolver]
+* https://www.geogebra.org/[Geogebra]
+* https://www.mathway.com/Algebra[Mathway]
+* https://www.symbolab.com/[Symbolab]
+
+== Platforms For Your Future Apps
+
+* https://bitbucket.org/[BitBucket]
+* https://aws.amazon.com/free/[Amazon Web Services (AWS) — Free Tier]
+* https://github.com/[GitHub] — *(recommended)*; yeah
+* https://gitlab.com/[GitLab] — *(recommended)*;
+* http://heroku.com/[Heroku] — *(recommended, if you're starting)*;
+pretty much free
+* https://azure.microsoft.com/en-us/free/[Microsoft Azure — Free Tier]
+* http://netlify.com/[Netlify] — *(recommended)*; their free options is
+pretty much amazing
+
+== Stock Resources
+
+=== Images
+* https://www.pexels.com/[Pexels]
+* https://www.pixabay.com/[Pixabay]
+* https://unsplash.com/[Unsplash]
+
+=== Fonts
+* http://www.1001fonts.com/[1001 Fonts]
+* https://www.fontsquirrel.com/[Font Squirrel]
+* http://www.losttype.com/[Lost Type]
+
+=== Other Stuff
+* https://www.canva.com/[Canva] — why not create your own creative
+designs
+* https://coolors.co/[Coolors] — *(recommended, if you are in design)*;
+color scheme generator
+* https://creativemarket.com/[Creative Market] — free creative stuff
+weekly
+
+== Content Delivery Networks (CDN)
+
+* https://cdnjs.com/[cdnjs] — *(recommended, if you're in web dev't)*;
+CDN for web-related libraries
+* https://cloudinary.com/[Cloudinary] — mostly images and video CDN;
+also has image and video manipulation
+* https://www.staticaly.com/[Staticaly] — CDN that serves files from
+different repo (BitBucket, GitLab, GitHub, and even GitHub gists) with
+the proper headers
+* https://uploadcare.com/[UploadCare] — image CDN with image
+manipulation on-the-fly
+
+== Student Packs
+
+* https://www.autodesk.com[Autocad] — offers free years of the premium
+version of their products
+* https://education.github.com/pack/[GitHub Educational Pack] —
+assortment of benefits like unlimited private repositories on their own
+site, free domain name for a year, and free premium boosts on more sites
+* https://www.jetbrains.com/student/[JetBrain Student Pack] — offers
+free licenses for their tools like
+https://www.jetbrains.com/clion[CLion],
+https://www.jetbrains.com/webstorm[WebStorm], and
+https://www.jetbrains.com/idea[IntelliJ IDEA Ultimate]
+* https://www.microsoft.com/en-us/education/students[Microsoft Student
+Pack]
+
+== Miscellaneous
+
+* https://blog.codinghorror.com/a-pragmatic-quick-reference/[A Pragmatic
+Quick Reference] — it's a collection of wisdoms put together in a list
+from the Coding Horror
+* https://archive.org/[Archive] — it's an archive site for everything,
+it seems; you can find a lot of stuff in there
+* https://www.class-central.com/[Class Central] — a search engine for
+courses at different MOOC sites
+* https://github.com/kamranahmedse/developer-roadmap[Developer Roadmap
+(by kamranahmedse)] — *(very much recommended)*; your reference in case
+you want to choose a specific role in software development (mine is more
+on the back-end development)
+* https://dev.tube[DevTube] — YouTube for developers
+* https://distrowatch.com/[Distrowatch] — *(recommended, if you're into
+Linux)*; website watching for updates around Linux distros
+* https://keepachangelog.com/en/1.0.0/[Keep A Changelog]
+* https://www.keyvalues.com/[keyvalues] — it's a engineering job finder
+* https://localhackday.mlh.io/[Local Hackday MLH (Major League Hacking)]
+— it's a global hackathon (that are related to MLH) finder
+* https://www.mooc-list.com/[MOOC List] — similar to Class Central
+* http://www.openculture.com/[Open Culture] — a site that provides open
+content and resources
+* https://opensource.com/[Open Source] — a site that talks all open
+source things
+
+*** - _if you're on a Windows OS, probably you're locked out of the
+option to download the ISO directly, to download it directly, you have
+to change the user profile from your browser usually, you can do that by
+going into 'Responsive Design Mode' (Ctrl + Shift + M) on Firefox (or
+anything similar to Chrome and other browsers) and choosing a
+non-Windows device (choose an Apple product for easy choices) and you
+shall see that the page will reload and the layout will change_ OR you
+can just download a browser extension to change your User Agent

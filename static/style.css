@@ -1,0 +1,43 @@
+:root {
+    --accent: #d59783;
+    --background: #080a0e;
+    --border-color: #ffffff;
+}
+
+body {
+    background: var(--background);
+    font-size: 1.1rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h2[id]::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    border-bottom: var(--border-color) solid 1px;
+}
+
+h2:not(first-child) {
+    margin-top: 60px;
+}
+
+.header__logo a {
+    min-width: 45%;
+}
+
+.button__text {
+    white-space: pre-wrap;
+}
+
+.attribution {
+    margin-bottom: 40px;
+    text-align: right;
+}
+
+a.read-more {
+    text-decoration: underline;
+}

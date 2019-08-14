@@ -1,4 +1,0 @@
----
-data: categories
-title: Categories
----

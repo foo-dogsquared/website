@@ -1,4 +1,0 @@
----
-data: tags
-title: Tags
----
