@@ -1,0 +1,18 @@
+dist: xenial
+
+# installing Hugo from the snap store'
+# https://snapcraft.io/hugo
+addons:
+  snaps:
+    - hugo
+script:
+  - hugo
+deploy:
+  local_dir: "public/"
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  target_branch: gh-pages
+  keep_history: true
+  on:
+    branch: master
