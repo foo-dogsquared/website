@@ -5,10 +5,10 @@ dist: xenial
 addons:
   snaps:
     - hugo
-before_script:
-  - sudo apt-get update
-  - sudo apt-get install asciidoctor
+    - name: ruby
+      confinement: classic 
 script:
+  - bundle install
   - asciidoctor --version
   - hugo
 deploy:
