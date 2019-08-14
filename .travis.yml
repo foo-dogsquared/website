@@ -5,7 +5,11 @@ dist: xenial
 addons:
   snaps:
     - hugo
+    - ruby
 script:
+  - gem --version
+  - gem install asciidoctor
+  - asciidoctor --version
   - hugo
 deploy:
   local_dir: "public/"
@@ -13,6 +17,6 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   target_branch: gh-pages
-  keep_history: true
   on:
     branch: master
+    
