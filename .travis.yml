@@ -5,10 +5,7 @@ dist: xenial
 addons:
   snaps:
     - hugo
-    - name: ruby
-      confinement: classic 
 script:
-  - bundle install
   - asciidoctor --version
   - hugo
 deploy:
