@@ -1,13 +1,12 @@
-dist: xenial
+dist: bionic
 
 # installing Hugo from the snap store'
-# https://snapcraft.io/hugo
-addons:
-  snaps:
-    - hugo
+#   https://snapcraft.io/hugo
+before_install:
+  - sudo apt-get update
+  - sudo apt-get ruby
+  - sudo apt-get install hugo
 script:
-  - which asciidoctor
-  - export PATH=$PATH:$(which asciidoctor)
   - asciidoctor --version
   - hugo
 deploy:
