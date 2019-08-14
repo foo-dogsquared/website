@@ -5,7 +5,8 @@ dist: xenial
 addons:
   snaps:
     - hugo
-    - ruby
+    - name: ruby
+      confinement: classic 
 script:
   - gem --version
   - gem install asciidoctor
