@@ -4,7 +4,7 @@ dist: bionic
 #   https://snapcraft.io/hugo
 before_install:
   - sudo apt-get update
-  - sudo apt-get ruby
+  - sudo apt-get install ruby
   - sudo apt-get install hugo
 script:
   - asciidoctor --version
