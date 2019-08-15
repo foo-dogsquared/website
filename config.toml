@@ -17,7 +17,7 @@ disqusShortname = "foodogsquared"
   # center theme with default width
   centerTheme = true
   # set a custom favicon (default is a `themeColor` square)
-  # favicon = "favicon.ico"
+  favicon = "logo.jpg"
 
 [languages]
   [languages.en]
@@ -31,10 +31,9 @@ disqusShortname = "foodogsquared"
 
     [languages.en.params.logo]
       logoText = "A Hack's Code"
-      logoHomeLink = "/"
+      logoHomeLink = "/blog/"
 
     [languages.en.menu]
-
       [[languages.en.menu.main]]
         identifier = "site"
         name = "Site"
