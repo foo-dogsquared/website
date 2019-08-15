@@ -8,21 +8,23 @@ green="\u001b[32m"
 reset="\u001b[0m"
 
 error_log() {
-    printf "$red An error occurred on line $1.\n"
+    printf "$red An error occurred on line $1\n"
 }
 
 target_branch="gh-pages"
 default_branch="master"
+main_remote_alias="origin"
+build_directory="public/"
 
 trap 'error_log $LINENO' ERR
 
 # Cleaning up the build site
 printf "Deleting older version of the site"
-rm -rf public/
-mkdir public/
+rm -rf $build_directory
+mkdir $build_directory
 
 git worktree prune
-rm -rf .git/worktrees/public/
+rm -rf .git/worktrees/$build_directory
 
 # Building the site
 printf "Building the site"
@@ -30,8 +32,8 @@ hugo
 
 # Pushing the build into the pages branch
 printf "$green -> Deploying page to GitHub...$reset\n"
-cd public   
+cd $build_directory   
 git add --all
 git commit -m "Deploying site to branch $target_branch."
 
-git push origin $target_branch
+git push $main_remote_alias $target_branch

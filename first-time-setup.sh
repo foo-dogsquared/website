@@ -13,6 +13,8 @@ error_log() {
 
 target_branch="gh-pages"
 default_branch="master"
+main_remote_alias="origin"
+build_directory="public/"
 
 printf "$green -> Setting up first time things...$reset\n"
 
@@ -28,11 +30,11 @@ git reset --hard
 git commit --allow-empty -m "Initializing $target_branch branch"
 
 # Pushing the branch into origin
-git push origin $target_branch
+git push $main_remote_alias $target_branch
 git checkout $default_branch
 
 # Cleaning up the build site first
-rm -rf public
+rm -rf $build_directory
 
 # Adding a worktree for the target branch and setting it to origin
-git worktree add -B $target_branch public/ origin/$target_branch
+git worktree add -B $target_branch $build_directory $main_remote_alias/$target_branch
