@@ -1,0 +1,16 @@
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+---
+
+= "{{ replace .Name "-" " " | title }}"
+Gabriel Arazas <foo.dogsquared@gmail.com>
+
+== What did I learnt?
+
+== What tools I want to share?
+
+== What readings I want to share?
+
+== Who do I recommend to look out for?
