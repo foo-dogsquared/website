@@ -30,7 +30,7 @@ git reset --hard
 git commit --allow-empty -m "Initializing $target_branch branch"
 
 # Pushing the branch into origin
-git push $main_remote_alias $target_branch
+git push --force $main_remote_alias $target_branch
 git checkout $default_branch
 
 # Cleaning up the build site first

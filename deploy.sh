@@ -8,7 +8,7 @@ green="\u001b[32m"
 reset="\u001b[0m"
 
 error_log() {
-    printf "$red An error occurred on line $1\n"
+    printf "$red An error occurred on line $1\n $reset"
 }
 
 target_branch="gh-pages"
@@ -26,6 +26,11 @@ mkdir $build_directory
 git worktree prune
 rm -rf .git/worktrees/$build_directory
 
+# Building the worktree for the target branch
+# https://git-scm.com/docs/git-worktree
+echo "Checking out $target_branch branch into public"
+git worktree add -B $target_branch $public $main_remote_alias/$target_branch
+
 # Building the site
 printf "Building the site"
 hugo
@@ -36,4 +41,4 @@ cd $build_directory
 git add --all
 git commit -m "Deploying site to branch $target_branch."
 
-git push $main_remote_alias $target_branch
+git push --force $main_remote_alias $target_branch
