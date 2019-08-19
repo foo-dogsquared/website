@@ -1,0 +1,27 @@
+<footer>
+  {{ with $.Site.Params.blog }}
+    {{ $social_icons := "social-icons.svg" | absURL }}
+    <div class="social-icons">
+      {{ range .contact }}
+      <a href="{{ .link }}" target="_blank">
+        <svg>
+          <use xlink:href="{{ $social_icons }}#{{ .name | urlize }}"></use>
+        </svg></a>
+      {{ end }}
+    </div>
+  {{ end }}
+  {{ if $.Site.Copyright }}
+    <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
+  {{else}}
+    <div class="copyright">
+      <span>© {{ now.Year }} Powered by <a href="http://gohugo.io">Hugo</a></span>
+      <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+    </div>
+  {{end}}
+</footer>
+
+<script src="{{ "assets/main.js" | absURL }}"></script>
+<script src="{{ "assets/prism.js" | absURL }}"></script>
+
+<!-- Extended footer section-->
+{{ partial "extended_footer.html" . }}
