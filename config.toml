@@ -7,7 +7,7 @@ disqusShortname = "foodogsquared"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
+  contentTypeNames = [ "posts", "projects" ]
   # ["orange", "blue", "red", "green", "pink"]
   themeColor = "orange"
   # if you set this to 0, only submenu trigger will be visible
@@ -18,6 +18,27 @@ disqusShortname = "foodogsquared"
   centerTheme = true
   # set a custom favicon (default is a `themeColor` square)
   favicon = "logo.jpg"
+
+  [params.blog]
+    [params.blog.author]
+      name = "Gabriel Arazas"
+      alias = "foo-dogsquared"
+    [params.blog.contact]
+      [params.blog.contact.github]
+        name = "GitHub"
+        link = "https://github.com/foo-dogsquared"
+      
+      [params.blog.contact.gitlab]
+        name = "GitLab"
+        link = "https://github.com/foo-dogsquared"
+      
+      [params.blog.contact.twitter]
+        name = "Twitter"
+        link = "https://twitter.com/foo_dogsquared"
+      
+      [params.blog.contact.keybase]
+        name = "Keybase"
+        link = "https://keybase.io/foo_dogsquared"
 
 [languages]
   [languages.en]
@@ -35,11 +56,21 @@ disqusShortname = "foodogsquared"
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "site"
-        name = "Site"
+        identifier = "home"
+        name = "Home"
         url = "https://foo-dogsquared.github.io"
 
       [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
         url = "/about"
+      
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/posts"
+
+      [[languages.en.menu.main]]
+        identifier = "projects"
+        name = "Projects"
+        url = "/projects"
