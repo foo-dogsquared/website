@@ -7,6 +7,7 @@ title: Developing projects with free resources
 
 = Developing projects with free resources
 Gabriel Arazas <foo.dogsquared@gmail.com>
+2019-04-30
 
 In a world where technology has made it possible to inform and share
 experiences with other people through multiple devices, the technology

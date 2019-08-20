@@ -7,6 +7,7 @@ tags: ["self", "meta"]
 
 = A site overhaul has been occurred
 Gabriel Arazas <foo.dogsquared@gmail.com>
+2019-08-15
 
 ANNOUNCEMENT: A site overhaul has occurred. Please 
 see the changelog. A site overhaul has occurred. 
