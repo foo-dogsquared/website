@@ -1,0 +1,310 @@
+---
+title: "The complete Linux turnabout"
+date: 2019-08-20T20:50:18+08:00
+draft: true
+categories: ["linux"]
+tags: ["linux", "foss"]
+---
+
+= The complete Linux turnabout
+Gabriel Arazas <foo.dogsquared@gmail.com>
+2019-08-20
+
+:imagesdir: ../images/the-complete-linux-turnabout/
+
+Ever since I found some good stuff at Linux, I wiped out my 
+hard drive completely, exclusively install a Linux-based 
+machine, and left Microsoft Windows behind.
+
+Here's some details and experiences about my complete turnaround 
+for my computer workflow:
+
+== My new OS
+I used to dual-boot my machine with Windows and whatever Linux-based 
+distro I was comfortable to use at the time. For the last 8 months or so, 
+I've been using https://manjaro.org/[Manjaro] only because of the 
+https://wiki.archlinux.org/index.php/Arch_User_Repository[Arch User Repository] 
+which has a large selection of software while not fully tipping my toe into 
+using Arch Linux and the effort of maintaining it is minimal because it 
+abstracts it away from you. Not to mention the 
+https://www.archlinux.org/packages/[official package list of Arch Linux] is also 
+a beast. It was the best of both worlds.
+
+At the end, it didn't work out since I found out 8 months later that Manjaro 
+withholds the recently released/upgraded software from Arch Linux before updating 
+their own for security reasons. That didn't go well for me since I thought it's 
+doesn't really hold the point of using Arch-based distros anymore so I thought to 
+dive into the OG of Arch-based distros: https://www.archlinux.org/[Arch Linux] itself.
+
+In my first few days, installing Arch Linux is a difficult task especially I have 
+no idea how Linux works in the grand picture. I was looking up to the 
+https://wiki.archlinux.org/[Arch Wiki] in my phone all day at the time double-checking 
+every time I step up one more step in the instructions. I took me about 5 installations 
+before I got it correctly and cruise through without much worrying.
+
+Booting up a functional Arch Linux that I tried and installed is a challenge well 
+done and satisfied with. 
+It seriously feels good when I got it working. 
+Not to mention that I gain some nuts and bolts knowledge on Linux as well. 
+
+== My newfound workflow
+Since a fresh installation of Arch Linux is very minimal, I took it as an 
+opportunity to have a completely new set of programs to fiddle with.
+
+The first thing in consideration is a desktop environment but I saw 
+an alternative way of using a "desktop" with 
+https://wiki.archlinux.org/index.php/window_manager[window managers].
+Since my workflow is simple and I don't need more fancy getup that one usually gets 
+from DEs, I decided to try it out for some change. 
+And it was cool.
+
+== First window manager
+I decided to use https://i3wm.org/[i3] for my first window manager.
+The first time I use it doesn't bring up a bad experience. 
+It was easy to adapt to it since I'm completely used to using programs 
+that live in a command line interface like https://www.vim.org/[Vim]. 
+
+.My i3 setup
+image::i3-setup.png[My i3 setup]
+
+i3 also offers a level of https://i3wm.org/docs/userguide.html[configuration] 
+that could make you a bit more efficient. 
+In my case, I set up a mode that'll easily let me open my usual programs with 
+only two key strokes like the following examples: 
+
+* `Ctrl + Super` and `f` will open https://www.mozilla.org/en-US/firefox/new/[Firefox] 
+* `Ctrl + Super` then `t` will open https://www.thunderbird.net/[Thunderbird]
+* `Ctrl + Super` then `a` will open my file manager (https://docs.xfce.org/xfce/thunar/start[Thunar]) 
+* and so on...
+
+I also set up some keybindings that I usually use in my previous setup like 
+a screenshot capture with https://github.com/naelstrof/maim[maim], 
+video capture with https://obsproject.com/[OBS Studio], and 
+quick switching of windows and workspaces back and forth. 
+
+=== Status bar
+Along with the keybindings, I also put a status bar usually seen in 
+desktop environments. 
+I decided to use the i3bar since it came in by default with i3. 
+Then I use i3status (also came by default with i3) to fill up some 
+usually needed information like audio volume loudness, remaining disk 
+space for root and for home, and RAM and CPU usage.
+
+It took a while to configure it but I seriously liking the pace around it so far.
+
+.The resulting i3bar setup
+image::i3bar-appearance.png[The resulting i3bar setup]
+
+=== Application launcher
+My personal desktop experience wouldn't be complete without an application launcher. 
+So I considered https://github.com/DaveDavenport/rofi[`rofi`] to be my best friend on 
+the matter.
+
+By default, i3 uses http://tools.suckless.org/dmenu[`dmenu`] as the application launcher 
+but I replaced it with rofi since I find it more intuitive and easier to configure.
+
+I also made rofi to look like a start menu you usually find in desktop environments like 
+http://www.xfce.org/[Xfce] or https://wiki.archlinux.org/index.php/KDE[KDE].
+It's not too shabby if I say so myself.
+It's quite usable with rofi's sidebar mode where you can find windows, desktop entries, 
+binaries, and even SSH configs.
+
+.Customized rofi menu
+image::rofi-setup.png[Customized rofi menu]
+
+You can find 
+https://github.com/foo-dogsquared/dotfiles/tree/master/rofi[my rofi config on my GitHub repo].
+
+=== Desktop background
+It wouldn't have the complete desktop experience without a desktop background.
+Fortunately, it's easier done than said.
+
+For the desktop background, I use http://feh.finalrewind.org/[feh] to easily set it 
+up with the following line in my i3 config file:
+
+[source,bash]
+----
+exec_always feh --bg-scale ~/wallpapers/sand.jpg
+----
+
+If you're curious about the wallpaper, you can view it 
+https://www.reddit.com/r/wallpapers/comments/co9t14/sand/[in this page].
+
+=== Other details
+There are still many details left on how my i3 configuration turned out to 
+be so https://github.com/foo-dogsquared/dotfiles/blob/master/i3/config[here's my i3 config file] 
+if you want to see more of it.
+
+If you want to get started on i3, I recommend to look into the 
+https://i3wm.org/docs/userguide.html[user guide] often.
+It has a fantastic introduction and documentation to begin with. 
+I don't think I need to make a post detailing on it, it's too nice and beautiful.
+
+I also recommend looking into the 
+https://github.com/addy-dclxvi/i3-starterpack[`i3-starterpack` GitHub repo by *addy-dclxvi*].
+It has a great introduction to get started with your i3 setup.
+
+== A turnaround for the terminal
+With a new workflow, comes a new terminal setup. 
+I used to just leave my terminal setup by default since I don't want to 
+break things by then.
+But because of the minimal setup Arch Linux provides at the very start, 
+it's a safe bet to be experimental.
+
+=== Alacritty
+This time, I tried to stick with a new terminal emulator (or terminal, for short 
+which I'll refer to it by this point).
+Initially, I chose https://sw.kovidgoyal.net/kitty/[Kitty] because 
+it's a GPU-based terminal. 
+Eventually, I switched to https://github.com/jwilm/alacritty/[Alacritty] 
+because it's faster on my machine and it supports 
+https://github.com/be5invis/iosevka[Iosevka], a beautiful font set I recently discovered.
+
+The configuration for my terminal is only through fonts and color scheme. 
+So there's really nothing to discuss here.
+
+=== Vim
+https://www.vim.org/[Vim] has a reputation for being a meme in the text editors field. 
+It has unintuitive user experience especially against modern text editors like 
+https://code.visualstudio.com/[Visual Studio Code] or https://atom.io/[Atom] 
+without some manual reading beforehand. 
+It also has unconventional controls due to the modal philosophy it adheres to.
+However, take time to master it and you'll be speeding through for most of the 
+time. 
+
+I use Vim mostly for writing documents that relies on text formatting languages 
+like https://daringfireball.net/projects/markdown[Markdown] and 
+https://asciidoctor.org/[Asciidoctor].
+My main case, however, is for writing LaTeX. 
+
+After I saw https://castel.dev/post/lecture-notes-1/[this post by *Gilles Castel*], 
+I inspired to learn more about Vim since I was also learning LaTeX at the time. 
+A few weeks later and I was comfortable with my own workflow.
+
+Here's a few details about it:
+
+* I use https://github.com/junegunn/vim-plug[`vim-plug`] as the plugin 
+manager. 
+* For writing LaTeX, I use https://github.com/lervag/vimtex/[`vimtex`].
+* I use https://pwmt.org/projects/zathura[`zathura`] as the live LaTeX viewer.
+* I choose https://github.com/sirver/UltiSnips[`UltiSnips`] as my snippets manager.
+* I use https://github.com/907th/vim-auto-save[`vim-auto-save`] for autosaving 
+my files.
+* I use https://github.com/scrooloose/nerdtree[`nerdtree`] for a built-in 
+file browser.
+* I have https://github.com/vim-airline/vim-airline[`vim-airline`] as the 
+status bar. It's pretty cool looking.
+
+.Fullscreen Vim setup
+image::vim-setup.png[Fullscreen Vim setup]
+
+If you want to take a deeper look or just want to see the full config, 
+https://github.com/foo-dogsquared/dotfiles/tree/master/vim[you can see it in my dotfiles repo].
+
+=== ranger
+I discovered another cool program that lives in the terminal: 
+http://ranger.github.io/[ranger]. 
+
+It's a complete file browser with Vim-inspired controls. 
+It also comes with its own file opener for figuring out which applications 
+to open for a certain file type. 
+Both of the file browser and file opener are configurable which 
+you can edit it with a simple text editor. 
+
+If you know how to use Vim, you mostly know how to use ranger.
+The way how you go around a file in Vim is quite similar to how you 
+explore around a filesystem with Ranger.
+
+Here's some examples of the similarities:
+
+[cols=3,options="header"]
+|===
+| Keybinding
+| Vim action
+| ranger action
+
+| `gg`
+| go to the beginning of the file
+| go to the beginning of the file list
+
+| `G`
+| go to the last line
+| go to the last file in the list
+
+| `dd`
+| cut the current line
+| cut the current file selection
+
+| `yy`
+| yank (copy) the current line
+| yank (copy) the current file
+
+| `v`
+| selecting text
+| selecting files
+
+| `i`
+| insert text
+| rename and insert text of the selected file
+|===
+
+Like Vim, if you master the controls, you would be faster exploring 
+the filesystem. 
+
+Here's a quick demo of how you explore between different partitions 
+from home to my blog in another partition back to my dotfiles in 
+the home directory.
+
+video::ranger-demo.mp4[width=100%]
+
+== Low-key ricing
+Ever since I got my i3 setup to be practically functional, I've dug a rabbithole 
+of configuring the little details for most of the time.
+I've been considering things such as a compositor, application launcher, 
+screenshot tool, keybinding tool, and a replacement for my status bar 
+(which I didn't by the end of the day). 
+
+That's when I discovered https://www.reddit.com/r/unixporn/[`/r/unixporn`], 
+a subreddit for showing off your *Nix (i.e.: Linux, MacOS) configurations and setup. 
+It's also a community for "ricing", an act of adding the visual spices to your setup.
+I recommend to check it out if you're looking for a starting point.
+They're pretty friendly for first timers, too.
+
+It's a satisfying experience seeing my setup to be prettier (and more functional) 
+with each revision. 
+More programs come and go to my experimental workflow and eventually settle with a 
+(hopefully) functional setup.
+
+== A new leaf
+I said that the reason I've gone full Linux is due to me finding some 
+good alternatives to the programs I usually use (except 
+https://visualstudio.com/[Visual Studio]).
+
+With this in mind, let me quickly list a bunch of programs that truly 
+stand out for me:
+
+* https://www.freecadweb.org/[FreeCAD]
+* https://blender.org/[Blender]
+* https://musescore.org/[MuseScore]
+* https://inkscape.org/[Inkscape]
+* https://krita.org/en/[Krita]
+* https://www.videolan.org/vlc/[VLC Media Player]
+* https://www.thunderbird.net/[Thunderbird]
+* https://www.latex-project.org/[LaTeX] (with 
+https://www.tug.org/texlive/[TeX Live] as the LaTeX distro)
+* https://code.visualstudio.com/[Visual Studio Code]
+* https://obsproject.com/[OBS Studio]
+* ...and so much more!
+
+You can the full list on my https://github.com/foo-dogsquared/dotfiles[dotfiles] 
+README. 
+I think you get the point.
+
+== Conclusion
+Having a full-on Linux system is pretty awesome especially these days where 
+there are feature-complete software that is being developed given away for free 
+and have its code open to the public. 
+
+I made my migration since I found so much good stuff at Linux and it 
+doesn't worth the effort to make my machine dual-boot it with Windows just 
+to use one program. 
