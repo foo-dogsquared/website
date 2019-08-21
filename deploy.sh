@@ -20,16 +20,18 @@ trap 'error_log $LINENO' ERR
 
 # Cleaning up the build site
 printf "Deleting older version of the site"
-rm -rf $build_directory
-mkdir $build_directory
-
+git worktree remove $build_directory --force
 git worktree prune
-rm -rf .git/worktrees/$build_directory
+git branch -D $target_branch
 
 # Building the worktree for the target branch
 # https://git-scm.com/docs/git-worktree
 echo "Checking out $target_branch branch into public"
-git worktree add -B $target_branch $public $main_remote_alias/$target_branch
+git checkout --orphan $target_branch
+git reset --hard
+git commit --allow-empty -m "Initialize $target_branch branch."
+git checkout $default_branch
+git worktree add $build_directory $target_branch
 
 # Building the site
 printf "Building the site"
