@@ -29,6 +29,7 @@ forgot to add it which is why I felt it's complete by the time I
 published this post. Apologies about that. :facepalm:
 ____
 
+
 == TL;DR version
 
 Here are the tools I've used usually for planning and brainstorming
@@ -55,6 +56,7 @@ platforms let you share your project for free:
 
 Of course, this list is not really complete. You can see more tools that
 deserve honorable mentions as you read on.
+
 
 == Planning my projects
 
@@ -268,6 +270,7 @@ beauty of life is the freedom on how to do things and this is no
 exception. You could do say, just a simple format to express the core
 feature of this system which is _prioritization_. You can list out tasks
 and create symbols to express different levels of priority.
+
 
 == Creating my projects
 
@@ -486,6 +489,7 @@ TiddlyWiki at your own whim to its appearances and its function by
 creating plugins. With all of those features, I think this is a perfect
 platform to share my notes without much hassle.
 
+
 == Publishing my project
 
 If you want your project to be available for the whole world to see, you
@@ -648,6 +652,7 @@ yourself.
 but I recommend more to pass that responsibility to the companies that
 offer dedicated servers. Unless your project _revolves around deploying
 your own backend_, I don't see much reason to deploy it with your own.
+
 
 == Conclusion
 

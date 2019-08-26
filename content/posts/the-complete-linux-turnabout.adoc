@@ -1,7 +1,6 @@
 ---
 title: "The complete Linux turnabout"
 date: 2019-08-20T20:50:18+08:00
-draft: true
 categories: ["linux"]
 tags: ["linux", "foss"]
 ---
@@ -18,6 +17,7 @@ machine, and left Microsoft Windows behind.
 
 Here's some details and experiences about my complete turnaround 
 for my computer workflow:
+
 
 == My new OS
 I used to dual-boot my machine with Windows and whatever Linux-based 
@@ -47,6 +47,7 @@ done and satisfied with.
 It seriously feels good when I got it working. 
 Not to mention that I gain some nuts and bolts knowledge on Linux as well. 
 
+
 == My newfound workflow
 Since a fresh installation of Arch Linux is very minimal, I took it as an 
 opportunity to have a completely new set of programs to fiddle with.
@@ -57,6 +58,7 @@ https://wiki.archlinux.org/index.php/window_manager[window managers].
 Since my workflow is simple and I don't need more fancy getup that one usually gets 
 from DEs, I decided to try it out for some change. 
 And it was cool.
+
 
 == First window manager
 I decided to use https://i3wm.org/[i3] for my first window manager.
@@ -143,6 +145,7 @@ I don't think I need to make a post detailing on it, it's too nice and beautiful
 I also recommend looking into the 
 https://github.com/addy-dclxvi/i3-starterpack[`i3-starterpack` GitHub repo by *addy-dclxvi*].
 It has a great introduction to get started with your i3 setup.
+
 
 == A turnaround for the terminal
 With a new workflow, comes a new terminal setup. 
@@ -257,6 +260,7 @@ the home directory.
 
 video::ranger-demo.mp4[width=100%]
 
+
 == Low-key ricing
 Ever since I got my i3 setup to be practically functional, I've dug a rabbithole 
 of configuring the little details for most of the time.
@@ -274,6 +278,7 @@ It's a satisfying experience seeing my setup to be prettier (and more functional
 with each revision. 
 More programs come and go to my experimental workflow and eventually settle with a 
 (hopefully) functional setup.
+
 
 == A new leaf
 I said that the reason I've gone full Linux is due to me finding some 
@@ -299,6 +304,7 @@ https://www.tug.org/texlive/[TeX Live] as the LaTeX distro)
 You can the full list on my https://github.com/foo-dogsquared/dotfiles[dotfiles] 
 README. 
 I think you get the point.
+
 
 == Conclusion
 Having a full-on Linux system is pretty awesome especially these days where 

@@ -29,6 +29,7 @@ Do keep in mind, most of them are related to computer programming but
 some of the providers offer stuff outside of programming (say
 https://khanacademy.org[Khan Academy] for math).
 
+
 == Other Resource Lists
 
 * https://github.com/sindresorhus/awesome[awesome] — *(very much
@@ -52,6 +53,7 @@ https://dev.to/sahilrajput/useful-websites-for-programmers-36k#coding-practice-f
 mirror article by _Sahil Rajput_ on dev.to]
 * https://github.com/dargaCode/WebDevStudyResources[Web Dev't Study
 Resources (by _dargaCode_ on GitHub)]
+
 
 == Online Education Resources
 
@@ -117,6 +119,7 @@ since there's a lot of cluttering stuff in there
 * https://www.w3schools.com/[W3Schools]
 * http://mathworld.wolfram.com/[Wolfram MathWorld]
 
+
 == Academics-focused Sites
 
 * https://www.academia.edu/[Academia.edu]
@@ -126,6 +129,7 @@ peer-to-peer engagement
 * https://scholar.google.com/[Google Scholar]
 * https://www.researchgate.net/[Researchgate] — most published studies
 under their platform are free to view
+
 
 == Documentations
 
@@ -137,6 +141,7 @@ speed (like me)
 * https://developer.mozilla.org/en-US/[MDN Web Docs] — *(very much
 recommended)*; if you're trying to learn web development and programming
 in general, this can be a hub for it
+
 
 == Books
 
@@ -198,6 +203,7 @@ MIT's famous programming book (that can also be found online)]
 Physics]
 * https://www.wikitolearn.org/[WikiToLearn]
 
+
 == Katas (Practice Sites)
 
 * https://old.reddit.com/r/dailyprogrammer/[/r/dailyprogrammer]
@@ -212,6 +218,7 @@ through the mentor-mentee model
 more challenged)*
 * https://www.pramp.com/[Pramp] — you get to practice some programming
 interview questions and it's free
+
 
 == Articles
 
@@ -229,6 +236,7 @@ computer graphics
 * https://www.wikipedia.org/[Wikipedia] — if you want to learn random
 things
 
+
 == Communities
 
 * https://www.codenewbie.org/[CodeNewbie]
@@ -243,6 +251,7 @@ podcast
 * https://stackoverflow.com[Stack Overflow] — look for the whole Meta
 Exchange network if you want to visit more communities other than Stack
 Overflow
+
 
 == Podcasts
 
@@ -264,6 +273,7 @@ engineering that are not mostly coding-related
 * https://youarenotsosmart.com/podcast/[You Are Not So Smart] — it's a
 podcast series about exploring self-delusions and some psychological
 stuff and I really like psychological stuff so that's why it's here
+
 
 == Blogs
 
@@ -296,6 +306,7 @@ on a broad spectrum of stuff
 * https://wesbos.com/blog/[Wes Bos] — creator of several courses and
 some helpful posts along the way
 
+
 == Newsletter
 
 * https://frontendfoc.us/[Frontend Focus] — another weekly newsletter
@@ -308,6 +319,7 @@ about HTML5 Game Development
 * https://postanly.ongoodbits.com/[Postanly] — a weekly digest of
 productivity life articles
 * https://pycoders.com/[Pycoders Weekly] — a weekly newsletter on Python
+
 
 == YouTube Channel
 
@@ -343,6 +355,7 @@ Train]
 * https://www.youtube.com/user/Vsauce[Vsauce] — need to say more?
 * https://www.youtube.com/channel/UCoebwHSTvwalADTJhps0emA[Wes Bos]
 
+
 == Operating Systems (yes, some of them are free)
 
 === https://www.microsoft.com/en-us/software-download/windows10ISO[Windows 10] *(I guess it is free now, also recommended)*
@@ -358,6 +371,7 @@ distro
 versions: Tumbleweed and Leap
 * https://getsol.us/[Solus]
 * http://ubuntu.com/[Ubuntu] — *(recommended for beginners)*
+
 
 == Programming Tools
 
@@ -419,12 +433,14 @@ ambience (if you're the type who find rain to be relaxing)
 * https://calibre-ebook.com/[Calibre] — an e-book library management
 tool
 
+
 == Mathematical Tools
 
 * https://www.fxsolver.com/[fxSolver]
 * https://www.geogebra.org/[Geogebra]
 * https://www.mathway.com/Algebra[Mathway]
 * https://www.symbolab.com/[Symbolab]
+
 
 == Platforms For Your Future Apps
 
@@ -437,6 +453,7 @@ pretty much free
 * https://azure.microsoft.com/en-us/free/[Microsoft Azure — Free Tier]
 * http://netlify.com/[Netlify] — *(recommended)*; their free options is
 pretty much amazing
+
 
 == Stock Resources
 
@@ -458,6 +475,7 @@ color scheme generator
 * https://creativemarket.com/[Creative Market] — free creative stuff
 weekly
 
+
 == Content Delivery Networks (CDN)
 
 * https://cdnjs.com/[cdnjs] — *(recommended, if you're in web dev't)*;
@@ -469,6 +487,7 @@ different repo (BitBucket, GitLab, GitHub, and even GitHub gists) with
 the proper headers
 * https://uploadcare.com/[UploadCare] — image CDN with image
 manipulation on-the-fly
+
 
 == Student Packs
 
@@ -484,6 +503,7 @@ https://www.jetbrains.com/webstorm[WebStorm], and
 https://www.jetbrains.com/idea[IntelliJ IDEA Ultimate]
 * https://www.microsoft.com/en-us/education/students[Microsoft Student
 Pack]
+
 
 == Miscellaneous
 

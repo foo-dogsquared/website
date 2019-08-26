@@ -13,6 +13,7 @@ ANNOUNCEMENT: A site overhaul has occurred. Please
 see the changelog. A site overhaul has occurred. 
 Please see the changelog.
 
+
 == From Jekyll to Hugo
 First and foremost, the blog has moved from 
 https://jekyllrb.com[Jekyll] to https://gohugo.io/[Hugo].
@@ -39,6 +40,7 @@ static site generator with built-in support for blogging with Asciidoctor and
 Hugo just provides that. The speed and ease of configuration is 
 also a really large bonus.
 
+
 == Change of purpose
 The blog is in hiatus due to me taking notes in 
 https://www.latex-project.org/[LaTeX] now and a change of 
@@ -61,6 +63,7 @@ should go.
 think it's suitable for blogging about it so let's just find out along the 
 way.
 
+
 == Blog clean-up and revision
 Since the overall purpose of the blog has been changed, so does the little 
 details that make up the blog.
@@ -81,6 +84,7 @@ With the revised writing style, I also want to improve my writing by adopting a 
 writing workflow. This is basically the stuff you would encounter in a high school 
 writing class but I've been less compliant with it over the last few posts (before the 
 change).
+
 
 == Conclusion
 The blog is under change and it's not suitable to be a student's notebook anymore and 
