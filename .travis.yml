@@ -5,8 +5,9 @@ dist: bionic
 before_install:
   - sudo apt-get update
   - sudo apt-get install ruby
-  - wget https://github.com/gohugoio/hugo/releases/download/v0.57.0/hugo_0.57.0_Linux-64bit.deb
-  - sudo dpkg -i hugo_0.57.0_Linux-64bit.deb
+  - curl https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "hugo_extended.*deb" | grep "browser_download_url" | cut --delimiter=":" --delimiter="\"" --fields=4 | wget -qi -
+  - sudo dpkg -i hugo*.deb
+  - sudo gem install asciidoctor
 script:
   - asciidoctor --version
   - hugo
