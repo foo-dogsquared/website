@@ -30,7 +30,7 @@ disqusShortname = "foodogsquared"
       
       [params.blog.contact.gitlab]
         name = "GitLab"
-        link = "https://github.com/foo-dogsquared"
+        link = "https://gitlab.com/foo-dogsquared/"
       
       [params.blog.contact.twitter]
         name = "Twitter"

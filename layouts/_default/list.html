@@ -1,12 +1,10 @@
 {{ define "main" }}
 {{ .Content }}
 <div class="posts">
-  {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
-  {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
-  {{ $paginator := .Paginate (where .Data.Pages "Type" $contentTypeName) }}
-
-  {{ $blogIcons := "blog-icons.svg" | absURL  }}
-  {{ range .Data.Pages }}
+  {{ $blogIcons := "blog-icons.svg" | absURL }}
+  {{ $isHomePage := eq .File.Dir "" }}
+  {{ $pages := cond ($isHomePage) (.Paginate .Site.Sections).Pages .Data.Pages }}
+  {{ range $pages }}
   <div class="post on-list">
     <div class="post-header-wrapper">
       <h1 class="post-title">
