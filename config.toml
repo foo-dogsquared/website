@@ -1,76 +1,49 @@
-baseurl = "https://foo-dogsquared.github.io/blog/"
+baseURL = "https://foo-dogsquared.github.io/blog"
 languageCode = "en-us"
-theme = "terminal"
+title = "A Hack's Code"
+description = "A blog of a hack."
+summaryLength = 0
 paginate = 5
-summaryLength = 15
 disqusShortname = "foodogsquared"
+copyright = "Unless explicitly stated, all content released here are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0)."
+googleAnalytics = "UA-126718538-1"
+theme = "terminal-plus-minus"
+canonifyURLs = true
 
-[params]
-  # dir name of your blog content (default is `content/posts`)
-  contentTypeNames = [ "posts", "projects" ]
-  # ["orange", "blue", "red", "green", "pink"]
-  themeColor = "orange"
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
-  # set theme to full screen width
-  fullWidthTheme = false
-  # center theme with default width
-  centerTheme = true
-  # set a custom favicon (default is a `themeColor` square)
-  favicon = "logo.jpg"
+[author]
+    name = "Gabriel Arazas"
+    alias = "foo-dogsquared"
+    email = "foo.dogsquared@gmail.com"
 
-  [params.blog]
-    [params.blog.author]
-      name = "Gabriel Arazas"
-      alias = "foo-dogsquared"
-    [params.blog.contact]
-      [params.blog.contact.github]
-        name = "GitHub"
-        link = "https://github.com/foo-dogsquared"
-      
-      [params.blog.contact.gitlab]
-        name = "GitLab"
-        link = "https://gitlab.com/foo-dogsquared/"
-      
-      [params.blog.contact.twitter]
-        name = "Twitter"
-        link = "https://twitter.com/foo_dogsquared"
-      
-      [params.blog.contact.keybase]
-        name = "Keybase"
-        link = "https://keybase.io/foo_dogsquared"
+[menu]
+    [[menu.main]]
+        identifier = "articles"
+        name = "Posts"
+        url = "posts/"
 
-[languages]
-  [languages.en]
-    title = "A Hack's Code"
-    subtitle = "A blog of a hack."
-    keywords = "hack, code, foo-dogsquared, Gabriel Arazas"
-    copyright = "2019 © Gabriel Arazas"
-    menuMore = "Show more"
-    readMore = "Read more"
-    readOtherPosts = "Read my other posts"
-
-    [languages.en.params.logo]
-      logoText = "A Hack's Code"
-      logoHomeLink = "/blog/"
-
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "home"
-        name = "Home"
-        url = "https://foo-dogsquared.github.io"
-
-      [[languages.en.menu.main]]
+    [[menu.main]]
         identifier = "about"
         name = "About"
-        url = "/about"
-      
-      [[languages.en.menu.main]]
-        identifier = "posts"
-        name = "Posts"
-        url = "/posts"
+        url = "about/"
 
-      [[languages.en.menu.main]]
-        identifier = "projects"
-        name = "Projects"
-        url = "/projects"
+    [[menu.main]]
+        identifier = "archives"
+        name = "Archives"
+        url = "archives/"
+
+    [[menu.main]]
+        identifier = "rss"
+        name = "RSS"
+        url = "index.xml/"
+
+[params]
+    subtitle = "Computer Engineering Student"
+    keywords = ["Gabriel Arazas", "foo-dogsquared", "blog", "computer", "mathematics"]
+    
+    showPostsOnHome = true
+    showPageTypeIcon = true
+
+    enableSyntaxHighlighting = true
+    syntaxHighlighter = "prismjs"
+    enableBreadcrumbs = true
+    contentIsStyled = true
