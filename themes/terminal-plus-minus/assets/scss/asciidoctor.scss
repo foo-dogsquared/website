@@ -1,0 +1,107 @@
+$sidePadding: 0.75rem;
+
+// Admonition blocks
+.admonitionblock {
+    table {
+        border: none;
+    }
+
+    td.icon {
+        background: var(--accent);
+        border: var(--primaryBorder) var(--accent);
+        color: var(--background);
+        text-align: center;
+        width: 20%;
+        vertical-align: middle;
+    }
+}
+
+.admonitionblock td.icon [class^="fa icon-"]{
+    font-family: "Font Awesome 5 Free";
+    font-size:2.5em;
+    cursor:default;
+    font-style: unset;
+}
+
+.admonitionblock td.icon .icon-note::before{ content:"\f05a"; }
+.admonitionblock td.icon .icon-tip::before{ content:"\f0eb"; }
+.admonitionblock td.icon .icon-warning::before{ content:"\f071"; }
+.admonitionblock td.icon .icon-caution::before{ content:"\f06d"; }
+.admonitionblock td.icon .icon-important::before{ content:"\f06a"; }
+
+// Listing block
+* > * {
+
+    &.title {
+        background: var(--accent);
+        color: var(--background);
+        padding: $sidePadding;
+    }
+
+    &.attribution {
+        background: var(--accent);
+        color: var(--background);
+        padding: $sidePadding;
+    }
+
+    &.content {
+        border: var(--primaryBorder) var(--accent);
+        overflow: auto;
+
+        & > *:not(code) {
+            padding: $sidePadding;
+        }
+    }
+}
+
+// Quote block
+.quoteblock {
+    margin: 1rem 0 1rem;
+
+    blockquote {
+        margin: auto 0 0;
+    }
+}
+
+// Callouts
+.colist {
+    td:first-of-type {
+        width: 15%;
+    }
+}
+
+// Multimedia blocks
+.videoblock {
+    margin: 0 auto;
+}
+
+// Footnotes
+#footnotes {
+    margin: 2rem auto;
+}
+
+.listingblock .content {
+    border: 0;
+}
+
+.conum {
+    $color: var(--accent-dark) !important; 
+
+    & > * {
+        display: inline-block;
+        color: $color;
+    }
+
+    display: inline-block;
+    color: $color;
+    background-color: var(--foreground);
+    border-radius: 100px;
+
+    // has to have vendor prefixes (as of 2019-08-30)
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
