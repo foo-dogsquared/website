@@ -1,4 +1,4 @@
-baseURL = "https://foo-dogsquared.github.io/blog"
+baseURL = "https://foo-dogsquared.github.io/blog/"
 languageCode = "en-us"
 title = "A Hack's Code"
 description = "A blog of a hack."
@@ -14,6 +14,28 @@ canonifyURLs = true
     name = "Gabriel Arazas"
     alias = "foo-dogsquared"
     email = "foo.dogsquared@gmail.com"
+
+[mediaTypes]
+    [mediaTypes."application/atom+xml"]
+        suffixes = ["atom"]
+    
+    [mediaTypes."application/rss+xml"]
+        suffixes = ["rss"]
+
+[outputFormats]
+    [outputFormats.RSS]
+        mediaType = "application/rss+xml"
+        baseName = "index"
+        isPlainText = false
+    
+    [outputFormats.Atom]
+        mediaType = "application/atom+xml"
+        baseName = "index"
+        isPlainText = false
+
+[outputs]
+    home = ["HTML", "ATOM", "RSS", "JSON"]
+    section = ["HTML", "ATOM", "RSS", "JSON"]
 
 [menu]
     [[menu.main]]
@@ -32,9 +54,10 @@ canonifyURLs = true
         url = "archives/"
 
     [[menu.main]]
-        identifier = "rss"
-        name = "RSS"
-        url = "index.xml/"
+        identifier = "feeds"
+        name = "Feeds"
+        url = "feeds/"
+
 
 [params]
     subtitle = "Computer Engineering Student"
