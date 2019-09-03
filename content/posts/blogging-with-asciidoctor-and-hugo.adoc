@@ -1,0 +1,414 @@
+---
+title: "Blogging with Asciidoctor and Hugo"
+date: 2019-09-03T13:07:43+08:00
+categories:
+    - guide
+tags:
+    - asciidoctor
+    - blog
+---
+
+= Blogging with Asciidoctor and Hugo
+Gabriel Arazas <foo.dogsquared@gmail.com>
+2019-08-27
+
+:imagesdir: ../images/blogging-with-asciidoctor-and-hugo/
+:asciidoctor_site: https://asciidoctor.org/
+
+Finally, I've found a great blogging workflow with Hugo and Asciidoctor. 
+
+With the extensive built-in feature set of Hugo and the feature-rich 
+text formatting options that Asciidoctor offers, it creates a blogging experience 
+composed of easy content management and fun writing experience. 
+
+As of this writing, there's only a 
+https://rgielen.net/posts/2019/creating-a-blog-with-hugo-and-asciidoctor/[handful] 
+https://opensource.com/article/17/8/asciidoc-web-development[of] 
+https://www.bryanklein.com/blog/hugo-asciidoctor-vscode-gitlab-firebase/[articles] 
+https://blog.anoff.io/2019-02-17-hugo-render-asciidoc/[and] 
+http://discuss.asciidoctor.org/Writing-BLOG-in-Asciidoctor-td7015.html[discussions] 
+about blogging 
+with Hugo and Asciidoctor so I'll add my 2 cents into the pile with 
+the recent version of Hugo and Asciidoctor. 
+Think of it like an update report. 
+
+For future references, here are the following tools and their versions 
+used for this post:
+
+* Asciidoctor v2.0.10
+* Hugo v0.57.2 
+
+NOTE: This is not a full-on tutorial, more like a tour guide of my blogging setup with 
+Hugo and Asciidoctor. 
+
+
+
+
+== Prerequisites 
+
+If you want to follow through the whole post, I assume you already 
+satisfied the following conditions: 
+
+* Installed https://gohugo.io/[Hugo] and https://asciidoctor.org/[Asciidoctor]
+* Already know the basics of both tools 
+* Already has a Hugo project with a theme installed 
+* **OPTIONAL**: A https://travis-ci.org/[Travis CI] account (or similar CI/CD services) 
+* **OPTIONAL**: A https://github.com/[GitHub] account (or similar remote Git repo) 
+
+TIP: If you're not familiar with Hugo and Asciidoctor, they both have 
+a quick start guide. Here's for https://gohugo.io/getting-started/quick-start/[Hugo] and 
+https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[Asciidoctor]. 
+
+
+
+
+== Asciidoctor and Hugo 
+
+In most static site generators including Hugo, https://daringfireball.net/projects/markdown/[Markdown] 
+is the one and only first-class citizen when it comes to creating posts. 
+However, in recent Hugo versions, there exists the 
+https://blog.anoff.io/2019-02-17-hugo-render-asciidoc/[external helpers] 
+feature which calls appropriate external programs to certain type of files 
+(or file extension). 
+Fortunately, Asciidoctor-based files are automatically compiled with 
+Asciidoctor so we don't need to do anything. 
+Just have it installed and you're raring to go. 
+
+
+
+=== Creating content with Asciidoctor
+
+Creating Asciidoctor-based content in a Hugo site is very easy. 
+Just create an Asciidoctor file manually or you could go with Hugo's way 
+which is the optimal way.
+
+[source,shell]
+----
+hugo new posts/my-first-post.adoc 
+----
+
+And there should be a new Asciidoctor file at `content/posts/my-first-post.adoc`. 
+
+Most likely, you would see that it's formatted like a Markdown file since 
+most themes do not have focus for Asciidoctor. 
+
+One of the features of Hugo is letting you create 
+https://gohugo.io/content-management/archetypes/#readout[content templates] (or an 
+archetype) for your usual content.
+We create content with Asciidoctor so let's create a quick template for that. 
+
+Create a file in `archetypes/default.adoc`. 
+This will be the master template whenever Hugo detects the new content 
+has a file extension of `.adoc`. 
+Then, create a template for your Asciidoctor documents. 
+
+To get an example, here's my template for my Asciidoctor documents. 
+
+[source,asciidoctor]
+....
+--- <1>
+title: "{{ replace .Name "-" " " | title }}" <2>
+date: {{ .Date }} //
+draft: true
+
+categories:
+    - "category1"
+tags: 
+    - "tag1"
+    - "tag2"
+---
+
+= {{ replace .Name "-" " " | title }}
+{{ .Site.Author.name }} {{ with .Site.Author.email }}<{{ . }}>{{ end }} <3>
+{{ dateFormat "2006-01-02" .Date }} <4>
+
+....
+<1> The frontmatter. 
+Unfortunately, we would still have to put this for Hugo to 
+recognize this document as one of the content. 
+
+<2> Converts the slug of the document to title case. 
+
+<3> Putting the author in the Asciidoctor preamble along with the email (if there's any). 
+Feel free to discard it. 
+
+<4> The date in ISO format. 
+
+NOTE: Speaking of frontmatters, native Asciidoctor frontmatter is not recognized. 
+
+You can modify the template to your heart's content. 
+For example, if you use https://www.mathjax.org/[MathJax] for writing mathematical formulas, 
+you can https://asciidoctor.org/docs/user-manual/#activating-stem-support[add the stem attribute] 
+(`:stem:`). 
+
+Since Asciidoctor-based documents only recieve basic support, you still need 
+to do some work yourself before you get satisfied with the settings. 
+For example, enabling syntax highlighting and styling certain things like 
+callouts, admonition blocks, and open blocks. 
+
+Also, not everything is 100% working so you might encounter some problems 
+which is discussed later in the post. 
+Nonetheless, it works for the most part and you can still write expressively with the 
+heavier feature set of Asciidoctor. 
+
+
+
+
+== Syntax highlighting (without the shortcode)
+
+Syntax highlighting can be an important feature for technical blogs especially 
+if you often have to show code in your posts. 
+
+On Asciidoctor, you can 
+https://asciidoctor.org/docs/user-manual/#enabling-source-highlighting[enable syntax highlighting] 
+with the `:source-highlighter:` attribute. 
+You can compile it on runtime with the executable but it's not possible with 
+Hugo since the arguments passed to it is hardcoded. 
+You can, however, enable it for every document you have but as you might 
+imagine, it's not ideal and requires some manual labor. 
+
+If you're only relying on the out-of-the-box features from Hugo (READ: if), 
+you can get it with the 
+https://gohugo.io/content-management/shortcodes/#highlight[`highlight` shortcode] 
+which is going to bite back if you're going to migrate to another blogging 
+platform or static site generator. 
+
+Still, there are some ways with getting syntax highlighting for your Hugo site
+without the Asciidoctor attribute or the Hugo shortcode. 
+It'll just take some more effort to get through. 
+
+One of the more reliable ways on enabling it is using syntax 
+highlighters like https://github.com/highlightjs/highlight.js[highlight.js] 
+or https://prismjs.com/[PrismJS]. 
+I'll be discussing on setting it with PrismJS since it easier and 
+that's what I'm mainly using on my blog. 
+
+For future references, the version of PrismJS I'm using is at v1.17.1. 
+
+
+
+=== Getting the files 
+
+First, we are going to need the syntax highlighter scripts along 
+with their stylesheets, of course. 
+I recommend to save the files locally instead of linking them through 
+a CDN since they're often prebuilt with limited languages and settings support. 
+
+Getting the files for PrismJS is very easy. 
+
+* Go to the https://prismjs.com/download.html[download page]. 
+* Select the minified version.  
+* Select all of the languages you think you need to support. 
+* Include the https://prismjs.com/plugins/keep-markup/["Keep Markup"] plugin. 
+* Download it. 
+
+You'll need the "Keep Markup" plugin in case you use 
+https://asciidoctor.org/docs/user-manual/#callouts[Asciidoctor callouts] since 
+PrismJS replaces the HTML elements along with their classes. 
+
+With the script downloaded, place them somewhere in your Hugo project. 
+For this purpose, I'll assume the script is in the `static/js/lib/SYNTAXHIGHLIGHT.js`. 
+
+Don't forget to choose a theme as well. 
+I'll assume that the stylesheet is in `static/css/SYNTAXSTYLESHEET.css`. 
+
+
+
+=== Integrating it with Hugo 
+
+Now the hardest part, putting them into use with your Hugo project. 
+
+Add the syntax highlighter before the end of the document 
+body (`<body>`) tag and the stylesheet inside the `<head>`. 
+
+The available location for it depends on the theme. 
+I recommend to start looking to the layout folder with the default templates 
+of the theme (`theme/$NAME_OF_THEME/layouts/_default`) 
+then the partial folder (`theme/$NAME_OF_THEME/layouts/partials`). 
+
+TIP: You might want to start at the base template 
+(`theme/$NAME_OF_THEME/layouts/_default/baseof.html`). 
+
+Copy the appropriate file from the theme folder to your own layout 
+folder and link it similar to the following code listing. 
+
+[source,html]
+----
+<!-- Inside of the head element -->
+<link rel="stylesheet" href="{{ "css/SYNTAXSTYLESHEET.css" | absURL }}">
+
+<!-- ... -->
+
+<!-- Before the end of the body tag -->
+<script src="{{ "js/lib/SYNTAXHIGHLIGHT.js" | absURL }}"></script>
+
+----
+
+The setup is done! 
+That leaves one less problem for content migration in case 
+you want to move out of Hugo. 
+You'll thank yourself for doing so. 
+
+
+
+
+== Problems with using the workflow 
+
+While Hugo and Asciidoctor is great and all, there are a couple of 
+problems with this setup. 
+
+The most obvious is the HTML output of Asciidoctor with the default 
+backend is not great and leaves a lot of things to be desired. 
+
+.`<div>` then a `<p>` for a paragraph, really?
+image::asciidoctor-sample-html.png[`<div>` then a `<p>` for a paragraph, really?] 
+
+It's not semantic and it is unconventional. 
+Not only that it's a pain to style it with CSS but also breaks a lot 
+of the accessibility features like screen readers since it 
+relies on certain HTML tag structures. 
+
+NOTE: You can get around this by using the 
+https://github.com/jirutka/asciidoctor-html5s[Asciidoctor HTML5s backend] to 
+produce the correct and semantic web-friendly output. 
+Remember, the arguments passed from Hugo to Asciidoctor is hardcoded. 
+You would have to trick Hugo somehow into passing your own arguments. 
+Fortunately, you don't need to worry since
+https://ratfactor.com/hugo-adoc-html5s/[there's already someone out there shared the details].
+
+Another problem you could encounter (and maybe bash your head against) is 
+the basic support for Asciidoctor itself if you don't want to rely much on 
+creating hacks and workarounds. 
+
+As previously mentioned, Hugo supports Asciidoctor through external helpers. 
+External helpers are relatively new and more like an experimental feature. 
+There is a proposal on improving it by 
+https://github.com/gohugoio/hugo/issues/6089[adding user configurations] 
+so at least there's hope for this particular feature to expand. 
+
+There's also the fact that not all built-in feature of Hugo (such as 
+https://gohugo.io/content-management/toc/[table of contents]) works within 
+Asciidoctor (and possibly other non-Markdown formats) content. 
+Fortunately, 
+https://asciidoctor.org/docs/user-manual/[Asciidoctor is quite extensive by itself] 
+and there's not a lot of Hugo features that doesn't work and you won't likely 
+need them anyway. 
+
+Also, native Asciidoctor front matter doesn't work as previously mentioned.  
+
+
+
+
+== Deploying with Travis CI
+
+https://rgielen.net/posts/2019/creating-a-dockerized-hugo-asciidoctor-toolchain/[Some] 
+https://axdlog.com/2018/using-hugo-and-travis-ci-to-deploy-blog-to-github-pages-automatically/[posts] 
+https://www.martinkaptein.com/blog/hugo-with-travis-ci-on-gh-pages/[are] 
+https://jellis18.github.io/post/2017-12-03-continuous-integration-hugo/[floating] 
+https://insileco.github.io/2018/03/30/hugo-github-travis-a-step-in-continuous-deployment/[around] 
+on how to make a done-and-forget deployment toolchain with different tools.
+
+Personally, I pass the full effort of deploying my blog to a CI/CD workflow. 
+I use https://travis-ci.org/[Travis CI] for the job. 
+
+NOTE: You can also take a view on the https://github.com/foo-dogsquared/blog[GitHub repo of my blog] for 
+an idea how it works on a larger picture. 
+
+Here's the configuration I've used to deploy my Hugo blog:
+
+[source,yaml]
+----
+dist: bionic <1>
+language: generic
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install ruby
+  # Assuming that the GitHub API is at version 4.0 <2>
+  - curl https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "hugo_extended.*deb" | grep "browser_download_url" | cut --delimiter=":" --delimiter="\"" --fields=4 | wget -qi -
+  - sudo dpkg -i hugo*.deb
+  - sudo gem install asciidoctor <3>
+script:
+  - hugo <4> 
+deploy: <5>
+  local_dir: "public/"
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  target_branch: gh-pages
+  on:
+    branch: 
+      - demo
+      - master
+---- 
+
+Here's the breakdown of the configuration: 
+
+<1> It will use a Linux-based machine with Ubuntu Bionic (18.04) as the operating system. 
+<2> Downloads the latest Hugo binary from its repo through GitHub release and installs it.
+<3> Installs the Asciidoctor toolchain. 
+<4> Build the Hugo site. 
+<5> Deploy the build folder to the `gh-pages` branch of my GitHub repo when the branch 
+occurred at `demo` or `master`. 
+
+NOTE: The configuration should work as long as the GitHub API version is at version 4. 
+You may have to do a bit of API debugging and tweaking to get it right. 
+
+Depending on the web hosting service provider, you may have to do additional work such as 
+pre-compressing your files or configuring your server. 
+Since the blog is hosted using https://pages.github.com/[GitHub Pages], 
+I don't have to configure some stuff (unfortunately for me). 
+
+
+
+
+== Conclusion 
+
+That's all of the Hugo and Asciidoctor stuff you need to know for now. 
+
+Just look for more examples and you'll get more idea. 
+You can take https://github.com/foo-dogsquared/blog[the GitHub repo of my blog] 
+for a starter point. 
+
+Personally, blogging with Hugo and Asciidoctor sums up to be fun. 
+So fun that 
+https://github.com/foo-dogsquared/hugo-theme-terminal-plus-minus[I eventually created a theme that focuses on supporting Asciidoctor content along with other stuff].
+
+Not perfect but it still offers a lot of satisfying and more expressive 
+writing experience compared to writing with Markdown. 
+
+With all of the imperfections this workflow has, there's some stuff to look forward in the 
+future especially with Hugo's external helpers feature. 
+Hopefully, more tools will take notice of Asciidoctor and how it could 
+be great for writing technical and web-based content. 
+
+
+
+
+== Further looking
+
+=== Web
+
+https://asciidoctor.org/docs/[_Asciidoctor documentation_]::
+Getting started with Asciidoctor is quite easy with the official documentation. 
+It should be able to help you a long way into getting comfortable with it. 
+If you're getting the ropes of it, I recommend to check out the 
+https://asciidoctor.org/docs/user-manual/[user manual] often. 
+
+https://ratfactor.com/hugo-adoc-html5s/[_Better Hugo/AsciiDoc HTML_ by **David Gauer** (ratfactor.com)]:: 
+It's a short and sweet post on how to make HTML output of Asciidoctor way better 
+than before with the UNIX PATH trickery trick that I've mentioned in the article.
+
+https://gohugo.io/documentation/[_Hugo documentation_]::
+The documentation of Hugo is great. 
+Has a lot of clear and concise information for newcomers and has an intuitive 
+navigation of the content structure. 
+
+
+
+=== Video 
+
+https://www.youtube.com/playlist?list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3[_Hugo tutorial series_ by **Mike Dane**]:: 
+A video series by https://www.youtube.com/channel/UCvmINlrza7JHB1zkIOuXEbw[Mike Dane]. 
+It's also featured on the official Hugo documentation as a video resource. 
+The video series is well-done and offers brief and concise explanation. 
