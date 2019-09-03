@@ -172,11 +172,6 @@ https://www.mozilla.org/en-US/firefox/new/[Firefox],
 https://www.thunderbird.net/[Thunderbird], 
 http://www.gimp.org/[GIMP], and http://www.inkscape.org/[Inkscape].
 
-One of the features of GTK is a unified configuration that'll be applied to 
-all GTK-built programs. 
-It also means that you get to edit it into a consistent-looking theme 
-from the color scheme, widgets, to icons. 
-
 There are many ways on configuring your color scheme and icon sets but 
 I recommend to start with http://wiki.lxde.org/en/LXAppearance[LXAppearance] 
 or https://github.com/themix-project/oomox[oomox]. 
@@ -188,7 +183,7 @@ For Arch Linux, it has Raleigh as the default GTK theme which looks
 very dated if you ask me.
 
 .GTK Raleigh theme
-image::gtk-raleigh-theme-demo.png[]
+image::gtk-raleigh-theme-demo.png[GTK Raleigh theme]
 
 For my custom configuration, I chose the https://github.com/NicoHood/arc-theme[Arc] 
 theme along with its https://github.com/NicoHood/arc-icon-theme[icon set] simply 
@@ -196,7 +191,7 @@ because they're the popular choice. I also think the darker scheme is pretty
 cool.
 
 .GTK Arc Darker theme 
-image::gtk-arc-darker-theme-demo.png[]
+image::gtk-arc-darker-theme-demo.png[GTK Arc Darker theme]
 
 You can look for more GTK themes at https://www.gnome-look.org/[GNOME Look].
 
@@ -224,7 +219,8 @@ https://github.com/DaveDavenport/rofi[rofi], for example.
 One of the most popular highlights of pywal is that you can generate color schemes 
 with images.
 
-So far, I'm content with the color scheme generated from [this image].
+So far, I'm content with the color scheme generated from 
+https://www.reddit.com/r/wallpapers/comments/cckpj0/i_made_this_simple_and_clean_drawing_over_the/[this image].
 It's pretty easy on the eyes and it is also cool to be background image for 
 your desktop.
 
@@ -269,10 +265,10 @@ For the former, https://developer.gnome.org/libnotify/[`libnotify`]
 (with `notify-send`) is the toolbelt for that.
 
 For the latter, you have more choices. 
-In my setup, I have https://dunst-project.org/[`dunst`] since I see 
+In my setup, I have https://dunst-project.org/[Dunst] since I see 
 it included in a lot of posts at `/r/unixporn`. 
 
-`dunst` is also easy to configure and extend.
+Dunst is also easy to configure and extend.
 You can change the color of the text and background, change the 
 appearance for notifications of varying urgency levels, and integrate 
 scripts that'll run whenever a certain type of notification has been 
@@ -286,7 +282,7 @@ which will be used in i3.
 
 In i3, running a script takes place in the background so there's no way to know 
 if the screenshot capture is a success or not unless you send some data to a 
-server. Simply sending a notification with `notify-send` while running `dunst` in the 
+server. Simply sending a notification with `notify-send` while running Dunst in the 
 background can go a long way.
 
 .Using dunst for screenshot notifications
