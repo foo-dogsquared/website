@@ -1,0 +1,3 @@
+[submodule "themes/arch-terminal"]
+	path = themes/arch-terminal
+	url = git@github.com:foo-dogsquared/hugo-theme-arch-terminal.git
