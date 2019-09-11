@@ -1,22 +1,30 @@
 dist: bionic
+language: generic
 
-# installing Hugo from the snap store'
-#   https://snapcraft.io/hugo
+# Assuming that the GitHub API is at version 4.0
+# disable the default submodule logic
+git:
+  submodules: false
+
+# use sed to replace the SSH URL with the public URL, then init and update submodules
 before_install:
+  - sed -i 's/git@github.com:/git:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
   - sudo apt-get update
-  - sudo apt-get install ruby
-  - curl https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "hugo_extended.*deb" | grep "browser_download_url" | cut --delimiter=":" --delimiter="\"" --fields=4 | wget -qi -
-  - sudo dpkg -i hugo*.deb
+  - sudo apt-get install python3
+  - sudo apt-get install ruby wget
+  - curl https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "hugo_extended.*deb" | grep "browser_download_url" | cut --delimiter=":" --delimiter="\"" --fields=4 | sudo wget -i -
+  - sudo dpkg -i *.deb
   - sudo gem install asciidoctor
 script:
   - asciidoctor --version
-  - hugo --minify
+  - hugo
 deploy:
-  local_dir: "public/"
+  local_dir: "./public/"
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   target_branch: gh-pages
   on:
     branch: master
-    
+

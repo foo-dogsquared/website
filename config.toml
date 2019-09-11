@@ -4,7 +4,6 @@ title = "A Hack's Code"
 description = "A blog of a hack."
 summaryLength = 0
 paginate = 5
-disqusShortname = "foodogsquared"
 copyright = "Unless explicitly stated, all content released here are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0)."
 googleAnalytics = "UA-126718538-1"
 theme = "terminal-plus-minus"
@@ -70,3 +69,9 @@ canonifyURLs = true
     syntaxHighlighter = "prismjs"
     enableBreadcrumbs = true
     contentIsStyled = true
+
+[privacy]
+    [privacy.googleAnalytics]
+        anonymizeIP = true
+        respectDoNotTrack = true
+        useSessionStorage = true
