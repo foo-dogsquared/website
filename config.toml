@@ -1,12 +1,11 @@
 baseURL = "https://foo-dogsquared.github.io/blog/"
 languageCode = "en-us"
 title = "A Hack's Code"
-description = "A blog of a hack."
 summaryLength = 0
 paginate = 5
 copyright = "Unless explicitly stated, all content released here are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0)."
 googleAnalytics = "UA-126718538-1"
-theme = "terminal-plus-minus"
+theme = "arch-terminal"
 canonifyURLs = true
 
 [author]
@@ -62,13 +61,9 @@ canonifyURLs = true
     subtitle = "Computer Engineering Student"
     keywords = ["Gabriel Arazas", "foo-dogsquared", "blog", "computer", "mathematics"]
     
-    showPostsOnHome = true
-    showPageTypeIcon = true
-
-    enableSyntaxHighlighting = true
-    syntaxHighlighter = "prismjs"
+    enableThemeToggle = true
+    enableMathjax = true
     enableBreadcrumbs = true
-    contentIsStyled = true
 
 [privacy]
     [privacy.googleAnalytics]
