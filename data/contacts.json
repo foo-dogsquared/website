@@ -1,0 +1,22 @@
+[
+    {
+        "id": "twitter",
+        "url": "https://twitter.com/foo_dogsquared",
+        "name": "Twitter"
+    },
+    {
+        "id": "github",
+        "url": "https://github.com/foo-dogsquared/",
+        "name": "GitHub"
+    },
+    {
+        "id": "gitlab",
+        "url": "https://gitlab.com/foo-dogsquared/",
+        "name": "GitLab"
+    },
+    {
+        "id": "keybase",
+        "url": "https://keybase.io/foo_dogsquared",
+        "name": "Keybase"
+    }
+]
