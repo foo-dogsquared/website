@@ -1,0 +1,268 @@
+---
+title: "What is effective documentation"
+date: 2019-09-28T20:29:58+08:00
+cover: posts/images/the-importance-of-technical-writing-and-typography-in-a-software-project/cover.webp
+
+categories:
+    - software 
+tags:
+    - writing
+    - documentation 
+---
+
+= What is effective documentation 
+Gabriel Arazas <foo.dogsquared@gmail.com>
+2019-09-19
+
+:imagesdir: ../images/the-importance-of-technical-writing-and-typography-in-a-software-project/ 
+
+I'm beginning to be more oriented on technical writing. 
+In fact, I'm starting to consider to take on technical writing as a career. 
+So I ask myself related to the very thing that makes me appreciate technical writing: documentation. 
+That question is "What is effective documentation?" 
+
+As I remember from https://www.youtube.com/watch?v=BAJ8F7yQz64[a presentation], there's this quote that rings very well. 
+
+[quote, Dan Allen, Antora: Documentation Sites for Software Teams]
+Documentation is the “curb appeal” of your software. 
+
+Despite the saying, it applies to all types of projects. 
+It is the "curb appeal" of your project. 
+
+Let's take a shallow dive on the deep ocean of documentation and inspect what I think mainly builds it: technical writing and typography. 
+
+
+
+
+== Importance of technical writing 
+
+Technical writing is an often-overlooked process for open source programs. 
+This is reflected in https://opensourcesurvey.org/2017/[GitHub's 2017 survey on open source] (which is the latest version as of 2019-09-20) where incomplete and/or confusing documentation is the biggest hurdle. 
+
+What's common among successful software projects like https://asciidoctor.org/[Asciidoctor], https://reactjs.org/[React], https://www.python.org/[Python], https://laravel.com/[Laravel], https://www.mozilla.org/en-US/firefox/[Firefox], https://www.latex-project.org/[LaTeX], https://www.google.com/chrome/browser/index.html[Chrome], and https://www.archlinux.org/[Arch Linux] is the accessible and thorough documentation that describes enough details for the new and the seasoned users. 
+
+As such, one of the leading importance of technical writing is **communication**. 
+Without the work of technical writing means no communication. 
+Non-existent communication means no incentive to look for your project. 
+It's that simple. 
+
+The documentation is where the first impression lies for your potential users. 
+Despite the saying of judging the book by its cover, the documentation can reflect the quality of the project. 
+Having non-existent or bad documentation gives the impression that your project is bad no matter how well-crafted or optimized your code. 
+
+The documentation is also where the lasting impression goes for the veterans and potential contributors. 
+If the users see the project docs is working as intended and well-maintained then it's more likely for them to participate and contribute through bug issues and code improvements. 
+
+If you're learning another framework or a tool, odds are you would first visit the startup guide from their homepage. 
+If you want to know more specific about the tool, you would dive further into their detailed sections. 
+
+If you want to get a shot at making your project to be recognized, give the documentation a priority. 
+
+Like what I previously mentioned, this doesn't only apply to software projects but to all types of products whether it's a power tool, a phone, a calculator, or a book. 
+
+* If you're opening up a package of your shiny new power tool, odds are you would need to get your hands on a manual. 
+* If you've just received your new phone, you would find the user manual first to get started. 
+* If you want to know all of the capabilities of your calculator, you might want to view the manual. 
+* If you newly start with a referential book, you would explore first the preface or the introduction where it introduces the structure of each section. 
+
+As you imagine, the use and importance of technical writing is everywhere. 
+
+Though, be wary that there is a flip side on technical writing. 
+When there's communication, there's miscommunication. 
+It can be blamed to various things but the point is having outdated or incorrect documentation can also give a bad impression. 
+Worse is that it might be better to have no documentation at all. 
+
+
+
+
+== Importance of typography 
+
+How about typography? 
+It seems like it's a specific requirement for a software project but it can be important in making your content legible. 
+No one in their right mind would read the content no matter how well-written if it's badly formatted. 
+
+Typography can boost the "curb appeal" further by adding greenery to your project. 
+It makes all the more pleasing to the eyes. 
+
+Typography also dictates how long will the user stay reading. 
+A badly formatted book will surely receive shorter retention than a badly written one. 
+It's a bonus if the reader will also get a laugh out of the badly written one. 
+
+
+
+
+== Inspecting other projects 
+
+They say that success and advancements stand on the shoulder of giants. 
+Let's inspect how other software projects did their thing. 
+
+Think about most of the software you've used and remember your experience navigating the documentation. 
+The million-dollar question is what's common between the documentations of popular projects and what good practices can we get from them. 
+
+To get us in the same page, here's the list of software I reflected and inspected: 
+
+* https://www.archlinux.org/[Arch Linux] 
+* https://asciidoctor.org/[Asciidoctor] 
+* http://luatex.org/[LuaTeX] 
+* https://www.ctan.org/pkg/latexmk/[Latexmk] 
+* https://www.python.org/[Python] 
+* https://reactjs.org/[ReactJS] 
+
+Anyhow, I try to answer the million-dollar question. 
+I put it in two lists: one for the content and one for the typography. 
+
+
+=== Common attributes of documentation content 
+
+Here's what I gathered for reflecting the experience reading through the content. 
+I've also observed how they organize their content and lead their users into the different parts of the program. 
+
+* They provide examples. 
+* They don't repeat information a lot and gives the appropriate link instead. 
+* They organize the documents commonly by required level of expertise and general concepts. 
+* Most of them (if not all) provide generalized explanations and a detailed version. 
+* Not everything is documented compared to looking at the source, if available (e.g. https://www.python.org/[Python]). 
+
+
+=== Typographic best practices 
+
+Here's one for navigating through the documentation and observing the typography. 
+
+* Optimal characters per line are at least 50 to 80. 
+* Base font size is at least 16px. 
+* Font size and spacing of headers of various levels are distinct. 
+* Consistent use of brand colors (if there's any). 
+* Use monospace font for code listings. 
+
+Regarding the best example, I think https://reactjs.org/docs/[React] does this the best both in documentation content and typographic practices. 
+Go on, take a gander on it. 
+
+.ReactJS documentation 
+image::react-docs.webp[ReactJS docs]
+
+
+
+
+== How I practice these? 
+
+I won't detail much on how to practice technical writing or apply typographic practices since I'm not a professional. 
+Instead, I'm describing how I apply the two skills. 
+
+
+=== Plan the document early on the project 
+
+To create good documentation, you must take the time to plan the document. 
+Ask yourself what is the ideal document structure for your users, what information do they need to know, and other questions that reflect the value of efficient documentation. 
+
+Even for a small project, making effort to plan is heavily appreciated. 
+
+In my case, I created a document structure for my project. 
+Create a README and the `docs/` folder for assets (e.g. images, videos). 
+I also created a standard template for my README: the abstract, purpose, getting started guide, details, and the license. 
+You can see more of the details in my [project template documentation]. 
+
+
+=== Document only the big things 
+
+By that, I mean prioritize documenting the high-level details like the architecture, data design, implementations, and abstractions. 
+You don't have to document your whole codebase (and you shouldn't). 
+Leave out the very specific details and only draw the big picture. 
+
+When you did document the whole thing from its nooks and crannies, you give rise to another problem of constantly switching gears for updating your code and the documentation. 
+It's a nasty experience that you might as well not document it in the first place. 
+
+
+=== Create a minimal design that focuses on readability
+
+For practicing typography, you can create a minimalistic design that focuses on content form. 
+
+In my case, I recently started to refer to https://practicaltypography.com/[some] https://zellwk.com/blog/why-vertical-rhythms/[related] https://www.paulolyslager.com/optimal-text-layout-line-length/[resources] and quickly created a https://github.com/foo-dogsquared/hugo-theme-contentful[Hugo theme that focuses on it]. 
+
+.Here's the resulting Hugo theme - Contentful
+image::hugo-theme-contentful.webp[.Hugo theme Contentful]
+
+You could also start by redesigning some of your previous stuff. 
+
+I've started to reconfigure my LaTeX templates and it is certainly more readable than before. 
+footnote:[My LaTeX templates can be found at https://github.com/foo-dogsquared/latex-templates/[my GitHub account].]
+
+.My current LaTeX lecture layout
+image::latex-lecture-layout.webp[alt="My current LaTeX lecture layout", width=450]
+
+It has improved spacing between paragraphs and non-textblocks, larger font sizes for mathematical texts, and improved font combinations. 
+footnote:[If you're curious about the font combination, it uses https://github.com/adobe-fonts/source-serif-pro[Source Serif Pro] for roman (normal), https://github.com/adobe-fonts/source-sans-pro[Source Sans Pro] for sans, and https://github.com/tonsky/FiraCode[Fira Code] for monospace.]
+
+
+=== Create a style guide or a set of guidelines
+
+Style guides are used to keep certain aspects of a project to be consistent. 
+Certain examples exist on styling your code, general writing, academic writing, citations, design, technical writing, and many others. 
+footnote:[You can see examples of them at my https://github.com/foo-dogsquared/personal-style-guides[personal style guides README].]
+
+However, all (if not most) style guides are suited for the organization's purposes. 
+If you aren't able to find a suitable one, just create one. 
+It doesn't have to cover every possible case since it is specifically created for your own (or your team). 
+You can steal ideas from multiple style guides, cherry-pick the best of them, and combine it to suit your specific needs. 
+
+In my case, I created a writing style guide that generally applies to all of my writing and typography works. 
+I eventually dedicated https://github.com/foo-dogsquared/personal-style-guides[a repo for my guide styles] to easily refer to it in the future. 
+
+
+
+
+== Conclusion 
+
+The documentation is a powerful tool for projects. 
+They serve as an introduction and make the "curb appeal" for your project. 
+Practicing technical writing can amp up your communication skills which can mean the make-or-break moment for your project. 
+
+In any case, technical writing must also be presentable. 
+Your documentation may have all of the content they need to know but nobody is going to read good content with bad form. 
+Typography can help you out in making your content legible and easy to read. 
+Applying related typography practices can make cruising through the documentation a pleasant experience. 
+
+Giving some time for technical writing and typography can surely boost the impression of your project. 
+It also adds the bonus of future-proofing your project for yourself and for others. 
+
+
+
+
+== Further looking 
+
+
+=== Books  
+
+https://openoregon.pressbooks.pub/aboutwriting/[_About Writing: A Guide_ by "Open Oregon Press"]::
+An open textbook that describes the process of writing for different papers. 
+It also gives tips on writing a sufficient body of text that can apply for various papers like academic and research papers. 
+
+https://practicaltypography.com/[_Practical Typography_ by "Matthew Butterick"]:: 
+A pay-as-you-want online book that introduces you to typography with practical lessons and descriptions. 
+I fully recommend this book if you want to learn more about how to make your content presentable. 
+
+https://openoregon.pressbooks.pub/technicalwriting/[_Technical Writing_ by "Open Oregon Press"]::
+Another open textbook from the https://openoregon.pressbooks.pub/[Open Oregon Press] that specifically tackles technical writing of various formats from emails, cover letters, and résumé. 
+This covers the basics you need to get started on practicing efficient technical writing. 
+
+
+=== Tools 
+
+https://asciidoctor.org/[Asciidoctor]:: 
+An Asciidoc-based toolchain for publishing documents into various output formats. 
+It also expanded upon the original http://asciidoc.org/[Asciidoc] markup language with additional text formatting features. 
+It's what I mainly use for writing documentation for my projects. 
+
+
+=== Web 
+
+https://github.com/noffle/art-of-readme[_Art of README_ by "noffle"]:: 
+It's a GitHub repo detailing on READMEs from what they are to what makes them good. 
+
+https://www.instructionalsolutions.com/blog/become-a-technical-writer[_How to Become a Technical Writer: A Beginner’s Guide_ by "Tom DuPuis"]:: 
+An overview for absolute beginners for those who are looking into technical writing. 
+Tackles various topics that you should know first and foremost. 
+
+https://www.writethedocs.org/[Write the Docs]:: 
+A global community of people who cares about writing documentation. 
+They provide good resources for getting started with technical writing on the website. 
+
