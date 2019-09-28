@@ -156,6 +156,9 @@ heavier feature set of Asciidoctor.
 
 == Syntax highlighting (without the shortcode)
 
+NOTE: As of 2019-09-25, I don't use a syntax highlighter anymore for my site in the name of performance and consideration for low internet speeds. 
+Clearly, I didn't think ahead about this. 
+
 Syntax highlighting can be an important feature for technical blogs especially 
 if you often have to show code in your posts. 
 
