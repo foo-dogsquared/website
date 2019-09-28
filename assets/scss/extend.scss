@@ -1,0 +1,38 @@
+code {
+    background: var(--background-light);
+    color: var(--foreground);
+}
+
+img {
+    width: unset;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+ul, ol {
+    ul, ol { margin: unset; }
+}
+
+.page__title {
+    &--compact {
+        font-size: var(--fontSize);
+        padding-right: calc(var(--verticalRhythm) / 2);
+
+        a { text-decoration: none; }
+    }
+}
+
+.page__content {
+    a {
+        text-decoration: none;
+        color: var(--accent);
+
+        &:hover { text-decoration: underline; }
+    }
+}
+
+* > .content {
+    display: flex;
+    justify-content: center;
+    padding: var(--verticalRhythm);
+}
