@@ -109,7 +109,7 @@ To get us in the same page, here's the list of software I reflected and inspecte
 * https://reactjs.org/[ReactJS] 
 
 Anyhow, I try to answer the million-dollar question. 
-I put it in two lists: one for the content and one for the typography. 
+I put the answers in two lists: one for the content and one for the typography. 
 
 
 === Common attributes of documentation content 
@@ -159,7 +159,7 @@ Even for a small project, making effort to plan is heavily appreciated.
 In my case, I created a document structure for my project. 
 Create a README and the `docs/` folder for assets (e.g. images, videos). 
 I also created a standard template for my README: the abstract, purpose, getting started guide, details, and the license. 
-You can see more of the details in my [project template documentation]. 
+You can see more of the details in my https://github.com/foo-dogsquared/personal-style-guides/blob/master/src/projects.adoc[project template documentation]. 
 
 
 === Document only the big things 
