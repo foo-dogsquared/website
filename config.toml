@@ -2,7 +2,7 @@ baseURL = "https://foo-dogsquared.github.io/blog/"
 languageCode = "en-us"
 title = "A Hack's Code"
 summaryLength = 0
-paginate = 5
+paginate = 40
 copyright = "Unless explicitly stated, all content released here are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0)."
 googleAnalytics = "UA-126718538-1"
 theme = "arch-terminal"
@@ -64,6 +64,8 @@ canonifyURLs = true
     enableThemeToggle = true
     enableMathjax = true
     enableBreadcrumbs = true
+    # enableContentImageZoom = true
+    mainSections = ["posts", "projects"]
 
 [privacy]
     [privacy.googleAnalytics]
