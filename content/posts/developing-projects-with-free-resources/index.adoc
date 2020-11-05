@@ -1,0 +1,225 @@
+---
+date: 2019-04-30 12:32:40 +0800
+title: Developing projects with free resources
+
+categories:
+    - How not to procastinate
+tags:
+    - projects
+    - development
+---
+
+= Developing projects with free resources
+Gabriel Arazas <foo.dogsquared@gmail.com>
+2019-04-30
+
+:toc:
+
+
+In a world where technology has made it possible to inform and share experiences with other people through multiple devices, the technology sure came to advance at a point where the people themselves have the resources needed to establish and maintain businesses on their garage or bedroom.
+
+The same can be said with creating projects.
+Being a student on a financial tightrope, it will be a fun and frustrating challenge to create projects with only free resources and services.
+
+In this article, I'll share my experiences and tools I've used throughout my side-project and self-learning development journey while getting around paid services.
+
+
+
+
+== Planning my projects
+
+Planning is a part of the process.
+It's an ever-important process that prevents your software project (or any project) to be an aftermath of a great natural disaster.
+It's not guaranteed for your project to go smooth accordingly but it's better to have a plan than going straight into the battlefield.
+
+[quote, Captain Cold]
+There are only 4 rules you need to remember: make the plan, execute the
+plan, expect the plan to go off the rails, throw away the plan.
+
+If the plan failed, just go through another planning phase.
+The action does not apply well into a production workflow with the chaotic and larger-scale management but it can be easily apply for personal projects.
+
+Here are the tools I've used to practice my planning skills:
+
+
+=== https://quire.io/[Quire]
+
+Quire is an online tool for almost everything productivity-based. I mean
+they got https://quire.io/features[an exhaustive list of features] from
+kanban boards, simple task lists, integration to different services such
+as GitHub, Google Drive, and Slack, and much more!
+
+The best part about all of this is that it looks minimalistic with all
+of its features. It goes out of your way with all of its features to use
+as you intended. You want to look at your task board for your project
+and the website only shows you that.
+
+
+=== https://inkscape.org/[Inkscape]
+
+Inkscape is a vector graphics tool and a free and open source software (FOSS) in similar veins of https://www.adobe.com/products/illustrator.html[Adobe Illustrator].
+It's a neat tool suited for a variety of basic tasks related for vector graphics: icon art, visual aids, and even https://wiki.inkscape.org/wiki/index.php/LaTeX[mathematical equations].
+I find Inkscape more approachable than Illustrator, further enhanced by its welcoming community.
+
+It also offers extensiblity through plugins and gathered a community of designers and developers that extend Inkscape for their own needs (and maybe yours).
+I've mainly used Inkscape for creating diagrams and visual aids (and a little bit of vector art for practice).
+Though, using Inkscape for diagramming can be tricky and unintuitive so I recommend https://app.diagrams.net/[diagrams.net] (formerly known as draw.io).
+
+
+
+
+=== Good ol' pen & paper
+
+Well, all I need is a way of planning for my project.
+Cite a better way of planning than a good ol' P&P.
+One of its most useful feature is that it's quick to load!
+No internet connection needed!
+It's a universal alternative to all the apps listed so far.
+The only situation you're not able to boot this up is if you don't have the materials yourself.
+
+In all seriousness though, I think this is one of the most useful ones.
+Physically writing is actually more memorable (to me, at least) thus more things to remember.
+Besides, I don't want to stare at a digital screen all day.
+
+Usually when I'm going to plan with this method, I follow through a system I created for myself.
+The system is nothing fancy, it's a simple priority task queue where I categorized whether the task is a low-hanging fruit, an afterthought, or a requirement.
+You could represent this with symbols, colored papers, or birds.
+
+
+
+
+== Creating my projects
+
+When you have a plan in place, you can attack it in your own pace.
+
+The following list is only for software projects but I recently launched https://freebies-hunt.netlify.app/[a website that lists all of the free resources and tools] I've used for a variety of tasks.
+
+
+=== https://code.visualstudio.com/[Visual Studio Code]
+
+My go-to text editor and lightweight IDE.
+This tool is just phenomenal!
+It's free and https://github.com/Microsoft/vscode[open source], https://code.visualstudio.com/updates/[actively being developed], backed up by a huge community of developers, solid UI/UX for budding developers, https://code.visualstudio.com/docs[features an extensive documentation], and offers hackability that extends the app even further.
+
+With that said, this tool is not a panacea for our development tool problems.
+The core scope is on web development when you look at the feature set: JavaScript and TypeScript support, built-in https://www.emmet.io/[Emmet] plugin, and built-in HTML and CSS support.
+Thankfully, Visual Studio Code has accumulated an ecosystem of quality plugins over the past years so things like adding support for a certain language like Rust, C++, or Java can be acquired.
+Along with some helpful utilities like https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop[LaTeX workflow], https://marketplace.visualstudio.com/items?itemName=vscodevim.vim[Vim emulation], and https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig[EditorConfig].
+
+
+=== https://git-scm.com/[Git]
+
+Well, we all have our ways in saving our stuff.
+A certain XKCD comic said it best how I used to do it.
+
+image::https://imgs.xkcd.com/comics/documents.png[title="My archiving skills in high school"]
+
+Other would use a software that can automatically create backups.
+For solo projects, it is practical enough but if you want to amp your version controlling skill then you can use a full-on **version control system** (VCS).
+One objective of using a version control system like Git is not only acts as an epic save button but it also makes collaborative works to progress smoother.
+
+Git is my go-to version control software.
+It is nice to work with and it has ton of free services that are integrated with it.
+Despite it's mostly used for software projects, it can be useful for non-software stuff though better and more specialized solutions may exist.
+
+
+
+
+== Publishing my project
+
+If you want your project to be available for the whole world to see, you have available free options that lets you do that.
+
+
+=== https://github.com/[GitHub]
+
+When you want to share your project with the world for everyone to see, you need a platform to do that.
+One of the popular options for that is GitHub (which requires using Git but it's ubitiquous nowadays).
+
+GitHub offer practically free unlimited public and private repo (with limited collaborators) for your projects.
+Whether you want to show off your projects or to keep your projects safe in the cloud, GitHub has you covered.
+
+Being a software development platform, it has a variety of features to aid software development such as issue tracking, code reviews, automation with https://github.com/features/actions[GitHub Actions], and built-in project management tools.
+
+If you're looking for an alternative to GitHub, here's some other Git-based web hosting sites:
+
+* https://gitlab.com/[GitLab] is probably the closest competitor to GitHub sporting a similar set of features.
+What's more, you can spin your own GitLab instance in case you want your own Git platform.
+
+* https://bitbucket.org/[Bitbucket] is another competitor to GitHub.
+Its core feature set is quite similar to GitLab: having built-in CI/CD tools, can be self-hosted, and has a ton of built-in integration with other services such as Trello and Slack.
+
+
+=== http://heroku.com/[Heroku]
+
+If you're looking to deploy your dynamic web app, look no further to Heroku.
+Heroku offers an infrastructure as a service that is made sure to be as easy as possible and it is sure easy in my experience so far.
+
+Heroku just needs a Git repo and you're mostly done.
+Just tweak the app further, store your secret credentials, enable related services for your app, and your app will set ablaze live (or crash) on the web.
+
+If you're looking for other hosts that support multiple languages and setup, have a look at the following list.
+
+* https://glitch.com/[Glitch] — One of the coolest alternative to Heroku.
+It's another app deployment platform but with the sense of community mixed in.
+However, it's not suitable for production deployment.
+
+* https://zeit.co/now[Now] is an app deployment service from Zeit.
+It offers a platform to deploy your web apps though you have to integrate it with your app instead of just placing your app and letting it run.
+Like Heroku, it also offers a generous free tier that is mostly enough for managing multiple hobby projects.
+
+* http://firebase.google.com/[Firebase] offers a generous free tier which can take a while before reaching the limit if you're deploying a few personal dev projects.
+
+* https://repl.it/[Repl.it] — Possibly one of the best alternatives to Heroku.
+Similar to Glitch, it's an online IDE that https://repl.it/site/languages[supports a lot of languages] and it got
+https://repl.it/discord[a community of hackers behind it].
+It's a pretty cool tool especially for hobby projects, personal demos, and such.
+
+
+=== https://www.netlify.com/[Netlify]
+
+If you want to publish your static website, no need to deploy it with Heroku since it'll just add to your monthly quota.
+https://www.netlify.com/[Netlify] is one of the perfect platforms for that.
+
+Like Heroku, Netlify is a platform that aims to make web app deployment as easy as possible.
+Just create an account, login to Netlify, integrate your Git repo, and give configurations for deployment then celebrate!
+
+It offers out-of-the-box integration with common web workflow like task runners and Git repos and https://www.netlify.com/products/build/[automates them through a work pipeline], doing all the work for you.
+It's pretty fantastic especially if you're working solo.
+
+Of course, https://www.netlify.com/pricing/[Netlify offers a generous free tier] limiting your account up to 100GB bandwidth for your list of
+deployed projects.
+For me, that is more than enough.
+
+Of course, tons of alternatives are available but here's the following that topped the list for me:
+
+* https://surge.sh/[Surge] — One of the more popular static site
+deployment tool. It's simply a deployment tool available in the command
+line. Also provides out-of-the-box integration with common workflows.
+
+* https://pages.github.com/[GitHub Pages] offers similarly generous resources for your static apps.
+If you're mainly a https://gitlab.com[GitLab] user, https://docs.gitlab.com/ee/user/project/pages/[GitLab also offers a similar service].
+
+* https://zeit.co/now[Now] is still one of them.
+
+With all of those above, you're practically set for life in your webdevelopment learning journey.
+It's pretty amazing that we get these stuff for FREE, mind you.
+
+
+
+
+== Conclusion
+
+There's my general workflow in its glory using only with (mostly) free and open source technologies.
+There's a lot more things to keep an eye on especially if you're looking for a specific set of technologies or needs.
+If you're looking for more open content, I can point you to the following:
+
+* https://github.com/sindresorhus/awesome[`awesome`] — A list of
+resource list of various technologies and topics from software
+development, music, research, to game development. You should be able to
+get a start of your search of open content from there.
+
+* It's a shameless plug but https://freebies-hunt.netlify.com/[Freebies Hunt] is a personally curated list of free resources that I've used for a variety of tasks including music production, 3D modelling, and art.
+
+One of the most beneficial things on free and open content today is that they're easily accessible as they're easily created.
+Not only that it does help on making the technology to easily create interest on the public but also to create progress by everyone.
+

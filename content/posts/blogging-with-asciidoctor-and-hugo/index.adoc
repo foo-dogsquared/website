@@ -2,17 +2,17 @@
 title: "Blogging with Asciidoctor and Hugo"
 date: 2019-09-03T13:07:43+08:00
 categories:
-    - guide
+    - Hugo
 tags:
-    - asciidoctor
-    - blog
+    - writing
+    - ssg
+    - hugo
 ---
 
 = Blogging with Asciidoctor and Hugo
 Gabriel Arazas <foo.dogsquared@gmail.com>
 2019-08-27
 
-:imagesdir: ../images/blogging-with-asciidoctor-and-hugo/
 :asciidoctor_site: https://asciidoctor.org/
 
 Finally, I've found a great blogging workflow with Hugo and Asciidoctor. 
@@ -264,7 +264,7 @@ The most obvious is the HTML output of Asciidoctor with the default
 backend is not great and leaves a lot of things to be desired. 
 
 .`<div>` then a `<p>` for a paragraph, really?
-image::asciidoctor-sample-html.webp[`<div>` then a `<p>` for a paragraph, really?] 
+image::images/asciidoctor-sample-html.webp[`<div>` then a `<p>` for a paragraph, really?] 
 
 It's not semantic and it is unconventional. 
 Not only that it's a pain to style it with CSS but also breaks a lot 

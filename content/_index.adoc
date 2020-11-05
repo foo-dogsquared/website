@@ -1,0 +1,10 @@
+---
+title: Homepage
+---
+
+= Homepage
+
+Hey there!
+Welcome to my small home on the deepest corners of the internet.
+Just a hobbyist programmer and a wannabe creative artisan productively wasting time on looking on other inspirations. :)
+

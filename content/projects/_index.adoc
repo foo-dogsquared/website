@@ -1,7 +1,0 @@
----
-title: "Projects"
----
-
-Here's where I discuss my projects in detail from its 
-overview, design, implementations, and notes I took while 
-creating the project.

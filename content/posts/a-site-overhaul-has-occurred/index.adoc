@@ -1,8 +1,10 @@
 ---
 title: A site overhaul has occurred
 date: 2019-08-15T18:10:07+08:00
-categories: ["meta"]
-tags: ["self", "meta"]
+
+tags:
+    - self
+    - meta
 ---
 
 = A site overhaul has been occurred

@@ -1,15 +1,18 @@
 ---
 title: "A 'ricing' starting checklist"
 date: 2019-08-25T18:03:43+08:00
-categories: ["linux"]
-tags: ["foss", "ricing", "linux"]
+categories:
+    - How to Linux
+tags:
+    - linux
+    - desktop
+    - ricing
 ---
 
 = A "ricing" starting checklist
 Gabriel Arazas <foo.dogsquared@gmail.com>
 2019-08-19
 
-:imagesdir: ../images/a-ricing-starting-checklist/
 
 I just started ricing at the start of August 2019. 
 So I made this list of things you might want to know when 
@@ -183,7 +186,7 @@ For Arch Linux, it has Raleigh as the default GTK theme which looks
 very dated if you ask me.
 
 .GTK Raleigh theme
-image::gtk-raleigh-theme-demo.webp[GTK Raleigh theme]
+image::images/gtk-raleigh-theme-demo.webp[GTK Raleigh theme]
 
 For my custom configuration, I chose the https://github.com/NicoHood/arc-theme[Arc] 
 theme along with its https://github.com/NicoHood/arc-icon-theme[icon set] simply 
@@ -191,7 +194,7 @@ because they're the popular choice. I also think the darker scheme is pretty
 cool.
 
 .GTK Arc Darker theme 
-image::gtk-arc-darker-theme-demo.webp[GTK Arc Darker theme]
+image::images/gtk-arc-darker-theme-demo.webp[GTK Arc Darker theme]
 
 You can look for more GTK themes at https://www.gnome-look.org/[GNOME Look].
 
@@ -286,7 +289,7 @@ server. Simply sending a notification with `notify-send` while running Dunst in 
 background can go a long way.
 
 .Using dunst for screenshot notifications
-image::dunst-screenshot-demo.webp[Using dunst for screenshot notifications]
+image::images/dunst-screenshot-demo.webp[Using dunst for screenshot notifications]
 
 I also made it to send notifications for delayed screenshots. 
 
@@ -302,7 +305,7 @@ different ways on where to store their configuration files.
 
 NOTE: Dotfiles simply means your configurations of the installed 
 programs. Its name also came from how Linux considers a file/folder
-with a period in front of the name to be hidden (i.e.: `.config`, 
+with a period in front of the name to be hidden (i.e., `.config`, 
 `.vimrc`, `.bashrc`). 
 
 If you would continue with no tool at all, you would most likely:

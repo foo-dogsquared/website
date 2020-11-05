@@ -1,15 +1,18 @@
 ---
 title: "The complete Linux turnabout"
 date: 2019-08-20T20:50:18+08:00
-categories: ["linux"]
-tags: ["linux", "foss"]
+categories:
+    - How to Linux
+tags:
+    - linux
+    - desktop
+    - ricing
 ---
 
 = The complete Linux turnabout
 Gabriel Arazas <foo.dogsquared@gmail.com>
 2019-08-20
 
-:imagesdir: ../images/the-complete-linux-turnabout/
 
 Ever since I found some good stuff at Linux, I wiped out my 
 hard drive completely, exclusively install a Linux-based 
@@ -67,7 +70,7 @@ It was easy to adapt to it since I'm completely used to using programs
 that live in a command line interface like https://www.vim.org/[Vim]. 
 
 .My i3 setup
-image::i3-setup.webp[My i3 setup]
+image::images/i3-setup.webp[My i3 setup]
 
 i3 also offers a level of https://i3wm.org/docs/userguide.html[configuration] 
 that could make you a bit more efficient. 
@@ -112,7 +115,7 @@ It's quite usable with rofi's sidebar mode where you can find windows, desktop e
 binaries, and even SSH configs.
 
 .Customized rofi menu
-image::rofi-setup.webp[Customized rofi menu]
+image::images/rofi-setup.webp[Customized rofi menu]
 
 You can find 
 https://github.com/foo-dogsquared/dotfiles/tree/master/rofi[my rofi config on my GitHub repo].
@@ -199,7 +202,7 @@ file browser.
 status bar. It's pretty cool looking.
 
 .Fullscreen Vim setup
-image::vim-setup.webp[Fullscreen Vim setup]
+image::images/vim-setup.webp[Fullscreen Vim setup]
 
 If you want to take a deeper look or just want to see the full config, 
 https://github.com/foo-dogsquared/dotfiles/tree/master/vim[you can see it in my dotfiles repo].
@@ -269,7 +272,7 @@ screenshot tool, keybinding tool, and a replacement for my status bar
 (which I didn't by the end of the day). 
 
 That's when I discovered https://www.reddit.com/r/unixporn/[`/r/unixporn`], 
-a subreddit for showing off your *Nix (i.e.: Linux, MacOS) configurations and setup. 
+a subreddit for showing off your *Nix (i.e., Linux, MacOS) configurations and setup. 
 It's also a community for "ricing", an act of adding the visual spices to your setup.
 I recommend to check it out if you're looking for a starting point.
 They're pretty friendly for first timers, too.

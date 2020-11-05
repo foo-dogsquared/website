@@ -1,8 +1,12 @@
 ---
 title:  A freebie's resource list (mostly related to programming)
 date:   2018-05-01 09:25:57 +0800
-categories: [foss]
-tags: [foss, freebies]
+
+categories:
+    - Freebies
+tags:
+    - bookmarks
+    - freebies
 ---
 
 = A freebie's resource list (mostly related to programming)
@@ -80,7 +84,7 @@ project-based curriculum for web development
 * https://www.ixl.com/[IXL] — an educational resource and learning site
 on K-12 curriculum
 * https://khanacademy.org[Khan Academy] — *(recommended)*; there are
-also other topics outside of programming (i.e. mathematics, physics)
+also other topics outside of programming (i.e., mathematics, physics)
 * https://learnxinyminutes.com[Learn X in Y Minutes] — a
 community-created repository of summaries for you to learn the X
 programming languages
