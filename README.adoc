@@ -1,40 +1,33 @@
 = blog
 
-My blog. Yes. My blog.
+My blog.
 
-As of 2019-08-15, this blog uses https://gohugo.io/[Hugo] as 
-its static site generator (SSG). It is currently under 
-rebranding and migration from https://jekyllrb.com/[Jekyll].
 
-== Setting up a development environment
-To set up a development environment for this repo, you can 
-do the following steps:
 
-* Clone the repo (`git clone <git url>`)
-* Go to the project directory
-* Run the `first-time-setup.sh` script
 
-Aaaaand you're done.
+== Getting started
 
-== Blog workflow
-Here's how my blogging workflow works with this repo:
+Though, it's obvious but hey.
 
-* Create a new post (with `hugo new posts/<TITLE>.adoc`)
-* Do a pre-write or listing related words into the new document
-* Create a layout for the post
-* Create a draft
-* Edit the draft
-* Correct any misspellings and grammar inconsistencies
-* Commit the new post
-* Publish it (with `deploy.sh`)
 
-I might have to create a new tool out of creating the post 
-for this (https://github.com/foo-dogsquared/automate-md[my old tool] might 
-do some upgrade for that).
+=== Prerequisites
 
-== Other notes
+* Git
+* Hugo
+* https://golang.org/[Go] runtime
+* https://asciidoctor.org/[Asciidoctor]
 
-* I write with https://asciidoctor.org/[Asciidoctor] so it'll need it to 
-be installed.
-* The theme I used is https://themes.gohugo.io/hugo-theme-terminal/[Terminal] with 
-some CSS overrides in `static/style.css`.
+
+=== Setting up
+
+[source, shell]
+----
+git clone $GIT_REPO
+hugo mod get -u
+hugo serve
+----
+
+The theme is a modified version of a https://github.com/foo-dogsquared/hugo-theme-more-contentful[modified version of a theme] so that's pretty cool.
+
+To create a post, simply make with `hugo new --kind post $PATH_REL_TO_CONTENT_DIR` and you're on your merry way.
+

@@ -1,0 +1,27 @@
+{{ define "main" }}
+<hr>
+{{ .Content }}
+
+{{- /* The homepage should show only pages from the given sections (with `$.Site.Params.mainSections`).
+Otherwise, we take the pages of a section. */ -}}
+{{- $pages := .Pages }}
+{{- if .IsHome }}
+{{- $pages = where $.Site.RegularPages "Type" "in" $.Site.Params.mainSections }}
+{{- end }}
+
+<ul>
+{{- $paginator := .Paginate $pages }}
+{{- range $paginator.Pages }}
+<li>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time> - <a href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
+</li>
+{{- end }}
+</ul>
+
+{{ if $paginator.HasNext }}
+  <p style="margin: 1em;">
+    <a href="{{ "/archives" | relLangURL }}">View all posts</a>
+  </p>
+{{ end }}
+{{- end }}
+

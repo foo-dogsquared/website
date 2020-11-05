@@ -1,0 +1,22 @@
+useImage = true
+
+[[links]]
+id = "twitter"
+url = "https://twitter.com/foo_dogsquared"
+name = "Twitter"
+
+[[links]]
+id = "mastodon"
+url = "https://mastodon.online/@foodogsquared"
+name = "Mastodon"
+
+[[links]]
+id = "github"
+url = "https://github.com/foo-dogsquared/"
+name = "GitHub"
+
+[[links]]
+id = "rss"
+url = "index.atom"
+name = "RSS"
+weight = -1

@@ -1,38 +1,76 @@
-code {
-    background: var(--background-light);
-    color: var(--foreground);
+:root {
+  --accented-border-style: var(--base08) solid 1px;
 }
 
-img {
-    width: unset;
-    max-width: 100%;
-    margin: 0 auto;
+.post__meta--single {
+  p > span:first-child {
+    white-space: nowrap;
+  }
 }
 
-ul, ol {
-    ul, ol { margin: unset; }
+// Prism CSS
+code[class*="language-"], pre[class*="language-"] {
+  color: var(--base05);
 }
 
-.page__title {
-    &--compact {
-        font-size: var(--fontSize);
-        padding-right: calc(var(--verticalRhythm) / 2);
-
-        a { text-decoration: none; }
-    }
+// Asciidoctor-specific styles
+.anchor {
+  &::before {
+    content: "§";
+    display: inline-block;
+    margin-right: 0.25em;
+  }
 }
 
-.page__content {
-    a {
-        text-decoration: none;
-        color: var(--accent);
-
-        &:hover { text-decoration: underline; }
-    }
+.quoteblock {
+  blockquote {
+    border: var(--accented-border-style);
+    margin: auto;
+    padding: 1em 0.5em;
+  }
 }
 
-.imageblock > .content {
+@keyframes target-fade {
+  0% {
+    background: var(--base0D);
+    color: unset;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+#footnotes > *:not(hr) {
+  line-height: 1.5;
+  margin: 1em;
+}
+
+*:not(.listingblock) {
+  > *.attribution,
+  > *.title {
+    background: var(--base08);
+    color: var(--base00);
+    font-size: 0.9em;
+    padding: 0.5em;
+  }
+
+  > *.content {
+    border: var(--accented-border-style);
+    padding: 0.5em;
+  }
+}
+
+.admonitionblock {
+  .icon {
+    background: var(--base08);
+    border: var(--accented-border-style);
+    vertical-align: middle;
+  }
+}
+
+.imageblock {
+  > .content {
     display: flex;
     justify-content: center;
-    padding: var(--verticalRhythm);
+  }
 }

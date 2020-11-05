@@ -4,14 +4,30 @@ title = "A Hack's Code"
 summaryLength = 0
 paginate = 40
 copyright = "Unless explicitly stated, all content released here are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0)."
-googleAnalytics = "UA-126718538-1"
-theme = "arch-terminal"
 canonifyURLs = true
 
+
+[module]
+  [[module.imports]]
+    path = "github.com/foo-dogsquared/hugo-theme-more-contentful"
+
+  [[module.imports]]
+    path = "github.com/foo-dogsquared/hugo-web-feeds"
+
+
+[markup]
+  [markup.asciidocExt]
+    extensions = ["asciidoctor-diagram"]
+    [markup.asciidocExt.attributes]
+    toc = true
+    sectanchors = true
+
+
 [author]
-    name = "Gabriel Arazas"
-    alias = "foo-dogsquared"
-    email = "foo.dogsquared@gmail.com"
+    [foo-dogsquared]
+        name = "Gabriel Arazas"
+        alias = "foo-dogsquared"
+        email = "foo.dogsquared@gmail.com"
 
 [mediaTypes]
     [mediaTypes."application/atom+xml"]
@@ -37,11 +53,6 @@ canonifyURLs = true
 
 [menu]
     [[menu.main]]
-        identifier = "articles"
-        name = "Posts"
-        url = "posts/"
-
-    [[menu.main]]
         identifier = "about"
         name = "About"
         url = "about/"
@@ -51,24 +62,6 @@ canonifyURLs = true
         name = "Archives"
         url = "archives/"
 
-    [[menu.main]]
-        identifier = "feeds"
-        name = "Feeds"
-        url = "feeds/"
-
-
 [params]
-    subtitle = "Computer Engineering Student"
-    keywords = ["Gabriel Arazas", "foo-dogsquared", "blog", "computer", "mathematics"]
-    
-    enableThemeToggle = true
-    enableMathjax = true
-    enableBreadcrumbs = true
-    # enableContentImageZoom = true
     mainSections = ["posts", "projects"]
-
-[privacy]
-    [privacy.googleAnalytics]
-        anonymizeIP = true
-        respectDoNotTrack = true
-        useSessionStorage = true
+    toc = true
