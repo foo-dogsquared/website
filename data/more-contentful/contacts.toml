@@ -16,6 +16,11 @@ url = "https://github.com/foo-dogsquared/"
 name = "GitHub"
 
 [[links]]
+id = "gitlab"
+url = "https://gitlab.com/foo-dogsquared/"
+name = "GitLab"
+
+[[links]]
 id = "rss"
 url = "index.atom"
 name = "RSS"
