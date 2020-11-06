@@ -1,0 +1,246 @@
+---
+title: "Moving into NixOS"
+date: 2020-10-11T12:47:58+08:00
+publishdate: 2020-11-06T16:00:00+08:00
+
+categories:
+  - How to NixOS
+  - How to Linux
+tags:
+  - linux
+  - nix
+---
+
+= Moving into NixOS
+Gabriel Arazas <foo.dogsquared@gmail.com>
+2020-10-11
+
+
+Functional package management is best package management.
+Therefore, NixOS is best Linux distro.
+footnote:[There's also https://guix.gnu.org/[Guix] which is also best distro and in my to-do list to cover it sometime in the future.]
+Here's my journey of being enlightened and a member of the NixOS cult for 2 months.
+
+
+
+
+== Why NixOS?
+
+Because I often hear the following features being tooted whenever NixOS is being mentioned.
+
+* Reproducible builds which makes more reliable reinstallations.
+* Atomic upgrades so when the power is out, no amount of doubt is shed for Nix does not apply the upgrade and you can simply restart the process.
+* Rollbacks which is a great bonus feature allowing more room for experimentations.
+* Declarative system configuration that doubly works as a bootstrapping script!
+* Creation of isolated development environments with the package manager `virtualenv`-style.
+* https://github.com/NixOS/nixpkgs/[A wide selection of community packages].
+* https://discourse.nixos.org/[A great community] composing of users of various skill levels https://www.youtube.com/channel/UC-cY3DcYladGdFQWIKL90SQ[willing to reach out to newbies] and https://www.youtube.com/channel/UCDTeiF7cayvgLMUBSm9-B2A[create discussions revolving the package manager].
+
+However, most of the features listed here aren't unique and/or can be replicated.
+
+* Reproducible builds are starting to become https://reproducible-builds.org/projects/[a priority in some Linux distros including Arch Linux, Fedora, Debian, and openSUSE] (though not as much of a user-centric focus as Nix has).
+* Rollbacks can be achieved with filesystems such as https://btrfs.wiki.kernel.org/index.php/Main_Page[btrfs] and https://openzfs.org/wiki/Main_Page[ZFS].
+* In a way, a bootstrapping script is a declarative system configuration which you can easily create one yourself.
+
+Plus, you can taste the power of NixOS without installing it since most of its power comes from the Nix package manager.
+You can install it in a non-NixOS distro conflict-free since all of the stuff are happening at its own directory at `/nix`.
+
+Still, the fact that such features are built-in is a pretty great reason to try it.
+And the https://repology.org/repository/nix_stable[>60,000 packages] (as of 2020-11-04) is a nice bonus.
+footnote:[Fun fact, it is around the same number as the AUR (as of 2020-11-04).]
+A bigger bonus, in fact, is a lot of the packages from the https://aur.archlinux.org/[AUR] that I use (e.g., polybar, Zotero, Brave browser) are available as a binary.
+
+
+
+
+== My desktop workflow
+
+A few days later of fiddling with a NixOS VM, I got a https://github.com/foo-dogsquared/nixos-config/tree/ef12c29f3602665d89141797a1726ed00945c818[working configuration] based from https://github.com/hlissner/dotfiles/tree/744cf032c3f948fa0832096218b19f4deaec586d[this guy's config].
+
+It's the system config with some Nix modules applied on top with each module only requiring a simple flip of a switch to activate them.
+For example, if I want to bring in my Python installation, just set `modules.dev.python.enable = true` and the next time you run `nixos-rebuild switch --upgrade`, it'll bring the configured Python environment from the related module.
+
+Just for the sake of another example, if I want to enable certain stuff in my system, say Visual Studio Code, Zsh, Rust, and a bswpm-based graphical environment, I can simply set them up with the following lines in my system configuration (`/etc/nixos/configuration.nix`).
+
+[source, nix]
+----
+{ config, options, lib, pkgs, ... }:
+
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./modules
+  ];
+
+  # <!--snip-->
+
+  modules = {
+    editors.vscode.enable = true;
+    dev = {
+      base.enable = true;
+      rust.enable = true;
+    };
+    shell.zsh.enable = true;
+    themes.fair-and-square.enable = true;
+  };
+}
+----
+
+This type of workflow is certainly a power user's (READ: my) fantasy with the declarativeness and the ease of system management with my customizations.
+It's pretty cool to have it realized.
+
+Then, my Arch Linux installation broke footnote:[Probably because I did not read a `PKGBUILD` of a malicious AUR package.] and the temptation meter to install NixOS on bare metal goes to 100%.
+The bare-metal installation goes out smoothly with my config stored in a Git repo.
+
+[source, bash]
+----
+# Assuming you've set up the partitions, enabled swap partitions, and mounted them to /mnt.
+
+# Install a bunch of packages in the medium installation.
+nix-env -i git gnumake
+
+# Bring in my NixOS config over.
+sudo git clone $MY_NIXOS_CONFIG_URL /etc/dotfiles
+
+# Install in 3... 2... 1...
+PREFIX=/mnt USER=foo-dogsquared HOST=zilch make -C /etc/dotfiles install
+----
+
+Even better, I can set the above snippet as a https://nix.dev/tutorials/ad-hoc-developer-environments.html#reproducible-executables[reproducible executable] by just setting the shebang as follows.
+
+[source, bash]
+----
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p git gnumake
+----
+
+Then, the installation will be more simplified by getting it from the network (i.e., `curl $MY_NIXOS_INSTALL_SCRIPT | bash -`).
+
+I still have to set up shop for my files and secrets (preferably with https://www.cis.upenn.edu/~bcpierce/unison/[Unison]) but that's pretty much it and can be easily automated.
+
+
+
+
+== The pain, behind-the-scenes
+
+The workflow is a result of a person with a day-worth of free time grokking Nix through trial and error.
+NixOS, being so far from a traditional distro, it's a world of its own.
+Thus, it has its own set of problems.
+
+* The Nix language.
+The lack of static typing (which may https://github.com/NixOS/nix/issues/14[not happen anytime in the future]) and its domain-specific nature does made a harder time for me.
+I haven't fully understood it until I read https://nixos.org/guides/nix-pills[the beloved Nix pills series].
+
+* The Nix toolchain binary is spread throughout.
+As of NixOS 20.09, you have the `nix-shell` for creating shell environments, `nix-build` for building from Nix expressions, `nixos-rebuild` for interacting with NixOS, `nix-collect-garbage` for garbage collection, and so forth.
+NixOS does have Nix 2.0 that attempts to bring it all in one namespace with the `nix` binary and it will further improve at v3.0.
+footnote:[Though, this is a minor inconvenience since you can just type `nix` and use tab-completion but it still gets to me sometimes.]
+
+* Knowing the Nix toolchain and the language is only half the battle, knowing the conventions for writing Nix packages as well as finding functions between the manuals is the rest of the battle.
+You really need to dwelve into the source code of several Nix packages to be familiar with Nix.
+
+* The official documentation.
+If you've heard newcomers trying out Nix, they often mention how harsh or sparse the documentation is (which is still the case, sadly).
+A lot of the documentation of various functions are buried on the source code, their respective manuals, or non-existent.
+
+* Discoverability really suffers throughout using NixOS.
+The documentation, the conventions, and the scattered toolchain really made searching for stuff easily missable.
+
+* Due to how Nix revolves all around the store (i.e., `/nix/store`), it has some implications with the absence of the traditional filesystem hierarchy standard (FHS).
+** This means that you cannot easily run precompiled binaries and AppImages since most of them may rely on a linked libary placed in a traditional distro like Debian and Arch Linux.
+** Also, you cannot easily compile certain projects and practically required to create a Nix package (or a Nix shell) for that project.
+
+* Although the error messages are correct, they're confusing (sometimes).
+My experience with debugging errors are mostly composed of looking at the error stack and guesstimating the erroneous attribute.
+
+
+
+
+== An opinionated guide on how to learn Nix
+
+Nix throws a bunch of traditional concepts behind as well as pioneers a bunch of things creating a steeper learning curve.
+The https://nixos.org/learn[official documentation] for Nix is pretty great at covering ground of all Nix stuff which makes it good as a reference but horrible for a newbie who wants to gain a quick overview of what Nix is all about.
+So I'll list a bunch of resources that helped me becoming comfortable with the Nix thing.
+
+* If you want an introduction to Nix, the https://www.youtube.com/playlist?list=PLRGI9KQ3_HP_OFRG6R-p4iFgMSK1t5BHs[Nixology] video series is a great primer starting with https://youtu.be/6iVXaqUfHi4[this video].
+You don't have to watch through the whole playlist but it also gives practical starter points such as https://youtu.be/q8bZy9kuzEY[demystifying Nixpkgs] and https://youtu.be/qYGo9QYNVpM[the standard library] which you'll need you know once you've started packaging with Nix.
+I really recommend this series, it's pretty great!
+
+* If you're decided to go with NixOS, the first few chapters of the https://nixos.org/learn.html[official manuals] are great and extensive.
+A good first reading section after installation is https://nixos.org/manual/nixos/stable/index.html#ch-running[how to administer your NixOS installation] and https://nixos.org/manual/nix/stable/#chap-package-management[its package management process].
+
+** I have difficulty grokking the manual but thankfully a fellow newcomer https://stephank.nl/p/2020-06-01-a-nix-primer-by-a-newcomer.html[wrote a document listing the terminologies] helping me absorb the material (big thanks to Stéphan Kochen for the writing).
+
+* Take a look at https://nixos.wiki/wiki/Configuration_Collection[others' NixOS config] and see how they did it.
+For other examples, you can take a look at https://github.com/foo-dogsquared/nixos-config[my config] and the https://github.com/hlissner/dotfiles/[inspiration behind my config] (except his' is on the edge of the bleeding edge).
+
+* If you want to keep up-to-date with the community, you might want to hang out in the https://discourse.nixos.org/[official forum].
+If you want realtime help, you can go to the IRC channel `#nix` at `freenode.net`.
+The Nix community knows that its documentation is lagging so they're pretty open to newbies asking for help that could've been easily missed.
+
+* What about if you're now comfortable with Nix (or NixOS) and now looking for more ways to use its power (i.e., packaging some applications)?
+
+** The https://nixos.org/guides/nix-pills[beloved Nix pills series] and the https://nixos.org/manual/nixpkgs/stable[nixpkgs manual] is a great starting point especially if you're starting to contribute to the https://github.com/NixOS/nixpkgs/[official package set].
+** https://nix.dev/[nix.dev] and https://nixos.wiki/[the unofficial Nix wiki] are also great introductions to more Nix stuff with practical applications.
+** Jon Ringer, one of the long-time Nix user and contributor, has a https://www.youtube.com/channel/UC-cY3DcYladGdFQWIKL90SQ[YouTube channel focused on Nix tutorials at beginners- and intermediate-level].
+
+* If you want to look out for its future, the community arranges an https://nixcon.org[annual event with talks all about Nix].
+In fact, as of 2020-11-03, a https://2020.nixcon.org/[NixCon online conference] has recently occurred with the event lasting for two days.
+They also archive their talks and whatnot on their https://www.youtube.com/channel/UCjqkNrQ8F3OhKSCfCgagWLg[YouTube channel].
+
+
+
+
+== A tour of cool Nix-related things I've found
+
+My usage of NixOS for two months is nothing more than a desktop distro switched because of its larger package set.
+Nonetheless, I still found some cool things.
+
+* The general concept that Nix pioneered: https://edolstra.github.io/pubs/phd-thesis.pdf[functional package management].
+
+* https://cachix.org/[A binary caching service for Nix].
+
+* There are some things you can do regarding your system.
+** You can build the system as a virtual machine with `nixos-rebuild build-vm`!
+** You can https://nixos.org/guides/building-and-running-docker-images.html[build and run a Docker image from a Nix expression].
+** Create a https://nixos.org/manual/nixos/stable/#sec-building-cd[custom ISO image] from your configuration.
+
+* https://nixos.org/manual/nixpkgs/stable/#chap-overrides[Overrides] allows you to mix and match packages freely because of the package manager.
+
+* If Arch Linux has AUR, NixOS has the https://github.com/nix-community/NUR[NUR], a user-created repository of their own packages.
+https://github.com/foo-dogsquared/nur-packages[Here's my instance for a start].
+
+* Already mentioned but https://nix.dev/tutorials/ad-hoc-developer-environments.html#reproducible-executables[reproducible executables] can make worry-free (regarding dependencies) scripts.
+
+* A lot of the community's documentation on anything Nix-related which is already given on "<<An opinionated guide on how to learn Nix>>" section.
+
+* https://nixcon.org/[NixCon], an annual event organized by the community to give talks about anything Nix-related.
+
+* https://www.tweag.io/blog/2020-05-25-flakes/[Nix flakes] (which is an experimental feature as of 2020-11-04 so be warned).
+It is also the subject of a https://www.youtube.com/watch?v=7sQa04olUA0&t=9113s[related talk on NixCon 2020].
+
+* https://blog.ipfs.io/2020-09-08-nix-ipfs-milestone-1/[IPFS support for Nix] which can make content-addressable distributions possible!
+https://www.youtube.com/watch?v=N9Dygq4Lz0c&t=9633s[A talk about it is recently given at NixCon 2020].
+
+
+
+
+== Final thoughts
+
+Using Nix convinced me that functional package management is the pretty good for operating systems and package management.
+So much so that I've took interest in reproducibility and researched a lot of it in my free time.
+
+The problems I encountered in traditional package management — e.g., downgrading certain packages to make some packages work, inability to install the same packages with multiple versions side to side without using a third-party software — is gone like a chef's kiss.
+Furthermore, there are a bunch of bonus features that comes with it such as rollbacks and atomic upgrades.
+
+Despite the problems, once I got into Nix, it's hard to go back into traditional Linux distros such as https://www.archlinux.org/[Arch Linux] and https://www.debian.org/[Debian] as my desktop distro.
+The benefits I gain outweighs the negative moments I experienced from using it.
+If I would have to recommend it, I'll say it's suitable for power users who like to reproduce their setup and adventurers who want to look at a different side of Linux distros if they don't mind the slightly steeper-than-most-Linux-distros learning curve.
+
+Fortunately, the Linux ecosystem are starting to catch up with what Nix established.
+It inspired several projects from all around the corner such as https://silverblue.fedoraproject.org/[Fedora Silverblue], https://guix.gnu.org/[GNU Guix], and alternative package managers for several projects (e.g., https://github.com/zyrolasting/xiden[Xiden] for https://racket-lang.org/[Racket], https://github.com/andrewchambers/hermes[Hermes]).
+
+With the way I see things, I think functional package management is the future.
+It may not be the future but it is futuristic.
+Still, we'll see how this turns out in the next year or so if it still holds up.
+
