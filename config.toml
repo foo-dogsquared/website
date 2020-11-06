@@ -1,6 +1,7 @@
 baseURL = "https://foo-dogsquared.github.io/"
 languageCode = "en-us"
 title = "Gabriel Arazas"
+enableGitInfo = true
 summaryLength = 0
 paginate = 40
 copyright = """
@@ -56,7 +57,7 @@ canonifyURLs = true
 [menu]
     [[menu.main]]
         identifier = "about"
-        name = "About"
+        name = "About me"
         url = "about/"
 
     [[menu.main]]
@@ -96,3 +97,6 @@ canonifyURLs = true
 [params]
     mainSections = ["posts", "projects"]
     toc = true
+    extraNotes = """
+    This site uses [Prism](https://prismjs.com/), [MathJax](https://www.mathjax.org/), and [GoatCounter analytics](https://foo-dogsquared.goatcounter.com/).
+    """

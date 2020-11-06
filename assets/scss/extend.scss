@@ -2,6 +2,20 @@
   --accented-border-style: var(--base0C) solid 1px;
 }
 
+// Base
+footer {
+  margin-bottom: 1.5em;
+  > * {
+    margin-top: 1em;
+    margin-bottom: 0;
+  }
+}
+
+// Layouts
+.site__socials {
+  margin-top: 1em;
+}
+
 .post__meta--single {
   p > span:first-child {
     white-space: nowrap;
@@ -52,6 +66,10 @@ code[class*="language-"], pre[class*="language-"] {
     color: var(--base00);
     font-size: 0.9em;
     padding: 0.5em;
+
+    &::selection {
+      background: var(--base07);
+    }
   }
 
   > *.content {
@@ -72,5 +90,13 @@ code[class*="language-"], pre[class*="language-"] {
   > .content {
     display: flex;
     justify-content: center;
+  }
+}
+
+@media all and (max-width: 860px) {
+  .imageblock {
+    > .content {
+      width: 100% !important;
+    }
   }
 }

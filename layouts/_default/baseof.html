@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+  {{- partial "head.html" . -}}
+  <body>
+    {{- partial "components/theme-button.html" . }}
+    {{- partial "header.html" . -}}
+    {{- block "main" . }}{{- end }}
+    {{- partial "footer.html" . -}}
+    {{- if hugo.IsProduction -}}
+    <script data-goatcounter="https://foo-dogsquared.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    {{- end }}
+  </body>
+</html>
+

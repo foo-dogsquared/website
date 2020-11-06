@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+LIMIT=5
+INPUT_TEMP="./assets/templates/openring-input.html"
+OUTPUT="./layouts/partials/openring.html"
+DATA="data/blogs.json"
+
+# Checks whether it is locally compiled or not.
+if [[ -a ./openring ]]; then
+    OPENRING="./openring/openring";
+else
+    OPENRING="openring";
+fi
+
+for feed in $(jq ".[]" "$DATA" | shuf --head-count $LIMIT); do
+    OPENRING="$OPENRING -s $feed";
+done
+
+OPENRING="$OPENRING -n $LIMIT < $INPUT_TEMP > $OUTPUT"
+
+echo "$OPENRING"
+eval $OPENRING

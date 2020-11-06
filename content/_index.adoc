@@ -13,7 +13,7 @@ You can see more what's my deal on xref:about.adoc[another page] because I want 
 Welcome to my small home on the deepest corners of the internet, by the way.
 Have a seat and take a look in my digital cavern.
 
-.Here's my first productive digital art painting.
+.Here's my first productive digital art painting placeholder created with Krita.
 image::pp.webp[width=60%]
 
 {{< links >}}

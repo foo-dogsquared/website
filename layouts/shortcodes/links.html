@@ -1,6 +1,6 @@
-<ul style="display: flex; flex-flow: row wrap; justify-content: space-around; list-style: none">
+<div style="margin: 1em auto; display: flex; flex-flow: row wrap; justify-content: space-around;">
 {{ range $.Site.Menus.links }}
-<li><a style="font-size: 1.5em" href="{{ .URL }}" rel="me">{{ .Name }}</a></li>
+<a style="font-size: 1.5em" href="{{ .URL }}" rel="me">{{ .Name }}</a>
 {{ end }}
-</ul>
+</div>
 

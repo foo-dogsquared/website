@@ -1,13 +1,13 @@
 = blog
 
-My blog.
+My blog featuring a fairly customized version of https://github.com/foo-dogsquared/hugo-theme-more-contentful/[my More Contentful Hugo theme].
 
 
 
 
 == Getting started
 
-Though, it's obvious but hey.
+Though, it's obvious but then again, you may not remember how to do well in a year.
 
 
 === Prerequisites
@@ -16,6 +16,7 @@ Though, it's obvious but hey.
 * Hugo
 * https://golang.org/[Go] runtime
 * https://asciidoctor.org/[Asciidoctor]
+* https://git.sr.ht/~sircmpwn/openring/[openring] (you can easily compile one yourself with the Go toolchain)
 
 
 === Setting up
