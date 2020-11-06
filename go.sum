@@ -1,9 +1,8 @@
-github.com/foo-dogsquared/hugo-mod-simple-icons v0.0.0-20201026173406-633714bb359d/go.mod h1:IqgEwYyo2L3mFR2RoelZZ3Ncwph7QTssrZ3deCaE0us=
-github.com/foo-dogsquared/hugo-theme-contentful v1.2.1-0.20201030114530-c0a2488a58fb/go.mod h1:BL7L5CENEhUx+miRRaOZ9SVC92j9MAMztirBWtTpiPc=
-github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.3-0.20201106102016-2fe4afef342f h1:yH3k/eJjg3L1Y7FUAxOjhpnuWE+yIFcsCOfmrmQNi+Q=
-github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.3-0.20201106102016-2fe4afef342f/go.mod h1:rt3VJjkzt/dXRcVk8wNacnyDQfy9DwOYI45FAu4I9mw=
-github.com/foo-dogsquared/hugo-web-feeds v0.0.1 h1:miuJMx2Plw+4TBGctI2CgWXilddEHFnKNDQ9kLNti3w=
-github.com/foo-dogsquared/hugo-web-feeds v0.0.1/go.mod h1:0WxK3+xNIj/Wpk2kkUW0p6Uqmr/OZjPsRtQDCMazNmI=
+github.com/foo-dogsquared/hugo-mod-simple-icons v0.0.0-20201106121650-08c012c284f2/go.mod h1:yIWROkb+Zcex0JBLlZOnejI83GWOmz/aYtKSNXexLSk=
+github.com/foo-dogsquared/hugo-theme-contentful v1.2.1-0.20201106111203-fd6a6c7a3839/go.mod h1:BL7L5CENEhUx+miRRaOZ9SVC92j9MAMztirBWtTpiPc=
+github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.3 h1:Wfxh9bbb5ks88v8BHrB17z0oeGi3lu0EK1LV7M+k840=
+github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.3/go.mod h1:q2QVvX0SJhtybk/2LDTejRg4RWXnDY6hcE7qYARnBNI=
+github.com/foo-dogsquared/hugo-web-feeds v0.0.2 h1:688h38JdIvxKSTdvAFfskEM2n9VJNNNacHwlFc4lvkg=
+github.com/foo-dogsquared/hugo-web-feeds v0.0.2/go.mod h1:0WxK3+xNIj/Wpk2kkUW0p6Uqmr/OZjPsRtQDCMazNmI=
 github.com/refactoringui/heroicons v0.4.2/go.mod h1:82HsLWQga7MkEl5aK8TctxPPIBlXrsyWcVTB57uipuk=
-github.com/simple-icons/simple-icons v0.0.0-20201025110046-413f781fd706 h1:dXop39uj0JjYZqKfD2t8URe2CcmafSMnnX2ReK2/0J8=
-github.com/simple-icons/simple-icons v0.0.0-20201025110046-413f781fd706/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
+github.com/simple-icons/simple-icons v0.0.0-20201103182019-19568e5c3824/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
