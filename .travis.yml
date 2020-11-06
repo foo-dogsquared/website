@@ -6,19 +6,22 @@ language: generic
 git:
   submodules: false
 
-# use sed to replace the SSH URL with the public URL, then init and update submodules
 before_install:
-  - sed -i 's/git@github.com:/git:\/\/github.com\//' .gitmodules
-  - git submodule update --init --recursive
   - sudo apt-get update
   - sudo apt-get install python3
   - sudo apt-get install ruby wget
-  - curl https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "hugo_extended.*deb" | grep "browser_download_url" | cut --delimiter=":" --delimiter="\"" --fields=4 | sudo wget -i -
+  - wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_RELEASE}/hugo_extended_${HUGO_RELEASE}_Linux-64bit.deb"
   - sudo dpkg -i *.deb
   - sudo gem install asciidoctor
+
 script:
-  - asciidoctor --version
   - hugo
+
+env:
+  global:
+    - PRODUCTION=true
+    - HUGO_RELEASE=0.76.0
+
 deploy:
   local_dir: "./public/"
   provider: pages

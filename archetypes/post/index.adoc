@@ -1,0 +1,9 @@
+---
+title: "{{ replace .Name "-" " " | humanize }}"
+date: {{ .Date }}
+---
+
+= {{ replace .Name "-" " " | humanize }}
+Gabriel Arazas <foo.dogsquared@gmail.com>
+{{ dateFormat "2006-01-02" .Date }}
+

@@ -13,7 +13,7 @@ Otherwise, we take the pages of a section. */ -}}
 {{- $paginator := .Paginate $pages }}
 {{- range $paginator.Pages }}
 <li>
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time> - <a href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
+    <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "2006-01-02" }}</time> - <a href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
 </li>
 {{- end }}
 </ul>

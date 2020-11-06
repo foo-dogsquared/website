@@ -1,5 +1,5 @@
 :root {
-  --accented-border-style: var(--base08) solid 1px;
+  --accented-border-style: var(--base0C) solid 1px;
 }
 
 .post__meta--single {
@@ -48,7 +48,7 @@ code[class*="language-"], pre[class*="language-"] {
 *:not(.listingblock) {
   > *.attribution,
   > *.title {
-    background: var(--base08);
+    background: var(--base0C);
     color: var(--base00);
     font-size: 0.9em;
     padding: 0.5em;
@@ -62,7 +62,7 @@ code[class*="language-"], pre[class*="language-"] {
 
 .admonitionblock {
   .icon {
-    background: var(--base08);
+    background: var(--base0C);
     border: var(--accented-border-style);
     vertical-align: middle;
   }
