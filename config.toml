@@ -1,6 +1,6 @@
-baseURL = "https://foo-dogsquared.github.io/blog/"
+baseURL = "https://foo-dogsquared.github.io/"
 languageCode = "en-us"
-title = "A Hack's Code"
+title = "Gabriel Arazas"
 summaryLength = 0
 paginate = 40
 copyright = """
@@ -60,9 +60,38 @@ canonifyURLs = true
         url = "about/"
 
     [[menu.main]]
+        identifier = "blog"
+        name = "Blog"
+        url = "blog/"
+
+    [[menu.main]]
         identifier = "archives"
         name = "Archives"
         url = "archives/"
+
+    [[menu.links]]
+        identifer = "blog"
+        name = "Blog"
+        url = "/blog"
+
+    [[menu.links]]
+        identifier = "Code"
+        name = "Code"
+        url = "https://github.com/foo-dogsquared/"
+
+    [[menu.links]]
+        identifer = "notes"
+        name = "Notes"
+        url = "https://github.com/foo-dogsquared/wiki"
+
+    [[menu.links]]
+        identifer = "music"
+        name = "Music"
+        url = "https://www.youtube.com/channel/UCuMiU9bzATu5oTp-vhOlL2Q"
+
+
+[permalinks]
+    posts = "/blog/posts/:title/"
 
 [params]
     mainSections = ["posts", "projects"]

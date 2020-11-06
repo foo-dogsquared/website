@@ -1,0 +1,6 @@
+<ul style="display: flex; flex-flow: row wrap; justify-content: space-around; list-style: none">
+{{ range $.Site.Menus.links }}
+<li><a style="font-size: 1.5em" href="{{ .URL }}" rel="me">{{ .Name }}</a></li>
+{{ end }}
+</ul>
+

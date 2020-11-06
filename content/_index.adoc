@@ -3,8 +3,20 @@ title: Homepage
 ---
 
 = Homepage
+:figure-caption!:
+
 
 Hey there!
-Welcome to my small home on the deepest corners of the internet.
-Just a hobbyist programmer and a wannabe creative artisan productively wasting time on looking on other inspirations. :)
+I'm Gabriel Arazas (`foo-dogsquared`), a hobbyist on software development and programming, an expert in procastination, and a hack on anything else.
+You can see more what's my deal on xref:about.adoc[another page] because I want to make introductions nice and brief.
+
+Welcome to my small home on the deepest corners of the internet, by the way.
+Have a seat and take a look in my digital cavern.
+
+.Here's my first productive digital art painting.
+image::pp.webp[width=60%]
+
+{{< links >}}
+
+If you want the old way on getting contact with me, you can shoot an email at `foo.dogsquared{at}gmail{dot}com`.
 
