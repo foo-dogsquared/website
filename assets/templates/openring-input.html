@@ -4,7 +4,9 @@
   <section class="articles">
     {{range .Articles}}
     <div class="webring__article">
-      <a class="webring__title" href="{{.Link}}" target="_blank" rel="noopener">{{.Title}}</a>
+      <p class="webring__title">
+        <a href="{{.Link}}" target="_blank" rel="noopener">{{.Title}}</a>
+      </p>
       <span class="webring__metadata">
         <small class="webring__source">
           via <a href="{{.SourceLink}}">{{.SourceTitle}}</a>
@@ -31,18 +33,9 @@
 }
 
 .webring__article {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
   margin: 0.5rem;
   padding: 0.5rem;
   background: var(--base01);
-  min-width: 9rem;
-}
-
-.webring__summary {
-  font-size: 0.8rem;
-  flex: 1 1 0;
 }
 
 .webring__attribution {
