@@ -1,25 +1,16 @@
-dist: focal
-language: go
-go:
-  - 1.13
+language: nix
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install git jq wget graphviz
-  - wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_RELEASE}/hugo_extended_${HUGO_RELEASE}_Linux-64bit.deb"
-  - sudo dpkg -i *.deb
-  - sudo gem install asciidoctor asciidoctor-diagram
-  - go version
+before_script:
+  - sudo mkdir -p /etc/nix && echo 'sandbox = true' | sudo tee /etc/nix/nix.conf
 
 script:
-  - git clone https://git.sr.ht/~sircmpwn/openring && cd openring && go build && cd ../
-  - chmod +x ./bin/openring-create && ./bin/openring-create
+  - nix-shell --pure ./shell.nix --run "./bin/openring-create"
+  - nix-env -i hugo go asciidoctor
   - hugo
 
 env:
   global:
     - PRODUCTION=true
-    - HUGO_RELEASE=0.76.0
 
 deploy:
   local_dir: "./public/"
