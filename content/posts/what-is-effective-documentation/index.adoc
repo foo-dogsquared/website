@@ -1,7 +1,6 @@
 ---
 title: "What is effective documentation"
 date: 2019-09-28T20:29:58+08:00
-cover: posts/images/the-importance-of-technical-writing-and-typography-in-a-software-project/cover.webp
 
 categories:
     - Documentation
@@ -137,7 +136,7 @@ Regarding the best example, I think https://reactjs.org/docs/[React] does this t
 Go on, take a gander on it.
 
 .ReactJS documentation
-image::images/react-docs.webp[ReactJS docs]
+image::assets/react-docs.webp[ReactJS docs]
 
 
 
@@ -178,7 +177,7 @@ For practicing typography, you can create a minimalistic design that focuses on 
 In my case, I recently started to refer to https://practicaltypography.com/[some] https://zellwk.com/blog/why-vertical-rhythms/[related] https://www.paulolyslager.com/optimal-text-layout-line-length/[resources] and quickly created a https://github.com/foo-dogsquared/hugo-theme-contentful[Hugo theme that focuses on it].
 
 .Here's the resulting Hugo theme - Contentful
-image::images/hugo-theme-contentful.webp[.Hugo theme Contentful]
+image::assets/hugo-theme-contentful.webp[.Hugo theme Contentful]
 
 You could also start by redesigning some of your previous stuff.
 
@@ -186,7 +185,7 @@ I've started to reconfigure my LaTeX templates and it is certainly more readable
 footnote:[My LaTeX templates can be found at https://github.com/foo-dogsquared/latex-templates/[my GitHub account].]
 
 .My current LaTeX lecture layout
-image::images/latex-lecture-layout.webp[alt="My current LaTeX lecture layout", width=450]
+image::assets/latex-lecture-layout.webp[alt="My current LaTeX lecture layout", width=450]
 
 It has improved spacing between paragraphs and non-textblocks, larger font sizes for mathematical texts, and improved font combinations.
 footnote:[If you're curious about the font combination, it uses https://github.com/adobe-fonts/source-serif-pro[Source Serif Pro] for roman (normal), https://github.com/adobe-fonts/source-sans-pro[Source Sans Pro] for sans, and https://github.com/tonsky/FiraCode[Fira Code] for monospace.]

@@ -22,9 +22,22 @@ footer {
   }
 }
 
+#TableOfContents {
+  > ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  ul ul {
+    list-style: none;
+    padding-left: 1.5em;
+  }
+}
+
 // Prism CSS
 code[class*="language-"], pre[class*="language-"] {
   color: var(--base05);
+  font-size: 0.9em;
 }
 
 // Asciidoctor-specific styles
@@ -34,6 +47,12 @@ code[class*="language-"], pre[class*="language-"] {
     display: inline-block;
     margin-right: 0.25em;
   }
+}
+
+.conum {
+  color: var(--base05) !important;
+  background-color: var(--base02);
+  user-select: none;
 }
 
 .quoteblock {

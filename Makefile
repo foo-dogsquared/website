@@ -4,7 +4,7 @@ build: build-openring
 
 .PHONY = build-openring
 build-openring:
-	./bin/openring-create
+	./bin/openring-create --input assets/templates/openring-input.html --output layouts/partials/openring.html
 
 .PHONY = serve
 serve: build-openring

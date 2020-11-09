@@ -1,9 +1,66 @@
 #!/usr/bin/env bash
 
+function help() {
+cat << HELP
+Simply creates an output from an openring template.
+
+Usage: [options] [input_file]
+
+Options:
+  -h, --help    Help.
+  -l, --limit   The number of posts to be shown.
+  -d, --data    The file path of a JSON file containing an
+                array of URLs (as strings).
+  -o, --output  The output file path.
+                If there's no output value given, the resulting
+                output name will be '\$INPUT.out'.
+  -i, --input   The input file path.
+HELP
+}
+
+# The default values.
 LIMIT=5
-INPUT_TEMP="./assets/templates/openring-input.html"
-OUTPUT="./layouts/partials/openring.html"
+
+INPUT_TEMPLATE="./assets/templates/openring-input.html"
+input_file=$(basename "$INPUT_TEMPLATE")
+input_file_ext="${input_file##*.}"
+input_file="${input_file%.*}"
+
+OUTPUT="$input_file.out.$input_file_ext"
 DATA="data/blogs.json"
+
+while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+        -h|--help)
+            help
+            exit 0
+            ;;
+        -l|--limit)
+            LIMIT="$2"
+            shift
+            shift
+            ;;
+        -d|--data)
+            DATA="$2"
+            shift
+            shift
+            ;;
+        -o|--output)
+            OUTPUT="$2"
+            shift
+            shift
+            ;;
+        -i|--input)
+            INPUT_TEMPLATE="$2"
+            shift
+            shift
+            ;;
+        *)
+            INPUT_TEMPLATE="$1"
+            shift
+            ;;
+    esac
+done
 
 # Checks whether it is locally compiled or not.
 if [[ -a ./openring ]]; then
@@ -16,7 +73,7 @@ for feed in $(jq ".[]" "$DATA" | shuf --head-count $LIMIT); do
     OPENRING="$OPENRING -s $feed";
 done
 
-OPENRING="$OPENRING -n $LIMIT < $INPUT_TEMP > $OUTPUT"
+OPENRING="$OPENRING -n $LIMIT < $INPUT_TEMPLATE > $OUTPUT"
 
 echo "$OPENRING"
 eval $OPENRING

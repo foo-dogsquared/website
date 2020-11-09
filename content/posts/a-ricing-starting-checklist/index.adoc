@@ -138,13 +138,13 @@ running in the background.
 
 Here's a video of my setup using no Compton.
 
-video::compton-less-demo.mp4[width=100%]
+video::assets/compton-less-demo.mp4[width=100%]
 
 Here's another video of my setup using Compton this time. 
 Take note that it uses the default config located at 
 `/etc/xorg/compton.conf`.
 
-video::compton-demo.mp4[width=100%]
+video::assets/compton-demo.mp4[width=100%]
 
 
 == A display manager
@@ -186,7 +186,7 @@ For Arch Linux, it has Raleigh as the default GTK theme which looks
 very dated if you ask me.
 
 .GTK Raleigh theme
-image::images/gtk-raleigh-theme-demo.webp[GTK Raleigh theme]
+image::assets/gtk-raleigh-theme-demo.webp[GTK Raleigh theme]
 
 For my custom configuration, I chose the https://github.com/NicoHood/arc-theme[Arc] 
 theme along with its https://github.com/NicoHood/arc-icon-theme[icon set] simply 
@@ -194,7 +194,7 @@ because they're the popular choice. I also think the darker scheme is pretty
 cool.
 
 .GTK Arc Darker theme 
-image::images/gtk-arc-darker-theme-demo.webp[GTK Arc Darker theme]
+image::assets/gtk-arc-darker-theme-demo.webp[GTK Arc Darker theme]
 
 You can look for more GTK themes at https://www.gnome-look.org/[GNOME Look].
 
@@ -289,11 +289,11 @@ server. Simply sending a notification with `notify-send` while running Dunst in 
 background can go a long way.
 
 .Using dunst for screenshot notifications
-image::images/dunst-screenshot-demo.webp[Using dunst for screenshot notifications]
+image::assets/dunst-screenshot-demo.webp[Using dunst for screenshot notifications]
 
 I also made it to send notifications for delayed screenshots. 
 
-video::dunst-delayed-screenshot-demo.mp4[width=100%]
+video::assets/dunst-delayed-screenshot-demo.mp4[width=100%]
 
 If you're curious about the screenshot script, you can find it 
 https://github.com/foo-dogsquared/dotfiles/blob/master/.scripts/maim-screenshot.sh[here].

@@ -70,7 +70,7 @@ It was easy to adapt to it since I'm completely used to using programs
 that live in a command line interface like https://www.vim.org/[Vim]. 
 
 .My i3 setup
-image::images/i3-setup.webp[My i3 setup]
+image::assets/i3-setup.webp[My i3 setup]
 
 i3 also offers a level of https://i3wm.org/docs/userguide.html[configuration] 
 that could make you a bit more efficient. 
@@ -98,7 +98,7 @@ space for root and for home, and RAM and CPU usage.
 It took a while to configure it but I seriously liking the pace around it so far.
 
 .The resulting i3bar setup
-image::i3bar-appearance.webp[The resulting i3bar setup]
+image::assets/i3bar-appearance.webp[The resulting i3bar setup]
 
 === Application launcher
 My personal desktop experience wouldn't be complete without an application launcher. 
@@ -115,7 +115,7 @@ It's quite usable with rofi's sidebar mode where you can find windows, desktop e
 binaries, and even SSH configs.
 
 .Customized rofi menu
-image::images/rofi-setup.webp[Customized rofi menu]
+image::assets/rofi-setup.webp[Customized rofi menu]
 
 You can find 
 https://github.com/foo-dogsquared/dotfiles/tree/master/rofi[my rofi config on my GitHub repo].
@@ -202,7 +202,7 @@ file browser.
 status bar. It's pretty cool looking.
 
 .Fullscreen Vim setup
-image::images/vim-setup.webp[Fullscreen Vim setup]
+image::assets/vim-setup.webp[Fullscreen Vim setup]
 
 If you want to take a deeper look or just want to see the full config, 
 https://github.com/foo-dogsquared/dotfiles/tree/master/vim[you can see it in my dotfiles repo].
@@ -261,7 +261,7 @@ Here's a quick demo of how you explore between different partitions
 from home to my blog in another partition back to my dotfiles in 
 the home directory.
 
-video::ranger-demo.mp4[width=100%]
+video::assets/ranger-demo.mp4[width=100%]
 
 
 == Low-key ricing
