@@ -1,0 +1,274 @@
+---
+title: "Implementing configurable Base16 schemes in Hugo themes"
+date: 2020-11-08T12:30:27+08:00
+publishdate: 2020-11-11T20:30:00+08:00
+---
+
+= Implementing easy Base16 schemes in Hugo themes
+Gabriel Arazas <foo.dogsquared@gmail.com>
+2020-11-08
+
+
+I love the https://github.com/chriskempson/base16[Base16 project] which provides a template for color schemes and a decentralized set of tools and data to make customization easier.
+
+I would like to implement them for Hugo sites.
+While there are https://github.com/htdvisser/hugo-base16-theme[existing] https://github.com/yawpitch/base16-hugo[solutions], it can be tedious to configure them.
+I've always wondered if there is an easier way to use the schemes as-is.
+It will make color customization very easy in a Hugo theme.
+
+The good thing is I was able to implement it.
+The following recording demonstrates that fully.
+
+video::assets/base16-data-themes.webm[A demonstration of the data themes shown as a color scheme.]
+
+I also ported the feature into link:https://github.com/yihui/hugo-xmin/[Xmin theme].
+footnote:[For those who are looking for the code, here's the link:assets/hugo-xmin-base16.tar.gz[source] for it.
+I didn't put it on a remote Git repo since it is just a small fork, anyways.]
+
+video::assets/hugo-xmin-base16.webm[Multiple themes on Xmin theme.]
+
+I like it so much that I also added it in link:https://github.com/foo-dogsquared/hugo-theme-more-contentful/[my theme] initially.
+
+This is not revolutionary in any way as there are themes that have already done it.
+Case in point, https://themes.gohugo.io/academic/[the Academic theme] with their https://wowchemy.com/docs/customization/#custom-theme[own version].
+
+For this demonstration, it accepts a bunch of https://github.com/chriskempson/base16#scheme-repositories[Base16 schemes] in a specific location (e.g., `data/themes`) and the themes should appear.
+To make that possible, we'll make use of link:https://gohugo.io/templates/data-templates/[data templates], link:https://gohugo.io/hugo-pipes/resource-from-template/[resource templates], and link:https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties[CSS variables].
+
+NOTE: For this post, I assume you're already familiar with Hugo along with some experience modifying themes.
+As such, I'll be showing some stuff that will be quickly glazed over.
+For future references, you also need Hugo v0.74.0 and above.
+
+
+
+
+== The bigger picture
+
+Before we head into the code, we need to think and recap the workflow of adding custom Base16 themes.
+
+* To add a theme, we simply need to place it in a specified location (e.g., `data/themes/`).
+* The theme would have to build a stylesheet that dynamically make use of the Base16 palette.
+* The theme's stylesheet would have to built around the Base16 palette.
+* A theme selection interface would be shown for the user to freely select the themes.
+* The theme should have a default theme in case no custom themes has been added.
+
+For the user, they would only have to put the Base16 schemes and the job's done.
+
+
+
+
+== Converting the schemes into CSS
+
+Let's start with building the CSS created from the schemes.
+It is pretty easy to map them into CSS which we'll make use of CSS variables.
+
+Given the following scheme...
+
+[source, yaml]
+----
+scheme: "Default Dark"
+author: "Chris Kempson (http://chriskempson.com)"
+base00: "181818"
+base01: "282828"
+base02: "383838"
+base03: "585858"
+base04: "b8b8b8"
+base05: "d8d8d8"
+base06: "e8e8e8"
+base07: "f8f8f8"
+base08: "ab4642"
+base09: "dc9656"
+base0A: "f7ca88"
+base0B: "a1b56c"
+base0C: "86c1b9"
+base0D: "7cafc2"
+base0E: "ba8baf"
+base0F: "a16946"
+----
+
+...will produce the following CSS.
+
+[source, css]
+----
+[data-theme="Default Dark"]:root {
+  --base00: #181818;
+  --base01: #282828;
+  --base02: #383838;
+  --base03: #585858;
+  --base04: #b8b8b8;
+  --base05: #d8d8d8;
+  --base06: #e8e8e8;
+  --base07: #f8f8f8;
+  --base08: #ab4642;
+  --base09: #dc9656;
+  --base0A: #f7ca88;
+  --base0B: #a1b56c;
+  --base0C: #86c1b9;
+  --base0D: #7cafc2;
+  --base0E: #ba8baf;
+  --base0F: #a16946; }
+----
+
+As for the template, the following code is just one more concise to do that.
+It will be stored as an asset template in `assets/templates/scheme.css` which https://gohugo.io/hugo-pipes/resource-from-template/[we can create a resource out of it].
+
+[source, go]
+----
+{{- $name := index $ "name" -}}
+{{- $scheme := index $ "scheme" -}}
+{{- if ne $name "_index" }}[data-theme="{{ $scheme.scheme }}"]{{ end }}:root {
+  {{- range $i := seq 0 15 }}
+  {{- $hex := upper (printf "%02x" $i) }}
+  {{- $key := printf "base%s" $hex }}
+    --{{ $key }}: #{{ index $scheme $key }};
+  {{- end -}}
+}
+----
+
+In this case, we make full use of https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties[CSS variables] which is https://caniuse.com/css-variables[supported by ~96% of the major browsers] (as of 2020-11-08).
+
+
+
+
+== Building the CSS of the site
+
+Now that we have the template, it's time to make use of it.
+In one of https://gohugo.io/hugo-pipes/introduction[Hugo asset processing functions], we can https://gohugo.io/hugo-pipes/bundling/[combine multiple assets together].
+While not required, it is better to make it so that the client will make one less request for the stylesheet.
+
+The following block shows an example on how to make use of it.
+This will vary according how the theme links its CSS files.
+
+[source, go]
+----
+{{- $style := resources.Get "css/style.css" }}
+{{- $styles := slice $style -}}
+
+{{- $scheme_template := resources.Get "templates/scheme.css" }}
+{{- range $name, $scheme := $.Site.Data.themes }}
+  {{- $scheme := $scheme_template | resources.ExecuteAsTemplate (printf "css/themes/%s.css" $name) (dict "name" $name "scheme" $scheme) }}
+  {{- $styles = $styles | append $scheme }}
+{{- end }}
+
+{{- $styles = $styles | resources.Concat "css/index.css" }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}" />
+----
+
+
+
+
+== Creating the interface for switching themes
+
+Now that the styles are in place, we need to have an interface to switch themes.
+
+video::assets/theme-button.webm[The theme button.]
+
+In my version, the button will only appear if there's more than one theme.
+Furthermore, it will store the selected theme in the local storage.
+
+[source, go]
+----
+{{- if gt (len (index $.Site.Data "themes")) 1 }}
+<div class="site__theme-btn" aria-label="Theme toggle">
+  <svg xmlns="http://www.w3.org/2000/svg" id="color-swatch" viewBox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd"/>
+  </svg>
+  <div class="site__theme-dropdown">
+    {{- range $filename, $scheme := (index $.Site.Data "themes") }}
+    {{- $name := cond (eq $filename "_index") (printf "%s (default)" .scheme) .scheme }}
+    <div class="site__theme-item" {{ if ne $filename "_index" }}data-theme="{{ .scheme }}"{{ end }}>{{ $name }}</div>
+    {{- end }}
+  </div>
+</div>
+
+<script defer>
+  const themeDropdown = document.querySelector('.site__theme-btn');
+  themeDropdown.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target.classList.contains("site__theme-item")) {
+      if (target.dataset.theme) {
+        theme = target.dataset.theme;
+        window.localStorage.setItem("theme", theme);
+        document.documentElement.dataset.theme = theme;
+      } else {
+        window.localStorage.removeItem("theme");
+        delete document.documentElement.dataset.theme;
+      }
+    }
+  });
+</script>
+
+<style>
+.site__theme-btn svg {
+  width: 2em;
+  height: 2em;
+}
+
+.site__theme-btn {
+  background: var(--base00);
+  border: var(--border-style);
+  position: absolute;
+  padding: 0.5em;
+  right: 0;
+  top: 0;
+}
+
+.site__theme-btn:hover svg {
+  display: none;
+}
+
+.site__theme-dropdown {
+  display: none;
+  position: relative;
+  left: 0;
+}
+
+.site__theme-btn:hover .site__theme-dropdown {
+  display: unset;
+}
+
+.site__theme-dropdown .site__theme-item:hover {
+  background: var(--base0C);
+  color: var(--base00);
+  cursor: pointer;
+}
+</style>
+{{- end }}
+
+----
+
+We still have yet to make our selected theme persistent.
+The following snippet will take care of that.
+
+[source, go]
+----
+<script>
+  let theme = window.localStorage.getItem('theme'); 
+  if (theme) {
+    document.documentElement.dataset.theme = theme;
+  }
+</script>
+----
+
+It should be placed preferably after the main stylesheet was loaded to mitigate against https://en.wikipedia.org/wiki/Flash_of_unstyled_content[flashes of unstyled content].
+
+
+
+
+== Conclusion
+
+With all of the components in place, we can easily customize the colors for our themes.
+Though, there are some bumps to go through with this approach.
+
+* You have to modify the entire CSS files to fit with the Base16 color palette.
+* Styling with 16 colors can be hard especially with the aim of consistency so you'll have to style the theme carefully.
+* Not all of the schemes will look easy on the eyes nor consistent.
+* It could also be a bane to create a palette of 16 colors that looks nice.
+* Multiple themes, while nice-to-have, is not integral to create a branding which is what most authors aim (I assume).
+
+Indeed, this is just a niche feature.
+However, this feature could be derived into something simpler which is what https://wowchemy.com/docs/customization/#custom-theme[the Academic theme already has].
+
+Still, I hope this is something that Hugo theme developers will consider.
+It will make the Hugo ecosystem more colorful.
+

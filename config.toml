@@ -73,7 +73,7 @@ canonifyURLs = true
     [[menu.links]]
         identifer = "blog"
         name = "Blog"
-        url = "/blog"
+        url = "/blog/"
 
     [[menu.links]]
         identifier = "Code"
@@ -98,5 +98,6 @@ canonifyURLs = true
     mainSections = ["posts", "projects"]
     toc = true
     extraNotes = """
-    This site uses [Prism](https://prismjs.com/), [MathJax](https://www.mathjax.org/), and [GoatCounter analytics](https://foo-dogsquared.goatcounter.com/).
+    This site uses [Prism](https://prismjs.com/), [MathJax](https://www.mathjax.org/), and [medium-zoom](https://github.com/francoischalifour/medium-zoom).
+    For analytics, it uses [GoatCounter](https://goatcounter.com/).
     """
