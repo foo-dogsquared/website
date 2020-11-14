@@ -16,7 +16,10 @@ Though, it's obvious but then again, you may not remember how to do well in a ye
 * Hugo
 * https://golang.org/[Go] runtime
 * https://asciidoctor.org/[Asciidoctor]
+* https://stedolan.github.io/jq/[jq]
 * https://git.sr.ht/~sircmpwn/openring/[openring] (you can easily compile one yourself with the Go toolchain)
+* https://www.gnu.org/software/make/[GNU Make] is optional but it'll make your life easier.
+* https://nixos.org/[Nix] is also optional but it'll make your life into an enlightened functional package management heaven.
 
 
 === Setting up
@@ -28,7 +31,74 @@ hugo mod get -u
 hugo serve
 ----
 
+Or you could simply get a server running with `make serve` and bada-bing, bada-boom!
+You're now a "content creator"!
+
 The theme is a modified version of a https://github.com/foo-dogsquared/hugo-theme-more-contentful[modified version of a theme] so that's pretty cool.
 
 To create a post, simply make with `hugo new --kind post $PATH_REL_TO_CONTENT_DIR` and you're on your merry way.
+
+
+=== Setting up with Nix
+
+If you have Nix installed, it is even easier by creating a https://nix.dev/tutorials/ad-hoc-developer-environments.html[local development environment] for this project.
+And it already has one in link:shell.nix[`shell.nix`].
+
+Just run `nix-shell --pure shell.nix` and you're set.
+An additional benefit with this setup is you don't have to manually compile https://git.sr.ht/~sircmpwn/openring/[openring] since the config already sets it for you.
+
+Even better, you can set up an automatic shell environment with https://direnv.net/[direnv].
+To use it, just add `.envrc`!
+
+[source, bash]
+----
+echo "use nix" > .envrc && direnv allow
+----
+
+
+=== Deploying your blog
+
+As of 2020-11-14, the blog is deployed into GitHub Pages with http://travis-ci.com/[Travis CI] for automation.
+Feel free to copy the link:.travis.yml[`.travis.yml`] for an idea.
+
+Nonetheless, it is easy to migrate between hosts since Hugo is fast and simple.
+All you need to do is to run `make build`.
+Then, upload the build artefacts into your host provider of choice.
+
+
+
+
+== Project structure
+
+[source, tree]
+----
+blog
+├── archetypes/
+├── assets/
+├── bin/
+├── content/
+├── data/
+├── layouts/
+├── public/
+├── resources/
+├── static/
+├── config.toml
+├── go.mod
+├── go.sum
+├── Makefile
+├── README.adoc
+└── shell.nix
+----
+
+Among all of the files laid above, here are the points of interest you're most likely to interact (aside from the content folder).
+
+* The link:./bin[`./bin`] directory contains custom scripts related for this project.
+An example of which is a script (i.e., link:./bin/openring-create[`./bin/openring-create`]) that uses https://git.sr.ht/~sircmpwn/openring/[openring] to create a webring from my link:./data/blogs.json[public list of blogs I follow].
+
+* link:./shell.nix[`./shell.nix`] is used for quickly creating a local project environment.
+It can be only used when Nix is installed.
+
+* The link:./data/[data folder] contains some of the https://github.com/foo-dogsquared/hugo-theme-more-contentful/[theme] configuration as well as relevant data for my customizations.
+
+* The link:./layouts/[layout folder] contains theme overrides as well as additional components for custom content types (e.g., making appropriate templates for my gallery section, modifying the post section to be more readable).
 
