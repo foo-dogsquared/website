@@ -1,11 +1,9 @@
 :root {
-  --accented-border-style: var(--base0C) solid 1px;
+  --accented-border-style: var(--base0C) solid .1vw;
   color: var(--base05);
 }
 
-// Base
 footer {
-  margin-bottom: 1.5em;
   > * {
     margin-top: 1em;
     margin-bottom: 0;
@@ -35,6 +33,47 @@ footer {
   }
 }
 
+// Custom layouts
+#logo {
+  svg {
+    --size: 4em;
+    height: var(--size);
+    width: var(--size);
+    fill: var(--base0C);
+
+    &:hover {
+      fill: var(--base08);
+      animation: rainbow 2s ease infinite;
+    }
+  }
+}
+
+@keyframes rainbow {
+  @for $i from 0 through 8 {
+    #{$i * 10}% { fill: var(--base#{decToHex($i + 7)}); }
+  }
+}
+
+[data-tooltip] {
+  &::before {
+    --scale: 0;
+
+    background: var(--base01);
+    content: attr(data-tooltip);
+    font-size: 0.8em;
+    padding: 0.5em;
+    position: absolute;
+    transform: translateY(var(--translate-y, -50%)) scale(var(--scale));
+    transform-origin: bottom center;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  &:hover::before {
+    --scale: 1;
+  }
+}
+
 // Prism CSS
 code[class*="language-"], pre[class*="language-"] {
   color: var(--base05);
@@ -43,6 +82,11 @@ code[class*="language-"], pre[class*="language-"] {
 
 // Asciidoctor-specific styles
 .anchor {
+  border-bottom: unset;
+  &:hover {
+    border-bottom: unset;
+  }
+
   &::before {
     content: "§";
     display: inline-block;

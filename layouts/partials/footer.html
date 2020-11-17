@@ -45,6 +45,12 @@
 <p>{{ trim . " " | markdownify }}</p>
 {{- end }}
 
-<small>Generated on {{ now.Format "2006-01-02 15:04:05 -0700" }}</small>
+<p>
+<small>Generated on {{ now.Format "2006-01-02 15:04:05 -0700" }}</small></p>
+
+{{ $logo := resources.Get "svg/logo.svg" }}
+<div id="logo" data-tooltip="Hey there! :3">
+{{ $logo.Content | safeHTML }}
+</div>
 </footer>
 
