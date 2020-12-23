@@ -8,4 +8,4 @@ build-openring:
 
 .PHONY = serve
 serve: build-openring
-	hugo serve --buildFuture
+	ls assets/templates/openring-input.html | entr make build-openring& hugo serve --buildFuture

@@ -38,6 +38,7 @@ in
 mkShell {
   buildInputs = [
     asciidoctor
+    entr
     git
     go
     hugo

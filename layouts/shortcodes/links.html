@@ -1,6 +1,20 @@
-<div style="margin: 1em auto; display: flex; flex-flow: row wrap; justify-content: space-around;">
+<div class="links">
 {{ range $.Site.Menus.links }}
-<a style="font-size: 1.5em" href="{{ .URL }}" rel="me">{{ .Name }}</a>
+<a class="links__item" href="{{ .URL }}" rel="me">{{ .Name }}</a>
 {{ end }}
 </div>
+<style>
+.links {
+  margin: 1em auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.links__item {
+  padding: 0.25em;
+  font-size: 1.5em;
+  margin: auto 1.25em;
+}
+</style>
 
