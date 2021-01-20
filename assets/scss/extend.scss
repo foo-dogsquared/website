@@ -1,7 +1,21 @@
 :root {
   --accented-border-style: var(--base0C) solid .1vw;
   --code-size: 50vh;
+
+  --body-family: "Source Serif Pro", "IBM Plex Serif", "Noto Serif", serif;
+  --header-family: "Source Sans Pro", "IBM Plex Sans", "Noto Sans", sans-serif;
+  --mono-family: "Source Code Pro", "IBM Plex Mono", "Noto Mono", monospace;
   color: var(--base05);
+}
+
+article {
+  h1 {
+    margin: 1rem auto;
+  }
+
+  h1, h2, h3 {
+    margin-bottom: 1rem;
+  }
 }
 
 hr {
@@ -20,6 +34,12 @@ footer[aria-label="Site footer"] {
 }
 
 // Layouts
+.site__title {
+  --size: 2rem;
+  margin-bottom: unset;
+  font-size: var(--size);
+}
+
 .site__socials {
   margin-top: 1em;
 }
@@ -171,6 +191,10 @@ sup.footnote {
   > .content {
     display: flex;
     justify-content: center;
+  }
+
+  > .title {
+    text-align: center;
   }
 }
 

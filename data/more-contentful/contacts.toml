@@ -21,6 +21,11 @@ url = "https://gitlab.com/foo-dogsquared/"
 name = "GitLab"
 
 [[links]]
+id = "keybase"
+url = "https://keybase.io/foo_dogsquared"
+name = "Keybase"
+
+[[links]]
 id = "rss"
 url = "index.atom"
 name = "RSS"

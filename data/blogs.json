@@ -8,9 +8,9 @@
     "https://fasterthanli.me/index.xml",
     "https://guix.gnu.org/feeds/blog.atom",
     "https://kde.org/announcements/index.xml",
-    "https://kuon.ch/post/index.xml",
     "https://ma.ttias.be/cronweekly/index.xml",
     "https://protesilaos.com/codelog.xml",
     "https://sachachua.com/blog/feed/",
-    "https://www.malloc47.com/rss.xml"
+    "http://malloc47.com/rss.xml",
+    "https://www.copetti.org/index.xml"
 ]

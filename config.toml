@@ -24,6 +24,7 @@ canonifyURLs = true
     [markup.asciidocExt.attributes]
     toc = true
     sectanchors = true
+    "figure-caption!" = true
 
 
 [author]
