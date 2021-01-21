@@ -1,0 +1,10 @@
+{{- $pages := where $.Site.RegularPages "Type" "in" $.Site.Params.mainSections }}
+
+{{- $limit := cond (ge $.Site.Config.Services.RSS.Limit 0) $.Site.Config.Services.RSS.Limit 3 }}
+{{- range (first $limit $pages) }}
+<article class="post">
+  <h1><a href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
+  {{ partial "partials/components/post-meta.html" . }}
+</article>
+{{- end }}
+

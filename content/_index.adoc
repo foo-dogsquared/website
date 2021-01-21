@@ -16,6 +16,19 @@ Have a seat and take a look in my digital cavern.
 .Here's my renewed logo. Oooh, personal branding!
 image::logo.webp[My renewed logo composed of a stylized drawing of a dog, width=60%]
 
-{{< links >}}
+[.text-center]
+{{< homepage/links >}}
+
+You can also find me on a bunch of platforms where I may be inactive for some time.
+
+[.text-center]
+{{< homepage/social-links >}}
 
 If you want the old way on getting contact with me, you can shoot an email at `foo.dogsquared{at}gmail{dot}com`.
+
+TIP: This site also have web feeds available in multiple formats such as in link:index.rss[RSS], link:index.atom[Atom], and link:index.json[JSON].
+It's also available in individual sections (such as link:posts/[my writings] — i.e., `posts/index.{rss,atom,json}`).
+
+If you're curious about the site, you can view the link:https://github.com/foo-dogsquared/foo-dogsquared.github.io[source code] of it.
+It's built with link:https://gohugo.io/[Hugo], uses a link:https://github.com/foo-dogsquared/hugo-theme-more-contentful/[theme that I created], and all of my posts are written with link:https://asciidoctor.org/[Asciidoctor].
+

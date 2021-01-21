@@ -1,6 +1,6 @@
 ---
 title: "Archives"
-type: "archive"
+layout: "archives"
 ---
 
 = Archives

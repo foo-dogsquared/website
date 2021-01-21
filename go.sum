@@ -1,7 +1,7 @@
 github.com/foo-dogsquared/hugo-mod-simple-icons v0.0.0-20210112174729-cd5a37e6a772/go.mod h1:Zj/H5B3seQ4WGPwEOE/LtRoMsVy7ooEB0xhUN3k9PnY=
 github.com/foo-dogsquared/hugo-theme-contentful v1.2.1-0.20201106111203-fd6a6c7a3839/go.mod h1:BL7L5CENEhUx+miRRaOZ9SVC92j9MAMztirBWtTpiPc=
-github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.4-0.20210115024857-46de6a9b626b h1:VNxwPjFCagsvz3w7WGqh8wYz4SX4Wst+m9JaWq+WV08=
-github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.4-0.20210115024857-46de6a9b626b/go.mod h1:zDZAiZgXJA3VWK++nLjajTaCW7Gk8DD8yUHJfNvHWxc=
+github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.4-0.20210121010829-e0277a50bbe3 h1:kIM1XMhf3U/6m9frM1dKi4SZQljUzroGb381+tLwBKI=
+github.com/foo-dogsquared/hugo-theme-more-contentful v0.1.4-0.20210121010829-e0277a50bbe3/go.mod h1:zDZAiZgXJA3VWK++nLjajTaCW7Gk8DD8yUHJfNvHWxc=
 github.com/foo-dogsquared/hugo-web-feeds v0.0.2 h1:688h38JdIvxKSTdvAFfskEM2n9VJNNNacHwlFc4lvkg=
 github.com/foo-dogsquared/hugo-web-feeds v0.0.2/go.mod h1:0WxK3+xNIj/Wpk2kkUW0p6Uqmr/OZjPsRtQDCMazNmI=
 github.com/refactoringui/heroicons v0.4.2/go.mod h1:82HsLWQga7MkEl5aK8TctxPPIBlXrsyWcVTB57uipuk=

@@ -1,0 +1,16 @@
+<ul class="list links">
+{{ range $.Site.Menus.links }}
+<li>
+    <a href="{{ .URL }}" rel="me">{{ .Name }}</a>
+</li>
+{{ end }}
+</ul>
+<style>
+.links {
+  --size: 1.5em;
+  font-size: var(--size);
+  line-height: var(--size);
+  margin-top: 1em;
+}
+</style>
+

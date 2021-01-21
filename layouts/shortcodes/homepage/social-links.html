@@ -1,0 +1,23 @@
+<!-- List all of the social media links -->
+{{ with (index $.Site.Data "more-contentful").contacts }}
+<ul class="list site__socials--content">
+  {{ $useImage := index . "useImage" | default false }}
+
+  {{ $links := sort .links "name" "asc" }}
+  {{- range $links -}}
+  {{ if ne .id "rss" }}
+  <li>
+    <a {{ if $useImage }}class="site__social-icon"{{ end }} rel="me" href="{{ .url | absLangURL }}" aria-label="{{ with .name }}{{ . }}{{ else }}{{ .id }}{{ end }}">
+      {{- .name }}
+    </a>
+  </li>
+  {{ end }}
+  {{- end -}}
+</ul>
+<style>
+.site__socials--content {
+  margin: auto;
+}
+</style>
+{{ end }}
+

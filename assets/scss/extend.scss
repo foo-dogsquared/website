@@ -8,29 +8,8 @@
   color: var(--base05);
 }
 
-article {
-  h1 {
-    margin: 1rem auto;
-  }
-
-  h1, h2, h3 {
-    margin-bottom: 1rem;
-  }
-}
-
-hr {
-  border-color: var(--base0C);
-}
-
 pre, code {
   max-height: var(--code-size);
-}
-
-footer[aria-label="Site footer"] {
-  > * {
-    margin-top: 1em;
-    margin-bottom: 0;
-  }
 }
 
 // Layouts
@@ -38,10 +17,20 @@ footer[aria-label="Site footer"] {
   --size: 2rem;
   margin-bottom: unset;
   font-size: var(--size);
+  line-height: unset;
 }
 
 .site__socials {
   margin-top: 1em;
+}
+
+.site__social-icon svg {
+  fill: currentColor;
+}
+
+article.post {
+  padding: 0.5em;
+  background: var(--base01);
 }
 
 .post__meta--single {
@@ -63,6 +52,15 @@ footer[aria-label="Site footer"] {
 }
 
 // Custom layouts
+// Asciidoctor roles (e.g., [.text-center]) on a block.
+.text-center {
+  text-align: center;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
 #logo {
   svg {
     --size: 4em;
@@ -106,8 +104,8 @@ footer[aria-label="Site footer"] {
 // Prism CSS
 code[class*="language-"], pre[class*="language-"] {
   color: var(--base05);
-  font-size: 0.9em;
 }
+
 
 // Asciidoctor-specific styles
 sup.footnote {
