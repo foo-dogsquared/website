@@ -6,11 +6,12 @@
 Otherwise, we take the pages of a section. */ -}}
 {{- $pages := where $.Site.RegularPages "Type" "in" $.Site.Params.mainSections }}
 
-<ul>
+<ul class="posts--list">
 {{- $paginator := .Paginate $pages }}
 {{- range $paginator.Pages }}
-<li>
-    <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "2006-01-02" }}</time> - <a href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
+<li class="post--list">
+    <time class="post--list__date" datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "2006-01-02" }}</time>
+    <a class="post--list__title" href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
 </li>
 {{- end }}
 </ul>

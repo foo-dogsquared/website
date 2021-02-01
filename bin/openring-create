@@ -4,7 +4,7 @@ function help() {
 cat << HELP
 Simply creates an output from an openring template.
 
-Usage: [options] [input_file]
+Usage: [options] [input_file] -- [openring_args]
 
 Options:
   -h, --help    Help.
@@ -15,6 +15,10 @@ Options:
                 If there's no output value given, the resulting
                 output name will be '\$INPUT.out'.
   -i, --input   The input file path.
+
+You can also pass arguments to openring as if executing the
+program itself by prepending them with double dash.
+Make sure, they are the last one.
 HELP
 }
 
@@ -37,23 +41,24 @@ while [[ "$#" -gt 0 ]]; do
             ;;
         -l|--limit)
             LIMIT="$2"
-            shift
-            shift
+            shift 2
             ;;
         -d|--data)
             DATA="$2"
-            shift
-            shift
+            shift 2
             ;;
         -o|--output)
             OUTPUT="$2"
-            shift
-            shift
+            shift 2
             ;;
         -i|--input)
             INPUT_TEMPLATE="$2"
+            shift 2
+            ;;
+        --)
             shift
-            shift
+            OPENRING_ARGS="$@"
+            shift $#
             ;;
         *)
             INPUT_TEMPLATE="$1"
@@ -68,6 +73,8 @@ if [[ -a ./openring ]]; then
 else
     OPENRING="openring";
 fi
+
+OPENRING="$OPENRING $OPENRING_ARGS";
 
 for feed in $(jq ".[]" "$DATA" | shuf --head-count $LIMIT); do
     OPENRING="$OPENRING -s $feed";

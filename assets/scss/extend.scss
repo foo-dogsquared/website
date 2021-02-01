@@ -39,19 +39,6 @@ article.post {
   }
 }
 
-#TableOfContents {
-  > ul {
-    padding-left: 0;
-    list-style: none;
-  }
-
-  ul ul {
-    list-style: none;
-    padding-left: 1.5em;
-  }
-}
-
-// Custom layouts
 // Asciidoctor roles (e.g., [.text-center]) on a block.
 .text-center {
   text-align: center;
@@ -61,6 +48,7 @@ article.post {
   text-decoration: line-through;
 }
 
+// Custom layouts
 #logo {
   svg {
     --size: 4em;

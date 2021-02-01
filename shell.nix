@@ -47,7 +47,7 @@ mkShell {
   ];
 
   shellHook = ''
-    chmod +x ./bin/openring-create
+    chmod +x ./bin --recursive
     go version
     hugo version
   '';

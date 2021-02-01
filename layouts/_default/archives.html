@@ -12,11 +12,11 @@
     {{ if ne .Key "0001" }}
         <section data-year="{{ .Key }}">
             <h2 id="{{ .Key }}">{{ .Key }}</h2>
-            <ul>
+            <ul class="posts--list">
             {{- range .Pages -}}
-                <li>
-                    <date>{{ .PublishDate.Format "2006-01-02" }}</date> -
-                    <a aria-label="{{ .Title }}" href="{{ .Permalink }}">{{ .Title }}</a>
+                <li class="post--list">
+                    <date class="post--list__date">{{ .PublishDate.Format "2006-01-02" }}</date>
+                    <a class="post--list__title" aria-label="{{ .Title }}" href="{{ .Permalink }}">{{ .Title }}</a>
                 </li>
             {{- end -}}
             </ul>
