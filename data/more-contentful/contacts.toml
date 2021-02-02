@@ -30,3 +30,12 @@ id = "rss"
 url = "index.atom"
 name = "Atom feed"
 weight = -1
+excludeInMenu = true
+
+[[links]]
+id = "gnuprivacyguard"
+url = "https://keys.openpgp.org/vks/v1/by-fingerprint/1D5A862828FFC47537F9628F73F89FF87C72E7D3"
+name = "GnuPG public key"
+weight = -1
+excludeInMenu = true
+

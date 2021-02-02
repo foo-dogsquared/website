@@ -5,7 +5,9 @@
 
   {{ $links := sort .links "name" "asc" }}
   {{- range $links -}}
-  {{ if ne .id "rss" }}
+
+  {{- /* Render the link only to externally linked pages/files and those with >=0 weight. */ -}}
+  {{ if (and (not .excludeInMenu) (eq (absLangURL .url) .url)) }}
   <li>
     <a {{ if $useImage }}class="site__social-icon"{{ end }} rel="me" href="{{ .url | absLangURL }}" aria-label="{{ with .name }}{{ . }}{{ else }}{{ .id }}{{ end }}">
       {{- .name }}
