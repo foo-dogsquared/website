@@ -12,6 +12,6 @@
       let pkgs = import nixpkgs { inherit system; };
     in {
       devShell =
-        import ./nix/shell.nix { inherit pkgs; };
+        import ./shell.nix { inherit pkgs; };
     });
 }
