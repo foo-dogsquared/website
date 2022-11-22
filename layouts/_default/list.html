@@ -4,7 +4,10 @@
 
 {{- /* The homepage should show only pages from the given sections (with `$.Site.Params.mainSections`).
 Otherwise, we take the pages of a section. */ -}}
-{{- $pages := where $.Site.RegularPages "Type" "in" $.Site.Params.mainSections }}
+{{ $pages := .Pages }}
+{{ if .IsHome }}
+{{ $pages = where $.Site.RegularPages "Type" "in" $.Site.Params.mainSections }}
+{{ end }}
 
 <ul class="posts--list">
 {{- $paginator := .Paginate $pages }}

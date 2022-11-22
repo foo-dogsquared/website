@@ -37,15 +37,21 @@
 
 
 <!-- Copyright info. -->
-<p>{{ with $.Site.Copyright }}{{ . | markdownify }}{{ else }}© {{ now.Year }} {{ with $.Site.Author.name }}{{ . }}{{ else }}{{ $.Site.Title }}{{ end }}{{ end }}</p>
+{{- $markdownifyOpt := dict "display" "inline"
+                            "markup" "markdown" -}}
+<p>{{ with $.Site.Copyright }}{{ trim . " " | $.Page.RenderString $markdownifyOpt }}{{ else }}© {{ now.Year }} {{ with $.Site.Author.name }}{{ . }}{{ else }}{{ $.Site.Title }}{{ end }}{{ end }}</p>
 
 {{- /* Extra notes */ -}}
 {{- with $.Site.Params.extraNotes }}
-<p>{{ trim . " " | markdownify }}</p>
+<p>{{ trim . " " | $.Page.RenderString $markdownifyOpt }}</p>
 {{- end }}
 
 <p>
 <small>Generated on {{ now.Format "2006-01-02 15:04:05 -0700" }}</small></p>
+
+{{ with (getenv "LAST_COMMIT_DATE") }}
+  <p>Last updated: {{ time . | dateFormat "2 Jan 2006" }}</p>
+{{ end }}
 
 {{ $logo := resources.Get "svg/logo.svg" }}
 <div id="logo" data-tooltip="Hey there! :3">
