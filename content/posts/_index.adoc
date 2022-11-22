@@ -2,5 +2,3 @@
 title: "Posts"
 ---
 
-My posts on everything I want to blog about from engineering, 
-mathematics, and technology.
