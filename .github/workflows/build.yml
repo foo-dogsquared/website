@@ -1,4 +1,4 @@
-name: "Build demo"
+name: "Build and deploy to Netlify"
 on:
   push:
     branches:
@@ -17,3 +17,18 @@ jobs:
         with:
           branch: gh-pages
           folder: public
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: ./public
+          production-branch: master
+          production-deploy: ${{ github.ref_name == 'master' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          enable-commit-status: true
+          overwrites-pull-request-comment: false
+        env:
+          NETLIFY_ACCESS_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
