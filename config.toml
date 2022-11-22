@@ -2,12 +2,12 @@ baseURL = "https://foo-dogsquared.github.io/"
 languageCode = "en-us"
 title = "Gabriel Arazas"
 enableGitInfo = true
-summaryLength = 0
 paginate = 40
 copyright = """
 Unless explicitly stated, all content released here are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 """
 canonifyURLs = true
+summaryLength = 0
 
 
 [module]
@@ -35,7 +35,7 @@ canonifyURLs = true
 [mediaTypes]
     [mediaTypes."application/atom+xml"]
         suffixes = ["atom"]
-    
+
     [mediaTypes."application/rss+xml"]
         suffixes = ["rss"]
 
@@ -61,9 +61,9 @@ canonifyURLs = true
         url = "about/"
 
     [[menu.main]]
-        identifier = "blog"
-        name = "Blog"
-        url = "blog/"
+        identifier = "posts"
+        name = "Posts"
+        url = "posts/"
 
     [[menu.main]]
         identifier = "archives"
@@ -71,28 +71,24 @@ canonifyURLs = true
         url = "archives/"
 
     [[menu.links]]
-        identifer = "blog"
-        name = "Blog"
-        url = "/blog/"
+        identifer = "posts"
+        name = "Posts"
+        url = "/posts/"
 
     [[menu.links]]
-        identifier = "Code"
+        identifier = "code"
         name = "Code"
         url = "https://github.com/foo-dogsquared/"
 
     [[menu.links]]
-        identifer = "notes"
-        name = "Notes"
+        identifer = "wiki"
+        name = "Wiki"
         url = "https://github.com/foo-dogsquared/wiki"
 
     [[menu.links]]
         identifer = "music"
         name = "Music"
         url = "https://www.youtube.com/channel/UCuMiU9bzATu5oTp-vhOlL2Q"
-
-
-[permalinks]
-    posts = "/blog/posts/:title/"
 
 [params]
     mainSections = ["posts", "projects"]
