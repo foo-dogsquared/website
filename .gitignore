@@ -1,8 +1,11 @@
-
-# Created by https://www.gitignore.io/api/hugo
-# Edit at https://www.gitignore.io/?templates=hugo
-
 ### Hugo ###
+
+.direnv
+
+# Certain files just need to be ignored.
+/layouts/partials/openring.html
+/layouts/partials/planet.html
+
 # Generated files by hugo
 /public/
 /resources/_gen/
@@ -12,4 +15,5 @@ hugo.exe
 hugo.darwin
 hugo.linux
 
-# End of https://www.gitignore.io/api/hugo
+# Ignore all other envrc
+.envrc.*
