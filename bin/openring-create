@@ -67,14 +67,7 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
-# Checks whether it is locally compiled or not.
-if [[ -a ./openring ]]; then
-    OPENRING="./openring/openring";
-else
-    OPENRING="openring";
-fi
-
-OPENRING="$OPENRING $OPENRING_ARGS";
+OPENRING="openring $OPENRING_ARGS";
 
 for feed in $(jq ".[]" "$DATA" | shuf --head-count $LIMIT); do
     OPENRING="$OPENRING -s $feed";
