@@ -5,6 +5,9 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/keep-markup/prism-keep-markup.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 
+{{ $prism := resources.Get "css/prism.css" }}
+<link rel="stylesheet" href="{{ $prism.Permalink }}"/>
+
 {{- /* medium-zoom */ -}}
 <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.5/dist/medium-zoom.min.js"></script>
 <script>window.addEventListener('load', () => mediumZoom('article img', { 'background': 'rgba(0, 0, 0, 0.75)' }))</script>
