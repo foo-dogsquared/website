@@ -20,5 +20,7 @@ mkShell {
     go version
     hugo version
     asciidoctor --version
+
+    chmod u+x --recursive ./bin
   '';
 }
