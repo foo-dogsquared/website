@@ -1,10 +1,19 @@
 :root {
-  --accented-border-style: var(--base0C) solid .1vw;
+  --accented-border-style: var(--content-color) solid .1vw;
+  --content-color: var(--base05);
   --code-size: 50vh;
 
   --body-family: "Source Serif Pro", "IBM Plex Serif", "Noto Serif", serif;
   --header-family: "Source Sans Pro", "IBM Plex Sans", "Noto Sans", sans-serif;
   --mono-family: "Source Code Pro", "IBM Plex Mono", "Noto Mono", monospace;
+  color: var(--base05);
+}
+
+hr {
+  border-color: var(--content-color);
+}
+
+nav[aria-label="Primary navigation"] a {
   color: var(--base05);
 }
 
@@ -155,7 +164,7 @@ sup.footnote {
 *:not(.listingblock) {
   > *.attribution,
   > *.title {
-    background: var(--base0C);
+    background: var(--content-color);
     color: var(--base00);
     font-size: 0.9em;
     padding: 0.5em;
@@ -173,9 +182,15 @@ sup.footnote {
 
 .admonitionblock {
   .icon {
-    background: var(--base0C);
+    background: var(--content-color);
     border: var(--accented-border-style);
     vertical-align: middle;
+    width: 12%;
+
+    > .title {
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 
