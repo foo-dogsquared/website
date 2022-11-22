@@ -20,7 +20,6 @@ canonifyURLs = true
 
 [markup]
   [markup.asciidocExt]
-    extensions = ["asciidoctor-diagram"]
     [markup.asciidocExt.attributes]
     toc = true
     sectanchors = true
@@ -28,7 +27,7 @@ canonifyURLs = true
 
 
 [author]
-    [foo-dogsquared]
+    [author.foo-dogsquared]
         name = "Gabriel Arazas"
         alias = "foo-dogsquared"
         email = "foo.dogsquared@gmail.com"
@@ -45,7 +44,7 @@ canonifyURLs = true
         mediaType = "application/rss+xml"
         baseName = "index"
         isPlainText = false
-    
+
     [outputFormats.Atom]
         mediaType = "application/atom+xml"
         baseName = "index"
@@ -102,3 +101,8 @@ canonifyURLs = true
     This site uses [Prism](https://prismjs.com/), [MathJax](https://www.mathjax.org/), [medium-zoom](https://github.com/francoischalifour/medium-zoom), and lots of modern CSS features for the life of me.
     For analytics, it uses [GoatCounter](https://goatcounter.com/).
     """
+[security.exec]
+    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^asciidoctor$']
+
+[security.funcs]
+    getenv = [ "^LAST_COMMIT_DATE$" ]
