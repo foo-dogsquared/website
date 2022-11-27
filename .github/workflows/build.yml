@@ -11,7 +11,7 @@ jobs:
       - uses: cachix/install-nix-action@v17
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
-      - run: nix develop
+      - run: nix develop -c make build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
