@@ -1,0 +1,8 @@
+[context.production.environment]
+HUGO_BASE_URL = "$DEPLOY_URL"
+
+[context.branch-deploy]
+command = "hugo --baseURL $DEPLOY_PRIME_URL"
+
+[context.deploy-preview]
+command = "hugo --buildDrafts --buildFuture --buildExpired --baseURL $DEPLOY_PRIME_URL"
