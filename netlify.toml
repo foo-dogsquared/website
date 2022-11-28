@@ -1,6 +1,6 @@
 [build]
 publish = "public/"
-command = "bundle update --bundler && hugo --gc --minify"
+command = "bundle && hugo --gc --minify"
 
 [context.production.environment]
 HUGO_VERSION = "0.107.0"
