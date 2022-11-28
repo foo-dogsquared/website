@@ -1,18 +1,23 @@
 [build]
 publish = "public/"
-command = "bundle && hugo --gc --minify"
+command = "gem install bundler -v '~> 2.3' && bundle && hugo --gc --minify"
 
 [context.production.environment]
+RUBY_VERSION = "3.0.4"
 HUGO_VERSION = "0.107.0"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 HUGO_BASE_URL = "$DEPLOY_URL"
 
 [context.branch-deploy.environment]
+RUBY_VERSION = "3.0.4"
 HUGO_VERSION = "0.107.0"
+HUGO_ENV = "development"
 HUGO_BASE_URL = "$DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
+RUBY_VERSION = "3.0.4"
+HUGO_ENV = "development"
 HUGO_VERSION = "0.107.0"
 
 [context.deploy-preview]
