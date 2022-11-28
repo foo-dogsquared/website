@@ -17,6 +17,8 @@ github.com/foo-dogsquared/hugo-theme-more-contentful v0.3.2 h1:i7zf4g5DHv5UiU072
 github.com/foo-dogsquared/hugo-theme-more-contentful v0.3.2/go.mod h1:f/xoTsGhQHHeTHWSHR+81Z8bYpnqSl5NN3otv7Skvb8=
 github.com/foo-dogsquared/hugo-theme-more-contentful v0.3.3 h1:Yv8wKlPJX4Wgu04VhbP3Xa/tXr5I6Ginwm5YbVdlhag=
 github.com/foo-dogsquared/hugo-theme-more-contentful v0.3.3/go.mod h1:f/xoTsGhQHHeTHWSHR+81Z8bYpnqSl5NN3otv7Skvb8=
+github.com/foo-dogsquared/hugo-theme-more-contentful v0.3.4 h1:ovubnd0Taowk1C2CTbbu4gexvwysYSxvphQMkLFtL9c=
+github.com/foo-dogsquared/hugo-theme-more-contentful v0.3.4/go.mod h1:f/xoTsGhQHHeTHWSHR+81Z8bYpnqSl5NN3otv7Skvb8=
 github.com/foo-dogsquared/hugo-web-feeds v0.0.2 h1:688h38JdIvxKSTdvAFfskEM2n9VJNNNacHwlFc4lvkg=
 github.com/foo-dogsquared/hugo-web-feeds v0.0.2/go.mod h1:0WxK3+xNIj/Wpk2kkUW0p6Uqmr/OZjPsRtQDCMazNmI=
 github.com/refactoringui/heroicons v0.4.2 h1:gLYH0RH4nLh81yxAC/JgyvKIeK0d+sBVF/I2XkPb6U8=
