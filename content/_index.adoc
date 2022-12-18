@@ -24,7 +24,7 @@ You can also find me on a bunch of platforms where I may be inactive for some ti
 [.text-center]
 {{< homepage/social-links >}}
 
-If you want the old way on getting contact with me, you can shoot an email at `foo.dogsquared{at}gmail{dot}com`.
+If you want the old way on getting contact with me, you can shoot an email at `hey{at}foodogsquared{dot}one`.
 
 Want a way to verify me and my stuff? I have a link:https://gnupg.org/[GnuPG] public key for your privacy-oriented and paranoia-filled pleasure.
 It is currently stored at link:https://keys.openpgp.org/vks/v1/by-fingerprint/1D5A862828FFC47537F9628F73F89FF87C72E7D3[the OpenPGP keyserver] which you can search with my email address.

@@ -23,7 +23,7 @@ footnote:[Feel free to randomly DM me about your recent tastes on music.]
 
 I also https://www.youtube.com/channel/UCuMiU9bzATu5oTp-vhOlL2Q[create some crap music] but you're definitely not here for that.
 
-If you want a way on getting contact with me, you can shoot an email at `foo.dogsquared{at}gmail{dot}com`.
+If you want a way on getting contact with me, you can shoot an email at `hey{at}foodogsquared{dot}one`.
 Oh wait, I already said this in my homepage.
 
 I'm open to your shenanigans as long as it's about dev-related or hobby-related (and legal, of course).
