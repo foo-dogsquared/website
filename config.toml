@@ -4,7 +4,7 @@ title = "Gabriel Arazas"
 enableGitInfo = true
 paginate = 40
 copyright = """
-Unless explicitly stated, all content released here are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+© foodogsquared
 """
 canonifyURLs = true
 summaryLength = 0
