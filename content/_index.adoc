@@ -7,7 +7,7 @@ title: Homepage
 
 
 Hey there!
-I'm Gabriel Arazas (`foo-dogsquared`), a hobbyist on software development and programming, an expert in procastination, and a hack on anything else.
+I'm Gabriel Arazas (`foodogsquared`), a hobbyist on software development and programming, an expert in procastination, and a hack on anything else.
 You can see more what's my deal on xref:about/index.adoc[another page] because I want to make introductions nice and brief.
 
 Welcome to my small home on the deepest corners of the internet, by the way.
