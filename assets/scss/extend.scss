@@ -12,6 +12,7 @@ $tooltip-size: 5em
   color: var(--base05);
 }
 
+// Base styles.
 hr {
   border-color: var(--content-color);
 }
@@ -187,9 +188,13 @@ sup.footnote {
   margin: 1em;
 }
 
-*:not(.listingblock) {
-  > *.attribution,
-  > *.title {
+[class$="block"], :is(.admonitionblock) {
+  margin: var(--vertical-rhythm) 0;
+}
+
+*:not(.listingblock, .openblock) {
+  > .attribution,
+  > .title {
     background: var(--content-color);
     color: var(--base00);
     font-size: 0.9em;
@@ -200,16 +205,78 @@ sup.footnote {
     }
   }
 
-  > *.content {
+  > .content {
     border: var(--accented-border-style);
     padding: 0.5em;
+  }
+}
+
+.listingblock {
+  position: relative;
+
+  > *.title {
+    background: var(--content-color);
+    color: var(--base00);
+    font-size: 0.9em;
+    padding: 0.5em;
+
+    code { background: unset; }
+
+    &::selection {
+      background: var(--base07);
+    }
+  }
+
+  pre {
+    margin: 0;
+  }
+
+  > .listingblock__btn-row {
+    $gap: 0.3em;
+
+    display: flex;
+    gap: $gap;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    > button {
+      background: var(--base02);
+      padding: $gap;
+
+      &:hover {
+        background: var(--base06);
+        color: var(--base00);
+      }
+
+      &:active {
+        background: var(--accent-color);
+        color: var(--base06);
+      }
+    }
+  }
+
+  &:fullscreen {
+    pre, code {
+      max-height: 100vh;
+      height: 100vh;
+      margin: 0;
+      overflow: auto;
+    }
+
+    > .listingblock__btn-row {
+      top: 0;
+    }
   }
 }
 
 .admonitionblock {
   .icon {
     background: var(--content-color);
-    border: var(--accented-border-style);
     vertical-align: middle;
     width: 12%;
 
@@ -218,6 +285,15 @@ sup.footnote {
       justify-content: center;
     }
   }
+
+  .content {
+    background: var(--base01);
+    border: unset;
+  }
+}
+
+.content > .paragraph:first-child > p:first-child {
+  margin-top: unset;
 }
 
 .imageblock {
@@ -231,12 +307,24 @@ sup.footnote {
   }
 }
 
+p {
+  margin-bottom: unset;
+}
+
 .sidebarblock {
-  .title {
-    background: unset;
-    color: unset;
-    font-weight: bold;
-    padding: unset;
+  > .content {
+    background: var(--base01);
+    border: unset;
+    padding: var(--vertical-rhythm);
+
+    > .title {
+      background: unset;
+      color: unset;
+      font-family: var(--header-family);
+      font-size: 1em;
+      font-weight: bold;
+      padding: unset;
+    }
   }
 }
 
