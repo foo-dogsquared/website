@@ -4,5 +4,5 @@ date: {{ .Date }}
 ---
 
 = {{ replace .Name "-" " " | humanize }}
-Gabriel Arazas <foo.dogsquared@gmail.com>
+Gabriel Arazas <foodogsquared@foodogsquared.one>
 {{ dateFormat "2006-01-02" .Date }}
