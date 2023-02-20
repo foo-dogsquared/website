@@ -1,0 +1,33 @@
+[siteFooterAriaLabel]
+other = "Site footer"
+
+[copyButtonLabel]
+other = "Copy to clipboard"
+
+[copyButtonAriaLabel]
+other = "Copy to clipboard"
+
+[copyButtonDescription]
+other = "Copy the code listing content to clipboard"
+
+[fullscreenButtonLabel]
+other = "Toggle fullscreen"
+
+[fullscreenButtonAriaLabel]
+other = "Toggle fullscreen"
+
+[fullscreenButtonDescription]
+other = "Make the code listing takes up fullscreen"
+
+[generatedOn]
+other = "Generated on"
+
+[siteFeaturesScriptingDisabled]
+other = """
+    Some of the features of this site relies on JavaScript scripting.
+    You'll be missing out on some features such as copying code listings to the clipboard, code syntax higlighting, and code listing fullscreen button.
+    Also, some of the JavaScript libraries this site relies on such as interactive image zooming and MathJax rendering will be disabled.
+"""
+
+[lastUpdated]
+other = "Last updated"
