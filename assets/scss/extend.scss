@@ -1,3 +1,6 @@
+// This is copied from https://stackoverflow.com/a/19721069.
+$tooltip-size: 5em
+
 :root {
   --accented-border-style: var(--content-color) solid .1vw;
   --content-color: var(--base05);
@@ -65,22 +68,45 @@ article.post {
 
 // Custom layouts
 #logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $tooltip-size;
+  width: $tooltip-size;
+
   svg {
     --size: 4em;
     height: var(--size);
     width: var(--size);
     fill: var(--base0C);
-
-    &:hover {
-      fill: var(--base08);
-      animation: rainbow 2s ease infinite;
-    }
+    position: relative;
+    animation: rainbow 3s infinite, pulse 2s alternate infinite, bounce 0.6s ease-in-out alternate infinite;
   }
 }
 
+@keyframes bounce {
+  $baseSize: 3em;
+  $baseRotation: 20deg;
+  from {
+    transform: rotate($baseRotation) translateX($baseSize) translateY(-#{$baseSize / 5});
+  }
+  to {
+    transform: rotate(-$baseRotation) translateX(-$baseSize) translateY(-#{$baseSize / 5});
+  }
+}
+
+@keyframes pulse {
+  from { width: #{$tooltip-size / 2}; }
+  to { width: #{$tooltip-size}; }
+}
+
 @keyframes rainbow {
-  @for $i from 0 through 8 {
-    #{$i * 10}% { fill: var(--base#{decToHex($i + 7)}); }
+  $colorOrder: "07" "08" "09" "0A" "0B" "0C" "0D" "0E" "0F";
+  $divide: floor(100 / length($colorOrder));
+  @for $i from 1 to length($colorOrder) {
+    #{$i * $divide}% {
+      fill: var(--base#{nth($colorOrder, $i)});
+    }
   }
 }
 
@@ -93,7 +119,7 @@ article.post {
     font-size: 0.8em;
     padding: 0.5em;
     position: absolute;
-    transform: translateY(var(--translate-y, -50%)) scale(var(--scale));
+    transform: translateY(var(--translate-y, -#{round($tooltip-size / 2)})) scale(var(--scale));
     transform-origin: bottom center;
     width: max-content;
     max-width: 100%;
