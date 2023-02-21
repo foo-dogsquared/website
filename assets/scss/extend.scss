@@ -12,6 +12,11 @@ $tooltip-size: 5em
   color: var(--base05);
 }
 
+// Hugo-specific blocks.
+#TableOfContents {
+  > ul { margin-bottom: unset; }
+}
+
 // Base styles.
 hr {
   border-color: var(--content-color);
