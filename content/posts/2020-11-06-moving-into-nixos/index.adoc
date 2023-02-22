@@ -24,6 +24,7 @@ Here's my journey of being enlightened and a member of the NixOS cult for 2 mont
 
 
 
+[#why-nixos]
 == Why NixOS?
 
 Because I often hear the following features being tooted whenever NixOS is being mentioned.
