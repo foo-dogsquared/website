@@ -9,15 +9,15 @@ Otherwise, we take the pages of a section. */ -}}
 {{ $pages = where $.Site.RegularPages "Type" "in" $.Site.Params.mainSections }}
 {{ end }}
 
-<ul class="posts--list">
+<main class="posts--list">
 {{- $paginator := .Paginate $pages }}
 {{- range $paginator.Pages }}
-<li class="post--list">
+<article class="post--list">
     <time class="post--list__date" datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "2006-01-02" }}</time>
     <a class="post--list__title" href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
-</li>
+</article>
 {{- end }}
-</ul>
+</main>
 
 {{ if $paginator.HasNext }}
   <p style="margin: 1em;">
