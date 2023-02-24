@@ -3,72 +3,63 @@ languageCode = "en-us"
 title = "Gabriel Arazas"
 enableGitInfo = true
 paginate = 40
-copyright = """
-© foodogsquared
-"""
+copyright = "© foodogsquared"
 canonifyURLs = true
 summaryLength = 0
 
+[[module.imports]]
+path = "github.com/foo-dogsquared/hugo-theme-more-contentful"
 
-[module]
-  [[module.imports]]
-    path = "github.com/foo-dogsquared/hugo-theme-more-contentful"
+[[module.imports]]
+path = "github.com/foo-dogsquared/hugo-mod-web-feeds"
 
-  [[module.imports]]
-    path = "github.com/foo-dogsquared/hugo-web-feeds"
+[markup.asciidocExt.attributes]
+toc = true
+sectanchors = true
+"figure-caption!" = true
+source-highlighter = "rouge"
+workingFolderCurrent = true
 
+[author.foo-dogsquared]
+name = "Gabriel Arazas"
+alias = "foo-dogsquared"
+email = "foodogsquared@foodogsquared.one"
 
-[markup]
-  [markup.asciidocExt]
-    [markup.asciidocExt.attributes]
-    toc = true
-    sectanchors = true
-    "figure-caption!" = true
+[mediaTypes."application/atom+xml"]
+suffixes = ["atom"]
 
+[mediaTypes."application/rss+xml"]
+suffixes = ["rss"]
 
-[author]
-    [author.foo-dogsquared]
-        name = "Gabriel Arazas"
-        alias = "foo-dogsquared"
-        email = "foo.dogsquared@gmail.com"
+[outputFormats.RSS]
+mediaType = "application/rss+xml"
+baseName = "index"
+isPlainText = false
 
-[mediaTypes]
-    [mediaTypes."application/atom+xml"]
-        suffixes = ["atom"]
-
-    [mediaTypes."application/rss+xml"]
-        suffixes = ["rss"]
-
-[outputFormats]
-    [outputFormats.RSS]
-        mediaType = "application/rss+xml"
-        baseName = "index"
-        isPlainText = false
-
-    [outputFormats.Atom]
-        mediaType = "application/atom+xml"
-        baseName = "index"
-        isPlainText = false
+[outputFormats.Atom]
+mediaType = "application/atom+xml"
+baseName = "index"
+isPlainText = false
 
 [outputs]
-    home = ["HTML", "ATOM", "RSS", "JSON"]
-    section = ["HTML", "ATOM", "RSS", "JSON"]
+home = ["HTML", "ATOM", "RSS", "JSON"]
+section = ["HTML", "ATOM", "RSS", "JSON"]
 
 [menu]
     [[menu.main]]
         identifier = "about"
-        name = "About me"
+        name = "About"
         url = "about/"
+
+    [[menu.main]]
+        identifier = "contact"
+        name = "Contact"
+        url = "contact/"
 
     [[menu.main]]
         identifier = "posts"
         name = "Posts"
         url = "posts/"
-
-    [[menu.main]]
-        identifier = "archives"
-        name = "Archives"
-        url = "archives/"
 
     [[menu.links]]
         identifer = "posts"
@@ -91,14 +82,15 @@ summaryLength = 0
         url = "https://www.youtube.com/channel/UCuMiU9bzATu5oTp-vhOlL2Q"
 
 [params]
-    mainSections = ["posts", "projects"]
-    toc = true
-    extraNotes = """
-    This site uses [Prism](https://prismjs.com/), [MathJax](https://www.mathjax.org/), [medium-zoom](https://github.com/francoischalifour/medium-zoom), and lots of modern CSS features for the life of me.
-    For analytics, it uses [GoatCounter](https://goatcounter.com/).
-    """
+mainSections = ["posts", "projects"]
+toc = true
+extraNotes = """
+This site uses [Prism](https://prismjs.com/), [MathJax](https://www.mathjax.org/), [medium-zoom](https://github.com/francoischalifour/medium-zoom), and lots of modern CSS features for the life of me.
+For analytics, it uses [GoatCounter](https://goatcounter.com/).
+"""
+
 [security.exec]
-    allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^asciidoctor$']
+allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^asciidoctor$']
 
 [security.funcs]
-    getenv = [ "^LAST_COMMIT_DATE$" ]
+getenv = [ "^LAST_COMMIT_DATE$" ]
