@@ -13,6 +13,12 @@ path = "github.com/foo-dogsquared/hugo-theme-more-contentful"
 [[module.imports]]
 path = "github.com/foo-dogsquared/hugo-mod-web-feeds"
 
+[markup.asciidocExt]
+extensions = [
+  "asciidoctor-foodogsquared-extensions"
+]
+workingFolderCurrent = true
+
 [markup.asciidocExt.attributes]
 toc = true
 sectanchors = true

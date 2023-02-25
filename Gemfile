@@ -1,2 +1,6 @@
 source 'https://rubygems.org'
 gem 'asciidoctor'
+gem 'asciidoctor-html5s'
+gem 'asciidoctor-rouge'
+gem 'rouge'
+gem 'asciidoctor-foodogsquared-extensions', :path => './gems'
