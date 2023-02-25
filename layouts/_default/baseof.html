@@ -5,11 +5,10 @@
     {{- partial "head_extended.html" . -}}
   </head>
   <body>
-    {{- partial "components/theme-button.html" . }}
     {{- partial "header.html" . -}}
-    <hr>
+    <hr aria-hidden="true">
     {{- block "main" . }}{{- end }}
-    <hr>
+    <hr aria-hidden="true">
     {{- partial "footer.html" . -}}
     {{- if hugo.IsProduction -}}
     <script data-goatcounter="https://foo-dogsquared.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
