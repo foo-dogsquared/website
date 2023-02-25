@@ -1,0 +1,19 @@
+---
+title: Contact
+---
+
+= Contact
+
+I can be contacted through several channels.
+
+I'm not active in all of them though so I'll list them in the order of frequent activities.
+
+- Email, (arguably) the most important communication channel. footnote:[Yeah, I'm mostly dormant in most of them. This is indicated by the fact my email is the first item in this list.]
+Feel free to send an email in my way in `hey{at}foodogsquared{dot}one`.
+If you want to send an encrypted email for whatever reason, you can encrypt it with link:https://keys.openpgp.org/vks/v1/by-fingerprint/DDD7D0BD602E564BAA04FC3514310D9141152B92[my public GPG key].
+
+- For link:https://matrix.org/[Matrix], I have a Matrix ID at `@foodogsquared:matrix.org`.
+
+- For link:https://discord.com/[Discord], you can contact me at `foodogsquared#8441`.
+
+- For those who wants to be old-fashioned with IRC, you can contact me at `foodogsquared` at link:https://libera.chat/[libera.chat].
