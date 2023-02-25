@@ -24,5 +24,6 @@
     in {
       devShells.default = import ./shell.nix { inherit pkgs; };
 
+      formatter = pkgs.treefmt;
     });
 }

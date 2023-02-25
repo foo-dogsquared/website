@@ -1,0 +1,24 @@
+[formatter.nix]
+command = "nixpkgs-fmt"
+includes = ["*.nix"]
+
+[formatter.ruby]
+command = "rufo"
+options = ["-x"]
+includes = ["*.rb"]
+
+[formatter.web]
+command = "prettier"
+options = ["--write"]
+includes = [
+ "*.css",
+ "*.html",
+ "*.js",
+ "*.json",
+ "*.jsx",
+ "*.md",
+ "*.mdx",
+ "*.scss",
+ "*.ts",
+ "*.yaml",
+]
