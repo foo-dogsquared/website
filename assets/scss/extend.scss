@@ -1,10 +1,10 @@
 // This is copied from https://stackoverflow.com/a/19721069.
-$tooltip-size: 5em
+$tooltip-size: 5em;
+$line-height: 1.45;
 
 :root {
   --accented-border-style: var(--content-color) solid .1vw;
   --content-color: var(--base05);
-  --code-size: 50vh;
 
   --body-family: "Source Serif Pro", "IBM Plex Serif", "Noto Serif", serif;
   --header-family: "Source Sans Pro", "IBM Plex Sans", "Noto Sans", sans-serif;
@@ -18,22 +18,24 @@ $tooltip-size: 5em
 }
 
 // Base styles.
+a:visited {
+  color: var(--base0C);
+}
+
+code {
+  background: var(--base01);
+}
+
 hr {
   border-color: var(--content-color);
 }
 
-nav[aria-label="Primary navigation"] a {
-  color: var(--base05);
+pre {
+  background: var(--base00);
 }
 
-ul {
-  ul, ol {
-    padding-left: 1em;
-  }
-}
-
-pre, code {
-  max-height: var(--code-size);
+main > article {
+  line-height: $line-height;
 }
 
 // Layouts
@@ -61,6 +63,8 @@ article.post {
   p > span:first-child {
     white-space: nowrap;
   }
+
+  &:empty { display: none; }
 }
 
 // Asciidoctor roles (e.g., [.text-center]) on a block.
@@ -189,7 +193,7 @@ sup.footnote {
 }
 
 #footnotes > *:not(hr) {
-  line-height: 1.45;
+  line-height: $line-height;
   margin: 1em;
 }
 
