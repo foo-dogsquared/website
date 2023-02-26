@@ -16,7 +16,6 @@ mkShell {
   ];
 
   packages = [
-    bundix
     git
     go
     hugo
@@ -29,6 +28,9 @@ mkShell {
     rufo # ...for Ruby.
     nixpkgs-fmt # ...for Nix.
     nodePackages.prettier # ...for the web files.
+
+    # Language servers...
+    rnix-lsp # ...for Nix.
   ];
 
   shellHook = ''
