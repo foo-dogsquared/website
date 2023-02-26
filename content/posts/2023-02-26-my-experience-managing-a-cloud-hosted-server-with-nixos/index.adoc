@@ -1,0 +1,309 @@
+---
+title: "My experience of managing a cloud-hosted server with NixOS"
+publishdate: 2023-02-26T00:00:00+00:00
+
+categories:
+  - How to NixOS
+  - How to Linux
+tags:
+  - linux
+  - nix
+  - nixos
+---
+
+= My experience of managing a cloud-hosted server with NixOS
+Gabriel Arazas <foodogsquared@foodogsquared.one>
+2023-02-26
+
+
+It's been some time since link:../moving-into-nixos[I've used NixOS as a desktop some time ago].
+But lots of things happened since then.
+
+Long story short, I stopped using NixOS after the previously linked post and reverted to using a traditional Linux system.
+I did keep using Nix package manager to easily create reproducible development environment for projects.
+
+However, I've gone back to using it sometime at the start of 2022 and used it throughout the year.
+At the start of this year, however, I'm starting to learn managing Linux-based systems for servers.
+What could be a better way (not necessarily as we'll discuss it) of managing it with the devil I know: NixOS.
+
+In this post, I'll be discussing my experience managing a NixOS server for 2 months. footnote:[Very fitting note as in that previous post I also wrote my experience using NixOS as a desktop driver also in 2 months of usage. I didn't plan for this, I swear.]
+
+
+
+
+[#why-nixos-redux-version]
+== Why NixOS? (redux version)
+
+As you may already heard from any staunch advocates which xref:../moving-into-nixos/index.adoc#why-nixos[I've even said something about those lines myself], there are a couple of good reasons to use NixOS.
+But I'm fairly sure you've heard a fair share of the same bullet points at this point so let me give you my perspective from using it for some time instead.
+
+What I like about it is the perspective of building NixOS systems just like how one would program applications.
+You create a text file containing NixOS configuration, you pass the file to the builder (e.g., `nix-build` or `nix build`), then you "compiled" an operating system.
+
+Furthermore, the overall Nix ecosystem has some things helping to create a NixOS system such as link:https://github.com/NixOS/nixpkgs/[nixpkgs] which does not only have link:https://repology.org/repositories/statistics/total[one of the largest package repositories] (as of 2023-02-14) but also link:https://nixos.org/manual/nixos/unstable/options.html[a wide set of options] including...
+
+- Services which includes server-oriented programs (e.g., nginx, Bind, borgbackup) to complete desktop sessions (e.g., GNOME, KDE Plasma, i3, bspwm).
+
+- Various programs such as tmux, vim, and command-line shells (e.g., Bash, zsh, fish) which typically includes further configuration options for them.
+
+- Hardware tweaks such as installing certain hardware drivers, a declarative networking setup (which is very useful for servers), and setting up filesystems complete with mount options.
+
+All of those can be made to create NixOS systems for a variety of purposes.
+
+Prior to this post (and also at least 2 months), I use NixOS as my desktop OS of choice for at least a year.
+Let me show you some examples of how I use it.
+
+- link:https://github.com/foo-dogsquared/nixos-config/blob/70e2e077d17de5ae48063bf56e376a45d469d2c9/modules/nixos/workflows/a-happy-gnome/default.nix[A complete configuration for my GNOME desktop environment] with a list of programs, services, and link:https://github.com/foo-dogsquared/nixos-config/tree/70e2e077d17de5ae48063bf56e376a45d469d2c9/modules/nixos/workflows/a-happy-gnome/config[settings] to enable.
+
+- link:https://github.com/foo-dogsquared/nixos-config/blob/70e2e077d17de5ae48063bf56e376a45d469d2c9/modules/nixos/tasks/backup-archive/default.nix[A backup service for my desktop] which makes use at least 2 offline storage and 1 remote backup service.
+
+- link:https://github.com/foo-dogsquared/nixos-config/blob/70e2e077d17de5ae48063bf56e376a45d469d2c9/modules/nixos/tasks/multimedia-archive/default.nix[A downloading service that makes use of a variety of tools] (i.e., yt-dlp, gallery-dl, and Archivebox) that can also accept a dataset of URLs to download from.
+Here's link:https://github.com/foo-dogsquared/nixos-config/blob/70e2e077d17de5ae48063bf56e376a45d469d2c9/modules/nixos/tasks/multimedia-archive/data/jobs.yt-dlp.json[an example of additional URLs intended for yt-dlp to download].
+The aforementioned dataset is created from link:https://github.com/foo-dogsquared/nixos-config/blob/70e2e077d17de5ae48063bf56e376a45d469d2c9/modules/nixos/tasks/multimedia-archive/scripts/create-jobs-from-newpipe-db.py[a script that generates it from a Newpipe database]. footnote:[Complete declarative configuration! MUAHAHAHAHA! Although, I don't use it much these days but I kept it because it's neat.]
+
+The point is... NixOS is very flexible despite that it already gives you a complete set of knobs to tinker with especially with mechanisms in place such as Nix modules (which is an entire world in and of itself), nixpkgs overrides, overlays, and flakes.
+
+Unlike configuring from a traditional Linux system (e.g., Debian, Arch, Fedora), NixOS (and similar systems such as link:https://guix.gnu.org/[Guix system]) is nicer in terms of user experience for configuration since you only have to monitor one location to consolidate the configuration.
+
+
+
+
+[#the-nix-ecosystem]
+== The Nix ecosystem
+
+It's not as large as other ecosystems such as from Docker with its link:https://hub.docker.com/[large selection of images] and tools such as link:https://kubernetes.io/[Kubernetes].
+The amount of things within the containers ecosystem is just too vast which rallies more support behind it.
+
+This doesn't mean the Nix ecosystem is something to be scoffed at.
+There's more to what you can do with NixOS especially link:https://nix-community.github.io/awesome-nix/[there's an ecosystem beyond nixpkgs].
+
+Here's some of the tools I use related to managing the server.
+
+- link:https://github.com/nix-community/home-manager/[home-manager] is quite similar to NixOS that it instead of building an operating system, it builds a home environment allowing you to specify user-specific tweaks that is otherwise not available from nixpkgs that are more focused on the holistic side of operating systems (i.e., system-wide services, programs, and configurations).
++
+However, most of the options found here are oriented toward desktop usage but it's still useful for user-specific tweaks (e.g., putting certain files in its home directory).
+
+- nixpkgs can build NixOS systems into various formats including container images, a plethora of cloud provider-specific image formats, and virtual machines.
+link:github.com/nix-community/nixos-generators[nixos-generators] builds upon this as a nice frontend to easily make use of it.
++
+I've used it to generate a link:https://github.com/foo-dogsquared/nixos-config/releases/tag/latest[personalized NixOS installer as part of a release from my config].
+Also, I've used it to generate a Google Cloud image that can easily create a Compute instance from it.
+
+- link:https://github.com/serokell/deploy-rs[deploy-rs] is my deployment tool of choice.
+It comes with niceties such as magic rollback which is useful if it rendered your configuration to be unconnectable.
+Not to mention, it can deploy other than NixOS systems such as home-manager configurations footnote:[Which I only tried once so I can't comment much on it. Also, the situation that needs it is very very specific so I didn't get to use it that much.].
+
+- Putting sensitive credentials is one of the weaker points in a NixOS system especially that the Nix store directory is readable by anyone.
+At this point, link:https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes[there's a bunch of secret management tools integrated with NixOS] with various way of getting around that fact.
+My tool of choice is link:https://github.com/Mic92/sops-nix[sops-nix] given that link:https://github.com/mozilla/sops[sops] is simpler (compared to other tools) and can integrate with several key formats footnote:[sops-nix is mainly integrated with Age and GPG keys, though.].
+
+
+
+
+[#configuring-the-server]
+== Configuring the server
+
+I'm managing one instance in Hetzner Cloud.
+While it doesn't have a NixOS image (or used to be), it is easy to initiate a NixOS instance with the link:https://github.com/elitak/nixos-infect[nixos-infect] script which will... infect a Linux system into a NixOS one (without the spreading of NixOS disease though).
+
+Thankfully, this can be automated since Hetzner also has link:https://github.com/hetznercloud/awesome-hcloud[an ecosystem of libraries and tools for more flexibility] including link:https://github.com/hetznercloud/cli[a command-line interface for managing Hetzner Cloud deployments].
+
+.Here's a script using `hcloud` to easily create one such setup
+[source, shell]
+----
+hcloud network create --name smn-lan --ip-range 172.16.0.0/12
+hcloud server create --location hel1 --type cx21 --image ubuntu-22.04 \
+    --network smn-lan \
+    --user-data-from-file ./hosts/plover/files/hcloud/hcloud-user-data.yml \
+    --ssh-key foodogsquared@foodogsquared.one \
+    --name nixos-plover
+----
+
+Looking into NixOS as a server is pretty similar to how one would configure any Linux-based systems as a server.
+
+[TIP]
+====
+If you're looking into managing a NixOS system in Hetzner Cloud, I recommend to not start with executing the `nixos-infect` script and explore the system a little bit.
+This is important to see the network interfaces configuration and configure your networking interfaces based from it.
+====
+
+One would have to statically configure hardware of the server, mostly relating to networking setup.
+For this, I used systemd-networkd service that integrates well in NixOS.
+
+The following systemd-networkd configuration is based from the generated systemd network unit from Ubuntu 22.04.
+It assumes that you have an global IPv4 and IPv6 address and a private IPv4 subnet from link:https://docs.hetzner.com/cloud/networks/[networks feature].
+
+[source, nix]
+----
+include::./assets/server-systemd-networkd-config.nix[]
+----
+
+[#sidebar:networking-configuration-in-nixos]
+.Networking configuration in NixOS
+****
+Currently (as of NixOS 23.05-unstable), there are two main ways to declaratively configure the networking setup: `networking.interfaces` and `systemd.network`.
+
+`networking.interfaces` is considered the default seeing as it is used on the installers for NixOS.
+Although, there seems to be link:https://github.com/NixOS/nixpkgs/issues/10001[interest to switch to systemd-networkd as the default way].
+Not to mention, part of the description of the `networking.interfaces` recommends using `systemd.network.netdevs` instead.
+
+If this would be configured with `networking.interfaces`, then it would look something like the following listing (without the other aspects of networking such as proper routing).
+
+[source, nix]
+----
+include::./assets/server-networking-config.nix[]
+----
+****
+
+In a typical server setup, one would harden the server for security.
+Otherwise, unwanted traffic including potential attackers might take advantage of it.
+Fortunately, nixpkgs already has a link:https://github.com/NixOS/nixpkgs/blob/f99c72ed674b8cf6d497267d0023bde31be5e347/nixos/modules/profiles/hardened.nix[profile that already does most of that for you] and all you have to do is to import it in your NixOS configuration like in the following code listing.
+
+[source, nix]
+----
+{ config, modulesPath, ... }:
+
+{
+  imports = [ "${modulesPath}/profiles/hardened.nix" ];
+}
+----
+
+Now with the most important things are done, you can now proceed with the service configuration.
+Here's a non-exhaustive list of things that I've done for the server.
+
+- systemd-networkd link:https://github.com/systemd/systemd/blob/0da4cc97b446b43802692f2415e5a774771b0ca9/NEWS#L7674-L7675[can configure Wireguard interfaces since v237] so I eventually used it for configuring Wireguard tunnels instead of standing up an OpenVPN server.
+
+- One could create a non-root user dedicated for managing the system.
+This could also be used to avoid using root directly, only using `sudo` when needed to while inside of the system.
++
+In my case, I created two non-root users: link:https://github.com/foo-dogsquared/nixos-config/blob/70e2e077d17de5ae48063bf56e376a45d469d2c9/users/nixos/admin/default.nix[specifically to be used for deployment] and link:https://github.com/foo-dogsquared/nixos-config/blob/70e2e077d17de5ae48063bf56e376a45d469d2c9/users/nixos/plover/default.nix[one to be used as the entry point for the server] since the former doesn't have a password to enter privilege mode.
+The latter has a customized user environment done through home-manager.
+
+- Enable all of the services you want.
+Of course, as long as it fits in the server with its expected amount of traffic and the average amount of resources.
+
+- Setting a remote backup service.
+In this case, I've chose to use link:https://www.borgbackup.org/[BorgBackup] as it is also what I've previously used anyways.
+Not to mention, it is pretty nice what it does out-of-the-box compared to other services.
++
+I've set the backup service with a link:https://www.hetzner.com/storage/storage-box[Hetzner Storage Box] which is surprisingly cheap at 1TB for 4€ a month.
+All you have to do at that point is to enable SSH to add the Borg server then add the SSH keys.
+
+
+
+
+[#the-results-and-the-maintenance-process]
+== The results and the maintenance process
+
+The resulting NixOS server configuration is all available in link:https://github.com/foo-dogsquared/nixos-config/tree/0991e1a44d51e68a1bf974cd890956ed3ba30e67/hosts/plover[my NixOS configuration repo].
+At the end, I was able to deploy instances of some of the applications I want to host and manage myself (among other things).
+
+- A link:https://code.foodogsquared.one/[personal single-user Gitea instance] for my code projects.
+I chose Gitea since it seems to be a well-established project especially that link:https://forum.forgefriends.org/t/nlnet-grant-application-for-federation-in-gitea-deadline-august-1st-2022[it is recently involved in moving federation forward], making collaboration between different instances possible.
+I might even make it as my main code forge if the federation is nice enough.
+
+- A link:https://pass.foodogsquared.one/[personal single-user Vaultwarden instance].
+A nice password manager that can be self-hosted easily.
+
+- A VPN tunnel using link:https://wireguard.org/[Wireguard] between my usual devices.
+This is used for accessing internal services.
+
+- A link:https://github.com/foo-dogsquared/nixos-config/blob/b3ce46ccf91e02d721215e8528d03ca82250890a/hosts/plover/modules/services/coredns.nix["hidden" primary authoritative nameserver] run with link:https://coredns.io/[CoreDNS].
+That DNS server then transfers its zones to the Hetzner's secondary nameservers.
+It also acts as an internal DNS server for my private network that is used for accessing internal services with domain names while in a VPN tunnel.
+
+Alongside some important services to keep them in check such as the firewall for basic measures, fail2ban to slow down intrusions from these publicly available services, and using a hardened kernel.
+
+I really like how it turned out.
+Though I'm worried how I'm putting it all in one basket but I think it's mostly fine for a smaller instance as long as it is hardened and take precautions properly.
+
+[#sidebar:extending-and-modifying-nixos-services]
+.Extending and modifying NixOS services
+****
+As previously mentioned, NixOS is very flexible while giving you finer controls for configuring several aspects of the configuration especially for system services.
+
+In the following example, I modified the CoreDNS service to add link:https://systemd.io/CREDENTIALS/[service credentials] to enable DNS-over-TLS using the generated certificate from the ACME client.
+I also made one more change to modify the DNS zone file with sensitive information before the service is activated.
+
+.The modified CoreDNS service with DNS-over-TLS and insert sensitive information
+[source, nix]
+----
+include::./assets/modified-coredns-service.nix[]
+----
+
+Here's another example with modifying the Gitea service to automate certain admin tasks (i.e., setting up database schema for PostgreSQL secure schema usage, creating admin account).
+
+.Modified Gitea service with additional administration tasks
+[source, nix]
+----
+include::./assets/modified-gitea-service.nix[]
+----
+
+It mostly requires seeing the source code for the appropriate version of nixpkgs though.
+But it gets easier with familiarity of navigating nixpkgs source code and nixpkgs standard library.
+****
+
+As for the workflow, I can push my changes easily with deploy-rs (or even just `nixos-rebuild` as I've learned it link:https://www.haskellforall.com/2023/01/announcing-nixos-rebuild-new-deployment.html[from this post]).
+The aspect that I have trouble so far is debugging the system properly which is something I don't know how to do... properly.
+
+Before I completely decided with NixOS, I shortly ran a server with Debian which I think its a good choice for a first timer especially with its link:https://www.debian.org/doc/user-manuals[welcoming user documentations] which the Nix ecosystem lacks.
+A lot of the documentation usually found from Nix assumes you're familiar with the overall of a Linux system which is not a bad thing.
+
+[NOTE]
+====
+However, with several initiatives to make onboarding gradually better such as link:https://zero-to-nix.com/[Zero to Nix] and link:https://nix.dev/[nix.dev], the state of Nix documentation can improve.
+====
+
+Once I got the ropes of managing a Debian system (for at least a week), I jumped into managing one with NixOS partly because of impatience coupled with the problems of traditional deploying and managing a system like that.
+While I find a lot of resources using Debian and find a solution for deploying traditional systems like Ansible or Terraform footnote:[Though, I did found out about deploying Terraform with NixOS and link:https://xeiaso.net/blog/nix-flakes-terraform[there is a way to deploy one with a flakes-enabled system].], I eventually find it easier to map concepts from there to its NixOS counterparts.
+Once the NixOS system has been setup, there's not much of a difference except it is deployed by my computer somewhere.
+
+The most worrying part of the setup is secrets management.
+It is done with sops and sops-nix then manually putting the private key in its supposed place with good ol' `scp`.
+I don't think it's efficient but it is what it is.
+I'm fairly sure there's a better way to provision the server alongside the secrets but solving that problem seems like diminishing returns.
+
+
+
+[#things-to-keep-in-mind]
+== Things to keep in mind
+
+While creating a NixOS system has been nice, there are some things you have to keep in mind.
+
+- NixOS as a server works best if you're deeply invested in the Nix ecosystem especially with the things that you can do as already discussed in <<the-nix-ecosystem>>.
+
+- Familiarity with link:https://systemd.io/[systemd] is a must especially for extending services.
+
+- Extending and customizing NixOS to a similar extent as the resulting NixOS server configuration pretty much requires familiarity and some caution in keeping up-to-date with the changes to that part of nixpkgs. footnote:[I'm using NixOS unstable branch so it's more likely to bring changes and it is mostly mine to blame for using like that.]
+
+- Learning to use these services in NixOS is not necessarily the same as using and configuring it as intended from upstream.
+You're using it rather in the way NixOS/nixpkgs intended to.
++
+--
+This could be argued the same for other operating systems such as in Debian where certain things are already handled for us through the use of link:https://wiki.debian.org/debconf[debconf] which makes certain tasks easier to start (e.g., setting up an OpenLDAP server, a web server).
+
+However, you're still likely to run into problems such as misunderstanding and misconfigurations, both of which means referring to the documentation.
+Not to mention, if you really want to learn how a tool works while using NixOS, you could see the source code of the module.
+--
+
+
+
+
+[#conclusion]
+== Conclusion
+
+Overall, the process of managing servers with NixOS is a great experience so far especially with how much controls it gives you from it.
+It sparks joy the same way how I build a NixOS system for my desktop driver.
+However, the investment required just for this solution is quite high which is a shame considering how simple it really is once you've gained some familiarity with Nix compared to other solutions such as containers.
+This high investment exists due to how different footnote:[...and the amount of abstractions from nixpkgs on top of Nix.] it is compared to the rest of the ecosystem.
+
+While it is not the de-facto experience for managing a Linux server especially for a first-timer, it can be a gateway for managing servers in a fun way sort-of-deal.
+There are still some things I wonder how some things work such as scaling which is Kubernetes is good at.
+It isn't completely needed for me right now but it is something to ponder when considering expansion for my server fleet.
+
+All of these are new things to me but I'm expanding what I can manage.
+Other plans include managing a Borg server from a link:https://buyvm.net/[BuyVM] instance especially with its link:https://buyvm.net/block-storage-slabs/[block storage slabs] which seems to be quite flexible compared to link:https://www.hetzner.com/storage/storage-box[Hetzner Storage Boxes].
+
+Among other things, I might add a more convenient way of deploying servers from cloud providers with Terraform.
+link:https://xeiaso.net/blog/nix-flakes-terraform[Xe Iaso already has a post detailing this kind of setup] but I'll have to adjust it to deploy to Hetzner Cloud if possible.
+While the additional setup is more of a nuisance since it is already deployed (for the most), it is still something that can be worth in the future.
