@@ -5,6 +5,7 @@ $line-height: 1.45;
 :root {
   --accented-border-style: var(--content-color) solid .1vw;
   --content-color: var(--base05);
+  --selection-color: var(--base04);
 
   --body-family: "Source Serif Pro", "IBM Plex Serif", "Noto Serif", serif;
   --header-family: "Source Sans Pro", "IBM Plex Sans", "Noto Sans", sans-serif;
@@ -197,6 +198,30 @@ sup.footnote {
   margin: var(--vertical-rhythm) 0;
 }
 
+table.tableblock {
+  border: var(--border-style);
+  margin: var(--vertical-rhythm) auto;
+  caption { margin: unset; }
+
+  thead tr {
+    background: var(--base05);
+    color: var(--base00);
+  }
+
+  th, td { padding: 0.5em; }
+
+  th::selection { background: var(--selection-color); }
+
+  tbody {
+    tr + tr, tr:first-child { border-top: var(--border-style); }
+  }
+}
+
+
+p.tableblock {
+  margin: unset;
+}
+
 *:not(.listingblock, .openblock) {
   > .attribution,
   > .title {
@@ -206,7 +231,7 @@ sup.footnote {
     padding: 0.5em;
 
     &::selection {
-      background: var(--base07);
+      background: var(--selection-color);
     }
   }
 
@@ -228,7 +253,7 @@ sup.footnote {
     code { background: unset; }
 
     &::selection {
-      background: var(--base07);
+      background: var(--selection-color);
     }
   }
 
@@ -267,6 +292,7 @@ sup.footnote {
 
   &:fullscreen {
     pre, code {
+      border: unset;
       max-height: 100vh;
       height: 100vh;
       margin: 0;
@@ -330,6 +356,14 @@ p {
       font-weight: bold;
       padding: unset;
     }
+  }
+}
+
+// This setup will use asciidoctor-rouge.
+.rouge.highlight, code[data-lang] {
+  &::selection, ::selection {
+    background: var(--base02);
+    color: unset;
   }
 }
 
