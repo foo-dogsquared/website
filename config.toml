@@ -91,7 +91,7 @@ section = ["HTML", "ATOM", "RSS", "JSON"]
 mainSections = ["posts", "projects"]
 toc = true
 extraNotes = """
-This site uses [Prism](https://prismjs.com/), [MathJax](https://www.mathjax.org/), [medium-zoom](https://github.com/francoischalifour/medium-zoom), and lots of modern CSS features for the life of me.
+This site uses [medium-zoom](https://github.com/francoischalifour/medium-zoom), and lots of modern CSS features for the life of me.
 For analytics, it uses [GoatCounter](https://goatcounter.com/).
 """
 
