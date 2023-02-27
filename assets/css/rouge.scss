@@ -4,13 +4,7 @@
 */
 .rouge.highlight {
   color: var(--base05);
-  background-color: var(--base00);
-
-  pre {
-    color: var(--base05);
-    background-color: var(--base00);
-    margin: 0px;
-  }
+  background: var(--base00);
 
   code {
     background: unset;

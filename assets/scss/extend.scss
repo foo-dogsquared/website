@@ -3,32 +3,18 @@ $tooltip-size: 5em;
 $line-height: 1.45;
 
 :root {
-  --accented-border-style: var(--content-color) solid .1vw;
-  --content-color: var(--base05);
-  --selection-color: var(--base04);
+  --accented-border-style: var(--foreground) solid .1vw;
 
   --body-family: "Source Serif Pro", "IBM Plex Serif", "Noto Serif", serif;
   --header-family: "Source Sans Pro", "IBM Plex Sans", "Noto Sans", sans-serif;
   --mono-family: "Source Code Pro", "IBM Plex Mono", "Noto Mono", monospace;
-  color: var(--base05);
-}
-
-// Hugo-specific blocks.
-#TableOfContents {
-  > ul { margin-bottom: unset; }
 }
 
 // Base styles.
-code {
-  background: var(--base01);
-}
+a:hover { color: var(--base0B); }
 
 hr {
-  border-color: var(--content-color);
-}
-
-pre {
-  background: var(--base00);
+  border-color: var(--foreground);
 }
 
 main > article {
@@ -43,25 +29,9 @@ main > article {
   line-height: unset;
 }
 
-.site__socials {
-  margin-top: 1em;
-}
-
-.site__social-icon svg {
-  fill: currentColor;
-}
-
 article.post {
   padding: 0.5em;
   background: var(--base01);
-}
-
-.post__meta--single {
-  p > span:first-child {
-    white-space: nowrap;
-  }
-
-  &:empty { display: none; }
 }
 
 // Asciidoctor roles (e.g., [.text-center]) on a block.
@@ -137,12 +107,6 @@ article.post {
   }
 }
 
-// Prism CSS
-code[class*="language-"], pre[class*="language-"] {
-  color: var(--base05);
-}
-
-
 // Asciidoctor-specific styles
 sup.footnote {
   vertical-align: baseline;
@@ -189,34 +153,13 @@ sup.footnote {
   }
 }
 
-#footnotes > *:not(hr) {
-  line-height: $line-height;
+#footnotes > :not(hr) {
   margin: 1em;
 }
 
 [class$="block"], :is(.admonitionblock) {
   margin: var(--vertical-rhythm) 0;
 }
-
-table.tableblock {
-  border: var(--border-style);
-  margin: var(--vertical-rhythm) auto;
-  caption { margin: unset; }
-
-  thead tr {
-    background: var(--base05);
-    color: var(--base00);
-  }
-
-  th, td { padding: 0.5em; }
-
-  th::selection { background: var(--selection-color); }
-
-  tbody {
-    tr + tr, tr:first-child { border-top: var(--border-style); }
-  }
-}
-
 
 p.tableblock {
   margin: unset;
@@ -225,14 +168,10 @@ p.tableblock {
 *:not(.listingblock, .openblock) {
   > .attribution,
   > .title {
-    background: var(--content-color);
+    background: var(--foreground);
     color: var(--base00);
     font-size: 0.9em;
     padding: 0.5em;
-
-    &::selection {
-      background: var(--selection-color);
-    }
   }
 
   > .content {
@@ -245,20 +184,16 @@ p.tableblock {
   position: relative;
 
   > *.title {
-    background: var(--content-color);
-    color: var(--base00);
+    background: var(--foreground);
+    color: var(--background);
     font-size: 0.9em;
     padding: 0.5em;
 
     code { background: unset; }
-
-    &::selection {
-      background: var(--selection-color);
-    }
   }
 
-  pre {
-    margin: 0;
+  > *.content pre {
+    margin-top: unset;
   }
 
   > .listingblock__btn-row {
@@ -275,12 +210,12 @@ p.tableblock {
     right: 0;
 
     > button {
-      background: var(--base02);
+      background: var(--base01);
       padding: $gap;
 
       &:hover {
-        background: var(--base06);
-        color: var(--base00);
+        background: var(--selection-color);
+        color: var(--base05);
       }
 
       &:active {
@@ -306,8 +241,16 @@ p.tableblock {
 }
 
 .admonitionblock {
+  table {
+    border: unset;
+
+    tbody {
+      tr + tr, tr:first-child { border-top: unset; }
+    }
+  }
+
   .icon {
-    background: var(--content-color);
+    background: var(--foreground);
     vertical-align: middle;
     width: 12%;
 
@@ -362,7 +305,7 @@ p {
 // This setup will use asciidoctor-rouge.
 .rouge.highlight, code[data-lang] {
   &::selection, ::selection {
-    background: var(--base02);
+    background: var(--selection-color);
     color: unset;
   }
 }
