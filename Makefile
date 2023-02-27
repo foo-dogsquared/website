@@ -1,5 +1,5 @@
 .PHONY: build
-build: build-openring
+build:
 	hugo --destination public
 
 .PHONY: build-openring
