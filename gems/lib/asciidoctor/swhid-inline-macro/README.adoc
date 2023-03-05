@@ -4,6 +4,9 @@
 
 An inline macro for easily linking link:https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html[SWHIDs].
 
+
+== Synopsis
+
 [source, asciidoc]
 ----
 swh:$SWHID[$CAPTION]
@@ -35,7 +38,7 @@ This should work with the following types of SWHIDs.
 
 - A SWHID with only the core identifier: `swh:1:snp:6ea7d28dfd4789609e0be2b64179fc9c12931beb[]`.
 
-- A SWHID with only one qualifier: `swh:1:cnt:ce4dd1988d2d5dfcec48252757a6fea94339ac38;lines=3-4[]`
+- A SWHID with only one qualifier with a link caption: `swh:1:cnt:ce4dd1988d2d5dfcec48252757a6fea94339ac38;lines=3-4[some code text]`
 
 - A SWHID with full contextual information.
 This is as depicted from the recommended practice for writings (i.e., blog posts, technical documentation, research papers) when referring to one of the objects in the archive.
