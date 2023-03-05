@@ -1,0 +1,40 @@
+= GitLab raw content include processor
+:toc:
+
+
+It's a link:https://docs.asciidoctor.org/asciidoctor/latest/extensions/include-processor/[include processor] for easily including raw content from GitLab repositories.
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+include::gitlab/$OWNER/$REPO[rev=$COMMIT, path=$FILEPATH]
+----
+
+
+== Extra notes
+
+A link:https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-tokens[personal access token] is most likely required.
+Get one and place the value in an environment variable `GITLAB_API_PERSONAL_ACCESS_TOKEN`.
+
+
+== Attributes
+
+There are some attributes required to be passed.
+
+- `rev` is the commit to be checked out.
+- `path` is the file path to be included.
+
+Aside from the required attributes, there are optional attributes to configured further.
+
+- `domain` is the domain of the GitLab instance.
+By default, it points to the `gitlab.com` official instance.
+
+- `version` is the version string of the API to be used.
+By default, it uses version `v4`.
+
+
+== Example usage
+
+- `include::gitlab:gitlab-org/gitlab[rev=master, path=README.md]` should
