@@ -12,3 +12,17 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
       - run: nix develop -c make build-openring
+      - run: |
+        # Show the commit as set by the Actions bot.
+        # https://github.com/actions/checkout/discussions/479
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+        # Commit the update.
+        git add ./layouts/partials/openring.html
+        git commit --message "Update webring as of $(date +%F)"
+
+        # Push it into the current branch.
+        git remote remove origin
+        git remote add origin https://${{ secrets.GITHUB_TOKEN }}@github.com/foo-dogsquared/website.git
+        git push --set-upstream origin master
