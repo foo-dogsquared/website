@@ -1,0 +1,43 @@
+= SWHID inline macro extension
+:toc:
+
+
+An inline macro for easily linking link:https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html[SWHIDs].
+
+[source, asciidoc]
+----
+swh:$SWHID[$CAPTION]
+----
+
+If no caption is given, the link text will be the core identifier of the SWHID.
+
+
+== Extra notes
+
+You would use like in the following form `swh:swh:1:snp:6ea7d28dfd4789609e0be2b64179fc9c12931beb[]` but you could also cut off `swh:` from the SWHID if you want to (i.e., `swh:1:snp:6ea7d28dfd4789609e0be2b64179fc9c12931beb[]`) to make it aesthetically pleasing.
+
+Whatever your preference is, the best practice for dealing with linking SWHIDs with this macro is setting attributes containing the SWHIDs.
+
+[source, asciidoc]
+----
+= doctitle
+:swhid-nixpkgs: swh:1:dir:2885ecf76632a83610d8e95f0eb3383109a7c90a
+
+{swhid-nixpkgs}[this revision of nixpkgs]
+or
+swh:{swhid-nixpkgs}[that revision of nixpkgs]
+----
+
+
+== Example usage
+
+This should work with the following types of SWHIDs.
+
+- A SWHID with only the core identifier: `swh:1:snp:6ea7d28dfd4789609e0be2b64179fc9c12931beb[]`.
+
+- A SWHID with only one qualifier: `swh:1:cnt:ce4dd1988d2d5dfcec48252757a6fea94339ac38;lines=3-4[]`
+
+- A SWHID with full contextual information.
+This is as depicted from the recommended practice for writings (i.e., blog posts, technical documentation, research papers) when referring to one of the objects in the archive.
++
+`swh:1:dir:2885ecf76632a83610d8e95f0eb3383109a7c90a;origin=https://github.com/NixOS/nixpkgs;visit=swh:1:snp:6ea7d28dfd4789609e0be2b64179fc9c12931beb;anchor=swh:1:rev:b7ee21d0ced814d07b7d5aca334dfe018ceafaa5[]`
