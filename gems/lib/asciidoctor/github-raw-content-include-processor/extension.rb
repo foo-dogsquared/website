@@ -9,7 +9,7 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
   end
 
   def warn_or_raise doc, warning
-    if (doc.safe > Asciidoctor::SafeMode::SERVER) || !(doc.attr? 'allow-uri-read')
+    if (doc.safe > Asciidoctor::SafeMode::SERVER) && !(doc.attr? 'allow-uri-read')
       raise warning
     else
       warn warning
@@ -17,13 +17,15 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
   end
 
   def process doc, reader, target, attrs
-    github_src = target.delete_prefix('github:').split('/', 3)
-    github_owner = github_src.at 0
-    github_repo = github_src.at 1
-    repo = "#{github_owner}/#{github_repo}"
+    src = target.delete_prefix('github:').split('/', 3)
+    owner = src.at 0
+    repo = src.at 1
+    namespaced_repo = "#{owner}/#{repo}"
 
     path = attrs['path'] || ''
-    uri = URI.parse %(https://api.github.com/repos/#{github_owner}/#{github_repo}/contents/#{path})
+
+    # For more information, see https://docs.github.com/en/rest/repos/contents.
+    uri = URI.parse %(https://api.github.com/repos/#{owner}/#{repo}/contents/#{path})
 
     if attrs['rev']
       query = { :ref => attrs['rev'] }
@@ -33,6 +35,7 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     begin
       OpenURI.open_uri(
         uri,
+        'Header' => 'application/vnd.github+json',
         'X-GitHub-Api-Version' => '2022-11-28'
       ) do |f|
         response = JSON.parse(f.read)
@@ -52,7 +55,7 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
         reader.push_include content, target, target, 1, attrs
       end
     rescue OpenURI::HTTPError => e
-      warning = %(no such file or directory '#{path}' in GitHub repo '#{repo}')
+      warning = %(error while getting '#{path}' in GitHub repo '#{repo}: #{e}')
       warn_or_raise doc, warning
       reader.push_include warning, target, target, 1, attrs
     end
