@@ -3,13 +3,15 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
 
   named :man
   name_positional_attributes 'volnum'
+  default_attributes 'domain' => 'manpages.debian.org'
 
   def process parent, target, attrs
     doc = parent.document
     text = manname = target
     suffix = (volnum = attrs['volnum']) ? %((#{volnum})) : ''
+
     if doc.basebackend? 'html'
-      target = %(#{manname}#{doc.outfilesuffix})
+      target = %(https://#{attrs['domain']}/#{manname}.#{volnum})
       doc.register :links, target
       node = create_anchor parent, text, type: :link, target: target
     elsif doc.backend == 'manpage'
