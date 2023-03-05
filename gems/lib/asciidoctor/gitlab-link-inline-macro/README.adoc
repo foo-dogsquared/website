@@ -1,0 +1,33 @@
+= GitLab link inline macro
+:toc:
+
+
+An inline macro for easily linking objects from GitLab instances.
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+gitlab:$OWNER/$REPO[$CAPTION]
+----
+
+
+== Attributes
+
+- `domain` is the base domain of the GitLab instance.
+By default, it points to the official instance of `gitlab.com`.
+
+- `rev` is the commit of the repo.
+By default. it doesn't point to anything which should be in the default branch of the repository.
+
+- `path` is the filepath to be linked.
+
+
+== Example usage
+
+- `gitlab:gitlab-org/gitlab[]` will link to link:https://gitlab.com/gitlab-org/gitlab[the GitLab's source code with the default domain].
+
+- `gitlab:gitlab-org/gitlab[rev=0c9f77389424b6c5fd8e96b227e9125a13a07cb3, path=README.md]` should link to the link:https://gitlab.com/gitlab-org/gitlab/-/blob/0c9f77389424b6c5fd8e96b227e9125a13a07cb3/README.md[GitLab's README from 3 years ago].
+
+- `gitlab:GNOME/mutter[domain=gitlab.gnome.org, rev=df653b95adf6462fc731998eb53b0860baa7253c, path=meson.build]` should link to link:https://gitlab.gnome.org/GNOME/mutter/-/blob/df653b95adf6462fc731998eb53b0860baa7253c/meson.build[Mutter v44.beta `meson.build` from GNOME GitLab instance].
