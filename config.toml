@@ -24,7 +24,7 @@ toc = true
 sectanchors = true
 "figure-caption!" = true
 source-highlighter = "rouge"
-workingFolderCurrent = true
+allow-uri-read = true
 
 [author.foo-dogsquared]
 name = "Gabriel Arazas"
