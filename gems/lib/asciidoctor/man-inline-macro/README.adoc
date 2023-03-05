@@ -1,0 +1,33 @@
+= Man inline macro
+:toc:
+
+
+It's a link:https://docs.asciidoctor.org/asciidoctorj/latest/extensions/inline-macro-processor/[inline macro] that easily links manual pages from an online manpage service like link:https://manpages.debian.org/[Debian Manpages].
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+man:$MANPAGE[$VOLNUM]
+----
+
+
+== Attributes
+
+There are optional attributes that can be passed.
+
+- `volnum` expects the section number where the manual page belongs to.
+This attribute is another way to indicate the section in case you start to use more attributes.
+The value from `volnum` attribute has higher precedence.
+When both the positional argument and `volnum` attribute is passed, the `volnum` attribute will be used.
+
+- `domain` is the domain of the online manpage service.
+By default, it uses `manpages.debian.org`.
+
+
+== Example usage
+
+- `man:crontab[5]` will link to the default manpage service with `crontab(5)` manual page.
+
+- `man:man[volnum=1, domain=man.archlinux.org/man]` will link to the link:https://man.archlinux.org/man/man.1[man manpage] from link:https://man.archlinux.org/[man.archlinux.org].
