@@ -1,0 +1,417 @@
+---
+title: "Combining traditional dotfiles and NixOS configurations with Nix flakes"
+publishdate: 2023-03-05T00:00:00+00:00
+
+categories:
+  - How to NixOS
+  - How to Linux
+tags:
+  - linux
+  - nix
+  - nixos
+---
+
+= Combining traditional dotfiles and NixOS configurations with Nix flakes
+Gabriel Arazas <foodogsquared@foodogsquared.one>
+2023-03-05
+:foodogsquared-dotfiles-rev: 5862afecaf045175891550c1020c09cd2dbb32ed
+
+
+If you're in a similar situation like mine where...
+
+- You still use other distributions that are not NixOS alongside NixOS.
+- You want your most important parts of your configuration (dotfiles) to be separate from your NixOS configurations for reasons (e.g., easier to manage, you just find modularization satisfying).
+- You want a way to integrate them together nicely.
+
+...then you're in luck because I'll share a nice way to do exactly those.
+
+In my case, I still have github:foo-dogsquared/dotfiles[my "traditional" dotfiles in a separate repository] instead of combining them under a monorepo.
+Fortunately in NixOS, there are a variety of ways to combine them but in this post, I'm focusing on doing this with link:https://zero-to-nix.com/concepts/flakes[Nix flakes] which is a newfangled way to manage dependencies in a Nix environment.
+
+This is also a nice use case for those who are still in edge using NixOS which has the impression of requiring you to fully commit the configuration only with NixOS which isn't always the case.
+I hope to show that it is possible to meet the middle ground.
+
+[WARNING]
+====
+As of Nix v2.14, Nix flakes are still considered experimental so treat it as if disruptive changes are the norm (e.g., `nix flake` subcommands and options may change).
+However, this feature has been in place for at least years now which gained some parts of the Nix ecosystem to use it (e.g., github:NixOS/nixpkgs[nixpkgs], github:nix-community/home-manager[home-manager], github:divnix/digga[digga]).
+====
+
+I chose to feature flakes since I have used it for the past year.
+Also, I just think it's better compared to the traditional way which I've also delved into more details at <<appendix:why-flakes-anyways>>.
+
+
+
+
+== Prerequisites
+
+For this post, I'm assuming that you have already set your home-manager and NixOS configurations with Nix flakes.
+This means you would have enabled flakes and the new Nix CLI (i.e., `experimental-features = nix-command flakes` in `nix.conf`).
+
+Specifically, we'll be assuming that you have something like the following configuration where you have one NixOS configuration (i.e., `nixosConfigurations.desktop`) and a home-manager configuration (i.e., `homeConfigurations.foodogsquared`).
+
+[NOTE]
+====
+You don't need the exact same setup, it is just for us to get on the same page.
+====
+
+[source, nix]
+----
+include::./assets/initial-flake.nix[]
+----
+
+If you're not familiar with flakes and only looking for an example, I recommend to look into github:Misterio77/nix-starter-configs[this flake template by Misterio77].
+I recommend especially that it has a minimal and standard NixOS and home-manager setup with flakes and it gives you starting points for using flakes.
+Pretty nifty.
+
+
+
+
+== Adding the dotfiles in the flake
+
+Flakes essentially takes in inputs and exports outputs which we usually define in a file named `flake.nix` at the project root.
+These inputs are commonly other flakes such as nixpkgs and home-manager.
+
+.`flake.nix`
+[source, nix]
+----
+include::./assets/initial-flake.nix[lines=2..11, indent=0]
+----
+
+However, flake inputs can also be non-flakes which is what enables me to include my "traditional" dotfiles.
+
+.`flake.nix`
+[source, nix]
+----
+inputs = {
+  # ...
+
+  dotfiles = {
+    url = "github:foo-dogsquared/dotfiles";
+    flake = false;
+  };
+}
+----
+
+
+
+
+[#integrating-with-home-manager-and-nixos]
+== Integrating with home-manager and NixOS
+
+Now that the dotfiles is included in the flake, it is just a matter of using it.
+In this case, I want to include part of my dotfiles such as my github:foo-dogsquared/dotfiles[Wezterm, rev={foodogsquared-dotfiles-rev}, path=wezterm], github:foo-dogsquared/dotfiles[Neovim, rev={foodogsquared-dotfiles-rev}, path=nvim], and github:foo-dogsquared/dotfiles[Doom Emacs, rev={foodogsquared-dotfiles-rev}, path=emacs] configuration alongside the home-manager environment.
+
+First, we'll have to include the dotfiles flake input as part of the home-manager profile.
+In the case of enabling it in the home-manager configurations, we have to pass it through the `extraSpecialArgs` attribute from the function that creates a home-manager profile (i.e., `home-manager.lib.homeManagerConfiguration`).
+
+.`flake.nix`
+[source, nix]
+----
+{
+  # ...
+
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
+    homeConfigurations.foodogsquared = home-manager.lib.homeManagerConfiguration {
+      # The home-manager configuration.
+      modules = [ ./home.nix ];
+
+      extraSpecialArgs = {
+        inherit (inputs) dotfiles;
+      };
+    };
+  };
+}
+----
+
+Now, we have to do what we want to do: include part of the dotfiles in the home directory.
+Fortunately, this part is already handled for us since home-manager has several options to include files inside of the home directory (i.e., `home.file`, `xdg.configFile`).
+The following code listing is one way to do what I want to do.
+
+[NOTE]
+====
+Don't forget to add the additional `dotfiles` attribute we passed in `extraSpecialArgs` to make this work.
+====
+
+[#lst:dotfiles-home-manager]
+.`home.nix`
+[source, nix]
+----
+{ config, options, lib, pkgs, dotfiles, ... }:
+
+{
+  # The rest of your home-manager configuration.
+  # ...
+
+  # Putting the dotfiles in their rightful place.
+  xdg.configFile = {
+    doom.source = "${dotfiles}/emacs";
+    wezterm.source = "${dotfiles}/wezterm";
+    nvim.source = "${dotfiles}/nvim";
+  };
+}
+----
+
+[#sidebar:what-exactly-is-inputs-dotfiles]
+.What exactly is `inputs.dotfiles`?
+****
+`inputs.dotfiles` is one of the inputs from our flake.
+Each input is an attribute set containing some metadata including the path of the input on the store directory.
+
+[source, nix]
+----
+{
+  lastModified = 1668655246;
+  lastModifiedDate = "20221117032046";
+  narHash = "sha256-V7Js99Pyg0UvP6RNg3Isv3MgCKZO9cqVxiiVa9ZZiFU=";
+  outPath = "/nix/store/lgflzj8grdxpyp1inil6c96253c06b24-source";
+  rev = "5862afecaf045175891550c1020c09cd2dbb32ed";
+  shortRev = "5862afe";
+}
+----
+
+While we can easily create a string value of the output path with `inputs.dotfiles.outPath`, the flake input will simply evaluate to the output path when coerced into a string.
+In other words, `"${inputs.dotfiles.outPath}"` and `"${inputs.dotfiles}"` are equivalent.
+This is why the code from <<lst:dotfiles-home-manager>> works just fine.
+
+If you want to be explicit about your intent of `dotfiles` as a path to the dotfiles, you could also just pass `dotfiles` to the `extraSpecialArgs` like the following.
+
+[source, nix]
+----
+{
+  extraSpecialArgs = {
+    dotfiles = inputs.dotfiles.outPath;
+    # or...
+    # dotfiles = ./path/to/my/dotfiles;
+  };
+}
+----
+****
+
+If you have a NixOS configuration that makes use of home-manager, don't forget to set `home-manager.extraSpecialArgs` somewhere in it.
+
+.`flake.nix`
+[source, nix]
+----
+{
+  # ...
+
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      modules = [
+        # The NixOS configuration.
+        ./configuration.nix
+
+        # Make sure to import the home-manager NixOS module somewhere.
+        home-manager.nixosModules.home-manager
+
+        {
+          # Make sure to import the home-manager configuration somewhere.
+          home-manager.users.foodogsquared = { ... }:
+            imports = [ ./home.nix ];
+          };
+
+          # Make sure to not forget the extra arguments.
+          home-manager.extraSpecialArgs = {
+            inherit (inputs) dotfiles;
+          };
+        }
+      ];
+    };
+  };
+}
+----
+
+You can also make use of this other than putting part of the dotfiles in the home directory.
+For instance, NixOS has options to put files in `/etc/` with `environment.etc` which is where system-wide configurations usually live if you have part of the dotfiles that are meant to be system-wide.
+
+Say, you have an link:https://i3wm.org/[i3 window manager] configuration in your traditional dotfiles that you want to be used system-wide (for whatever reason).
+
+Similarly to setting it in the home-manager configuration, you have to pass the flake input through a similar attribute, `specialArgs`, in the function that creates a NixOS configuration (i.e., `inputs.nixpkgs.lib.nixosSystem`).
+
+.`flake.nix`
+[source, nix]
+----
+{
+  # ...
+
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
+    # ...
+
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      # ...
+
+      specialArgs = {
+        inherit (inputs) dotfiles;
+      };
+    };
+  };
+}
+----
+
+Then you can use it in your NixOS configuration file somewhere.
+
+[NOTE]
+====
+Again, take note of the `dotfiles` as one of the function attribute in the following code.
+====
+
+.`configuration.nix`
+[source, nix]
+----
+{ config, lib, pkgs, dotfiles, ... }:
+
+{
+  # ...
+
+  # System-wide i3 configuration from our dotfiles...
+  # HOORAH!
+  environment.etc.i3.source = "${dotfiles}/i3";
+}
+----
+
+
+
+
+[#workflow-and-its-caveats]
+== Workflow and its caveats
+
+Once you got it running, it is just a matter of managing flake inputs.
+
+For example, to update your dotfiles to its latest revision, you can run the following command.
+
+[source, shell]
+----
+nix flake lock --update-input dotfiles
+----
+
+You could also just update the dotfiles along the rest of the inputs with...
+
+[source, shell]
+----
+nix flake update
+----
+
+[TIP]
+====
+You could also add `--commit-lock-file` flag to the above commands to automatically commit changes to the lockfile which is handy if you want to track your lockfile properly.
+====
+
+There are caveats to this, of course, such as the "What if?"-situation of you wanting only the rest of the flake inputs except your dotfiles (for reasons) to be updated next time you run `nix flake update`.
+In this case, you have to change the dotfile flake URL to `github:foo-dogsquared/dotfiles/$REVHASH` to lock it in.
+By the time it is ready to update, change the URL again then run `nix flake lock --update-input dotfiles`.
+
+Overall, this depends on how much your dotfiles is integrated with the rest of the configuration and how much your dotfiles interacts with outside of it.
+If your "traditional" dotfiles is ever-changing and conflicts with the systems you're interacting (e.g., using NixOS unstable branch and Debian stable where the version between packages may largely differ and more likely to break), it may be time to do something about it such as creating branches for each of them.
+
+In my experience, the potential problems with this setup isn't that much that of a problem since my traditional dotfiles barely changes nowadays.
+In fact, my NixOS configurations change more often.
+If there's a change that is coming from my dotfiles, I just push the changes to the (dotfiles) remote repo and update my NixOS configuration with the update.
+
+
+
+
+[#appendix:why-flakes-anyways]
+[appendix]
+== Why flakes anyways?
+
+It is previously stated that it is possible to do what we want to do other than flakes.
+Out of all solutions, I chose flakes since it is better than the traditional way.
+
+To show it clearly, we'll first show how to do it with the classical way which uses a link:https://nixos.org/manual/nixpkgs/stable/#chap-pkgs-fetchers[fetcher function].
+nixpkgs has a lot of fetchers including one for GitHub, GitLab, Sourcehut, and even just any Git repo.
+But in this case, we'll use the appropriate fetcher `fetchFromGitHub`.
+
+[NOTE]
+====
+Most fetchers require a hash of the thing to be stored in advance.
+You can refer to the link:https://nixos.org/manual/nixpkgs/stable/#sec-source-hashes[appropriate chapter on how to get hashes from nixpkgs manual] for details.
+====
+
+[#lst:dotfiles-home-manager-with-fetchers]
+.`home.nix`, this time with fetchers instead of flakes
+[source, nix]
+----
+{ config, lib, pkgs, ... }:
+
+let
+  dotfiles = pkgs.fetchFromGitHub {
+    owner = "foo-dogsquared";
+    repo = "dotfiles";
+    rev = "5862afecaf045175891550c1020c09cd2dbb32ed";
+    hash = "sha256-V7Js99Pyg0UvP6RNg3Isv3MgCKZO9cqVxiiVa9ZZiFU=";
+  };
+in
+{
+  # ...
+
+  # Putting the dotfiles in their rightful place.
+  xdg.configFile = {
+    doom.source = "${dotfiles}/emacs";
+    wezterm.source = "${dotfiles}/wezterm";
+    nvim.source = "${dotfiles}/nvim";
+  };
+}
+----
+
+[#sidebar:what-is-dotfiles-this-time]
+.What is `dotfiles` this time?
+****
+As previously stated from <<sidebar:what-exactly-is-inputs-dotfiles>>, `dotfiles` from <<lst:dotfiles-home-manager>> is a flake input which is an attribute set that evaluates into the output path when coerced into a string.
+This time, `fetchFromGitHub` is a function that returns link:https://nixos.org/manual/nix/stable/language/derivations.html[a derivation] containing build instructions for downloading the GitHub repo.
+
+.Pretty-printed derivation of my dotfiles with `nix show-derivation $DRV`
+[source]
+----
+include::./assets/github-foo-dogsquared-dotfiles-derivation.drv[]
+----
+
+Derivations also evaluate into the output path when coerced into a string.
+This is why <<lst:dotfiles-home-manager-with-fetchers, the code for setting the dotfiles into the home directory>> still works unchanged.
+****
+
+As you might have already guessed, this has the disadvantage of manually updating the tarballs alongside the flake environment (e.g., NixOS, home-manager).
+For example, if you want to update the dotfiles, you'll have to go through the process of updating the URL (if applicable) and then updating the hash.
+Pretty tedious to deal with.
+
+By including the dotfiles as one of the flake inputs, you're also eliminating this tedious process of manually updating.
+All you have to do is `nix flake update` as mentioned from <<workflow-and-its-caveats>> and you're done!
+
+Not to mention, tools such as `nixos-rebuild switch` and `home-manager switch` also supports updating with flakes at recent releases.
+
+.Ways to upgrade your flake-enabled home-manager/NixOS environments
+[source, shell]
+----
+home-manager --flake .#foodogsquared switch
+nixos-rebuild --flake .#desktop switch
+----
+
+[#sidebar:introduction-to-nurl]
+.Introduction to nurl
+****
+nixpkgs has a lot of fetchers to choose from with appropriate fetchers call for appropriate situations: `fetchgit` for Git repos, `fetchFromGitHub` for Git repos on GitHub, and so forth.
+An additional benefit for using the appropriate fetcher is typically easier to use.
+
+Luckily, there is a Nix tool called github:nix-community/nurl[nurl] that easily generates Nix code with the appropriate fetchers for different forges.
+
+Here's an example usage to easily generate the most appropriate code for fetching my "traditional" dotfiles from my GitHub repo.
+
+[source, shell]
+----
+nurl https://github.com/foo-dogsquared/dotfiles
+----
+
+It should generate the similar output to the following listing.
+
+[source, nix]
+----
+fetchFromGitHub {
+  owner = "foo-dogsquared";
+  repo = "dotfiles";
+  rev = "5862afecaf045175891550c1020c09cd2dbb32ed";
+  hash = "sha256-V7Js99Pyg0UvP6RNg3Isv3MgCKZO9cqVxiiVa9ZZiFU=";
+}
+----
+
+Very convenient tool!
+****
