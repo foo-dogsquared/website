@@ -154,11 +154,15 @@ sup.footnote {
 }
 
 #footnotes > :not(hr) {
-  margin: 1em;
+  margin: 1rem;
 }
 
 [class$="block"], :is(.admonitionblock) {
-  margin: var(--vertical-rhythm) 0;
+  margin: 1rem 0;
+
+  .title > code {
+    background: unset;
+  }
 }
 
 p.tableblock {
@@ -183,7 +187,7 @@ p.tableblock {
 .listingblock {
   position: relative;
 
-  > *.title {
+  > .title {
     background: var(--foreground);
     color: var(--background);
     font-size: 0.9em;
@@ -192,7 +196,7 @@ p.tableblock {
     code { background: unset; }
   }
 
-  > *.content pre {
+  > .content pre {
     margin-top: unset;
   }
 
@@ -226,16 +230,28 @@ p.tableblock {
   }
 
   &:fullscreen {
-    pre, code {
-      border: unset;
+    border: unset;
+
+    .content > pre {
       max-height: 100vh;
-      height: 100vh;
-      margin: 0;
-      overflow: auto;
     }
 
     > .listingblock__btn-row {
       top: 0;
+    }
+
+    &::backdrop {
+      --color1: var(--base09);
+      --color2: var(--base08);
+      --threshold1: 9px;
+      --threshold2: 24px;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--color1) 0px,
+        var(--color1) var(--threshold1),
+        var(--color2) var(--threshold1),
+        var(--color2) var(--threshold2),
+      );
     }
   }
 }
@@ -243,6 +259,7 @@ p.tableblock {
 .admonitionblock {
   table {
     border: unset;
+    margin: unset;
 
     tbody {
       tr + tr, tr:first-child { border-top: unset; }
