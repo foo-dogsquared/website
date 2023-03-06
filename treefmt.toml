@@ -12,12 +12,9 @@ command = "prettier"
 options = ["--write"]
 includes = [
  "*.css",
- "*.html",
  "*.js",
  "*.json",
  "*.jsx",
- "*.md",
- "*.mdx",
  "*.scss",
  "*.ts",
  "*.yaml",
