@@ -33,11 +33,14 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     end
 
     begin
-      OpenURI.open_uri(
-        uri,
+      headers = {
         'Header' => 'application/vnd.github+json',
-        'X-GitHub-Api-Version' => '2022-11-28'
-      ) do |f|
+        'X-GitHub-Api-Version' => '2022-11-28',
+      }
+
+      headers['Authorization'] = "Token #{ENV['GITHUB_API_BEARER_TOKEN']}" if ENV['GITHUB_API_BEARER_TOKEN']
+
+      OpenURI.open_uri(uri, headers) do |f|
         response = JSON.parse(f.read)
 
         # If the response is an array, it is likely to be a directory. In this

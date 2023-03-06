@@ -45,12 +45,11 @@ class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     query = { :ref => rev }
     uri.query = URI.encode_www_form query
 
-    begin
-      OpenURI.open_uri(
-        uri,
-        'Content-Type' => 'application/json',
-        'PRIVATE-TOKEN' => ENV['GITLAB_API_PERSONAL_ACCESS_TOKEN'],
-      ) do |f|
+    content = begin
+      headers = { 'Content-Type' => 'application-json' }
+      header['PRIVATE-TOKEN'] = ENV['GITLAB_API_PERSONAL_ACCESS_TOKEN'] if ENV['GITLAB_API_PERSONAL_ACCESS_TOKEN']
+
+      OpenURI.open_uri(uri, headers) do |f|
         response = JSON.parse(f.read)
 
         if response['content'] && response['encoding'] == 'base64'
