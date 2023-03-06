@@ -8,22 +8,24 @@
   };
 
   outputs = inputs@{ self, nixpkgs, ... }:
-  let
-    systems = inputs.flake-utils.lib.defaultSystems;
-    overlays = [ inputs.ruby-nix.overlays.ruby ];
-    in inputs.flake-utils.lib.eachSystem systems (system:
     let
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = overlays ++ [
-          (final: prev: {
-            ruby-nix = inputs.ruby-nix.lib prev;
-          })
-        ];
-      };
-    in {
-      devShells.default = import ./shell.nix { inherit pkgs; };
+      systems = inputs.flake-utils.lib.defaultSystems;
+      overlays = [ inputs.ruby-nix.overlays.ruby ];
+    in
+    inputs.flake-utils.lib.eachSystem systems (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = overlays ++ [
+            (final: prev: {
+              ruby-nix = inputs.ruby-nix.lib prev;
+            })
+          ];
+        };
+      in
+      {
+        devShells.default = import ./shell.nix { inherit pkgs; };
 
-      formatter = pkgs.treefmt;
-    });
+        formatter = pkgs.treefmt;
+      });
 }

@@ -46,14 +46,14 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
         # If the response is an array, it is likely to be a directory. In this
         # usecase, we'll just list them.
         content = if response.kind_of? Array
-          warning = %(given path '#{path}' from GitHub repo '#{repo}' is a directory)
-          warn_or_raise doc, warning
-          warning
-        elsif response.kind_of? Object
-          if response['content'] && response['encoding'] == 'base64'
-            Base64.decode64 response['content']
-          end
-        end
+                    warning = %(given path '#{path}' from GitHub repo '#{repo}' is a directory)
+                    warn_or_raise doc, warning
+                    warning
+                  elsif response.kind_of? Object
+                    if response['content'] && response['encoding'] == 'base64'
+                      Base64.decode64 response['content']
+                    end
+                  end
 
         reader.push_include content, target, target, 1, attrs
       end
