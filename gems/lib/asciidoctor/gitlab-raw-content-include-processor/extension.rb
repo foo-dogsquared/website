@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'base64'
 require 'json'
 require 'open-uri'
 require 'uri'
 
 class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
-  @@prefix = 'gitlab:'
+  @prefix = 'gitlab:'
 
-  def handles? target
-    target.start_with? @@prefix
+  def handles?(target)
+    target.start_with? @prefix
   end
 
   def warn_or_raise doc, warning
@@ -18,14 +20,14 @@ class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     end
   end
 
-  def process doc, reader, target, attrs
-    src = target.delete_prefix(@@prefix).split('/', 2)
+  def process(doc, reader, target, attrs)
+    src = target.delete_prefix(@prefix).split('/', 2)
     owner = src.at 0
     repo = src.at 1
     namespaced_repo = "#{owner}/#{repo}"
 
-    raise %(there is no 'path' attribute given for GitLab repo '#{namespaced_repo}') unless (attrs.key? 'path')
-    raise %(no given ref for getting file in '#{namespaced_repo}') unless (attrs.key? 'rev')
+    raise %(there is no 'path' attribute given for GitLab repo '#{namespaced_repo}') unless attrs.key? 'path'
+    raise %(no given ref for getting file in '#{namespaced_repo}') unless attrs.key? 'rev'
 
     path = attrs['path']
     rev = attrs['rev']
@@ -42,7 +44,7 @@ class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     uri += %(/repository/files/#{URI.encode_www_form_component path})
 
     # Then the revision.
-    query = { :ref => rev }
+    query = { ref: rev }
     uri.query = URI.encode_www_form query
 
     content = begin
@@ -52,9 +54,7 @@ class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
       OpenURI.open_uri(uri, headers) do |f|
         response = JSON.parse(f.read)
 
-        if response['content'] && response['encoding'] == 'base64'
-          Base64.decode64 response['content']
-        end
+        Base64.decode64 response['content'] if response['content'] && response['encoding'] == 'base64'
 
         reader.push_include content, target, target, 1, attrs
       end

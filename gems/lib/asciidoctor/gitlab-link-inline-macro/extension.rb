@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'uri'
 
 class GitLabLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
@@ -7,7 +9,7 @@ class GitLabLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
   name_positional_attributes 'caption'
   default_attributes 'domain' => 'gitlab.com'
 
-  def process parent, target, attrs
+  def process(parent, target, attrs)
     doc = parent.document
 
     text = attrs['caption'] || target

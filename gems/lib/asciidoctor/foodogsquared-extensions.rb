@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'asciidoctor'
 require 'asciidoctor/extensions'
 require_relative 'man-inline-macro/extension'

@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'base64'
 require 'json'
 require 'open-uri'
 require 'uri'
 
 class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
-  def handles? target
+  def handles?(target)
     target.start_with? 'github:'
   end
 
-  def warn_or_raise doc, warning
+  def warn_or_raise(doc, warning)
     if (doc.safe > Asciidoctor::SafeMode::SERVER) && !(doc.attr? 'allow-uri-read')
       raise warning
     else
@@ -16,7 +18,7 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     end
   end
 
-  def process doc, reader, target, attrs
+  def process(doc, reader, target, attrs)
     src = target.delete_prefix('github:').split('/', 3)
     owner = src.at 0
     repo = src.at 1
@@ -28,14 +30,14 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     uri = URI.parse %(https://api.github.com/repos/#{owner}/#{repo}/contents/#{path})
 
     if attrs['rev']
-      query = { :ref => attrs['rev'] }
+      query = { ref: attrs['rev'] }
       uri.query = URI.encode_www_form query
     end
 
     begin
       headers = {
         'Header' => 'application/vnd.github+json',
-        'X-GitHub-Api-Version' => '2022-11-28',
+        'X-GitHub-Api-Version' => '2022-11-28'
       }
 
       headers['Authorization'] = "Token #{ENV['GITHUB_API_BEARER_TOKEN']}" if ENV['GITHUB_API_BEARER_TOKEN']
@@ -45,20 +47,18 @@ class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
 
         # If the response is an array, it is likely to be a directory. In this
         # usecase, we'll just list them.
-        content = if response.kind_of? Array
+        content = if response.is_a? Array
                     warning = %(given path '#{path}' from GitHub repo '#{repo}' is a directory)
                     warn_or_raise doc, warning
                     warning
-                  elsif response.kind_of? Object
-                    if response['content'] && response['encoding'] == 'base64'
-                      Base64.decode64 response['content']
-                    end
+                  elsif response.is_a? Object
+                    Base64.decode64 response['content'] if response['content'] && response['encoding'] == 'base64'
                   end
 
         reader.push_include content, target, target, 1, attrs
       end
     rescue OpenURI::HTTPError => e
-      warning = %(error while getting '#{path}' in GitHub repo '#{repo}: #{e}')
+      warning = %(error while getting '#{path}' in GitHub repo '#{namespaced_repo}: #{e}')
       warn_or_raise doc, warning
       reader.push_include warning, target, target, 1, attrs
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'uri'
 
 class GitHubLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
@@ -6,7 +8,7 @@ class GitHubLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
   named :github
   name_positional_attributes 'caption'
 
-  def process parent, target, attrs
+  def process(parent, target, attrs)
     doc = parent.document
 
     text = attrs['caption'] || target

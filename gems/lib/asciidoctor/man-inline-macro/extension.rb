@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
   use_dsl
 
@@ -5,7 +7,7 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
   name_positional_attributes 'volnum'
   default_attributes 'domain' => 'manpages.debian.org'
 
-  def process parent, target, attrs
+  def process(parent, target, attrs)
     doc = parent.document
     text = manname = target
     suffix = (volnum = attrs['volnum']) ? %((#{volnum})) : ''
