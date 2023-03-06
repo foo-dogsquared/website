@@ -1,0 +1,33 @@
+= GitHub link inline macro
+:toc:
+
+
+An inline macro that easily links repositories from GitHub.
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+github:$OWNER/$REPO[$CAPTION]
+----
+
+If caption is missing, the link text will be the namespace (i.e., `$OWNER/$REPO`) of the repo.
+
+
+== Attributes
+
+There are optional attributes for this macro.
+
+- `rev` is the commit/branch/tag of the repo to be linked.
+
+- `path` is the filepath to be linked within the repo.
+
+
+== Example usage
+
+- `github:foo-dogsquared/website` will link to link:https://github.com/foo-dogsquared/website[my website repository].
+
+- `github:NixOS/nixpkgs[nixpkgs nixos-unstable branch, rev=nixos-unstable]` should link to the link:https://github.com/NixOS/nixpkgs/tree/nixos-unstable[NixOS unstable branch of nixpkgs] with a custom link text.
+
+- `github:errata-ai/vale[Vale v2.3.0 README, path=README.md, rev=v2.3.0]` should link to the link:https://github.com/errata-ai/vale/blob/v2.3.0/README.md[README of Vale v2.3.0].
