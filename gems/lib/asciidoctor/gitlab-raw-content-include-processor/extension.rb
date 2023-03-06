@@ -6,13 +6,11 @@ require 'open-uri'
 require 'uri'
 
 class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
-  @prefix = 'gitlab:'
-
   def handles?(target)
-    target.start_with? @prefix
+    target.start_with? 'gitlab:'
   end
 
-  def warn_or_raise doc, warning
+  def warn_or_raise(doc, warning)
     if (doc.safe > Asciidoctor::SafeMode::SERVER) && !(doc.attr? 'allow-uri-read')
       raise warning
     else
@@ -21,7 +19,7 @@ class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
   end
 
   def process(doc, reader, target, attrs)
-    src = target.delete_prefix(@prefix).split('/', 2)
+    src = target.delete_prefix('gitlab:').split('/', 2)
     owner = src.at 0
     repo = src.at 1
     namespaced_repo = "#{owner}/#{repo}"
@@ -55,15 +53,14 @@ class GitLabRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
         response = JSON.parse(f.read)
 
         Base64.decode64 response['content'] if response['content'] && response['encoding'] == 'base64'
-
-        reader.push_include content, target, target, 1, attrs
       end
     rescue OpenURI::HTTPError => e
       warning = %(error while getting '#{path}' in GitLab repo '#{repo}': #{e})
       warn_or_raise doc, warning
-      reader.push_include warning, target, target, 1, attrs
+      warning
     end
 
+    reader.push_include content, target, target, 1, attrs
     reader
   end
 end
