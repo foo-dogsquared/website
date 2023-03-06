@@ -3,7 +3,7 @@ command = "nixpkgs-fmt"
 includes = ["*.nix"]
 
 [formatter.ruby]
-command = "rufo"
+command = "rubocop"
 options = ["-x"]
 includes = ["*.rb"]
 
