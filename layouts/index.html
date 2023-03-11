@@ -1,9 +1,8 @@
 {{ define "main" }}
 
-<section>
-{{ .Content }}
-</section>
+<article>
+  <main>{{ .Content }}</main>
+</article>
 
-<hr>
-{{- partial "openring.html" . }}
-{{- end }}
+<hr />
+{{- partial "openring.html" . }} {{- end }}
