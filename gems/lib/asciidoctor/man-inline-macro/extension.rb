@@ -5,7 +5,7 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
 
   named :man
   name_positional_attributes 'volnum'
-  default_attributes 'domain' => 'manpages.debian.org'
+  default_attributes 'service' => 'debian'
 
   def process(parent, target, attrs)
     doc = parent.document
@@ -13,7 +13,18 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
     suffix = (volnum = attrs['volnum']) ? %((#{volnum})) : ''
 
     if doc.basebackend? 'html'
-      target = %(https://#{attrs['domain']}/#{manname}.#{volnum})
+      case attrs['service']
+      when 'debian'
+        domain = 'https://manpages.debian.org/'
+      when 'arch'
+        domain = 'https://man.archlinux.org/man'
+      when 'opensuse'
+        domain = 'https://manpages.opensuse.org/'
+      else
+        raise "no available manpage service #{attrs['service']}"
+      end
+
+      target = %(#{domain}/#{manname}.#{volnum})
       doc.register :links, target
       node = create_anchor parent, text, type: :link, target: target
     elsif doc.backend == 'manpage'
