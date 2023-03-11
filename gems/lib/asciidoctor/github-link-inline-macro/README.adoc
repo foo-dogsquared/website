@@ -23,6 +23,10 @@ There are optional attributes for this macro.
 
 - `path` is the filepath to be linked within the repo.
 
+- `issue` accepts the issue number to be linked in the GitHub repo.
+Take note `issue` is exclusive to other attributes and has more precedence.
+For example, if `issue` and `rev` are both present, the link for issue will be the result.
+
 
 == Example usage
 
@@ -31,3 +35,7 @@ There are optional attributes for this macro.
 - `github:NixOS/nixpkgs[nixpkgs nixos-unstable branch, rev=nixos-unstable]` should link to the link:https://github.com/NixOS/nixpkgs/tree/nixos-unstable[NixOS unstable branch of nixpkgs] with a custom link text.
 
 - `github:errata-ai/vale[Vale v2.3.0 README, path=README.md, rev=v2.3.0]` should link to the link:https://github.com/errata-ai/vale/blob/v2.3.0/README.md[README of Vale v2.3.0].
+
+- `github:neovim/neovim[Neovim cannot open large files properly, issue=614]` should link to https://github.com/neovim/neovim/issues/614[an issue of Neovim].
+
+- `github:neovim/neovim[Neovim cannot open large files properly, issue=614, rev=master]` should still link to https://github.com/neovim/neovim/issues/614[an issue of Neovim] since `issue` has more precedence over `rev`.
