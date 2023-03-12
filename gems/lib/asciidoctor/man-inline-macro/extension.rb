@@ -15,11 +15,11 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
     if doc.basebackend? 'html'
       case attrs['service']
       when 'debian'
-        domain = 'https://manpages.debian.org/'
+        domain = 'https://manpages.debian.org'
       when 'arch'
         domain = 'https://man.archlinux.org/man'
       when 'opensuse'
-        domain = 'https://manpages.opensuse.org/'
+        domain = 'https://manpages.opensuse.org'
       else
         raise "no available manpage service #{attrs['service']}"
       end
