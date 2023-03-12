@@ -31,6 +31,14 @@ main > article {
   line-height: unset;
 }
 
+.site__socials--content {
+  margin-top: 1em;
+}
+
+.site__links--content {
+  margin-top: 1em;
+}
+
 article.post {
   padding: 0.5em;
   background: var(--base01);
