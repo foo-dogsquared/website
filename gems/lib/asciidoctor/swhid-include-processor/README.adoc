@@ -34,6 +34,7 @@ This include processor also respects the safe mode setting.
 This means in order to permit including by SWHID, you have to permit link:https://docs.asciidoctor.org/asciidoc/latest/directives/include-uri/[includes by URIs].
 
 Lastly, this include processor uses the Software Heritage API which includes a limitation.
+You could create authorized requests by setting `SWH_API_BEARER_TOKEN` environment variable with a token.
 
 
 == Example usage

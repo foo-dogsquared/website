@@ -12,8 +12,15 @@ The following is the basic form of using this include processor.
 
 [source, asciidoc]
 ----
-include::github:$OWNER/$REPO[]
+\include::github:$OWNER/$REPO[]
 ----
+
+
+== Extra notes
+
+The include processor will use GitHub API.
+It can create authorized requests by setting a token in `GITHUB_API_BEARER_TOKEN` environment variable.
+For instructions on how to get a token, you can refer to link:https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api?apiVersion=2022-11-28#authenticating[respective documentation].
 
 
 == Attributes
