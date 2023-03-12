@@ -158,6 +158,10 @@ sup.footnote {
     border: var(--accented-border-style);
     margin: auto;
     padding: 1em 0.5em;
+
+    & > .paragraph:first-child p {
+        margin-top: 0;
+    }
   }
 }
 
