@@ -25,6 +25,7 @@ sectanchors = true
 "figure-caption!" = true
 source-highlighter = "rouge"
 allow-uri-read = true
+experimental = true
 
 [author.foo-dogsquared]
 name = "Gabriel Arazas"
@@ -75,12 +76,12 @@ section = ["HTML", "ATOM", "RSS", "JSON"]
     [[menu.links]]
         identifier = "code"
         name = "Code"
-        url = "https://github.com/foo-dogsquared/"
+        url = "https://code.foodogsquared.one/"
 
     [[menu.links]]
         identifer = "wiki"
         name = "Wiki"
-        url = "https://github.com/foo-dogsquared/wiki"
+        url = "https://wiki.foodogsquared.one/"
 
     [[menu.links]]
         identifer = "music"

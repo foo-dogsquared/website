@@ -8,7 +8,7 @@ title: Homepage
 
 Hey there!
 I'm Gabriel Arazas (`foodogsquared`), a hobbyist on software development and programming, an expert in procastination, and a hack on anything else.
-You can see more what's my deal on xref:about/index.adoc[another page] because I want to make introductions nice and brief.
+You can see more what's my deal on link:/about/[another page] because I want to make introductions nice and brief.
 
 Welcome to my small home on the deepest corners of the internet, by the way.
 Have a seat and take a look in my digital cavern.
@@ -25,9 +25,10 @@ You can also find me on a bunch of platforms where I may be inactive for some ti
 {{< homepage/social-links >}}
 
 If you want the old way on getting contact with me, you can shoot an email at `hey{at}foodogsquared{dot}one`.
+You can also look for more details at link:/contact/[my contact page].
 
 Want a way to verify me and my stuff? I have a link:https://gnupg.org/[GnuPG] public key for your privacy-oriented and paranoia-filled pleasure.
-It is currently stored at link:https://keys.openpgp.org/vks/v1/by-fingerprint/1D5A862828FFC47537F9628F73F89FF87C72E7D3[the OpenPGP keyserver] which you can search with my email address.
+It is currently stored at link:https://keys.openpgp.org/vks/v1/by-fingerprint/1D5A862828FFC47537F9628F73F89FF87C72E7D3[the OpenPGP keyserver] which you can search with my email address at `foodogsquared{at}foodogsquared{dot}one`.
 
 TIP: This site also have web feeds available in multiple formats such as in link:index.rss[RSS], link:index.atom[Atom], and link:index.json[JSON].
 It's also available in individual sections (such as link:posts/[my writings] — i.e., `posts/index.{rss,atom,json}`).
