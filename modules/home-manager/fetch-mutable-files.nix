@@ -63,6 +63,25 @@ in
 
   config = {
     systemd.user.services.fetch-mutable-files = {
+      Unit = {
+        Description = "Fetch mutable files from home-manager";
+        After = [ "default.target" "network-online.target" ];
+        Wants = [ "network-online.target" ];
+      };
+
+      Service = {
+        # We'll assume this service will download lots of files. We want the
+        # temporary files to only last along with the service.
+        PrivateUsers = true;
+        PrivateTmp = true;
+
+        Type = "oneshot";
+        RemainAfterExit = true;
+        # TODO: Complete this
+        ExecStart = "";
+      };
+
+      Install.WantedBy = [ "default.target" ];
     };
   };
 }
