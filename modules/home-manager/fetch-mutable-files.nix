@@ -77,8 +77,22 @@ in
 
         Type = "oneshot";
         RemainAfterExit = true;
-        # TODO: Complete this
-        ExecStart = "";
+        ExecStart = let
+          curl = "${lib.getBin pkgs.curl}/bin/curl";
+          git = "${lib.getBin pkgs.curl}/bin/git";
+          fetchCmds = lib.mapAttrsToList (file: value:
+            let
+              inherit (value) type;
+              path = lib.escapeShellArg value.path;
+              url = lib.escapeURL value.url;
+            in ''
+              ${lib.optionalString (type == "git") "[ -d ${path} ] || ${git} clone ${url} ${path}"}
+              ${lib.optionalString (type == "fetch") "[ -d ${path} ] || ${curl} ${url} --output ${path}"}
+            '') cfg;
+          shellScript = pkgs.writeShellScript "fetch-mutable-files" ''
+            ${lib.concatStringsSep "\n" fetchCmds}
+          '';
+        in builtins.toString shellScript;
       };
 
       Install.WantedBy = [ "default.target" ];
