@@ -78,6 +78,7 @@ Here's a video that shows using Neovim with the previously mentioned keybindings
 video::./assets/neovim-manpage-navigation.webm[]
 
 You can also navigate an outline of the document with kbd:[gO] which is nice to navigate large documents.
+The outline will also show the flags and options if the manual page has a single- or double-dashed option at the beginning of a line (i.e., `--option`, `-flag`).
 
 [NOTE]
 ====
@@ -85,8 +86,6 @@ Unfortunately by default, kbd:[gO] only works on `help` and `:Man` buffers as in
 
 Also, this feature is not found in Vim.
 ====
-
-The outline will also show the flags and options if the manual page has a single- or double-dashed option at the beginning of a line (i.e., `--option`, `-flag`).
 
 .The outline of man:yt-dlp[1]
 image::./assets/neovim-man-outlines-with-flags-and-options.png[A full window of the outline for yt-dlp]
@@ -107,6 +106,9 @@ In particular, the way how Neovim opens.
 
 In the following video, there are two pagers: less and Neovim opening `configuration.nix(5)` which is at least 150,000 lines, 400,000 words counted, totalling just 9MB in size.
 It should clearly show the different approach of opening.
+
+.Neovim versus less on opening `configuration.nix(5)`
+video::./assets/neovim-vs-less-performance.webm[]
 
 For comprehension, here are several manpages that are quite big in comparison to the monstrous manual page. footnote:[This will vary between different systems with different versions and all.]
 
@@ -135,9 +137,6 @@ For comprehension, here are several manpages that are quite big in comparison to
 | configuration.nix(5)
 | 9.01
 |===
-
-.Neovim versus less on opening `configuration.nix(5)`
-video::./assets/neovim-vs-less-performance.webm[]
 
 As you can see Neovim is magnitudes slower due to the approach of loading the whole file in memory before showing it unlike what less is doing. footnote:[To be fair, it's an github:neovim/neovim[issue for Neovim to open large files, issue=614].]
 In practice, the difference can be negligible and only seen in larger documents since most manpages don't reach even just a single megabyte.
