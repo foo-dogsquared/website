@@ -224,6 +224,7 @@ As previously mentioned, NixOS is very flexible while giving you finer controls 
 In the following example, I modified the CoreDNS service to add link:https://systemd.io/CREDENTIALS/[service credentials] to enable DNS-over-TLS using the generated certificate from the ACME client.
 I also made one more change to modify the DNS zone file with sensitive information before the service is activated.
 
+[#lst:nixos-module-modified-coredns-service]
 .The modified CoreDNS service with DNS-over-TLS and insert sensitive information
 [source, nix]
 ----
@@ -232,6 +233,7 @@ include::./assets/modified-coredns-service.nix[]
 
 Here's another example with modifying the Gitea service to automate certain admin tasks (i.e., setting up database schema for PostgreSQL secure schema usage, creating admin account).
 
+[#lst:nixos-module-modified-gitea-service]
 .Modified Gitea service with additional administration tasks
 [source, nix]
 ----
