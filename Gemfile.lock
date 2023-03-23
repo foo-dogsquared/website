@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/asciidoctor/asciidoctor-tabs.git
+  revision: d5ee94b5253f4db75e6646f46511676af0be2cc3
+  specs:
+    asciidoctor-tabs (1.0.0.beta.3)
+      asciidoctor (>= 2.0.0, < 3.0.0)
+
 PATH
   remote: gems
   specs:
@@ -56,6 +63,7 @@ DEPENDENCIES
   asciidoctor-foodogsquared-extensions!
   asciidoctor-html5s
   asciidoctor-rouge
+  asciidoctor-tabs!
   rouge
   rubocop
   ruby-lsp

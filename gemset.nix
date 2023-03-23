@@ -49,6 +49,21 @@
     targets = [ ];
     version = "0.4.0";
   };
+  asciidoctor-tabs = {
+    dependencies = ["asciidoctor"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      fetchSubmodules = false;
+      rev = "d5ee94b5253f4db75e6646f46511676af0be2cc3";
+      sha256 = "1s2ds0f3v308vw4ic5dm6zh8d7dbi6lxxw6y7ajb8hmm27d0nksi";
+      target = "ruby";
+      type = "git";
+      url = "https://github.com/asciidoctor/asciidoctor-tabs.git";
+    };
+    targets = [];
+    version = "1.0.0.beta.3";
+  };
   ast = {
     groups = [ "default" ];
     platforms = [ ];

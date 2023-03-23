@@ -5,6 +5,12 @@
 {{ end }}
 <link rel="stylesheet" href="{{ $highlighter.Permalink }}"/>
 
+{{ $asciidoctorTabs := resources.Get "css/asciidoctor-tabs.css" | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $asciidoctorTabs.Permalink }}"/>
+
+{{ $asciidoctorTabsJS := resources.Get "js/asciidoctor-tabs.js" }}
+<script defer src="{{ $asciidoctorTabsJS.Permalink }}"></script>
+
 {{- /* medium-zoom */ -}}
 <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.7/dist/medium-zoom.min.js"></script>
 <script>window.addEventListener('load', () => mediumZoom('article img', { 'background': 'rgba(0, 0, 0, 0.75)' }))</script>

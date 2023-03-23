@@ -15,7 +15,8 @@ path = "github.com/foo-dogsquared/hugo-mod-web-feeds"
 
 [markup.asciidocExt]
 extensions = [
-  "asciidoctor-foodogsquared-extensions"
+  "asciidoctor-foodogsquared-extensions",
+  "asciidoctor-tabs",
 ]
 workingFolderCurrent = true
 
