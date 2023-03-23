@@ -15,15 +15,37 @@ GEM
   remote: https://rubygems.org/
   specs:
     asciidoctor (2.0.18)
+    asciidoctor-bibtex (0.8.0)
+      asciidoctor (~> 2.0)
+      bibtex-ruby (~> 5.1)
+      citeproc-ruby (~> 1)
+      csl-styles (~> 1)
+      latex-decode (~> 0.2)
     asciidoctor-html5s (0.5.1)
       asciidoctor (>= 1.5.7, < 3.0)
       thread_safe (~> 0.3.4)
+    asciidoctor-interdoc-reftext (0.5.2)
+      asciidoctor (>= 1.5.6, < 3.0)
     asciidoctor-rouge (0.4.0)
       asciidoctor (>= 1.5.6, < 2.1)
       rouge (>= 2.2, < 4)
     ast (2.4.2)
+    bibtex-ruby (5.1.6)
+      latex-decode (~> 0.0)
+    citeproc (1.0.10)
+      namae (~> 1.0)
+    citeproc-ruby (1.1.14)
+      citeproc (~> 1.0, >= 1.0.9)
+      csl (~> 1.6)
+    csl (1.6.0)
+      namae (~> 1.0)
+      rexml
+    csl-styles (1.0.1.11)
+      csl (~> 1.0)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
+    latex-decode (0.4.0)
+    namae (1.1.1)
     parallel (1.22.1)
     parser (3.2.1.0)
       ast (~> 2.4.1)
@@ -60,8 +82,10 @@ PLATFORMS
 
 DEPENDENCIES
   asciidoctor
+  asciidoctor-bibtex
   asciidoctor-foodogsquared-extensions!
   asciidoctor-html5s
+  asciidoctor-interdoc-reftext
   asciidoctor-rouge
   asciidoctor-tabs!
   rouge
@@ -69,4 +93,4 @@ DEPENDENCIES
   ruby-lsp
 
 BUNDLED WITH
-   2.4.6
+   2.3.7

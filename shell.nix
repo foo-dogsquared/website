@@ -31,6 +31,8 @@ mkShell {
 
     # Language servers...
     rnix-lsp # ...for Nix.
+
+    libxslt
   ];
 
   shellHook = ''
