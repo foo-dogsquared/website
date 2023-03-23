@@ -1,0 +1,316 @@
+---
+title: "Managing mutable files in NixOS"
+date: 2023-03-24T00:00:00+00:00
+---
+
+= Managing mutable files in NixOS
+Gabriel Arazas <foodogsquared@foodogsquared.one>
+2023-03-24
+
+:home-manager-rev: bb4b25b302dbf0f527f190461b080b5262871756
+:nix-flakes-post: ../2023-03-05-combining-traditional-dotfiles-and-nixos-configurations-with-nix-flakes/index.adoc
+
+
+Some weeks ago, xref:{nix-flakes-post}[I've made a post describing how to combine traditional dotfiles and NixOS config with Nix flakes].
+That seems all well and good but it comes with a few problems.
+
+* Changes from the dotfiles have to be pushed first to the remote repo.
+
+* Then, the dotfile flake input have to be updated.
+After pushing changes from the dotfiles, you have to update it as depicted from xref:{nix-flakes-post}#workflows-and-its-caveats[Workflows and its caveats].
+While managing with flakes is less tedious than managing it with fetchers, you're essentially just reducing the source of updates from two to one.
+
+While it is reproducible, it's a tedious process especially if you need immediate changes from your dotfiles.
+
+One of the responses I got from the aforementioned post is link:https://www.reddit.com/r/NixOS/comments/11kme1n/comment/jb80qgy[an alternative solution for managing dotfiles] by mtndewforbreakfast.
+
+[quote]
+I'm more likely to use home-manager's link:https://github.com/nix-community/home-manager/blob/bb4b25b302dbf0f527f190461b080b5262871756/modules/files.nix#L64[mkOutOfStoreSymlink] if I find myself in situations where I need non-generational or mutable file content.
+I have a trivial personal HM module that git-clones things to a desired path as part of the activation script if they're absent and then manage them out of band from then on.
+
+Long story short, I tried this approach and I found it to be a better solution overall.
+It is more flexible and lends itself as a great solution for managing mutable files — files that are not meant to be managed by Nix.
+This also reduces the things I need to do post-installation which is already contained in a script so that's a nice benefit.
+Anyways, here's my take on the posted solution.
+
+
+
+
+[#a-better-way-to-manage-traditional-dotfiles-in-home-manager]
+== A better way to manage traditional dotfiles in home-manager
+
+As hinted from the quoted statement, github:nix-community/home-manager[`mkOutOfStoreSymlink`, rev={home-manager-rev}, path=modules/files.nix] is a home-manager function that accepts a path string and returns a derivation.
+This derivation contains a builder script that links the given path to a store path.
+
+Using it should be simple.
+The following listing simply links my dotfiles located on `/home/foo-dogsquared/dotfiles` and creates a path on the Nix store.
+
+.An example of using the function
+[source, nix]
+----
+mkOutOfStoreSymlink "/home/foo-dogsquared/dotfiles"
+----
+
+This pretty much allows us to interact with various options from home-manager that normally accepts a link:https://nixos.org/manual/nix/stable/glossary.html#gloss-store-path[store path].
+In my case, I mainly use it for linking various files with `home.file.<name>.source`, `xdg.configFile.<name>.source`, and so forth.
+To give some more context, here's an example usage of the function with my use case.
+
+[#lst:dotfiles-mkoutofstoresymlink]
+.`home.nix`, this time with `mkOutOfStoreSymlink` instead of flakes
+[source, nix]
+----
+include::./assets/mkoutofstoresymlink.nix[]
+----
+
+[#sidebar:what-is-dotfiles-yet-again]
+.What is `dotfiles` yet again?
+****
+Just to continue the tradition from the last post, `dotfiles` is now a derivation from `mkOutOfStoreSymlink`.
+The very same type as xref:{nix-flakes-post}#sidebar:what-is-dotfiles-this-time[to what `fetchFromGitHub` returns].
+Since it is a derivation, it will evaluate to the output path if coerced into a string which should be a store path that is symlinked to the dotfiles.
+This is why the code works still unchanged for the most part.
+****
+
+Compared to the approach of making the dotfiles as a flake input, this reduces the reproducibility of our home-manager configuration a little bit.
+Instead of fully including the dotfiles, we only assume we have the dotfiles at the given location.
+However, this does remove the xref:{nix-flakes-post}#workflow-and-its-caveats[workflow of managing the flake input and its caveats] altogether.
+
+You don't have to do `nix flake update` or anything else in your NixOS config and manage them separately.
+We're compromising reproducibility with this but it is worth it considering I want the changes immediately.
+
+
+
+
+[#adding-a-declarative-interface-for-fetching-mutable-files]
+== Adding a declarative interface for fetching mutable files
+
+Take note with the above method, we did reduce from fully including the dotfiles to only assuming we have the dotfiles.
+I still want to include the dotfiles declared somewhere in the configuration.
+The closest we'll ever get is to create a module that accepts a list of files to download and put it in the filesystem which is exactly what I did.
+Anyhoo, here's how I would use the imaginary module.
+
+[#lst:fetch-mutable-files-module-use-case]
+[source, nix]
+----
+{
+  home.mutableFile = {
+    "${config.xdg.userDirs.documents}/dotfiles" = {
+      url = "https://github.com/foo-dogsquared/dotfiles.git";
+      type = "git";
+    };
+
+    "${config.xdg.userDirs.documents}/top-secret" = {
+      url = "https://example.com/file.zip";
+      type = "fetch";
+    };
+  };
+}
+----
+
+This module is meant to be used for fetching mutable files.
+It would have different methods for fetching the file indicated by the `type` attribute.
+For the initial version of this module, we'll consider two use cases: cloning the Git repos and downloading the file.
+Let's first create the skeleton for the module.
+
+.`modules/home-manager/fetch-mutable-files.nix`
+[source, nix]
+----
+include::./assets/fetch-mutable-files-skeleton.nix[]
+----
+
+We have yet to define certain parts including what each attribute could contain.
+Each of the attribute in the `home.mutableFile.<name>` expects at least two attributes: the URL to be downloaded and the download method.
+The file should only be downloaded if the path doesn't exist.
+
+[NOTE]
+====
+At this point, updates to the code are shown as diffs.
+It is meant to be used with `git apply` and similar tools.
+
+[source, shell]
+----
+git apply file.patch
+----
+====
+
+[source, patch]
+----
+include::./assets/patches/0002-fetch-mutable-files-add-file-submodule.patch[]
+----
+
+Take note we also added the `path` attribute that comes with a function to handle the path.
+It's for cleanly passing absolute paths and relative paths when it needs to.
+
+[source, nix]
+----
+{
+  # Absolute paths should be acceptable.
+  home.mutableFile."${config.xdg.userDirs.documents}/top-secret" = { };
+  home.mutableFile."${config.xdg.configHome}/doom" = { };
+  home.mutableFile."${config.home.homeDirectory}/hello" = { };
+  home.mutableFile."/home/foo-dogsquared/writings" = { };
+
+  # So does relative paths...
+  home.mutableFile."dotfiles" = { };
+  home.mutableFile."library" = { };
+}
+----
+
+With the interface done, we can then proceed with the implementation which is just a shell script managed by systemd.
+Let's first build the systemd service before we proceed with the shell script.
+
+[TIP]
+====
+Remember, we're using systemd to manage the service.
+The service is run in a completely new environment and isn't in a shell with programming features like Bash and zsh.
+This means you cannot run the following command on `Service.ExecStart` directive like how one would expect on the shell.
+
+[source, shell]
+----
+curl "https://example.org" || echo "ERROR"
+----
+====
+
+[source, patch]
+----
+include::./assets/patches/0003-fetch-mutable-files-add-initial-systemd-service.patch[]
+----
+
+Creating the shell script should be trivial.
+We could generate the entire script by iterating each of the file from `home.mutableFile.<name>` and mapping the methods from it.
+Here's one way to let Nix generate our shell script featuring link:https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-writeText[`writeShellScript` builder].
+
+[source, patch]
+----
+include::./assets/patches/0004-fetch-mutable-files-add-the-shell-script-for-the-ser.patch[]
+----
+
+[NOTE]
+====
+For those who want a complete version of the module directly without applying all of the above patches, you can see it link:./assets/fetch-mutable-files.nix[with this link].
+====
+
+With the module being complete for the most part, we just have to include it to our home-manager configuration...
+
+.`flake.nix`
+[source, nix]
+----
+{
+  outputs = { nixpkgs, home-manager, ... }@inputs: {
+    homeConfigurations.foodogsquared = home-manager.lib.homeManagerConfiguration {
+      modules = [
+        ./modules/home-manager/fetch-mutable-files.nix
+        ./home.nix
+      ];
+    };
+  };
+}
+----
+
+...and finally use it.
+Like I said previously, the nice thing with this module for me is allowing me beyond fetching my dotfiles.
+I could, for example, fetch Doom Emacs alongside my home-manager configuration.
+Very nice!
+
+.`home.nix`
+[source, nix]
+----
+{ config, lib, pkgs, ... }:
+
+let
+  dotfiles = config.lib.file.mkOutOfStoreSymlink config.home.mutableFile."dotfiles".path;
+in
+{
+  home.mutableFile = {
+    "dotfiles" = {
+      url = "https://github.com/foo-dogsquared/dotfiles.git";
+      type = "git";
+    };
+
+    "${config.xdg.configHome}/emacs" = {
+      url = "https://github.com/doomemacs/doomemacs";
+      type = "git";
+    };
+  };
+
+  # Putting the dotfiles in their rightful place.
+  xdg.configFile = {
+    doom.source = "${dotfiles}/emacs";
+    wezterm.source = "${dotfiles}/wezterm";
+    nvim.source = "${dotfiles}/nvim";
+  };
+}
+----
+
+[#sidebar:fetch-mutable-files-reader-exercise]
+.Some room for improvement
+****
+The given code from this post is just one minimal starting point for this module.
+In my NixOS configuration, github:foo-dogsquared/nixos-config[my version of the module, rev=c5bf67553c84efb1e0d3f1859f2d98736d66f616, path=modules/home-manager/files/mutable-files.nix] has expanded with the ability to declare archived files which is already extracted in the filesystem.
+link:https://github.com/foo-dogsquared/nixos-config/blob/e04d31afeb9b3c1f1fb341ff068062d32def480f/users/home-manager/foo-dogsquared/default.nix#L335-L369[I use it for fetching several things] including Doom Emacs (even automatically installing it).
+
+Starting from the version of the module featured here, there are room for improvement.
+You could implement the following suggestions as an exercise.
+
+* Add a type for fetching archived files.
+The archive should already be extracted into the path.
+Additionally, you could add an option for extracting a single file or directory.
+
+* Each resource to be fetched may require different tweaks.
+For example, you may want to shallow clone link:https://github.com/doomemacs/doomemacs/[Doom Emacs] since the repo history is too large.
+You might want to add an option (e.g., `home.mutableFile.<name>.extraArgs`) to set extra arguments to each file.
+
+* Add the option to allow changing the package to be used for the shell script.
+This would also require restructuring (and possibly renaming) of the module though.
+
+* Add an attribute that links to a store path (e.g., `home.mutableFile.<name>.outPath`) for each of the given URL.
+You could also add an attribute (e.g., `home.mutableFile.<name>.dontLinkToStore`) that either opts-in/-out of including the file in the store directory.
+Take note this value should be automatically applied and shouldn't be set by the user.
+****
+
+
+
+
+[#mutable-files-in-nixos]
+== Mutable files in NixOS
+
+So far, we only manage them mutable files in home-manager.
+I cannot find an equivalent in NixOS but it should be pretty trivial to recreate it especially that the things that made `mkOutOfStoreSymlink` possible is readily available in nixpkgs.
+All we have to do is to recreate them.
+
+For this case, we'll use the link:https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-runCommandLocal[`runCommandLocal` builder] typically used for cheap commands.
+This also what `mkOutOfStoreSymlink` uses in the source code.
+
+[#lst:runcommandlocal-example]
+[source, nix]
+----
+let
+  path = lib.escapeShellArg "/etc/dotfiles";
+in
+pkgs.runCommandLocal "nixos-mutable-file-${builtins.baseNameOf path}" { } ''ln -s ${path} $out''
+----
+
+Similarly, this can be used for various NixOS options that normally accepts a store path (e.g., `environment.etc.<name>.source`).
+For example, if you have a minimal i3 setup that you want to link from a non-NixOS-managed folder, all you have to do is to link it from the dotfiles.
+
+[source, nix]
+----
+include::./assets/runcommandlocal.nix[]
+----
+
+[#sidebar:implementing-a-similar-module-for-nixos]
+.Implementing a similar module for NixOS
+****
+If you want to create a declarative interface similar to <<adding-a-declarative-interface-for-fetching-mutable-files, the featured module>> for NixOS, you can create your implementation based from that.
+However, there's more moving parts that you have to worry about since we're using NixOS where the scope includes the whole system unlike with home-manager where it focuses on the home environment.
+Here are some things you may need to pay attention to.
+
+- Since we're using system-level services with systemd, the fetched files will be owned the user of the fetching service (which is root by default).
+You may want to add an option for the group and owner for each files.
+
+- Reject (or at least discourage) relative paths since it will be confusing to use.
+It's best if the module encourages the user to use absolute paths instead.
+
+- Making sure the fetching service does not modify the generated files from NixOS.
+Even though this is already handled by the previous module, it is something to keep in mind now that we're modifying the whole operating system.
+****
