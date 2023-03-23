@@ -3,11 +3,10 @@ title: Homepage
 ---
 
 = Homepage
-:figure-caption!:
 
 
 Hey there!
-I'm Gabriel Arazas (`foodogsquared`), a hobbyist on software development and programming, an expert in procastination, and a hack on anything else.
+I'm Gabriel Arazas (`foodogsquared`), a hobbyist on some things, an expert in procastination, and a hack on anything else.
 You can see more what's my deal on link:/about/[another page] because I want to make introductions nice and brief.
 
 Welcome to my small home on the deepest corners of the internet, by the way.
@@ -28,11 +27,10 @@ If you want the old way on getting contact with me, you can shoot an email at `h
 You can also look for more details at link:/contact/[my contact page].
 
 Want a way to verify me and my stuff? I have a link:https://gnupg.org/[GnuPG] public key for your privacy-oriented and paranoia-filled pleasure.
-It is currently stored at link:https://keys.openpgp.org/vks/v1/by-fingerprint/1D5A862828FFC47537F9628F73F89FF87C72E7D3[the OpenPGP keyserver] which you can search with my email address at `foodogsquared{at}foodogsquared{dot}one`.
+It is currently stored at link:https://keys.openpgp.org/vks/v1/by-fingerprint/1D5A862828FFC47537F9628F73F89FF87C72E7D3[the OpenPGP keyserver].
 
 TIP: This site also have web feeds available in multiple formats such as in link:index.rss[RSS], link:index.atom[Atom], and link:index.json[JSON].
 It's also available in individual sections (such as link:posts/[my writings] — i.e., `posts/index.{rss,atom,json}`).
 
-If you're curious about the site, you can view the link:https://github.com/foo-dogsquared/foo-dogsquared.github.io[source code] of it.
-It's built with link:https://gohugo.io/[Hugo], uses a link:https://github.com/foo-dogsquared/hugo-theme-more-contentful/[theme that I created], and all of my posts are written with link:https://asciidoctor.org/[Asciidoctor].
-
+If you're curious about the site, you can view the github:foo-dogsquared/website[source code] of it.
+It's built with link:https://gohugo.io/[Hugo], uses a github:foo-dogsquared/hugo-theme-more-contentful[theme that I created], and all of my posts are written with link:https://asciidoctor.org/[Asciidoctor].
