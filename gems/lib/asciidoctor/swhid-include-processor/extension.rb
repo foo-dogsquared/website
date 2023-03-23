@@ -30,9 +30,11 @@ class SWHIDIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
     content = begin
       uri = URI.parse %(https://archive.softwareheritage.org/api/#{version}/resolve/#{target}/)
 
-      headers = {}
-      headers['Authorization'] = "Bearer #{ENV['SWH_API_BEARER_TOKEN']}" if ENV['SWH_BEARER_TOKEN']
-      headers['Accept'] = 'application/json'
+      headers = {
+        'Accept' => 'application/json'
+      }
+
+      headers['Authorization'] = "Bearer #{ENV['SWH_API_BEARER_TOKEN']}" if ENV['SWH_API_BEARER_TOKEN']
 
       metadata = OpenURI.open_uri(uri, headers) { |f| JSON.parse(f.read) }
       object_hash = metadata['object_id']
