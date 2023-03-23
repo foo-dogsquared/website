@@ -1,10 +1,8 @@
-<ul class="list links site__links--content" style="margin: 0">
+<nav class="links site__links--content" style="margin: 0">
 {{ range $.Site.Menus.links }}
-<li>
-    <a href="{{ .URL }}" rel="me">{{ .Name }}</a>
-</li>
+  <a href="{{ .URL }}" rel="me">{{ .Name }}</a>
 {{ end }}
-</ul>
+</nav>
 <style>
 .links {
   --size: 1.5em;
