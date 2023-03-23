@@ -20,6 +20,8 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
         domain = 'https://man.archlinux.org/man'
       when 'opensuse'
         domain = 'https://manpages.opensuse.org'
+      when 'voidlinux'
+        domain = 'https://man.voidlinux.org'
       else
         raise "no available manpage service #{attrs['service']}"
       end
