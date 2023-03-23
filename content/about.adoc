@@ -4,29 +4,20 @@ title: About
 
 = About the author
 
-Hello! I'm Gabriel Arazas.
-Just a hobbyist on software development and programming.
-I'm also an aspiring engineer upping the ante on my mathematics skills.
+Hey there!
+I'm Gabriel Arazas but you'll find me as `foodogsquared` on the internet.
+I'm just a hobbyist on some things.
 
-I also like the following stuff:
+I could summarize my list of interests on...
 
-* 3D modelling, especially when done computationally.
-* Free and open source software as it is relevant for a low-income worker.
-* Creative coding as a form of stress-relieving.
-* Linux for that l33t hacker rep as well as a lot of good applications that come with it.
-* Mathematics (I'm working on this one).
-* Music from the classical and metal (and https://en.wikipedia.org/wiki/Symphonic_metal[both]) but open-minded for other things.
-footnote:[Feel free to randomly DM me about your recent tastes on music.]
-* Software reproducibility as a user-facing feature.
-* Pixel art because it's just images on very low resolution and my ancient hardware is happy to render it for me.
-* Writing as I'm trying to like documenting my projects.
+* Creative coding and computational art.
+* Free and open source software.
+* Linux and whatever shenanigans are in there.
+* Software reproducibility which I'm focusing on link:https://nixos.org/[Nix].
+* Technical writing.
+* Accessible design as I'm trying to find the equilibrium between beautiful and readable design.
 
-I also https://www.youtube.com/channel/UCuMiU9bzATu5oTp-vhOlL2Q[create some crap music] but you're definitely not here for that.
-
-If you want a way on getting contact with me, you can shoot an email at `hey{at}foodogsquared{dot}one`.
-Oh wait, I already said this in my homepage.
-
-I'm open to your shenanigans as long as it's about dev-related or hobby-related (and legal, of course).
-
-Welp, see you on the field, internet stranger. :)
-
+There's a lot more but these are the top things right now.
+This website is basically just an outlet for those things.
+If you want a way to contact me, just drop an email at `hey{at}foodogsquared{dot}one`.
+Or you could see link:/contact[my contact page] for more details.
