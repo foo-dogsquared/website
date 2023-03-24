@@ -6,6 +6,7 @@ paginate = 40
 copyright = "© foodogsquared"
 canonifyURLs = true
 summaryLength = 0
+timeZone = "UTC"
 
 [[module.imports]]
 path = "github.com/foo-dogsquared/hugo-theme-more-contentful"
@@ -19,6 +20,7 @@ extensions = [
   "asciidoctor-tabs",
   "asciidoctor-bibtex",
 ]
+trace = true
 workingFolderCurrent = true
 
 [markup.asciidocExt.attributes]
@@ -28,6 +30,15 @@ sectanchors = true
 source-highlighter = "rouge"
 allow-uri-read = true
 experimental = true
+linkcss = true
+
+# asciidoctor-bibtex
+bibtex-file = "./assets/bibliography.bib"
+bibtex-order = "alphabetical"
+bibtex-throw = true
+
+# asciidoctor-tabs
+tabs-sync-option = true
 
 [author.foo-dogsquared]
 name = "Gabriel Arazas"
@@ -94,7 +105,7 @@ section = ["HTML", "ATOM", "RSS", "JSON"]
 mainSections = ["posts", "projects"]
 toc = true
 extraNotes = """
-This site uses [medium-zoom](https://github.com/francoischalifour/medium-zoom), and lots of modern CSS features for the life of me.
+This site uses [medium-zoom](https://github.com/francoischalifour/medium-zoom) and lots of modern CSS features for the life of me.
 For analytics, it uses [GoatCounter](https://goatcounter.com/).
 """
 

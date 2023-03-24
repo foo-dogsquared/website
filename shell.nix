@@ -23,6 +23,7 @@ mkShell {
     openring
     gnumake
     tree-sitter
+    (tree-sitter.withPlugins (_: tree-sitter.allGrammars))
 
     # Formatters...
     rufo # ...for Ruby.
