@@ -1,0 +1,34 @@
+[[main]]
+    identifier = "about"
+    name = "About"
+    url = "about/"
+
+[[main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "contact/"
+
+[[main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "posts/"
+
+[[links]]
+    identifer = "posts"
+    name = "Posts"
+    url = "/posts/"
+
+[[links]]
+    identifier = "code"
+    name = "Code"
+    url = "https://code.foodogsquared.one/"
+
+[[links]]
+    identifer = "wiki"
+    name = "Wiki"
+    url = "https://wiki.foodogsquared.one/"
+
+[[links]]
+        identifer = "music"
+        name = "Music"
+        url = "https://www.youtube.com/channel/UCuMiU9bzATu5oTp-vhOlL2Q"

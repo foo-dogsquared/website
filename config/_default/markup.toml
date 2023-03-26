@@ -1,0 +1,25 @@
+[asciidocExt]
+extensions = [
+  "asciidoctor-foodogsquared-extensions",
+  "asciidoctor-tabs",
+  "asciidoctor-bibtex",
+]
+trace = true
+workingFolderCurrent = true
+
+[asciidocExt.attributes]
+toc = true
+sectanchors = true
+"figure-caption!" = true
+source-highlighter = "rouge"
+allow-uri-read = true
+experimental = true
+linkcss = true
+
+# asciidoctor-bibtex
+bibtex-file = "./assets/bibliography.bib"
+bibtex-order = "alphabetical"
+bibtex-throw = true
+
+# asciidoctor-tabs
+tabs-sync-option = true
