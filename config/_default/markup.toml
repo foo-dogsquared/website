@@ -15,6 +15,14 @@ source-highlighter = "rouge"
 allow-uri-read = true
 experimental = true
 linkcss = true
+cache-uri = true
+
+avatarsdir = "/icons/avatars"
+avatarstype = "webp"
+
+icons = "image"
+iconsdir = "/icons/asciidoctor"
+icontype = "svg"
 
 # asciidoctor-bibtex
 bibtex-file = "./assets/bibliography.bib"
