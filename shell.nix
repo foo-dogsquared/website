@@ -8,6 +8,10 @@ let
     ruby = ruby_3_1;
     gemset = ./gemset.nix;
   };
+
+  asciidoctorWrappedWithCustomOptions = writeShellScriptBin "asciidoctor" ''
+    ${lib.getBin localGem.env}/bin/asciidoctor -T ./gems/templates $@
+  '';
 in
 mkShell {
   buildInputs = [
@@ -16,6 +20,8 @@ mkShell {
   ];
 
   packages = [
+    asciidoctorWrappedWithCustomOptions
+
     git
     go
     hugo
