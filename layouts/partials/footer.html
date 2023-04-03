@@ -25,7 +25,7 @@
   <li>
     <a {{ if $useImage }}class="site__social-icon"{{ end }} rel="me" href="{{ .url | absLangURL }}" aria-label="{{ with .name }}{{ . }}{{ else }}{{ .id }}{{ end }}">
     {{- if $useImage }}
-      {{- partial "components/icon.html" (dict "id" .id "output" "icons/brand/%s.svg" "template" "templates/simple-icon.svg") }}
+      {{- partial "components/simple-icon.html" (dict "id" .id) }}
     {{- else }}
       {{- .name }}
     {{- end }}
@@ -91,7 +91,7 @@
     fullscreenButton.ariaLabel = "{{ T "fullscreenButtonAriaLabel" }}";
     fullscreenButton.title = "{{ T "fullscreenButtonLabel" }}";
     fullscreenButton.ariaDescription = "{{ T "fullscreenButtonDescription" }}";
-    fullscreenButton.innerHTML = "{{ partial "components/heroicon.html" "arrows-pointing-out" }}";
+    fullscreenButton.innerHTML = "{{ partial "components/heroicon.html" (dict "id" "arrows-pointing-out") }}";
 
     fullscreenButton.addEventListener("click", (event) => {
         const { target } = event;
@@ -108,7 +108,7 @@
     copyButton.ariaLabel = "{{ T "copyButtonAriaLabel" }}";
     copyButton.title = "{{ T "copyButtonLabel" }}";
     copyButton.ariaDescription = "{{ T "copyButtonDescription" }}";
-    copyButton.innerHTML = "{{ partial "components/heroicon.html" "clipboard" }}";
+    copyButton.innerHTML = "{{ partial "components/heroicon.html" (dict "id" "clipboard") }}";
 
     copyButton.addEventListener("click", (event) => {
         const { target } = event;
