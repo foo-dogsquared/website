@@ -2,6 +2,9 @@
 
 require 'asciidoctor'
 require 'asciidoctor/extensions'
+
+require_relative 'helpers'
+
 require_relative 'man-inline-macro/extension'
 require_relative 'swhid-inline-macro/extension'
 require_relative 'swhid-include-processor/extension'
