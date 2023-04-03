@@ -10,5 +10,12 @@ class ChatBlock < Asciidoctor::Extensions::BlockProcessor
 
   # TODO: Create the output.
   def process(parent, reader, attrs)
+    block = create_block parent, :pass, nil, attrs, content_model: :compound
+    block.add_role('dialogblock')
+
+    attrs['name'] ||= attrs['avatar']
+    attrs['avatarsdir'] ||= './avatars'
+
+    block
   end
 end
