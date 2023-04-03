@@ -30,7 +30,6 @@
     platforms = [];
     source = {
       path = "gems";
-      target = "ruby";
       type = "path";
     };
     targets = [];
@@ -141,6 +140,18 @@
     targets = [];
     version = "1.1.14";
   };
+  concurrent-ruby = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "0krcwb6mn0iklajwngwsg850nk8k9b35dhmc2qkbdqvmifdi2y9q";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "1.2.2";
+  };
   csl = {
     dependencies = ["namae" "rexml"];
     groups = ["default"];
@@ -214,6 +225,18 @@
     };
     targets = [];
     version = "1.1.1";
+  };
+  open-uri-cached = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "03v0if3jlvbclnd6jgjk94fbhf0h2fq1wxr0mbx7018sxzm0biwr";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "1.0.0";
   };
   parallel = {
     groups = ["default"];
@@ -351,6 +374,19 @@
     targets = [];
     version = "1.13.0";
   };
+  slim = {
+    dependencies = ["temple" "tilt"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1rp437r8hr9kdgabb7c96yw4z2wyrajl4cxiij038y10f8i6hbn4";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "5.1.0";
+  };
   sorbet-runtime = {
     groups = ["default" "development"];
     platforms = [];
@@ -376,6 +412,18 @@
     targets = [];
     version = "6.0.1";
   };
+  temple = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "07k5wr2ypsmsbyc9d1plhdki4xr7vvggld8r1i49iljkrpx5nbqc";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "0.10.0";
+  };
   thread_safe = {
     groups = ["default"];
     platforms = [];
@@ -387,6 +435,18 @@
     };
     targets = [];
     version = "0.3.6";
+  };
+  tilt = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1qmhi6d9przjzhsyk9g5pq2j75c656msh6xzprqd2mxgphf23jxs";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "2.1.0";
   };
   unicode-display_width = {
     groups = ["default"];

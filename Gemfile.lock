@@ -37,6 +37,7 @@ GEM
     citeproc-ruby (1.1.14)
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 1.6)
+    concurrent-ruby (1.2.2)
     csl (1.6.0)
       namae (~> 1.0)
       rexml
@@ -46,6 +47,7 @@ GEM
     language_server-protocol (3.17.0.3)
     latex-decode (0.4.0)
     namae (1.1.1)
+    open-uri-cached (1.0.0)
     parallel (1.22.1)
     parser (3.2.1.0)
       ast (~> 2.4.1)
@@ -71,10 +73,15 @@ GEM
       sorbet-runtime
       syntax_tree (>= 6, < 7)
     ruby-progressbar (1.13.0)
+    slim (5.1.0)
+      temple (~> 0.10.0)
+      tilt (>= 2.0.6, < 2.2)
     sorbet-runtime (0.5.10693)
     syntax_tree (6.0.1)
       prettier_print (>= 1.2.0)
+    temple (0.10.0)
     thread_safe (0.3.6)
+    tilt (2.1.0)
     unicode-display_width (2.4.2)
 
 PLATFORMS
@@ -88,9 +95,13 @@ DEPENDENCIES
   asciidoctor-interdoc-reftext
   asciidoctor-rouge
   asciidoctor-tabs!
+  concurrent-ruby
+  open-uri-cached
   rouge
   rubocop
   ruby-lsp
+  slim
+  tilt
 
 BUNDLED WITH
    2.3.7
