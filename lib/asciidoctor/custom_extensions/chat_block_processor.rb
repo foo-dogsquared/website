@@ -23,14 +23,19 @@ class ChatBlock < Asciidoctor::Extensions::BlockProcessor
         <div class="dialogblock dialogblock__avatar">
     ), nil)
 
-    # TODO: Create the image block here
+    avatar_sticker = "#{to_kebab_case attrs['avatar']}/#{to_kebab_case attrs['state']}.#{attrs['avatarstype']}"
+    avatar_img_attrs = {
+      'target' => parent.image_uri(avatar_sticker, 'avatarsdir'),
+      'alt' => attrs['name']
+    }
+    block << (create_image_block block, avatar_img_attrs)
 
     block << (create_block block, :pass, %(
         </div>
         <div class="dialogblock dialogblock__text">
     ), nil)
 
-    # TODO: Insert the content.
+    parse_content block, reader
 
     block << (create_block block, :pass, %(
         </div>
