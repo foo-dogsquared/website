@@ -15,13 +15,24 @@ class ChatBlock < Asciidoctor::Extensions::BlockProcessor
     attrs['name'] ||= attrs['avatar']
     attrs['avatarsdir'] ||= './avatars'
 
+    # You can think of this section as a pipeline constructing the HTML
+    # component for this block. Specifically, we're building one component that
+    # contains two output: the dialog image of our avatar and its content.
     block << (create_block block, :pass, %(
       <div class="dialogblock dialogblock__box dialogblock__avatar--#{attrs['avatar']} #{attrs['role']}" title="#{attrs['avatar']}">
         <div class="dialogblock dialogblock__avatar">
-          # Image
+    ), nil)
+
+    # TODO: Create the image block here
+
+    block << (create_block block, :pass, %(
         </div>
         <div class="dialogblock dialogblock__text">
-          # Content
+    ), nil)
+
+    # TODO: Insert the content.
+
+    block << (create_block block, :pass, %(
         </div>
       </div>
     ), nil)
