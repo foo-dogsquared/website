@@ -12,9 +12,11 @@ require_relative 'github-link-inline-macro/extension'
 require_relative 'github-raw-content-include-processor/extension'
 require_relative 'gitlab-link-inline-macro/extension'
 require_relative 'gitlab-raw-content-include-processor/extension'
+require_relative 'chat-block-processor/extension'
 
 Asciidoctor::Extensions.register do
   inline_macro ManInlineMacro
+  block ChatBlock if @document.basebackend? 'html'
 
   inline_macro SWHInlineMacro
   include_processor SWHIDIncludeProcessor

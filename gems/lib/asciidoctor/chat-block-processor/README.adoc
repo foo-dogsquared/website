@@ -1,0 +1,105 @@
+= Chat block processor
+:toc:
+
+
+A link:https://docs.asciidoctor.org/asciidoctor/latest/extensions/block-processor/[block processor] that adds a a dialog box style to the block.
+Exclusive to the HTML backend.
+
+
+== Synopsis
+
+....
+[chat, $AVATARNAME, $AVATARSTATE, $ATTRS...]
+====
+$CONTENT
+====
+....
+
+The avatar name is the name of the folder to be retrieved from the `avatarsdir` attribute.
+The directory enforces a certain structure which can be seen in <<extra-notes>>.
+
+Both the avatar name and the state are to be converted to snake case (e.g., `El Pablo` to `el_pablo`) for the image path.
+
+
+== Attributes
+
+* `avatarsdir` is the folder containing the avatars' stickers.
+This is explained in detail from the <<extra-notes>> section.
+
+* `avatarstype` is similar to `icontype` attribute except this is used for the avatar stickers.
+The default value is `webp`.
+
+* `state` is the sticker to be retrieved from the avatars directory.
+It has a default value of `default`.
+You could also use this attribute instead of the `$AVATARSTATE` positional argument for whatever reason.
+
+* `name` is the canonical name of the avatar.
+This is used for titles and alts in the internal image block.
+By default, this is the same as the given avatar.
+
+
+[#extra-notes]
+== Extra notes
+
+This component has some prerequisites for this to fully work specifically with `avatarsdir` attribute that contains a list of avatars and their stickers.
+By default, this value is at the `avatars` subdirectory of the `iconsdir` attribute.
+It is recommended to set this value yourself.
++
+--
+This enforces a certain structure where the root directory contains a list of folders representing the avatar with each of the folder containing stickers which represents their state.
+For example, here's what `avatarsdir` could contain following the expected structure.
+
+[source]
+----
+./static/icons/avatars/
+├── ezran/
+│   ├── crisis.webp
+│   ├── default.webp
+│   ├── sad.webp
+│   └── shocked.webp
+└── foodogsquared/
+    ├── crisis.webp
+    ├── default.webp
+    ├── sad.webp
+    └── shocked.webp
+----
+--
+
+
+== Example usage
+
+Let's assume `avatarsdir` is set to the `static/icons/avatars` with the following file structure.
+
+[source]
+----
+./static/icons/avatars/
+├── ezran/
+│   ├── crisis.webp
+│   ├── default.webp
+│   ├── sad.webp
+│   └── shocked.webp
+├── el-pablo/
+│   ├── crisis.webp
+│   ├── default.webp
+│   ├── ghastly.webp
+│   ├── melodramatic.webp
+│   ├── sad.webp
+│   └── shocked.webp
+└── foodogsquared/
+    ├── crisis.webp
+    ├── default.webp
+    ├── sad.webp
+    └── shocked.webp
+----
+
+- The following block should get the default image for `foodogsquared` which is in `./static/icons/avatars/foodogsquared/default.webp`.
++
+....
+[chat, foodogsquared]
+====
+Hello there!
+====
+....
+
+- The following block should contain El Pablo's melodramatic dialog state.
+Take note
