@@ -12,6 +12,7 @@ gem 'concurrent-ruby'
 gem 'open-uri-cached'
 gem 'rouge'
 gem 'rubocop'
+gem 'rugged'
 gem 'slim'
 gem 'tilt'
 

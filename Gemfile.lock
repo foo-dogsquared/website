@@ -73,6 +73,7 @@ GEM
       sorbet-runtime
       syntax_tree (>= 6, < 7)
     ruby-progressbar (1.13.0)
+    rugged (1.6.3)
     slim (5.1.0)
       temple (~> 0.10.0)
       tilt (>= 2.0.6, < 2.2)
@@ -100,8 +101,9 @@ DEPENDENCIES
   rouge
   rubocop
   ruby-lsp
+  rugged
   slim
   tilt
 
 BUNDLED WITH
-   2.3.7
+   2.4.6

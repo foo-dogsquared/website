@@ -374,6 +374,18 @@
     targets = [];
     version = "1.13.0";
   };
+  rugged = {
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "016bawsahkhxx7p8azxirpl7y2y7i8a027pj8910gwf6ipg329in";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "1.6.3";
+  };
   slim = {
     dependencies = ["temple" "tilt"];
     groups = ["default"];
