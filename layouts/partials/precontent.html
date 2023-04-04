@@ -1,0 +1,12 @@
+{{- $admonitionIcons := dict
+    "warning" "exclamation-triangle"
+    "note" "information-circle"
+    "tip" "light-bulb"
+    "caution" "fire"
+    "important" "key" }}
+{{- range $admonition, $icon := $admonitionIcons }}
+  {{- $res := resources.ExecuteAsTemplate (printf "icons/asciidoctor/%s.svg" $admonition)
+                                          (dict "id" $icon "name" $admonition)
+                                          (resources.Get "templates/heroicon.svg") }}
+  {{- $res.Publish }}
+{{- end }}
