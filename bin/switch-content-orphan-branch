@@ -1,7 +1,0 @@
-#!/usr/bin/env nix-shell
-#! nix-shell -p findutils coreutils git fzf -i bash
-
-find ./content/ -mindepth 2 -iname 'index.adoc' -printf '%P\n' \
-    | xargs dirname \
-    | fzf --prompt "Choose orphan content branch " --filepath-word --info=hidden \
-    | xargs git switch --orphan
