@@ -9,8 +9,20 @@ $line-height: 1.45;
 }
 
 // Base styles.
+ul, ol {
+  margin: 1em 0 0;
+}
+
+pre {
+  margin-bottom: 0;
+}
+
 a:hover {
   color: var(--base0B);
+}
+
+button {
+  border: var(--border-style);
 }
 
 hr {
@@ -33,6 +45,11 @@ main > article {
   line-height: unset;
 }
 
+.site__socials {
+  list-style: none;
+  padding-left: 0;
+}
+
 .site__links--content,
 .site__socials--content {
   margin: 1em 0 0;
@@ -40,6 +57,7 @@ main > article {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  flex-flow: row wrap;
 }
 
 .site__links--content > * { flex-basis: 20; }
@@ -152,18 +170,22 @@ sup.footnote {
 
 .conum {
   color: var(--base05) !important;
-  background-color: var(--base02);
+  background-color: var(--base03);
   user-select: none;
 }
 
 .quoteblock {
-  blockquote {
-    border: var(--border-style);
-    margin: auto;
-    padding: 1em 0.5em;
+  border: var(--border-style);
+  border-left: 0.5em var(--base05) solid;
 
-    & > .paragraph:first-child p {
-        margin-top: 0;
+  blockquote {
+    margin: auto;
+    padding: 0.5em;
+    max-height: var(--code-block-size);
+    overflow: auto;
+
+    & > :first-child {
+      margin-top: 0;
     }
   }
 }
@@ -183,11 +205,15 @@ sup.footnote {
 }
 
 [class$="block"],
-:is(.admonitionblock) {
-  margin: 1rem 0;
+:is(.admonitionblock, .dialogblock) {
+  margin: 1rem 0 0;
 
   .title > code {
     background: unset;
+  }
+
+  .content > :first-child {
+    margin-top: 0;
   }
 }
 
@@ -202,6 +228,7 @@ p.tableblock {
     color: var(--base00);
     font-size: 0.9em;
     padding: 0.5em;
+    word-break: break-word;
   }
 
   > .content {
@@ -291,9 +318,11 @@ p.tableblock {
 }
 
 .admonitionblock {
-  table {
+  > table {
     border: unset;
     margin: unset;
+    table-layout: fixed;
+    width: 100%;
 
     tbody {
       tr + tr,
@@ -303,25 +332,30 @@ p.tableblock {
     }
   }
 
+  td.content {
+    background: var(--base01);
+    border: unset;
+    max-height: var(--code-block-size);
+    overflow: auto;
+  }
+
   td.icon {
+    --size: 6ch;
     background: var(--foreground);
+    color: var(--background);
     vertical-align: middle;
-    width: 12%;
+    width: var(--size);
 
     > .title {
       display: flex;
       justify-content: center;
     }
-  }
 
-  .content {
-    background: var(--base01);
-    border: unset;
+    > svg.icon {
+      width: 100%;
+      height: var(--size);
+    }
   }
-}
-
-.content > .paragraph:first-child > p:first-child {
-  margin-top: unset;
 }
 
 .imageblock {
@@ -353,6 +387,52 @@ p {
       font-weight: bold;
       padding: unset;
     }
+  }
+}
+
+// Custom Asciidoctor components.
+.dialogblock {
+  &__box {
+    align-items: center;
+    border: var(--border-style);
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1em;
+    padding: 0.5em;
+    max-width: 55ch;
+  }
+
+  &__avatar {
+    --size: 4em;
+    width: var(--size);
+    flex-basis: var(--size);
+    flex-shrink: 0;
+    margin: 0;
+
+    .imageblock {
+      margin: 0;
+
+      .content {
+        border: unset;
+        padding: 0;
+      }
+    }
+  }
+
+  &__text {
+    display: block;
+    max-width: 50ch;
+    margin: 0;
+
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+
+  // Roles/modifiers.
+  &.reversed {
+    flex-direction: row-reverse;
+    margin-left: auto;
   }
 }
 
