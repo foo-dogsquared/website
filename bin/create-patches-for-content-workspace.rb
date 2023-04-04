@@ -18,20 +18,23 @@ def to_kebab_case(string)
         .downcase
 end
 
+# Setting things for the application...
 CONTENT_DIRECTORY = 'content'
 PATCHES_SUBDIRECTORY = 'assets/patches'
 options = {
   'current-branch': false,
-  'prefix': 'posts/',
-  'repo': '.'
+  prefix: 'content/',
+  repo: '.',
+  branches: []
 }
 
 logger = Logger.new($stdout)
 logger.level = Logger::WARN
 
+# And then immediately run with the argument parser.
 OptionParser.new do |opts|
   opts.on('-c', '--current-branch', 'Select the current branch.') do
-    options['current-branch'] = true
+    options[:'current-branch'] = true
   end
 
   opts.on('-p', '--prefix PREFIX',
@@ -40,61 +43,88 @@ OptionParser.new do |opts|
             the content directory.
           HELP
   ) do |prefix|
-    options['prefix'] = prefix
+    options[:prefix] = prefix
+  end
+
+  opts.on('-b', '--branches a,b,c', 'List of branches to be generated') do |branches|
+    options[:branches].push *branches
   end
 
   opts.on('--repo REPO', String, 'Select the Git repository of the workspace') do |repo|
-    options['repo'] = repo
+    options[:repo] = repo
   end
 
   opts.on('-v', '--[no-]verbose', 'Make the program print results') do |v|
-    options['verbose'] = v
+    options[:verbose] = v
   end
 end.parse!
 
-logger.level = Logger::INFO if options['verbose']
+logger.level = Logger::INFO if options[:verbose]
 
-code_workspace = Rugged::Repository.discover(options['repo'])
-if options['current-branch']
+code_workspace = Rugged::Repository.discover(options[:repo])
+
+# Filtering the branches to be processed before iterating each of them for the patch creation.
+options[:branches].select! do |branch|
+  start_with_prefix = branch.start_with? options[:prefix]
+  logger.warn "Branch '#{branch}' does not start in '#{options[:prefix]}'. Ignoring." unless start_with_prefix
+
+  start_with_prefix
+end
+
+if options[:'current-branch']
   selected_branch = code_workspace.branches[code_workspace.head.name].name
-  raise %(Current branch is not a '#{options['prefix']}' subbranch.) unless selected_branch.start_with? options[:prefix]
-else
+
+  raise %(Current branch is not a '#{options[:prefix]}' subbranch.) unless selected_branch.start_with? options[:prefix]
+
+  options[:branches].push selected_branch
+end
+
+if options[:branches].empty?
   branches = code_workspace.branches
                            .each_name(:local)
                            .select { |branch| branch.start_with? options[:prefix] }
                            .sort
 
-  raise "No branches with the prefix '#{options['prefix']}'" if branches.empty?
+  raise "No branches with the prefix '#{options[:prefix]}'" if branches.empty?
 
-  selected_branch = `echo -e "#{branches.join '\n'}" | fzf`.strip
+  options[:branches] = `echo -e "#{branches.join '\n'}" | fzf --multi`.strip.split("\n")
 end
 
-selected_branch_object = code_workspace.branches[selected_branch]
-
+# Creating a walker for the commits of each branch. The walker can be reused by
+# setting the branches reference as a starting point. I don't see any setback
+# with this approach yet.
 repo_walker = Rugged::Walker.new(code_workspace)
-repo_walker.push(selected_branch_object.target_id)
 repo_walker.sorting(Rugged::SORT_DATE | Rugged::SORT_REVERSE)
 
-# Delete the patches directory. This makes it completely dangerous.
-patches_dir = File.expand_path("#{selected_branch}/#{PATCHES_SUBDIRECTORY}", CONTENT_DIRECTORY)
+# The branches at this point should have been filtered with the given prefix.
+options[:branches].each do |branch|
+  selected_branch_object = code_workspace.branches[branch]
+  content_location = branch.delete_prefix options[:prefix]
+  repo_walker.push(selected_branch_object.target_id)
 
-FileUtils.rmtree(patches_dir, secure: true)
-logger.info "Removing '#{patches_dir}'"
+  # Delete the patches directory. This makes it completely dangerous.
+  patches_dir = File.expand_path("#{content_location}/#{PATCHES_SUBDIRECTORY}", CONTENT_DIRECTORY)
 
-FileUtils.mkdir_p(patches_dir)
-logger.info "Creating directory '#{patches_dir}'"
+  FileUtils.rmtree(patches_dir, secure: true)
+  logger.info "Removing '#{patches_dir}'"
 
-repo_walker.each_with_index do |commit, index|
-  commit_message = to_kebab_case commit.message
-  commit_index = (index + 1).to_s.rjust(4, '0')
+  FileUtils.mkdir_p(patches_dir)
+  logger.info "Creating directory '#{patches_dir}'"
 
-  patchfile = File.expand_path(
-    "#{commit_index}-#{commit_message}.patch",
-    patches_dir
-  )
+  # Write the patch into the designated patches directory. Take note the branch
+  # should have the corresponding subdirectory in the content directory.
+  repo_walker.each_with_index do |commit, index|
+    commit_message = to_kebab_case commit.message
+    commit_index = (index + 1).to_s.rjust(4, '0')
 
-  File.open(patchfile, 'w') do |f|
-    logger.info "Creating patch file '#{patchfile}' from commit '#{commit.tree_id}'"
-    f.write commit.diff.patch
+    patchfile = File.expand_path(
+      "#{commit_index}-#{commit_message}.patch",
+      patches_dir
+    )
+
+    File.open(patchfile, 'w') do |f|
+      logger.info "Creating patch file '#{patchfile}' from commit '#{commit.tree_id}'"
+      f.write commit.diff.patch
+    end
   end
 end
