@@ -26,10 +26,10 @@ class ChatBlock < Asciidoctor::Extensions::BlockProcessor
     # You can think of this section as a pipeline constructing the HTML
     # component for this block. Specifically, we're building one component that
     # contains two output: the dialog image of our avatar and its content.
-    block << (create_block block, :pass, %(
+    block << (create_html_block block, %(
       <div class="dialogblock dialogblock__box dialogblock__avatar--#{attrs['avatar']} #{attrs['role']}" title="#{attrs['avatar']}">
         <div class="dialogblock dialogblock__avatar">
-    ), nil)
+    ))
 
     avatar_sticker = "#{to_kebab_case attrs['avatar']}/#{to_kebab_case attrs['state']}.#{attrs['avatarstype']}"
     avatar_img_attrs = {
@@ -38,18 +38,24 @@ class ChatBlock < Asciidoctor::Extensions::BlockProcessor
     }
     block << (create_image_block block, avatar_img_attrs)
 
-    block << (create_block block, :pass, %(
+    block << (create_html_block block, %(
         </div>
         <div class="dialogblock dialogblock__text">
-    ), nil)
+    ))
 
     parse_content block, reader
 
-    block << (create_block block, :pass, %(
+    block << (create_html_block block, %(
         </div>
       </div>
-    ), nil)
+      ))
 
     block
+  end
+
+  private
+
+  def create_html_block parent, html, attributes = nil
+    create_block parent, :pass, html, attributes
   end
 end
