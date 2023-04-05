@@ -11,7 +11,7 @@ require 'rugged'
 CONTENT_DIRECTORY = 'content'
 
 options = {
-  prefix: 'posts/',
+  prefix: 'content/',
   repo: './code-workspace'
 }
 logger = Logger.new($stdout)
@@ -38,17 +38,11 @@ end.parse!
 
 logger.level = Logger::INFO if options[:verbose]
 
-initial_path = File.expand_path(options[:prefix], CONTENT_DIRECTORY)
-files = Dir.new(initial_path)
-           .children
-           .select do |file|
-             path = File.expand_path(file, initial_path)
-             File.directory? path
-           end
-           .map { |file| File.join options[:prefix], file }
-           .sort
-selected_branch = `echo -e "#{files.join '\n'}" | fzf`.strip
+files = Dir.glob('**/', base: CONTENT_DIRECTORY)
+           .select { |file| File.directory?(File.expand_path(file, CONTENT_DIRECTORY)) }
+
+selected_branch = `echo -e "#{files.join '\n'}" | fzf`.strip.delete_suffix '/'
 
 code_workspace = Rugged::Repository.discover(options[:repo])
-code_workspace.head=("refs/heads/#{selected_branch}")
+code_workspace.head=("refs/heads/#{options[:prefix]}#{selected_branch}")
 logger.info "Switched '#{options[:repo]}' to orphan branch '#{code_workspace}'"
