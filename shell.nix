@@ -2,9 +2,17 @@
 
 with pkgs;
 
+let
+  gems = bundlerEnv {
+    name = "hugo-website-gems";
+    gemdir = ./.;
+  };
+in
 mkShell {
   packages = [
-    asciidoctor
+    gems
+    gems.wrappedRuby
+
     git
     go
     hugo
