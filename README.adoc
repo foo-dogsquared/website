@@ -46,6 +46,18 @@ All of them should have a dedicated folder named `$PUBLISH_DATE_IN_ISO_FORMAT-$P
 For example, if you have a post titled "How to pick your nose" published on March 31 of 2023, you have to store it in a folder `2023-03-31-how-to-pick-your-nose` in the content Hugo folder.
 You can easily create one with `hugo new posts/$FOLDER_NAME/index.adoc`.
 
+Take note you also have to fetch the branches with the `content/` prefix.
+Each of those branch are basically dedicated branches for content which can be retrieved inside of the Asciidoctor document.
+Another thing to set up is to create a link:https://git-scm.com/docs/git-worktree[Git worktree].
+Mostly, it is expected to be in a directory inside of the project.
+
+[source, shell]
+----
+git worktree add ./code-workspace
+----
+
+The above directory is typically used for the `content/*` branches.
+
 
 === Getting used to with Asciidoctor
 
@@ -68,6 +80,36 @@ Here's a couple of macros with this extension.
 For more details, you can see link:./gems/lib/asciidoctor[`./gems/lib/asciidoctor`] for more details.
 
 
+=== Asciidoctor custom include processors
+
+This website uses its own set of Asciidoctor extension as depicted from the above section.
+But there are more than shorthand macros for certain types of link.
+
+The most useful (arguably) types of extension found here are the include processors.
+
+- An include processor for retrieving Git objects with `git:`.
+This might not sound great but it allows me to create dedicated branches for certain content.
+Plus, it easily creates patches which is nice to create code walkthroughs.
+
+- An include processor for SWHIDs but only with content blobs (i.e., `swh:cnt:`).
+Very useful for referring to archived codebases.
+
+
+=== General content taxonomy
+
+While this is mostly referring to link:http://gohugo.io/content-management/taxonomies/[Hugo taxonomies], this is generally applicable to similar features found in other site generators.
+The way how I describe the relationship of the content for the end user is pretty simple as it only contains two taxonomy: tags and series.
+
+- Each content may have multiple tags attached to them.
+These tags are basically referring to a field of various scopes.
+It can go from a very broad field (e.g., Programming) to a specific one (e.g., Web development).
+I recommend to be as specific as possible with the tags.
+
+- Each content can be a part of a series.
+A content can only be one series at any given time.
+A series is typically encompassing in its scope and should have an introductory post as to what it is and its aims.
+
+
 === Deployment
 
 This project uses Netlify to deploy the website.
@@ -75,3 +117,9 @@ However, this uses GitHub Actions to build the website since Netlify is too limi
 
 The building step for this website should be the same as the (encouraged) workflow with Nix development shells.
 Hence, it should be run with `make build` and deploy the website with `public/` folder.
+
+
+== Copyright
+
+The template used for this site is licensed under MIT license which you can link:./LICENSE[view the file in full detail].
+The link:./content/[content that is hosted in here] are my intellectual property.
