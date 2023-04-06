@@ -1,0 +1,58 @@
+= Git blob include processor
+:toc:
+
+
+An include processor that includes content from the current Git repo.
+The use case for this is specifically for creating dedicated branches for certain content.
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+include::git:$REVSPEC[]
+----
+
+Where `$REVSPEC` is a revision as specified in link:https://manpages.debian.org/gitrevisions.7[gitrevisions.7].
+Take note this include processor only accepts a blob object's content to be extracted.
+This is meant to be used with other attributes.
+See <<Attributes>> for more details.
+
+If the resulting operation ends in an error (i.e., non-existing revision, file, something went wrong), it should log a warning and transclude an error.
+
+
+== Attributes
+
+- `path` is the filepath to be retrieved from the revision.
+
+- `context-lines` is the number of surrounding lines for the diff.
+This is only effective if `diff` option is given.
+
+There's also a couple of link:https://docs.asciidoctor.org/asciidoc/latest/attributes/options/[options] for this component.
+You can give the following options through `opts` attribute (i.e., `opts="diff,reverse"`).
+
+- `diff` will show the difference in link:https://en.wikipedia.org/wiki/Diff[diff] format.
+
+- `reverse` reverses the sides to be compared.
+
+
+== Extra notes
+
+The extension is composed of two parts: an include processor and a preprocessor.
+
+The preprocessor add a document attribute, `doccontentref`, which it gives the Git reference for that content.
+`doccontentref` is the difference between the process working directory (`Dir.pwd`) and the base directory of the content to be converted.
+In case the process working directory is not entirely consistent for several reasons, you could give the attribute `rootdir` as the basis for the comparison.
+
+The include processor also accepts an empty target with the prefix (i.e., `include::git:[]`) as a shorthand for `include::git:{doccontentref}`.
+
+
+== Example usage
+
+The following examples assume that `doccontentref` points to `content/posts/sample`.
+
+- `include::git:HEAD[path=shell.nix]` should transclude the current iteration of `shell.nix`.
+
+- `include::git:{doccontentref}[opts="diff", path=Gemfile]` should include a diff of the Gemfile from `content/posts/sample` branch (assuming that Gemfile has changed).
+
+- `include::git:non-existing-rev[opts="diff"]` should result in a warning with the non-existing revision.

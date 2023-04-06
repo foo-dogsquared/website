@@ -13,6 +13,7 @@ require_relative 'github-raw-content-include-processor/extension'
 require_relative 'gitlab-link-inline-macro/extension'
 require_relative 'gitlab-raw-content-include-processor/extension'
 require_relative 'chat-block-processor/extension'
+require_relative 'git-blob-include-processor/extension'
 require_relative 'wikipedia-inline-macro/extension'
 
 Asciidoctor::Extensions.register do
@@ -27,6 +28,9 @@ Asciidoctor::Extensions.register do
 
   inline_macro GitLabLinkInlineMacro
   include_processor GitLabRawIncludeProcessor
+
+  include_processor GitBlobIncludeProcessor
+  preprocessor GitContentBranchAttributePreprocessor
 
   inline_macro WikipediaInlineMacro
 end
