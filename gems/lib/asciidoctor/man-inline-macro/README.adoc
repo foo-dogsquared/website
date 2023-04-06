@@ -35,6 +35,11 @@ This is also the default service when no value is given.
 
 - `opensuse` uses https://manpages.opensuse.org.
 
+- `voidlinux` use https://man.voidlinux.org.
+
+- `none` uses none at all. :)
+This is useful if the reference is not found anywhere.
+
 Any invalid value raises an error.
 --
 

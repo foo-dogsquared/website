@@ -13,22 +13,28 @@ class ManInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
     suffix = (volnum = attrs['volnum']) ? %((#{volnum})) : ''
 
     if doc.basebackend? 'html'
-      case attrs['service']
-      when 'debian'
-        domain = 'https://manpages.debian.org'
-      when 'arch'
-        domain = 'https://man.archlinux.org/man'
-      when 'opensuse'
-        domain = 'https://manpages.opensuse.org'
-      when 'voidlinux'
-        domain = 'https://man.voidlinux.org'
-      else
-        raise "no available manpage service #{attrs['service']}"
-      end
+      domain = case attrs['service']
+               when 'debian'
+                 'https://manpages.debian.org'
+               when 'arch'
+                 'https://man.archlinux.org/man'
+               when 'opensuse'
+                 'https://manpages.opensuse.org'
+               when 'voidlinux'
+                 'https://man.voidlinux.org'
+               when 'none'
+                 nil
+               else
+                 raise "no available manpage service #{attrs['service']}"
+               end
 
-      target = %(#{domain}/#{manname}.#{volnum})
-      doc.register :links, target
-      node = create_anchor parent, text, type: :link, target: target
+      if !domain.nil?
+        target = %(#{domain}/#{manname}.#{volnum})
+        doc.register :links, target
+        node = create_anchor parent, text, type: :link, target: target
+      else
+        node = create_inline parent, :quoted, manname
+      end
     elsif doc.backend == 'manpage'
       node = create_inline parent, :quoted, manname, type: :strong
     else
