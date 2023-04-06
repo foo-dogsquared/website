@@ -1,0 +1,30 @@
+= Wikipedia inline macro
+:toc:
+
+
+An inline macro for easily creating Wikipedia links (i.e., `wikipedia.org`).
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+wikipedia:PAGE[$CAPTION]
+----
+
+Where if `$CAPTION` is present, it will be used as the link text.
+Otherwise, it will just be the page.
+
+
+== Attributes
+
+- `lang` is the language domain to be linked into.
+By default, it is set to `en`.
+
+
+== Example usage
+
+- `wikipedia:Diff[]` should link to the link:https://en.wikipedia.org/wiki/Diff[Diff page on English Wikipedia].
+- `wikipedia:Diff[lang=ja]` should link to the link:https://ja.wikipedia.org/wiki/Diff[Diff page on Japanese Wikipedia].
+- `wikipedia:Photosynthesis[lang=simple]` should link to the link:https://simple.wikipedia.org/wiki/Photosynthesis[Photosynthesis page on Simple English Wikipedia].
+- `wikipedia:Diff[diff in Japanese Wikipedia, lang=ja]` should link to the link:https://ja.wikipedia.org/wiki/Diff[Diff page on Japanese Wikipedia] with the `diff in Japanese Wikipedia` as the link text.
