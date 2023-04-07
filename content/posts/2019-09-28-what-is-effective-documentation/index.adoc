@@ -2,11 +2,8 @@
 title: "What is effective documentation"
 date: 2019-09-28T20:29:58+08:00
 
-categories:
-    - Documentation
 tags:
-    - writing
-    - documentation
+  - Writing
 ---
 
 = What is effective documentation

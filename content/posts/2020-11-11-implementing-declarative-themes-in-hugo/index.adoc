@@ -2,6 +2,9 @@
 title: "Implementing configurable Base16 schemes in Hugo themes"
 date: 2020-11-08T12:30:27+08:00
 publishdate: 2020-11-11T20:30:00+08:00
+
+tags:
+  - Hugo
 ---
 
 = Implementing easy Base16 schemes in Hugo themes

@@ -1,6 +1,10 @@
 ---
 title: "Using Neovim as your manpager"
 publishdate: 2023-03-12T00:00:00+00:00
+
+tags:
+  - Linux
+  - Vim
 ---
 
 = Using Neovim as your manpager

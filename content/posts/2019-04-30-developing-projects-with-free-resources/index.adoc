@@ -2,11 +2,8 @@
 date: 2019-04-30 12:32:40 +0800
 title: Developing projects with free resources
 
-categories:
-    - How not to procastinate
 tags:
-    - projects
-    - development
+  - Bookmarks
 ---
 
 = Developing projects with free resources

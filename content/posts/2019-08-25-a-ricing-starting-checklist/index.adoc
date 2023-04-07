@@ -2,11 +2,7 @@
 title: "A 'ricing' starting checklist"
 date: 2019-08-25T18:03:43+08:00
 categories:
-    - How to Linux
-tags:
-    - linux
-    - desktop
-    - ricing
+  - Linux
 ---
 
 = A "ricing" starting checklist

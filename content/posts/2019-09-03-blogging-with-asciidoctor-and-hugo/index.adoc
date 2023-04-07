@@ -1,12 +1,10 @@
 ---
 title: "Blogging with Asciidoctor and Hugo"
 date: 2019-09-03T13:07:43+08:00
-categories:
-    - Hugo
 tags:
-    - writing
-    - ssg
-    - hugo
+  - Writing
+  - Asciidoctor
+  - Hugo
 ---
 
 = Blogging with Asciidoctor and Hugo

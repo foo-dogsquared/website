@@ -2,11 +2,8 @@
 title:  A freebie's resource list (mostly related to programming)
 date:   2018-05-01 09:25:57 +0800
 
-categories:
-    - Freebies
 tags:
-    - bookmarks
-    - freebies
+  - Bookmarks
 ---
 
 = A freebie's resource list (mostly related to programming)

@@ -2,13 +2,9 @@
 title: "My experience of managing a cloud-hosted server with NixOS"
 publishdate: 2023-02-26T00:00:00+00:00
 
-categories:
-  - How to NixOS
-  - How to Linux
 tags:
-  - linux
-  - nix
-  - nixos
+  - Nix
+  - System administration
 ---
 
 = My experience of managing a cloud-hosted server with NixOS

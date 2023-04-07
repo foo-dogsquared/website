@@ -3,8 +3,7 @@ title: A site overhaul has occurred
 date: 2019-08-15T18:10:07+08:00
 
 tags:
-    - self
-    - meta
+  - Meta
 ---
 
 = A site overhaul has been occurred

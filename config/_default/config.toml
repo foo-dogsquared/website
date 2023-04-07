@@ -16,6 +16,10 @@ This site uses [medium-zoom](https://github.com/francoischalifour/medium-zoom) a
 For analytics, it uses [GoatCounter](https://goatcounter.com/).
 """
 
+[taxonomies]
+tag = "tags"
+series = "series"
+
 [[module.imports]]
 path = "github.com/foo-dogsquared/hugo-theme-more-contentful"
 

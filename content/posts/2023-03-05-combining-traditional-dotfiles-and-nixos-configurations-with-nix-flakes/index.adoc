@@ -2,13 +2,8 @@
 title: "Combining traditional dotfiles and NixOS configurations with Nix flakes"
 publishdate: 2023-03-05T00:00:00+00:00
 
-categories:
-  - How to NixOS
-  - How to Linux
 tags:
-  - linux
-  - nix
-  - nixos
+  - Nix
 ---
 
 = Combining traditional dotfiles and NixOS configurations with Nix flakes

@@ -1,6 +1,9 @@
 ---
 title: "Managing mutable files in NixOS"
 date: 2023-03-24T00:00:00+00:00
+
+tags:
+  - Nix
 ---
 
 = Managing mutable files in NixOS

@@ -1,12 +1,8 @@
 ---
 title: "The complete Linux turnabout"
 date: 2019-08-20T20:50:18+08:00
-categories:
-    - How to Linux
 tags:
-    - linux
-    - desktop
-    - ricing
+  - Linux
 ---
 
 = The complete Linux turnabout
