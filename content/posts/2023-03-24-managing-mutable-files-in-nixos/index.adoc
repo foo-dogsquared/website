@@ -8,7 +8,7 @@ tags:
 
 = Managing mutable files in NixOS
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-v1.0.1, 2023-04-07: Update to use the Git blob include processor
+v1.0.2, 2023-04-07: Update quote description
 
 :home-manager-rev: bb4b25b302dbf0f527f190461b080b5262871756
 :nix-flakes-post: ../2023-03-05-combining-traditional-dotfiles-and-nixos-configurations-with-nix-flakes/index.adoc
@@ -25,11 +25,13 @@ While managing with flakes is less tedious than managing it with fetchers, you'r
 
 While it is reproducible, it's a tedious process especially if you need immediate changes from your dotfiles.
 
-One of the responses I got from the aforementioned post is link:https://www.reddit.com/r/NixOS/comments/11kme1n/comment/jb80qgy[an alternative solution for managing dotfiles] by mtndewforbreakfast.
+One of the responses I got from the aforementioned post is link:https://www.reddit.com/r/NixOS/comments/11kme1n/comment/jb80qgy[an alternative solution for managing dotfiles].
 
-[quote]
+[quote, /u/mtndewforbreakfast]
+____
 I'm more likely to use home-manager's link:https://github.com/nix-community/home-manager/blob/bb4b25b302dbf0f527f190461b080b5262871756/modules/files.nix#L64[mkOutOfStoreSymlink] if I find myself in situations where I need non-generational or mutable file content.
 I have a trivial personal HM module that git-clones things to a desired path as part of the activation script if they're absent and then manage them out of band from then on.
+____
 
 Long story short, I tried this approach and I found it to be a better solution overall.
 It is more flexible and lends itself as a great solution for managing mutable files — files that are not meant to be managed by Nix.
