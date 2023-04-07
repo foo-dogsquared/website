@@ -94,7 +94,7 @@ end
 # setting the branches reference as a starting point. I don't see any setback
 # with this approach yet.
 repo_walker = Rugged::Walker.new(code_workspace)
-repo_walker.sorting(Rugged::SORT_DATE | Rugged::SORT_REVERSE)
+repo_walker.sorting(Rugged::SORT_REVERSE)
 
 # The branches at this point should have been filtered with the given prefix.
 options[:branches].each do |branch|
