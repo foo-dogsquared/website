@@ -8,7 +8,7 @@ tags:
 
 = Managing mutable files in NixOS
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-2023-03-24
+v1.0.1, 2023-04-07: Update to use the Git blob include processor
 
 :home-manager-rev: bb4b25b302dbf0f527f190461b080b5262871756
 :nix-flakes-post: ../2023-03-05-combining-traditional-dotfiles-and-nixos-configurations-with-nix-flakes/index.adoc
@@ -118,7 +118,7 @@ Let's first create the skeleton for the module.
 .`modules/home-manager/fetch-mutable-files.nix`
 [source, nix]
 ----
-include::./assets/fetch-mutable-files-skeleton.nix[]
+include::git:{doccontentref}~3[path=modules/home-manager/fetch-mutable-files.nix]
 ----
 
 We have yet to define certain parts including what each attribute could contain.
@@ -138,7 +138,7 @@ git apply file.patch
 
 [source, patch]
 ----
-include::./assets/patches/0002-fetch-mutable-files-add-file-submodule.patch[]
+include::git:{doccontentref}~2[opts=diff]
 ----
 
 Take note we also added the `path` attribute that comes with a function to handle the path.
@@ -176,7 +176,7 @@ curl "https://example.org" || echo "ERROR"
 
 [source, patch]
 ----
-include::./assets/patches/0003-fetch-mutable-files-add-initial-systemd-service.patch[]
+include::git:{doccontentref}~1[opts=diff]
 ----
 
 Creating the shell script should be trivial.
@@ -185,7 +185,7 @@ Here's one way to let Nix generate our shell script featuring link:https://nixos
 
 [source, patch]
 ----
-include::./assets/patches/0004-fetch-mutable-files-add-the-shell-script-for-the-ser.patch[]
+include::git:{doccontentref}[opts=diff]
 ----
 
 [NOTE]
