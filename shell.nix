@@ -1,18 +1,20 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import <nixpkgs> { }, ruby-nix }:
 
 with pkgs;
 
 let
-  gems = bundlerEnv {
+  localGems = ruby-nix {
     name = "hugo-website-gems";
-    gemdir = ./.;
+    gemset = ./gemset.nix;
   };
 in
 mkShell {
-  packages = [
-    gems
-    gems.wrappedRuby
+  buildInputs = [
+    localGems.env
+    localGems.ruby
+  ];
 
+  packages = [
     git
     go
     hugo
