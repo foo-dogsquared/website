@@ -48,19 +48,6 @@
     targets = [];
     version = "0.5.1";
   };
-  asciidoctor-interdoc-reftext = {
-    dependencies = ["asciidoctor"];
-    groups = ["default"];
-    platforms = [];
-    source = {
-      remotes = ["https://rubygems.org"];
-      sha256 = "0xnshlk8gniknys4dplj95swip198c1z6h0rv5bmm791ln36lgpa";
-      target = "ruby";
-      type = "gem";
-    };
-    targets = [];
-    version = "0.5.2";
-  };
   asciidoctor-rouge = {
     dependencies = ["asciidoctor" "rouge"];
     groups = ["default"];

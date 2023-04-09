@@ -24,8 +24,6 @@ GEM
     asciidoctor-html5s (0.5.1)
       asciidoctor (>= 1.5.7, < 3.0)
       thread_safe (~> 0.3.4)
-    asciidoctor-interdoc-reftext (0.5.2)
-      asciidoctor (>= 1.5.6, < 3.0)
     asciidoctor-rouge (0.4.0)
       asciidoctor (>= 1.5.6, < 2.1)
       rouge (>= 2.2, < 4)
@@ -93,7 +91,6 @@ DEPENDENCIES
   asciidoctor-bibtex
   asciidoctor-foodogsquared-extensions!
   asciidoctor-html5s
-  asciidoctor-interdoc-reftext
   asciidoctor-rouge
   asciidoctor-tabs!
   concurrent-ruby
