@@ -162,11 +162,3 @@ code[data-lang] {
     color: unset;
   }
 }
-
-@media all and (max-width: 860px) {
-  .imageblock {
-    > .content {
-      width: 100% !important;
-    }
-  }
-}
