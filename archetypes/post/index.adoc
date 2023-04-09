@@ -1,9 +1,10 @@
+{{- $date := time.Format "2006-01-02" .Date }}
 ---
-title: "{{ replace .Name "-" " " | humanize }}"
-date: {{ .Date }}
+title: "{{ strings.TrimPrefix $date .Name | replace "-" " " | humanize }}"
+publishdate: {{ .Date }}
 ---
 
 = {{ replace .Name "-" " " | humanize }}
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-{{ dateFormat "2006-01-02" .Date }}
+{{ $date }}
 
