@@ -23,6 +23,7 @@ mkShell {
     asciidoctorWrappedWithCustomOptions
 
     git
+    libgit2
     go
     hugo
     jq
