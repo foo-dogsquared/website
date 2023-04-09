@@ -20,22 +20,25 @@ If caption is missing, the link text will be the namespace (i.e., `$OWNER/$REPO`
 There are optional attributes for this macro.
 
 - `rev` is the commit/branch/tag of the repo to be linked.
+When given no caption, it will update the default caption with `$OWNER/$REPO@$REV`.
 
 - `path` is the filepath to be linked within the repo.
 
 - `issue` accepts the issue number to be linked in the GitHub repo.
 Take note `issue` is exclusive to other attributes and has more precedence.
 For example, if `issue` and `rev` are both present, the link for issue will be the result.
++
+When given no caption, it will update the default caption with `$OWNER/$REPO#$ISSUE`.
 
 
 == Example usage
 
-- `github:foo-dogsquared/website` will link to link:https://github.com/foo-dogsquared/website[my website repository].
+- `github:foo-dogsquared/website[]` will link to link:https://github.com/foo-dogsquared/website[my website repository] with the link text `foo-dogsquared/website`.
 
-- `github:NixOS/nixpkgs[nixpkgs nixos-unstable branch, rev=nixos-unstable]` should link to the link:https://github.com/NixOS/nixpkgs/tree/nixos-unstable[NixOS unstable branch of nixpkgs] with a custom link text.
+- `github:NixOS/nixpkgs[nixpkgs nixos-unstable branch, rev=nixos-unstable]` should link to the link:https://github.com/NixOS/nixpkgs/tree/nixos-unstable[NixOS unstable branch of nixpkgs] with a caption of `nixpkgs nixos-unstable branch`.
 
 - `github:errata-ai/vale[Vale v2.3.0 README, path=README.md, rev=v2.3.0]` should link to the link:https://github.com/errata-ai/vale/blob/v2.3.0/README.md[README of Vale v2.3.0].
 
-- `github:neovim/neovim[Neovim cannot open large files properly, issue=614]` should link to https://github.com/neovim/neovim/issues/614[an issue of Neovim].
+- `github:neovim/neovim[Neovim cannot open large files properly, issue=614]` should link to https://github.com/neovim/neovim/issues/614[an issue of Neovim] with `Neovim cannot open large files properly` as the link text.
 
 - `github:neovim/neovim[Neovim cannot open large files properly, issue=614, rev=master]` should still link to https://github.com/neovim/neovim/issues/614[an issue of Neovim] since `issue` has more precedence over `rev`.

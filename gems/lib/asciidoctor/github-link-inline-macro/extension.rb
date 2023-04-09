@@ -16,9 +16,11 @@ class GitHubLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
 
     if attrs.key? 'issue'
       uri.path += %(/issues/#{attrs['issue']})
+      text << "##{attrs['issue']}" if text == target
     else
       uri.path += %(/tree/#{attrs['rev']}) if attrs.key? 'rev'
       uri.path += %(/#{attrs['path']}) if attrs.key? 'path'
+      text << "@#{attrs['rev']}" if text == target
     end
 
     target = uri.to_s
