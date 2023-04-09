@@ -24,8 +24,12 @@ If the resulting operation ends in an error (i.e., non-existing revision, file, 
 == Attributes
 
 - `path` is the filepath to be retrieved from the revision.
+When used with `diff`, it changes into a semicolon-delimited (`;`) list of files to make diffs with multiple files.
 
 - `context-lines` is the number of surrounding lines for the diff.
+This is only effective if `diff` option is given.
+
+- `other` is the other commit to be compared with.
 This is only effective if `diff` option is given.
 
 There's also a couple of link:https://docs.asciidoctor.org/asciidoc/latest/attributes/options/[options] for this component.

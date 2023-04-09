@@ -19,11 +19,16 @@ class GitBlobIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
       if attrs.key? 'diff-option'
         options = {}
 
-        options[:paths] = [attrs['path']] if attrs.key? 'path'
+        options[:paths] = attrs['path'].split(';') if attrs.key? 'path'
         options[:context_lines] = attrs['context-lines'] if attrs.key? 'context-lines'
         options[:reverse] = true if attrs.key? 'reverse-option'
 
-        reader.push_include git_object.diff(**options).patch
+        if attrs.key? 'other'
+          other = repo.rev_parse attrs['other'] || nil
+          reader.push_include git_object.diff(other, **options).patch
+        else
+          reader.push_include git_object.diff(**options).patch
+        end
       else
         inner_entry = case git_object.type
                       when :blob
