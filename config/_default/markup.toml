@@ -16,6 +16,7 @@ allow-uri-read = true
 experimental = true
 linkcss = true
 cache-uri = true
+reproducible = true
 
 avatarsdir = "/icons/avatars"
 avatarstype = "webp"
