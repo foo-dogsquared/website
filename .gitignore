@@ -2,6 +2,9 @@
 
 .direnv
 
+# The code workspace used for the dedicated branches for certain content.
+./code-workspace/
+
 # Certain files just need to be ignored.
 /layouts/partials/openring.html
 /layouts/partials/planet.html
