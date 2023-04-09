@@ -7,8 +7,8 @@ name = "Twitter"
 
 [[links]]
 id = "mastodon"
-url = "https://mastodon.online/@foodogsquared"
-name = "Mastodon"
+url = "https://fosstodon.org/@foodogsquared"
+name = "Fosstodon"
 
 [[links]]
 id = "github"
