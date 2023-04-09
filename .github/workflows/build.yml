@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - content/*
   workflow_run:
     workflows:
       - "Update webring"
