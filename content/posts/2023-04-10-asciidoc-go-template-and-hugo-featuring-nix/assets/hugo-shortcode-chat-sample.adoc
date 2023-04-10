@@ -1,0 +1,13 @@
+\{{</* chat avatar="foodogsquared" state="nervous" */>}}
+This is becoming unnerving.
+_Really_ unnerving.
+{{</* /chat */>}}
+
+{{</* chat avatar="Ezran" state="disguised" name="A person in disguise" reversed="true" */>}}
+Hello there, stranger!
+Could I have your wallet for a short inspection?
+{{</* /chat */>}}
+
+{{</* chat foodogsquared */>}}
+NO!
+{{</* /chat */>}}

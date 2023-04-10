@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+        8: from /nix/store/n23v258hppvz4q9rcj0gd1l73cbxrx84-hugo-website-gems/bin/asciidoctor:33:in `<main>'
+        7: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler.rb:164:in `setup'
+        6: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler.rb:216:in `definition'
+        5: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/definition.rb:37:in `build'
+        4: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:12:in `evaluate'
+        3: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:49:in `eval_gemfile'
+        2: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:49:in `instance_eval'
+        1: from /nix/store/cpc9w06bj6n7j86gipprcjm2i1mlm0yw-gemfile-and-lockfile/Gemfile:9:in `eval_gemfile'
+/nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:87:in `gemspec': There are no gemspecs at /nix/store/cpc9w06bj6n7j86gipprcjm2i1mlm0yw-gemfile-and-lockfile (Bundler::InvalidOption)
+        8: from /nix/store/n23v258hppvz4q9rcj0gd1l73cbxrx84-hugo-website-gems/bin/asciidoctor:33:in `<main>'
+        7: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler.rb:164:in `setup'
+        6: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler.rb:216:in `definition'
+        5: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/definition.rb:37:in `build'
+        4: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:12:in `evaluate'
+        3: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:49:in `eval_gemfile'
+        2: from /nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:49:in `instance_eval'
+        1: from /nix/store/cpc9w06bj6n7j86gipprcjm2i1mlm0yw-gemfile-and-lockfile/Gemfile:9:in `eval_gemfile'
+/nix/store/69v06rm4gpab35r8pdgg6jvk8p8fbh1n-bundler-2.4.8/lib/ruby/gems/2.7.0/gems/bundler-2.4.8/lib/bundler/dsl.rb:87:in `gemspec':  (Bundler::Dsl::DSLError)
+[!] There was an error parsing `Gemfile`: There are no gemspecs at /nix/store/cpc9w06bj6n7j86gipprcjm2i1mlm0yw-gemfile-and-lockfile. Bundler cannot continue.
+
+ #  from /nix/store/cpc9w06bj6n7j86gipprcjm2i1mlm0yw-gemfile-and-lockfile/Gemfile:9
+ #  -------------------------------------------
+ #
+ >  gemspec
+ #  -------------------------------------------

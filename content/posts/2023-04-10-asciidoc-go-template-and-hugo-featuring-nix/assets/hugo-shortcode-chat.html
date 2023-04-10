@@ -1,0 +1,12 @@
+\{{ $avatar := default (.Get "avatar") (.Get 0) }}
+{{ $name := default $avatar (.Get "name") }}
+{{ $state := default "default" (.Get "state") }}
+
+<div class="dialogblock dialogblock__avatar--{{ anchorize $avatar }} {{ with .Get "reversed" }}reversed{{ end }}" title="{{ $name }}">
+  <div class="dialogblock dialogblock__avatar">
+      <img src="/icons/avatars/{{ anchorize $avatar }}/{{ anchorize $state }}.webp" alt="{{ $name }}"/>
+  </div>
+  <div class="dialogblock dialogblock__text">
+    {{ $.Page.RenderString .Inner }}
+  </div>
+</div>

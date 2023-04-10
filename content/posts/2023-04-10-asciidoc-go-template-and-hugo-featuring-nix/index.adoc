@@ -1,0 +1,704 @@
+---
+title: "AsciiDoc, Go template, and Hugo (featuring Nix)"
+publishdate: 2023-04-10T00:00:00+00:00
+
+tags:
+  - Asciidoctor
+  - Hugo
+  - Nix
+---
+
+= AsciiDoc, Go template, and Hugo (featuring Nix)
+Gabriel Arazas <foodogsquared@foodogsquared.one>
+v1.0.0, 2023-04-10: Initial version
+
+:swhid-hugo-docs-asciidoctor-extension-support: swh:1:cnt:a98898821c30a1554c300c909cd29600059f436a;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f1e8f010f5f5990c6e172b977e5e2d2878b9a338;path=/docs/content/en/content-management/formats.md;lines=96
+:swhid-hugo-initial-asciidoctor-impl: swh:1:cnt:8cc3e79e67d7d197f5211c182f5a216b06c7cb9e;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f0266e2ef3487bc57dd05402002fc816e3b40195;path=/markup/asciidocext/asciidocext_config/config.go;lines=34-42
+:foodogsquared-site-source-revision: ed7ba855707a2ca13ab33c4eebab60257bff8880
+
+
+The title is a tongue-in-cheek reference to link:https://mattrighetti.com/2023/02/22/asciidoc-liquid-and-jekyll.html[a recent writeup regarding extending Asciidoctor in Jekyll].
+Since I have a similar recent problem, we'll stick to the themed naming.
+Besides, how many users are there setting up a link:https://gohugo.io/[Hugo] project that mainly writes with link:https://asciidoctor.org/[Asciidoctor] with custom extensions meanwhile setting up the whole development environment with link:https://nixos.org/[Nix]?
+
+This post documents the process and its problems of injecting custom HTML in my link:https://gohugo.io/[Hugo]-based website with content written used with custom Asciidoctor extensions then integrating them with Nix package manager.
+
+[chat, foodogsquared]
+====
+This dialog block is the bee's knees.
+====
+
+[chat, Ezran, state=skeptical, role=reversed]
+====
+Yeah right, you ripped this segment off from the linked post.
+What. A. Hack.
+====
+
+[chat, foodogsquared, state=nervous]
+====
+Well, at the very least I improved the dialog block as we'll see later in the post.
+====
+
+In parallel to the referenced post, we'll first go through how one would use features already available in Hugo and eventually using a nicer and more integrated solution of using custom link:https://docs.asciidoctor.org/asciidoctor/latest/extensions/[Asciidoctor extensions].
+I'll even throw in a walkthrough of setting the environment with Nix.
+Hopefully, this helps a fellow Hugo user facing similar problems.
+
+[#note:component-version]
+[NOTE]
+====
+In this post, it is assumed you're using the following relevant components:
+
+- Hugo v0.110.0 and later versions.
+- Asciidoctor v2.0.x.
+- Nix v2.14 and later versions.
+- We're also using nixpkgs from `NixOS 23.05-unstable` version, more specifically at commit `38263d02cf3a22e011e137b8f67cdf8419f28015` .
+====
+
+
+
+
+[#hugo-shortcodes]
+== Hugo shortcodes
+
+Thankfully in Hugo, injecting custom HTML is possible with link:https://gohugo.io/content-management/shortcodes/[shortcodes].
+This is what you're likely to go for when using Hugo.
+
+If we're to use it, it would go something like in the following listing.
+
+[source]
+----
+{{</* chat "foodogsquared" */>}}
+Hello there, **world**!!!
+{{</* /chat */>}}
+----
+
+This imaginary shortcode would allow markup to be rendered alongside the dialog box which is neat.
+
+There are some additional use case we can keep in mind with this shortcode:
+
+- You could specify the state by adding the `state` key which represents different states/images of each character.
+- You can change the display name with `name` key.
+- You can pass `reversed` key to have the dialog box appear as reversed representing the character talking on the other side.
+- You could also specify the named parameters as well.
+
+Overall, the following sample document should be enough to show the use cases.
+
+[source]
+----
+{{</* chat avatar="foodogsquared" state="nervous" */>}}
+This is becoming unnerving.
+_Really_ unnerving.
+{{</* /chat */>}}
+
+{{</* chat avatar="Ezran" state="disguised" name="A person in disguise" reversed="true" */>}}
+Hello there, stranger!
+Could I have your wallet for a short inspection?
+{{</* /chat */>}}
+
+{{</* chat foodogsquared */>}}
+NO!
+{{</* /chat */>}}
+----
+
+All we have to do is to figure out how to render the HTML and put the file in the link:https://gohugo.io/templates/shortcode-templates/[appropriate location].
+Hugo shortcodes use link:https://pkg.go.dev/text/template[Go template] on top of link:https://gohugo.io/functions/[Hugo's own selection of functions].
+Some familiarity of both are basically required to make use of it.
+
+[NOTE]
+====
+We're skipping some prerequisite setup here which would require placing the right images in certain locations.
+This is easily inferred by the <<lst:hugo-shortcode-chat, following shortcode>>.
+====
+
+Anyhoo, here's one way to render it.
+
+[#lst:hugo-shortcode-chat]
+.`layouts/shortcodes/chat.html`
+[source, go]
+----
+include::./assets/hugo-shortcode-chat.html[]
+----
+
+You can then use right away and it should work since the shortcode is processed after the content.
+In this case, Hugo will insert the shortcode output after Asciidoctor finished processing the document.
+
+This is a nice solution if you want a quick and easy one.
+However, there are some shortcomings with this approach.
+
+- Hugo shortcodes are only available to Hugo.
+I would like to easily migrate between frameworks and relying on a framework-exclusive feature for my content that is already handled by a tool (Asciidoctor) is not a good way to start.
+
+- Asciidoctor already has a way to be extended.
+Might as well use it.
+This also relates to the first point that we'll be delegating more work to Asciidoctor (which is good).
+
+- It is not aesthetically pleasing combining Hugo shortcodes and Asciidoctor content like that but that's just personal preference.
+
+- Last but not least, Hugo shortcodes are very limited to what it can do compared to Asciidoctor. footnote:[At least out of the box, you can still make the shortcode as capable as what you can do in Asciidoctor but it requires more work.]
+One of the many things I like about Asciidoctor is the ability to assign link:https://docs.asciidoctor.org/asciidoc/latest/attributes/role/[roles] which can effortlessly add more style and semantics to our chat blocks.
+Not to mention, you can link:https://docs.asciidoctor.org/asciidoc/latest/attributes/id/[assign an ID] that can be referred from the document.
+
+
+
+
+[#asciidoctor-extensions]
+== Asciidoctor extensions
+
+The greatest feature with Asciidoctor is its link:https://docs.asciidoctor.org/asciidoctor/latest/extensions/[extension system].
+Not only do we get a nice lightweight text markup format, we also get a nice text processor on top link:https://github.com/asciidoctor/asciidoctor-extensions-lab[that can be modified for various purposes].
+
+In an ideal case, the following sample should show enough use cases.
+
+[#lst:chat-block-sample]
+.`sample.adoc`
+[source, asciidoc]
+----
+include::git:{doccontentref}[path=chat-block-sample.adoc]
+----
+
+Similarly to the shortcode component, our custom chat block should be able to handle markup in it.
+Also, it should be easy to state the character's status among other things.
+
+Compared to the <<hugo-shortcodes>> method, this is easier to handle especially with more complex dialogues.
+Not to mention with features such as link:https://docs.asciidoctor.org/asciidoc/latest/attributes/role/[assigning roles], you can make dialog blocks easier to customize.
+It's even easier to extend its capabilities for this block with link:https://docs.asciidoctor.org/asciidoc/latest/attributes/element-attributes/[element attributes].
+
+Here's the chat block extension code in place.
+If you want to know about the details of creating it, you can see it in <<asciidoctor-chat-block-extension-walkthrough, a dedicated section walking you through the code>>.
+
+[#lst:asciidoctor-chat-block-processor]
+.`lib/asciidoctor/custom_extensions/chat_block_processor.rb`
+[source, ruby]
+----
+include::git:{doccontentref}[path=lib/asciidoctor/custom_extensions/chat_block_processor.rb]
+----
+
+Take note we cannot make use of this extension yet since we didn't register it in the Asciidoctor registry.
+Let's create the file that does that.
+
+.`lib/asciidoctor-custom-extensions.rb`
+[source, ruby]
+----
+include::git:{doccontentref}[path=lib/asciidoctor-custom-extensions.rb]
+----
+
+With the `asciidoctor` command-line interface, we can then make use of it with the `-r` option.
+
+[source, shell]
+----
+asciidoctor -r ./lib/asciidoctor-custom-extensions sample.adoc
+----
+
+
+
+
+[#using-custom-asciidoctor-extensions-in-hugo]
+== Using custom Asciidoctor extensions in Hugo
+
+With that said, we haven't integrated the custom extension with Hugo just yet.
+While Hugo has support for Asciidoctor extensions, it is limited in some form.
+Per swh:{swhid-hugo-docs-asciidoctor-extension-support}[Hugo documentation]:
+
+[quote, Hugo docs]
+____
+Notice that for security concerns only extensions that do not have path separators (either `\`, `/` or `.`) are allowed.
+That means that extensions can only be invoked if they are in one's Ruby's `$LOAD_PATH` (i.e., most likely, the extension has been installed by the user).
+Any extension declared relative to the website's path will not be accepted.
+____
+
+This pretty much means I have to make my extensions installed as a link:https://guides.rubygems.org/[Ruby Gem] alongside the project setup.
+
+[#sidebar:a-dialog-on-hugo-asciidoctor-integration]
+.A dialog on Hugo–Asciidoctor integration
+****
+[chat, foodogsquared]
+====
+The current status for easily adding custom Asciidoctor extensions is not great, yes.
+But at least it's better than it used to be which it only swh:{swhid-hugo-initial-asciidoctor-impl}[supported a fixed list of Asciidoctor extension to be used within Hugo].
+====
+
+[chat, Ezran, state=curious, role=reversed]
+====
+Why would it be restricted in the first place anyways?
+====
+
+[chat, foodogsquared]
+====
+The maintainer is primarily concerned with security especially in regards to shelling out to external programs which is what Hugo is doing.
+This is already seen in link:https://gohugo.io/about/security-model/[project's security model].
+
+As far as I can tell, they're trying to limit of that as much as possible.
+With the previous way of an allowlist of Asciidoctor extensions, it doesn't seem to be reasonable especially the Asciidoctor ecosystem is more open-ended.
+====
+****
+
+For the initial setup, we have to create the appropriate a gemspec file.
+Think of this as a blueprint for the Ruby gem.
+
+.`asciidoctor-custom-extensions.gemspec`
+[source, ruby]
+----
+include::git:{doccontentref}[path=asciidoctor-custom-extensions.gemspec]
+----
+
+Next, we build and then install the gem...
+
+[source, shell]
+----
+gem build ./asciidoctor-custom-extensions.gemspec
+gem install ./asciidoctor-custom-extensions*.gem
+----
+
+With our custom extension installed as a Ruby gem, we could add it to the list of Asciidoctor extensions in the Hugo configuration.
+
+.`config.toml`
+[source, toml]
+----
+[markup.asciidocExt]
+extensions = [
+  "asciidoctor-custom-extensions"
+]
+----
+
+Hoorah!
+Now we could make use of our own Asciidoctor extensions.
+
+[#sidebar:more-asciidoctor-extension-examples]
+.More Asciidoctor extension examples
+****
+You can see a more detailed example within the github:foo-dogsquared/website[source code of my website, rev={foodogsquared-site-source-revision}, path=gems] where I implemented several pet features for Asciidoctor which are mostly shorthand for several links.
+Here's a non-exhaustive list of extensions I implemented:
+
+- github:foo-dogsquared/website[`github:` inline macro to easily create links from GitHub., rev={foodogsquared-site-source-revision}, path=gems/lib/asciidoctor/github-link-inline-macro]
+Mainly inspired from link:https://zero-to-nix.com/concepts/flakes#references[Nix flake references syntax].
+I link a lot that is mainly hosted on GitHub so why not a macro for it.
+
+- github:foo-dogsquared/website[An inline macro to link SWHIDs with `swh:`., rev={foodogsquared-site-source-revision}, path=gems/lib/asciidoctor/swhid-inline-macro]
+I can easily create references with SWHIDs by storing each of them in a document attribute and `swh:{attribute-name}` away.
+
+- github:foo-dogsquared/website[An include processor for transcluding content from other Git revisions., rev={foodogsquared-site-source-revision}, path=gems/lib/asciidoctor/git-blob-include-processor]
+I use this to create dedicated branches for certain content (such as github:foo-dogsquared/website[the very article you're viewing, rev={doccontentref}]) to make creating sample code to be easier.
+This is what I use the simply refer to files and dynamically generate diffs which makes writing code walkthroughs a bit more fun.
+****
+
+If you want to test it, you can run the `asciidoctor` command.
+Mind the name of the extension which is whatever file that is placed on `lib` for our gem.
+
+[TIP]
+====
+Remember, Hugo converts Asciidoc files by shelling out to `asciidoctor` executable.
+If the following command works then it should work with Hugo as well.
+====
+
+[source, shell]
+----
+asciidoctor -r asciidoctor-custom-extensions sample.adoc
+----
+
+The end goal of the setup is done but there is a better way to set this all up.
+Specifically with Ruby, the most common way to manage Ruby environment is through link:https://bundler.io/[Bundler].
+It feels pretty similar to link:https://doc.rust-lang.org/cargo/[Cargo] for Rust or link:https://www.npmjs.com/[npm] for Node.
+This is especially important once you make use of the wider ecosystem of Asciidoctor alongside Hugo.
+
+To start, you'll have to create a file named `Gemfile`.
+This dictates what Ruby gems to contain within your project environment.
+At this point, you could also specify what other Ruby gems to install including existing Asciidoctor extensions.
+
+[#lst:gemfile]
+.`Gemfile`
+[source, ruby]
+----
+include::git:{doccontentref}[path=Gemfile]
+----
+
+Next, we the install the environment with `bundle install` and voila!
+You now have a reproducible environment for your Asciidoctor extension.
+
+[#sidebar:installing-our-own-gem-with-gemspec-directive]
+.Installing our own gem with `gemspec` directive
+****
+In the <<lst:gemfile>> code, installing the Asciidoctor extensions gem is done through the `gemspec` directive.
+It also installs the dependencies as indicated from the `gemspec` file.
+You can see more details from link:https://bundler.io/v1.12/man/gemfile.5.html#GEMSPEC-gemspec-[its online documentation].
+There should also be a manual page at man:gemfile[5] if you want to view it locally.
+****
+
+While viewing the HTML document in the browser might not be so pretty due to the lack of CSS rules for the dialog block, the more important thing to do is to check the HTML output.
+If it's there, all you have to do is to add the CSS rules for the dialog block in the Hugo project.
+
+
+
+
+[#introduction-to-the-project-setup]
+== Integrating the extensions with Nix
+
+With the depicted setup, you would think it's a pain to initialize the development environment.
+And you'd be right as the source code of the website uses more than Ruby and Hugo.
+For example, it uses github:foo-dogsquared/website[a shell script to generate a webring, rev={foodogsquared-site-source-revision}, path=bin/openring-create] which requires a separate program.
+Additionally, it uses certain features from Hugo such as link:https://gohugo.io/hugo-modules/[Hugo modules] which requires Git and Go runtime to be installed.
+
+[chat, foodogsquared]
+====
+Gee, it would be nice if there's a solution that can bring all of the development environment with just a command.
+====
+
+[chat, Ezran, role=reversed]
+====
+I wonder what that could be...
+====
+
+The project mainly uses link:https://nixos.org/[Nix] to easily reproduce the development environment in a snap.
+Just list the required dependencies in `shell.nix` at the project root, run `nix-shell`, and voila!
+
+.`shell.nix`
+[source, nix]
+----
+include::git:{doccontentref}~1[path=shell.nix]
+----
+
+As much as possible, I would like to keep it consistently reproducible and self-contained with Nix as it can also be used to reliably deploy with the given environment similarly used to Docker containers.
+link:https://nixos.org/manual/nixpkgs/unstable/#sec-language-ruby[nixpkgs has support for setting up development environments with Ruby] which is nice for us.
+All we have to do is to create a Nix environment link:https://nixos.org/manual/nixpkgs/unstable/#developing-with-ruby[as documented].
+
+Setting up a Ruby environment is done with the `pkgs.bundlerEnv` function from nixpkgs.
+We have already set the prerequisites for setting up Ruby with the Gemfile.
+Now we have to give the arguments for it.
+
+[NOTE]
+====
+You should also remove the installed custom gem from the <<using-custom-asciidoctor-extensions-in-hugo, previous chapter>> as Nix already managed those steps for you.
+====
+
+[source, nix]
+----
+pkgs.bundlerEnv {
+  name = "foodogsquared-website-gems";
+  gemdir = ./.;
+}
+----
+
+The one thing that stands out is the `gemdir` attribute which points the directory containing Gemfile, its lockfile, and `gemset.nix` which contains the checksums of the Gems.
+To generate the last item, we use the github:nix-community/bundix[bundix] utility which is available in nixpkgs repo.
+
+[source, shell]
+----
+bundle lock
+bundix
+----
+
+We can then add the Ruby environment in `shell.nix`.
+
+.Adding our Ruby environment to `shell.nix` as a diff
+[source, diff]
+----
+include::git:{doccontentref}~1[path=shell.nix, opts=diff]
+----
+
+Take note we also remove `asciidoctor` package in `shell.nix` since we already have an `asciidoctor` executable available from our gem which is preferable.
+This is the doing of `bundlerEnv` by including exported executables from the gemset into the environment.
+
+To check that it is working, enter the Nix environment with `nix-shell` and rerun the `asciidoctor` command.
+
+[.failed]
+[source, shell]
+----
+asciidoctor -r asciidoctor-custom-extensions sample.adoc
+----
+
+...which you shouldn't be able to successfully run.
+Instead, you should have the following results similar to the next listing.
+
+[literal]
+----
+include::./assets/bundlerenv-error[]
+----
+
+It turns out `bundlerEnv` doesn't go well with local gems as github:NixOS/nixpkgs[issue=197556] or github:nix-community/bundix[issue=76] have shown.
+Fortunately though, someone has made a modified version of `bundlerEnv` github:sagittaros/ruby-nix[ruby-nix] that made it works for those use cases.
+Let's make use of that.
+
+But before we start, we'll do one more thing which is to convert the Nix environment into a link:https://zero-to-nix.com/concepts/flakes[flake] to allow easy inclusion and usage of Nix modules from the wider ecosystem.
+
+[WARNING]
+====
+Nix flakes is an experimental feature but it is still strongly recommended to learn and use it.
+While it is still possible to use the featured Nix module with channels, it can result in a subtly different setup since the module expects up to a certain version of nixpkgs.
+
+That said, because it is an experimental feature, it has some setup required beforehand by setting link:https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-experimental-features[`experimental-features` in `nix.conf`] (i.e., `experimental-features = nix-command flakes`).
+====
+
+For starters, we'll have to create a file named `flake.nix` at the project root and define its inputs and its outputs.
+We only need to enter into the development environment so we only have to create the `devShells.default` flake output attribute used by `nix develop` command.
+
+[source, nix]
+----
+include::git:{doccontentref}~2[path=flake.nix]
+----
+
+All we have to do is to generate the lockfile to... lock in the dependencies with the following command.
+
+[TIP]
+====
+Even if you don't want to, running certain operations in Nix will still generate the lockfile anyways.
+We're just being explicit to have a closer look on managing Nix flakes.
+====
+
+[source, shell]
+----
+nix flake lock
+----
+
+And that's pretty much it (at least for the purposes of this post).
+Instead of `nix-shell`, we now have to enter the development environment with `nix develop`.
+
+[NOTE]
+====
+Technically, you can still enter through `nix-shell` but it isn't the same as `nix-shell` will use the nixpkgs from the channel list while `nix develop` uses nixpkgs from the lockfile.
+====
+
+And now we can add the ruby-nix as part of our flake.
+
+[source, diff]
+----
+include::git:{doccontentref}~2[opts=diff, path=flake.nix, other={doccontentref}]
+----
+
+Just keep in mind that we have also modified `shell.nix` to also accept an attribute `ruby-nix` as part of its function.
+This is the part where we really make use of ruby-nix.
+
+[source, diff]
+----
+include::git:{doccontentref}~1[opts=diff, path=shell.nix, other={doccontentref}]
+----
+
+With the setup done, we now have to update `gemset.nix` since ruby-nix expects a different output from the nixpkgs version.
+Specifically, it expects a generated output from github:sagittaros/bundix[the author's fork of bundix].
+All we have to do is to run it.
+
+We can easily run the author's fork of bundix with the following command.
+
+[source, shell]
+----
+nix run github:sagittaros/bundix
+----
+
+[chat, foodogsquared]
+====
+This is what I like with Nix flakes.
+It's easier to run outside apps because of this.
+====
+
+[chat, Ezran, state=skeptical, role=reversed]
+====
+As long as the developer of that app uses Nix flakes **and** exported the app as part of the flake output.
+
+Not to mention, it can take up space faster because each may have a different version of the common components like nixpkgs.
+Before you know it, you'll have ten version of nixpkgs floating in your disk.
+====
+
+[chat, foodogsquared]
+====
+Unfortunately, yeah.
+But that's what makes Nix quite nice to use from an end user perspective.
+Plus, if you can always do garbage collection and even set it up as a scheduled task.
+====
+
+Once that part is done, we can then enter to the Nix environment with `nix develop` then rerun the `asciidoctor` command one more time.
+
+[source, shell]
+----
+asciidoctor -r asciidoctor-custom-extensions chat-block-sample.adoc
+----
+
+And it should successfully run this time.
+Congratulations!
+The project environment is reachable in just a `nix develop` away!
+
+
+
+
+[#final-words]
+== Final words
+
+Hugo and Asciidoctor are both nice tools for personal websites.
+With features from Hugo like link:https://gohugo.io/content-management/multilingual/[multilingual mode] and link:https://gohugo.io/content-management/taxonomies/[taxonomies], it is easy to create and maintain a website.
+And with the rich syntax for various things such as link:https://docs.asciidoctor.org/asciidoc/latest/directives/include/[includes], link:https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[admonitions], and link:https://docs.asciidoctor.org/asciidoc/latest/blocks/sidebars/[sidebars] from Asciidoctor, it is a joy to write technical content.
+
+While it is easy to configure Hugo to use Asciidoctor, once you get into extending Asciidoctor, it can get overwhelming especially to someone who haven't encountered a Ruby codebase before.
+Extending Asciidoctor is the better way for Asciidoc documents no question.
+It integrates better with Asciidoctor, it looks nicer, and has more capabilities as earlier shown.
+
+With the addition of wanting to create a portable development environment with Nix, it can become a mountain of worries.
+Though setting up Ruby environments for applications with Nix is a rocky process, it has resulted in a nice replicable development environment for me to use.
+
+Hopefully, this post documented much of the setup's problems as well as the solution.
+Now go crazy and create a (potentially) overengineered pipeline with these tools for my amusement as a token of gratitude!
+
+
+
+
+[#asciidoctor-chat-block-extension-walkthrough]
+[appendix]
+== Asciidoctor chat block extension walkthrough
+
+If you're interested in the process of creating the <<lst:asciidoctor-chat-block-processor, chat block extension>> with some details on interacting with Asciidoctor API then you've come to the right place.
+
+Keep in mind the following user stories for this component which should be summarized in a <<lst:chat-block-sample, sample document>>:
+
+- The user should easily name the character.
+Under the hood, the component takes care of handling the resulting filepath which the user have to keep in mind.
+For example, if the given name is `El Pablo` (i.e., `[chat, El Pablo]`), the resulting filepath should be in `$AVATARSDIR/el-pablo/default.$AVATARSTYPE`.
+
+- A character can have multiple names for various reasons (i.e., spoiler potential, intent of surprise).
+Thus, a user can configure the name to appear with the `name` attribute (i.e., `[chat, El Pablo, name="A person in disguise"]`).
+
+- The user can specify the state with the `state` element attribute (i.e., `[chat, El Pablo, state=idle]`).
+It could also be given as the second positional attribute (i.e., `[chat, El Pablo, idle]`).
+
+- The user can configure the avatars' image directory with `avatarsdir` attribute.
+
+- The user can configure the type of images to be used with `avatarstype` attribute similarly used to `icontype`.
+
+In comparison to the <<hugo-shortcodes, Hugo shortcode version>>, you may have noticed the equivalent `reversed` option is missing.
+We're now delegating those options with link:https://docs.asciidoctor.org/asciidoc/latest/attributes/role/[Asciidoctor roles] which makes it easier to customize your dialog block.
+Now, you can add more styling options if you want to.
+
+.A chat block with two roles
+[source, asciidoc]
+----
+[chat, foodogsquared, state=nervous, role="shook darken"]
+====
+This is unnerving.
+_Really_ unnerving.
+====
+----
+
+
+[NOTE]
+====
+We'll be using Asciidoctor 2.0.18 for the rest of the walkthrough.
+
+Also, all code to this point will be shown as a wikipedia:diff[].
+This is meant to be used with `git apply` and similar tools.
+
+[source, shell]
+----
+git apply patchfile
+----
+====
+
+For our component, we'll implement it as a link:https://docs.asciidoctor.org/asciidoctor/latest/extensions/block-processor/[block processor] seeing as the proposed syntax is a block anyways.
+Let's first start with the initial version which is basically copied over from the example of the previously linked page.
+
+[#lst:asciidoctor-chat-block-processor-skeleton]
+.Creating the skeleton of our chat block component
+[source, diff]
+----
+include::git:{doccontentref}~12[opts=diff]
+----
+
+Let's inspect what is being done here.
+In this template, we just defined how the chat block is going to be processed.
+More specifically, we only set the chat block to be usable on top of the example block similar to link:https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[admonition blocks].
+
+Next, let's add in the expected output.
+In our case, it is link:https://docs.asciidoctor.org/asciidoc/latest/pass/pass-block/[a passthrough block] since the HTML output is complex enough footnote:[Plus, I don't know how the full extent of the Asciidoctor API whether it lets create a new component easily.].
+We'll also add default values of some of the element attributes here that are not possible to declare from the previous `default_attributes` declaration.
+
+[#lst:asciidoctor-chat-block-add-expected-output]
+.Adding the expected output from our component
+[source, diff]
+----
+include::git:{doccontentref}~11[opts=diff]
+----
+
+[#sidebar:asciidoctor-content-model-and-context]
+.Asciidoctor content model and context
+****
+For the purposes of this post, there are two concepts within Asciidoctor that you need to know about link:https://docs.asciidoctor.org/asciidoc/latest/blocks/[blocks]:
+link:https://docs.asciidoctor.org/asciidoc/latest/blocks/#content-model[content model] and link:https://docs.asciidoctor.org/asciidoc/latest/blocks/#context[context].
+
+**Content model dictates what kind of content a block can hold**.
+In the <<lst:asciidoctor-chat-block-add-expected-output, previous step>>, we have set the outer block with compound content model which could contain other blocks.
+We could then append blocks to that outer block with the following code.
+
+[#lst:asciidoctor-block-appending-sample]
+.Appending blocks onto a block with compound content model in Asciidoctor Ruby API
+[source, ruby]
+----
+block = create_block parent, :section, nil, attrs
+
+# Appending an image block.
+block << (create_image_block block, {
+    'target' =>  parent.image_uri("/icons/avatars/foodogsquared/default.webp", 'avatarsdir'),
+    'alt' => 'foodogsquared'
+})
+
+# Appending a passthrough block that contains HTML code.
+block << (create_block parent, :pass, %(<div>HELLO THERE</div>), nil)
+----
+
+Meanwhile, **context defines an aspect of the content**.
+Typically, it is used as the name of the block (e.g., an image block, a paragraph block).
+They're quite similar to HTML elements in the sense that they're both representing parts of the content (e.g., a link, a paragraph, a header, a section).
+In fact, they have the same name for parameters that changes an aspect of the component: attributes.
+
+Context also implies the content model.
+For example, the image block have an empty content model, the section block has a compound content model, and the passthrough block which has a raw content model which holds unprocessed content.
+In the <<lst:asciidoctor-chat-block-add-expected-output, previous step of the walkthrough>>, we have created a passthrough block with a compound content model.
+This what enables us to create custom components easily with Asciidoctor's built-in components.
+You'll see this aspect as you'll go through this section.
+****
+
+We still haven't added it the HTML output yet.
+Let's add that in.
+
+[#lst:asciidoctor-chat-block-add-html-expected-output]
+.Adding the HTML output
+[source, diff]
+----
+include::git:{doccontentref}~10[opts=diff]
+----
+
+Take note we didn't add the proper blocks here yet.
+In this case, we have to add two blocks: an image block containing the avatar image and the dialog.
+
+Searching around the documentation, I found two functions that can help with our next step: link:https://www.rubydoc.info/gems/asciidoctor/2.0.18/Asciidoctor/Extensions/Processor#create_image_block-instance_method[`create_image_block`] and link:https://www.rubydoc.info/gems/asciidoctor/2.0.18/Asciidoctor/Extensions/Processor#parse_content-instance_method[`parse_content`].
+However, `parse_content` already appends the blocks into the parent block (i.e., `block`).
+Thus, we have to split the HTML output up like so...
+
+[#lst:asciidoctor-chat-block-split-html]
+.Splitting the HTML output in preparation of adding the proper blocks
+[source, diff]
+----
+include::git:{doccontentref}~9[opts=diff]
+----
+
+Then add in the proper blocks as well as handled the resulting image path to be linked.
+Just take note that we haven't implemented the `to_kebab_case` function yet.
+
+[#lst:asciidoctor-chat-block-add-proper-blocks-to-html]
+.Adding the proper blocks
+[source, diff]
+----
+include::git:{doccontentref}~8[opts=diff]
+----
+
+Next, we'll implement a few (well, only one) helper function on the way.
+
+[#lst:asciidoctor-chat-block-add-helper-functions]
+.Implementing the helper functions
+[source, diff]
+----
+include::git:{doccontentref}~7[opts=diff]
+----
+
+Now the extension is completely implemented!
+The next change is just a minor refactoring on creating them HTML fragments.
+
+[#lst:asciidoctor-chat-block-refactor-passthrough-block-creation]
+.Refactoring passthrough block creation
+[source, diff]
+----
+include::git:{doccontentref}~6[opts=diff]
+----
