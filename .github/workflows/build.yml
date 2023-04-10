@@ -19,6 +19,9 @@ jobs:
       - uses: cachix/install-nix-action@v17
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
+      - name: Fetch all 'content/' branches
+        run: |
+          git fetch origin +refs/heads/*:refs/heads/*
       - run: nix develop -c make build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
