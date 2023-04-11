@@ -10,7 +10,7 @@ tags:
 
 = AsciiDoc, Go template, and Hugo (featuring Nix)
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-v1.0.0, 2023-04-10: Initial version
+v1.0.1, 2023-04-11: Improved conclusion
 
 :swhid-hugo-docs-asciidoctor-extension-support: swh:1:cnt:a98898821c30a1554c300c909cd29600059f436a;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f1e8f010f5f5990c6e172b977e5e2d2878b9a338;path=/docs/content/en/content-management/formats.md;lines=96
 :swhid-hugo-initial-asciidoctor-impl: swh:1:cnt:8cc3e79e67d7d197f5211c182f5a216b06c7cb9e;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f0266e2ef3487bc57dd05402002fc816e3b40195;path=/markup/asciidocext/asciidocext_config/config.go;lines=34-42
@@ -522,17 +522,17 @@ The project environment is reachable in just a `nix develop` away!
 
 Hugo and Asciidoctor are both nice tools for personal websites.
 With features from Hugo like link:https://gohugo.io/content-management/multilingual/[multilingual mode] and link:https://gohugo.io/content-management/taxonomies/[taxonomies], it is easy to create and maintain a website.
-And with the rich syntax for various things such as link:https://docs.asciidoctor.org/asciidoc/latest/directives/include/[includes], link:https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[admonitions], and link:https://docs.asciidoctor.org/asciidoc/latest/blocks/sidebars/[sidebars] from Asciidoctor, it is a joy to write technical content.
+And with the rich syntax for various things such as link:https://docs.asciidoctor.org/asciidoc/latest/directives/include/[includes], link:https://docs.asciidoctor.org/asciidoc/latest/blocks/admonitions/[admonitions], and link:https://docs.asciidoctor.org/asciidoc/latest/blocks/sidebars/[sidebars] from Asciidoctor, it is a joy to write technical content (or at the very least way smoother compared to Markdown).
 
 While it is easy to configure Hugo to use Asciidoctor, once you get into extending Asciidoctor, it can get overwhelming especially to someone who haven't encountered a Ruby codebase before.
 Extending Asciidoctor is the better way for Asciidoc documents no question.
-It integrates better with Asciidoctor, it looks nicer, and has more capabilities as earlier shown.
+It integrates better with the Asciidoc syntax, it looks nicer, and has more capabilities as earlier shown.
 
 With the addition of wanting to create a portable development environment with Nix, it can become a mountain of worries.
 Though setting up Ruby environments for applications with Nix is a rocky process, it has resulted in a nice replicable development environment for me to use.
 
 Hopefully, this post documented much of the setup's problems as well as the solution.
-Now go crazy and create a (potentially) overengineered pipeline with these tools for my amusement as a token of gratitude!
+Now go crazy and create a overengineered pipeline with these tools!
 
 
 
