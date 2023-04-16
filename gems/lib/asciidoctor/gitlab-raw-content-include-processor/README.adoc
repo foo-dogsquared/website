@@ -37,4 +37,8 @@ By default, it uses version `v4`.
 
 == Example usage
 
-- `include::gitlab:gitlab-org/gitlab[rev=master, path=README.md]` should
+- `include::gitlab:gitlab-org/gitlab[rev=master, path=README.md]` should include the README content from the master branch of link:https://gitlab.com/gitlab-org/gitlab/[GitLab source code].
+
+- `include::freedesktop-sdk/freedesktop-sdk[rev=bcb3e0de957519e87a4c7b8c0e40af9876e531e7, path=.gitlab-ci.yml]` should transclude the GitLab CI configuration from link:https://gitlab.com/freedesktop-sdk/freedesktop-sdk[Freedesktop SDK].
+
+- `include::World/warp[domain=gitlab.gnome.org, rev=v0.5.2, path=meson_options.txt]` includes `meson_options.txt` from link:https://gitlab.gnome.org/World/warp/[Warp source code] at v0.5.2.

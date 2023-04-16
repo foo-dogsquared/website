@@ -102,4 +102,14 @@ Hello there!
 ....
 
 - The following block should contain El Pablo's melodramatic dialog state.
-Take note
+Take note of the resulting path for the image which is in kebab-case.
++
+....
+[chat, El Pablo, state=melodramatic]
+====
+What tragedy is happening here!
+I couldn't take it.
+
+__Please__.
+====
+....

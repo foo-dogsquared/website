@@ -47,6 +47,7 @@ The extension is composed of two parts: an include processor and a preprocessor.
 The preprocessor add a document attribute, `doccontentref`, which it gives the Git reference for that content.
 `doccontentref` is the difference between the process working directory (`Dir.pwd`) and the base directory of the content to be converted.
 In case the process working directory is not entirely consistent for several reasons, you could give the attribute `rootdir` as the basis for the comparison.
+As another option, you could also manually set `doccontentref` in case it isn't applicable (i.e., for multilingual sites in Hugo projects).
 
 The include processor also accepts an empty target with the prefix (i.e., `include::git:[]`) as a shorthand for `include::git:{doccontentref}`.
 
