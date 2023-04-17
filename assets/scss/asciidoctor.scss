@@ -241,6 +241,7 @@ p {
     gap: 1em;
     padding: 0.5em;
     max-width: 55ch;
+    width: fit-content;
   }
 
   &__avatar {
@@ -262,12 +263,15 @@ p {
 
   &__text {
     display: block;
-    max-width: 50ch;
     margin: 0;
 
     > :first-child {
       margin-top: 0;
     }
+  }
+
+  &__avatar-name {
+    font-weight: bolder;
   }
 
   // Roles/modifiers.
