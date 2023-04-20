@@ -10,11 +10,11 @@ tags:
 
 = AsciiDoc, Go template, and Hugo (featuring Nix)
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-v1.0.1, 2023-04-11: Improved conclusion
+v1.0.3, 2023-04-11: Update the revision for the site source code
 
 :swhid-hugo-docs-asciidoctor-extension-support: swh:1:cnt:a98898821c30a1554c300c909cd29600059f436a;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f1e8f010f5f5990c6e172b977e5e2d2878b9a338;path=/docs/content/en/content-management/formats.md;lines=96
 :swhid-hugo-initial-asciidoctor-impl: swh:1:cnt:8cc3e79e67d7d197f5211c182f5a216b06c7cb9e;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f0266e2ef3487bc57dd05402002fc816e3b40195;path=/markup/asciidocext/asciidocext_config/config.go;lines=34-42
-:foodogsquared-site-source-revision: ed7ba855707a2ca13ab33c4eebab60257bff8880
+:foodogsquared-site-source-revision: 468ab1f841af6ab7ad8f197ac99f133f1ec60dc7
 
 
 The title is a tongue-in-cheek reference to link:https://mattrighetti.com/2023/02/22/asciidoc-liquid-and-jekyll.html[a recent writeup regarding extending Asciidoctor in Jekyll].
@@ -482,6 +482,9 @@ We can easily run the author's fork of bundix with the following command.
 nix run github:sagittaros/bundix
 ----
 
+[#sidebar:a-dialog-on-nix-flakes]
+.A dialog on Nix flakes
+****
 [chat, foodogsquared]
 ====
 This is what I like with Nix flakes.
@@ -502,6 +505,7 @@ Unfortunately, yeah.
 But that's what makes Nix quite nice to use from an end user perspective.
 Plus, if you can always do garbage collection and even set it up as a scheduled task.
 ====
+****
 
 Once that part is done, we can then enter to the Nix environment with `nix develop` then rerun the `asciidoctor` command one more time.
 
