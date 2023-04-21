@@ -2,6 +2,10 @@
 build:
 	hugo --destination public
 
+.PHONY: build-draft
+build-draft:
+	hugo --environment development --buildDrafts --buildFuture --buildExpired --destination public
+
 .PHONY: build-openring
 build-openring:
 	./bin/openring-create --input assets/templates/openring-input.html --output layouts/partials/openring.html
