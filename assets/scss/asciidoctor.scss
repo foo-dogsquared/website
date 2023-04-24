@@ -1,15 +1,5 @@
 // Asciidoctor-specific styles
-sup.footnote {
-  top: 0;
-  left: 0;
-}
-
 .anchor {
-  border-bottom: unset;
-  &:hover {
-    border-bottom: unset;
-  }
-
   &::before {
     content: "§";
     display: inline-block;
