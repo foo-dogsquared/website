@@ -31,6 +31,7 @@ mkShell {
     gnumake
     tree-sitter
     (tree-sitter.withPlugins (_: tree-sitter.allGrammars))
+    netlify-cli
 
     # Formatters...
     rufo # ...for Ruby.

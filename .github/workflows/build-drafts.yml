@@ -1,8 +1,8 @@
-name: "Build and deploy to Netlify"
+name: "Build and deploy drafted versions to Netlify"
 on:
   push:
     branches:
-      - master
+      - drafts/*
       - content/*
   workflow_run:
     workflows:
@@ -27,5 +27,5 @@ jobs:
           git fetch origin +refs/heads/content/*:refs/heads/content/*
       - run: |
           nix develop
-          make build
-          netlify deploy
+          make build-draft
+          netlify deploy --context branch-deploy
