@@ -94,7 +94,18 @@ p.tableblock {
   > .content pre {
     margin-top: unset;
   }
+}
 
+.literalblock {
+  position: relative;
+
+  > .content pre {
+    background: var(--base00);
+    font-size: 0.9em;
+  }
+}
+
+.literalblock, .listingblock {
   > .listingblock__btn-row {
     $gap: 0.3em;
 
