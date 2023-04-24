@@ -7,8 +7,12 @@ HUGO_BASEURL = "$DEPLOY_URL"
 
 [context.branch-deploy]
 command = "make build-draft -e"
-environment.HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+HUGO_BASEURL = "$DEPLOY_PRIME_URL"
 
 [context.deploy-preview]
 command = "make build-draft -e"
-environment.HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+HUGO_BASEURL = "$DEPLOY_PRIME_URL"
