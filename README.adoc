@@ -123,3 +123,4 @@ Hence, it should be run with `make build` and deploy the website with `public/` 
 
 The template used for this site is licensed under MIT license which you can link:./LICENSE[view the file in full detail].
 The link:./content/[content that is hosted in here] are my intellectual property.
+However, code samples from the content are dual-licensed under MIT and AGPLv3.
