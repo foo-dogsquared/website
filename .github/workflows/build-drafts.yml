@@ -25,7 +25,6 @@ jobs:
       - name: Fetch all 'content/' branches
         run: |
           git fetch origin +refs/heads/content/*:refs/heads/content/*
-      - run: |
-          nix develop
-          make build-draft
-          netlify deploy --context branch-deploy
+      - name: Build and deploy site
+        run: |
+          nix develop --command bash -c "make build-draft && netlify deploy --context branch-deploy"
