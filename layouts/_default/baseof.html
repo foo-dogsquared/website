@@ -11,6 +11,7 @@
     {{- block "main" . }}{{- end }}
     <hr aria-hidden="true">
     {{- partial "footer.html" . -}}
+    {{- partial "scripts.html" . -}}
     {{- if hugo.IsProduction -}}
     <script data-goatcounter="https://foo-dogsquared.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     {{- end }}
