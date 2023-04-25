@@ -21,7 +21,7 @@ Otherwise, you might have to manually install the following components:
 With the things installed, you can just clone the Git repo of this project, run `make serve`, and voila!
 You're now a content creator!
 
-Most of the usual tasks done with this project should be handled by this project already which is listed in its link:Makefile[Makefile].
+Most of the usual tasks done with this project should be handled by this project already which is listed in its link:./Rakefile[Rakefile].
 You can view the file for more details but for the sake of completion, here are the following tasks.
 
 - Building the website with `make serve`.

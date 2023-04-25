@@ -1,18 +1,9 @@
 [build]
 publish = "public/"
-command = "make build -e"
-
-[context.production.environment]
-HUGO_BASEURL = "$DEPLOY_URL"
+command = "rake build"
 
 [context.branch-deploy]
-command = "make build-draft -e"
-
-[context.branch-deploy.environment]
-HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+command = "rake build[branch-deploy,$DEPLOY_PRIME_URL]"
 
 [context.deploy-preview]
-command = "make build-draft -e"
-
-[context.deploy-preview.environment]
-HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+command = "rake build[deploy-preview,$DEPLOY_PRIME_URL]"

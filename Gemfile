@@ -10,11 +10,15 @@ gem 'asciidoctor-tabs', github: 'asciidoctor/asciidoctor-tabs'
 gem 'concurrent-ruby'
 gem 'open-uri-cached'
 gem 'rouge'
-gem 'rubocop'
 gem 'rugged'
 gem 'slim'
 gem 'tilt'
 
 group :development do
+  gem 'rake'
   gem 'ruby-lsp', require: false
+end
+
+group :lint do
+  gem 'rubocop', require: false
 end

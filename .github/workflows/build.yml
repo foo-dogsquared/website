@@ -27,4 +27,4 @@ jobs:
           git fetch origin +refs/heads/content/*:refs/heads/content/*
       - name: Build and deploy site
         run: |
-          nix develop --command bash -c "make build && netlify deploy"
+          nix develop --command bash -c "netlify deploy --build --prod"

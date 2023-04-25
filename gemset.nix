@@ -30,6 +30,7 @@
     platforms = [];
     source = {
       path = "gems";
+      target = "ruby";
       type = "path";
     };
     targets = [];
@@ -77,7 +78,7 @@
     version = "1.0.0.beta.3";
   };
   ast = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -166,7 +167,7 @@
     version = "1.0.1.11";
   };
   json = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -226,7 +227,7 @@
     version = "1.0.0";
   };
   parallel = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -239,7 +240,7 @@
   };
   parser = {
     dependencies = ["ast"];
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -263,7 +264,7 @@
     version = "1.2.0";
   };
   rainbow = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -274,8 +275,20 @@
     targets = [];
     version = "3.1.1";
   };
+  rake = {
+    groups = ["development"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "15whn7p9nrkxangbs9hh75q585yfn66lv0v2mhj6q6dl6x8bzr2w";
+      target = "ruby";
+      type = "gem";
+    };
+    targets = [];
+    version = "13.0.6";
+  };
   regexp_parser = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -287,7 +300,7 @@
     version = "2.7.0";
   };
   rexml = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -312,7 +325,7 @@
   };
   rubocop = {
     dependencies = ["json" "parallel" "parser" "rainbow" "regexp_parser" "rexml" "rubocop-ast" "ruby-progressbar" "unicode-display_width"];
-    groups = ["default"];
+    groups = ["lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -325,7 +338,7 @@
   };
   rubocop-ast = {
     dependencies = ["parser"];
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -350,7 +363,7 @@
     version = "0.4.1";
   };
   ruby-progressbar = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
@@ -448,7 +461,7 @@
     version = "2.1.0";
   };
   unicode-display_width = {
-    groups = ["default"];
+    groups = ["default" "lint"];
     platforms = [];
     source = {
       remotes = ["https://rubygems.org"];
