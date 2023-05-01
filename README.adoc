@@ -14,9 +14,9 @@ Otherwise, you might have to manually install the following components:
 - link:https://gohugo.io/[Hugo] as it is the tool used to generate this website.
 - https://go.dev/[Go runtime] as the Hugo project uses link:https://gohugo.io/hugo-modules/[Hugo modules].
 - Git not only because it is the VCS this project uses but also because it is used for Hugo modules.
-- link:https://asciidoctor.org/[Asciidoctor] as it is the content markup used for the Hugo site.
-- link:https://www.ruby-lang.org/en/[Ruby] as this site uses custom Asciidoctor extensions.
+- link:https://www.ruby-lang.org/en/[Ruby] as this site uses Asciidoctor and custom Asciidoctor extensions.
 - link:https://git.sr.ht/~sircmpwn/openring[openring] for generating a webring which is used on the site homepage.
+- link:https://imagemagick.org/[ImageMagick] for processing the image files.
 
 With the things installed, you can just clone the Git repo of this project, run `make serve`, and voila!
 You're now a content creator!
@@ -24,9 +24,9 @@ You're now a content creator!
 Most of the usual tasks done with this project should be handled by this project already which is listed in its link:./Rakefile[Rakefile].
 You can view the file for more details but for the sake of completion, here are the following tasks.
 
-- Building the website with `make serve`.
-- Updating the Hugo modules with `make update`.
-- Easily creating a live server with `make serve`.
+- Building the website with `rake serve`.
+- Updating the Hugo modules with `rake update`.
+- Easily creating a live server with `rake serve`.
 
 
 
@@ -117,6 +117,62 @@ However, this uses GitHub Actions to build the website since Netlify is too limi
 
 The building step for this website should be the same as the (encouraged) workflow with Nix development shells.
 Hence, it should be run with `make build` and deploy the website with `public/` folder.
+
+
+
+
+== Project development guidelines
+
+This project is developed with some habits.
+The following non-definitive list show those habits.
+
+- This project uses link:https://github.com/sagittaros/ruby-nix[a custom Ruby bundler for Nix environments].
+It only needs `gemset.nix` but it is generated from `Gemfile.lock`.
+To generate them, you can run the following command:
++
+--
+[source, shell]
+----
+nix run github:sagittaros/bundix -- -l
+----
+
+Take note you need to do this every time you change the Ruby environment.
+--
+
+- It needs `content/*` branches to be deployed with the site.
+This is because several posts uses a link:./gems/lib/asciidoctor/git-blob-include-processor[an Asciidoctor extension to include content from other Git revisions].
+This means you have to fetch them into your local Git repo.
++
+--
+[source, shell]
+----
+git fetch origin +refs/heads/content/*:refs/heads/content/*
+----
+
+You can easily a dedicated content branch with link:./bin/switch-content-orphan-branch.rb[./bin/switch-content-orphan-branch.rb].
+--
+
+- For content drafts, it is recommended to create a dedicated branch for it.
+This branch needs to have a prefix of `drafts/` with the filename relative to the content directory (e.g., `drafts/posts/2023-03-26-how-to-pick-your-nose`).
+This step is already automated with link:./bin/create-draft-branch.rb[`./bin/create-draft-branch.rb`].
+
+- Consequently with previous guideline, it is recommend to commit daily and commit often with the drafts.
+Once it is done, a rebase should be done with a squashed commit publishing the content.
+
+- The link:./assets/svg/avatars[avatar images] are processed with ImageMagick.
+Furthermore, they should be optimized.
+The simple avatar designs such as link:./assets/svg/avatars/ezran/default.svg[./assets/svg/avatars/ezran/default.svg] can be reduced and optimized up to 90% of its quality.
+The following command should show how it is done.
++
+--
+[source, shell]
+----
+magick convert $AVATAR -quality 10 $AVATAR_OUTPUT
+----
+--
+
+
+
 
 
 == Copyright
