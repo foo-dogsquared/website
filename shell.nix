@@ -32,6 +32,7 @@ mkShell {
     tree-sitter
     (tree-sitter.withPlugins (_: tree-sitter.allGrammars))
     netlify-cli
+    imagemagick
 
     # Formatters...
     rufo # ...for Ruby.

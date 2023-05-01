@@ -11,7 +11,7 @@ github_api_headers = {
 github_api_headers['Authorization'] = "Token #{ENV['GITHUB_API_BEARER_TOKEN']}" if ENV['GITHUB_API_BEARER_TOKEN']
 
 desc 'Build the site in Netlify with the given context'
-task :build, [:context, :base_url] do |_, args|
+task :build, [:context, :base_url] => [:optimize_avatars] do |_, args|
   args.with_defaults(context: 'production')
   draft_args = '--environment development --buildDrafts --buildFuture --buildExpired' unless args.context == 'production'
   base_uri_args = "-b #{args.base_url}" if args.base_url
@@ -20,6 +20,15 @@ task :build, [:context, :base_url] do |_, args|
   # Asciidoctor doesn't want to be found when executed in here for whatever
   # reason.
   sh "nix develop -c hugo #{draft_args} #{base_uri_args} --destination public"
+end
+
+desc 'Export the avatar images'
+task :export_avatars, [:base_dir, :output_dir, :output_extension] do |_, args|
+  args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'webp')
+  Dir.glob('avatars/**/*.svg', base: args.base_dir) do |f|
+    output_file = "#{File.dirname(f)}/#{File.basename(f, '.svg')}.#{args.output_extension}"
+    sh "magick #{args.base_dir}#{f} -quality 10 #{args.output_dir}#{output_file}"
+  end
 end
 
 desc 'Build the webring to be embedded with the site'
