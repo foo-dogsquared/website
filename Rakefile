@@ -10,8 +10,8 @@ github_api_headers = {
 }
 github_api_headers['Authorization'] = "Token #{ENV['GITHUB_API_BEARER_TOKEN']}" if ENV['GITHUB_API_BEARER_TOKEN']
 
-desc 'Build the site in Netlify with the given context'
-task :build, [:context, :base_url] => [:optimize_avatars] do |_, args|
+desc 'Build the site'
+task :build, [:context, :base_url] => [:export_avatars] do |_, args|
   args.with_defaults(context: 'production')
   draft_args = '--environment development --buildDrafts --buildFuture --buildExpired' unless args.context == 'production'
   base_uri_args = "-b #{args.base_url}" if args.base_url
