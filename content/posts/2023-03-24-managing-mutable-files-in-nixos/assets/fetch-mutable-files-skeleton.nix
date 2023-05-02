@@ -2,8 +2,7 @@
 
 let
   cfg = config.home.mutableFiles;
-  file = { config, name, ... }: {
-  };
+  file = { config, name, ... }: { };
 in
 {
   options.home.mutableFile = lib.mkOption {
@@ -27,7 +26,6 @@ in
   };
 
   config = {
-    systemd.user.services.fetch-mutable-files = {
-    };
+    systemd.user.services.fetch-mutable-files = { };
   };
 }

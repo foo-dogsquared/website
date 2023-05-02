@@ -95,7 +95,8 @@ p.tableblock {
   }
 }
 
-.literalblock, .listingblock {
+.literalblock,
+.listingblock {
   > .listingblock__btn-row {
     $gap: 0.3em;
 
