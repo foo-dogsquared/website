@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - drafts/*
       - content/*
   workflow_run:
     workflows:
@@ -25,6 +26,11 @@ jobs:
       - name: Fetch all 'content/' branches
         run: |
           git fetch origin +refs/heads/content/*:refs/heads/content/*
-      - name: Build and deploy site
+      - if: github.ref_name == 'master'
+        name: Build and deploy site
         run: |
           nix develop --command bash -c "netlify deploy --build --prod"
+      - if: starts_with('drafts/', github.ref_name)
+        name: Build and deploy draft versions of the site
+        run: |
+          nix develop --command bash -c "netlify deploy --build --context branch-deploy"
