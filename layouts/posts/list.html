@@ -14,7 +14,7 @@ Otherwise, we take the pages of a section. */ -}}
 {{- range $paginator.Pages }}
 <article class="post--list">
     <time class="post--list__date" datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "2006-01-02" }}</time>
-    <a class="post--list__title" href="{{ .Permalink }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
+    <a class="post--list__title" href="{{ .RelPermalink | relURL }}" aria-label="{{ .Title }}">{{ .Title }}</a></h1>
 </article>
 {{- end }}
 </main>

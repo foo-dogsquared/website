@@ -17,7 +17,7 @@
             {{- range .Pages -}}
                 <li class="post--list">
                     <date class="post--list__date">{{ .PublishDate.Format "2006-01-02" }}</date>
-                    <a class="post--list__title" aria-label="{{ .Title }}" href="{{ .Permalink }}">{{ .Title }}</a>
+                    <a class="post--list__title" aria-label="{{ .Title }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </li>
             {{- end -}}
             </ul>
