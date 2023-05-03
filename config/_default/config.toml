@@ -1,10 +1,9 @@
 baseURL = "https://www.foodogsquared.one"
-languageCode = "en-us"
 title = "Gabriel Arazas"
+languageCode = "en"
 enableGitInfo = true
 paginate = 40
 copyright = "© foodogsquared"
-canonifyURLs = true
 summaryLength = 0
 timeZone = "UTC"
 
