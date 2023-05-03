@@ -1,0 +1,26 @@
+// All of the SWHIDs.
+:swh-system76-firmware-license: swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2;origin=https://github.com/pop-os/system76-firmware;lines=471-538
+:swh-nixpkgs-22-11: swh:1:rev:db1e4eeb0f9a9028bcb920e00abbc1409dd3ef36;origin=https://github.com/NixOS/nixpkgs;visit=swh:1:snp:857ce072b5dbf50f1ae55d8233cb321dd42b5992
+:swh-nixpkgs-22-11-maintainers-dir: swh:1:dir:101a60787ec70986789c64d2379be174ed73e2e5;origin=https://github.com/foo-dogsquared/nixpkgs;visit=swh:1:snp:857ce072b5dbf50f1ae55d8233cb321dd42b5992;anchor=swh:1:rev:db1e4eeb0f9a9028bcb920e00abbc1409dd3ef36;path=/maintainers/
+:swh-gnome-shell-3-38-6: swh:1:rel:8763b71ed3a51974c61edb7781832a50b176f966;origin=https://gitlab.gnome.org/GNOME/gnome-shell;visit=swh:1:snp:54081c29aa31e4a626a06b70e2a8571fad83e092
+:swh-gnome-shell-jan-4-2023: swh:1:snp:fc3c21b5f61d1e283ba9ec52f632c372675eaebc;origin=https://gitlab.gnome.org/GNOME/gnome-shell
+
+:swh-full-qualifiers-example: swh:1:rev:c4f3a3707104999d5b6fe4c4e5c3833980a92513;origin=https://github.com/nix-community/home-manager;visit=swh:1:snp:c452aec4a5c8fd93484cc4215c20da568f3fbbc8
+
+// The previous list of SWHIDs but only with the core identifier. This is used
+// first before we eventually used the above list of SWHIDs for introducing
+// SWHID qualifiers.
+:swh-bare-system76-firmware-license: swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2
+:swh-bare-nixpkgs-22-11: swh:1:rev:db1e4eeb0f9a9028bcb920e00abbc1409dd3ef36
+:swh-bare-nixpkgs-22-11-maintainers-dir: swh:1:dir:101a60787ec70986789c64d2379be174ed73e2e5
+:swh-bare-gnome-shell-3-38-6: swh:1:rel:8763b71ed3a51974c61edb7781832a50b176f966
+:swh-bare-gnome-shell-jan-4-2023: swh:1:snp:fc3c21b5f61d1e283ba9ec52f632c372675eaebc
+
+// Invalid SWHIDs.
+:swhid-content-with-invalid-origin: swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2;origin=https://github.com/nonexistentuser/nonexistentrepo
+:swhid-content-with-invalid-path: swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2;origin=https://github.com/pop-os/system76-firmware;path=hello/COPYING
+
+// The rest of the attributes.
+:git-ref-foodogsquared-website: e75ecbb866a16e2a94d21b0921e5a5101069abfc
+:gnome-gitlab: gitlab.gnome.org
+:asciidoc-go-template-hugo-featuring-nix-post: ../2023-04-10-asciidoc-go-template-and-hugo-featuring-nix/index.adoc
