@@ -8,6 +8,8 @@ $line-height: 1.45;
   --body-family: "Source Serif Pro", "IBM Plex Serif", "Noto Serif", serif;
   --header-family: "Source Sans Pro", "IBM Plex Sans", "Noto Sans", sans-serif;
   --mono-family: "Source Code Pro", "IBM Plex Mono", "Noto Mono", monospace;
+
+  overflow-wrap: break-word;
 }
 
 // Base styles.
@@ -91,11 +93,12 @@ article.post {
 
 // Custom layouts
 #logo {
+  --size: $tooltip-size;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: $tooltip-size;
-  width: $tooltip-size;
+  height: var(--size);
+  width: var(--size);
 
   svg {
     --size: 4em;
