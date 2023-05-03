@@ -2,6 +2,7 @@
 
 require 'json'
 require 'open-uri'
+require 'open-uri/cached'
 require 'uri'
 
 class SWHIDIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor

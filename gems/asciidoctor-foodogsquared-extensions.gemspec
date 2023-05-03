@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   s.files         = Dir['lib/**/*', '*.gemspec']
 
   s.add_runtime_dependency 'asciidoctor', '~> 2.0'
+  s.add_runtime_dependency 'open-uri-cached', '~> 1.0'
 end
