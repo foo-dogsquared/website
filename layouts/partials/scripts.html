@@ -1,2 +1,2 @@
 {{ $siteScript := resources.Get "js/site.js" | resources.ExecuteAsTemplate "js/site.js" . }}
-<script src="{{ $siteScript.Permalink }}"> </script>
+<script src="{{ $siteScript.RelPermalink }}"> </script>
