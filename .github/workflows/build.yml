@@ -30,7 +30,7 @@ jobs:
         name: Build and deploy site
         run: |
           nix develop --command bash -c "netlify deploy --build --prod"
-      - if: starts_with('drafts/', github.ref_name)
+      - if: startsWith('drafts/', github.ref_name)
         name: Build and deploy draft versions of the site
         run: |
           nix develop --command bash -c "netlify deploy --build --context branch-deploy"
