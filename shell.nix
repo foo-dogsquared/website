@@ -12,6 +12,8 @@ let
   asciidoctorWrappedWithCustomOptions = writeShellScriptBin "asciidoctor" ''
     ${lib.getBin localGem.env}/bin/asciidoctor -T ./gems/templates $@
   '';
+
+  treesitterWithPlugins = (tree-sitter.withPlugins (_: tree-sitter.allGrammars));
 in
 mkShell {
   buildInputs = [
@@ -26,23 +28,24 @@ mkShell {
     libgit2
     go
     hugo
-    jq
-    openring
-    gnumake
-    tree-sitter
-    (tree-sitter.withPlugins (_: tree-sitter.allGrammars))
-    netlify-cli
+    gnuplot
     imagemagick
+    openring
+
+    tree-sitter
+    treesitterWithPlugins
+
+    netlify-cli # The deploy tool for this website.
+
+    libffi
+    libxslt
 
     # Formatters...
-    rufo # ...for Ruby.
     nixpkgs-fmt # ...for Nix.
     nodePackages.prettier # ...for the web files.
 
     # Language servers...
     rnix-lsp # ...for Nix.
-
-    libxslt
   ];
 
   shellHook = ''

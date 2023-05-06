@@ -1,8 +1,9 @@
 [asciidocExt]
 extensions = [
+  "asciidoctor-bibtex",
+  "asciidoctor-diagram",
   "asciidoctor-foodogsquared-extensions",
   "asciidoctor-tabs",
-  "asciidoctor-bibtex",
 ]
 trace = true
 workingFolderCurrent = true
@@ -17,6 +18,7 @@ experimental = true
 linkcss = true
 cache-uri = true
 reproducible = true
+stem = "latexmath"
 
 avatarsdir = "/icons/avatars"
 avatarstype = "webp"
