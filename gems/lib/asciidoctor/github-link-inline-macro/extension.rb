@@ -11,7 +11,12 @@ class GitHubLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
   def process(parent, target, attrs)
     doc = parent.document
 
-    text = attrs['caption'] || target
+    default_caption = if attrs.key?('repo-option')
+                        target.split('/').at(1)
+                      else
+                        target
+                      end
+    text = attrs['caption'] || default_caption
     uri = URI.parse %(https://github.com/#{target})
 
     if attrs.key? 'issue'
@@ -20,7 +25,7 @@ class GitHubLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
     else
       uri.path += %(/tree/#{attrs['rev']}) if attrs.key? 'rev'
       uri.path += %(/#{attrs['path']}) if attrs.key? 'path'
-      text << "@#{attrs['rev']}" if text == target
+      text << "@#{attrs['rev']}" if attrs.key?('rev') && text == target
     end
 
     target = uri.to_s

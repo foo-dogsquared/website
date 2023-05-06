@@ -30,6 +30,11 @@ For example, if `issue` and `rev` are both present, the link for issue will be t
 +
 When given no caption, it will update the default caption with `$OWNER/$REPO#$ISSUE`.
 
+You can also change certain behaviors with the link:https://docs.asciidoctor.org/asciidoc/latest/attributes/options/[options attribute].
+
+- `repo` sets the default link text with only the repo.
+Pretty useful to quickly refer to the name of the software.
+
 
 == Example usage
 
