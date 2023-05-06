@@ -12,9 +12,12 @@ class SWHInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
     # We're only considering `swh:` starting with the scheme version. Also, it
     # looks nice aesthetically.
     swhid = target.start_with?('swh:') ? target : %(swh:#{target})
-    swhid_core_identifier = (swhid.split ';').at 0
-
-    text = attrs['caption'] || swhid_core_identifier
+    default_caption = if attrs.key? 'full-option'
+                        swhid
+                      else
+                        swhid.split(';').at(0)
+                      end
+    text = attrs['caption'] || default_caption
     target = %(https://archive.softwareheritage.org/#{swhid})
 
     doc.register :links, target

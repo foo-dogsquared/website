@@ -15,6 +15,14 @@ swh:$SWHID[$CAPTION]
 If no caption is given, the link text will be the core identifier of the SWHID.
 
 
+== Attributes
+
+You can configure certain behavior of the macro with the link:https://docs.asciidoctor.org/asciidoc/latest/attributes/options/[options attribute].
+Here's a list of them...
+
+- `full` will make the entire SWHID as the default link text.
+
+
 == Extra notes
 
 You would use like in the following form `swh:swh:1:snp:6ea7d28dfd4789609e0be2b64179fc9c12931beb[]` but you could also cut off `swh:` from the SWHID if you want to (i.e., `swh:1:snp:6ea7d28dfd4789609e0be2b64179fc9c12931beb[]`) to make it aesthetically pleasing.
