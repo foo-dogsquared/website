@@ -12,7 +12,12 @@ class GitLabLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
   def process(parent, target, attrs)
     doc = parent.document
 
-    text = attrs['caption'] || target
+    default_caption = if attrs.key?('repo-option')
+                        target.split('/').at(1)
+                      else
+                        target
+                      end
+    text = attrs['caption'] || default_caption
     uri = URI.parse %(https://#{attrs['domain']}/#{target})
 
     uri.path += %(/-/tree/#{attrs['rev']}) if attrs['rev']

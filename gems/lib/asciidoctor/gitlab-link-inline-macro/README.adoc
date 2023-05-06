@@ -23,6 +23,10 @@ By default. it doesn't point to anything which should be in the default branch o
 
 - `path` is the filepath to be linked.
 
+There are settings that is enabled with the link:https://docs.asciidoctor.org/asciidoc/latest/attributes/options/[options attribute].
+
+- `repo` sets the default caption to be the repo part.
+
 
 == Example usage
 
