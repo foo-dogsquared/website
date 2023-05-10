@@ -91,6 +91,10 @@ article.post {
   text-decoration: line-through;
 }
 
+.break-anywhere {
+  overflow-wrap: anywhere;
+}
+
 // Custom layouts
 #logo {
   --size: $tooltip-size;
