@@ -15,6 +15,7 @@ require_relative 'gitlab-raw-content-include-processor/extension'
 require_relative 'chat-block-processor/extension'
 require_relative 'git-blob-include-processor/extension'
 require_relative 'wikipedia-inline-macro/extension'
+require_relative 'package-indices-link-macro/extension'
 
 Asciidoctor::Extensions.register do
   inline_macro ManInlineMacro
@@ -33,4 +34,8 @@ Asciidoctor::Extensions.register do
   preprocessor GitContentBranchAttributePreprocessor
 
   inline_macro WikipediaInlineMacro
+
+  inline_macro CtanLinkInlineMacro
+  inline_macro PypiLinkInlineMacro
+  inline_macro CratesIOLinkInlineMacro
 end
