@@ -1,0 +1,47 @@
+PATH
+  remote: .
+  specs:
+    asciidoctor-custom-extensions (1.0.0)
+      asciidoctor (~> 2.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    asciidoctor (2.0.18)
+    asciidoctor-bibtex (0.8.0)
+      asciidoctor (~> 2.0)
+      bibtex-ruby (~> 5.1)
+      citeproc-ruby (~> 1)
+      csl-styles (~> 1)
+      latex-decode (~> 0.2)
+    asciidoctor-rouge (0.4.0)
+      asciidoctor (>= 1.5.6, < 2.1)
+      rouge (>= 2.2, < 4)
+    bibtex-ruby (5.1.6)
+      latex-decode (~> 0.0)
+    citeproc (1.0.10)
+      namae (~> 1.0)
+    citeproc-ruby (1.1.14)
+      citeproc (~> 1.0, >= 1.0.9)
+      csl (~> 1.6)
+    csl (1.6.0)
+      namae (~> 1.0)
+      rexml
+    csl-styles (1.0.1.11)
+      csl (~> 1.0)
+    latex-decode (0.4.0)
+    namae (1.1.1)
+    rexml (3.2.5)
+    rouge (3.30.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  asciidoctor-bibtex
+  asciidoctor-custom-extensions!
+  asciidoctor-rouge
+  rouge
+
+BUNDLED WITH
+   2.4.6

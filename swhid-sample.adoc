@@ -1,0 +1,10 @@
+// Should produce a link at https://archive.softwareheritage.org/$SWHID with
+// '$SWHID_CORE_IDENTIFIER' as the link text.
+swh:swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2;origin=https://github.com/pop-os/system76-firmware;lines=471-538[]
+
+// Similar as above but with the link text replaced with 'replacing the caption'.
+swh:swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2;origin=https://github.com/pop-os/system76-firmware;lines=471-538[replacing the caption]
+
+// For aesthetic purposes, you could also use the `swh` macro with the `swh:`
+// cut off from the SWHID.
+swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2;origin=https://github.com/pop-os/system76-firmware;lines=471-538[]
