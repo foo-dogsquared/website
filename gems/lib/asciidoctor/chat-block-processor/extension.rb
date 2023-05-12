@@ -18,7 +18,7 @@ class ChatBlock < Asciidoctor::Extensions::BlockProcessor
     attrs['name'] ||= attrs['avatar']
 
     block << (create_html_fragment block, %(
-      <div role="figure" class="dialogblock dialogblock__box dialogblock__avatar--#{attrs['avatar']} #{attrs['role']}" title="#{attrs['avatar']}">
+      <div role="figure" class="dialogblock dialogblock__box dialogblock__avatar--#{attrs['avatar']} #{attrs['role']}">
         <div class="dialogblock dialogblock__avatar">
     ))
 
