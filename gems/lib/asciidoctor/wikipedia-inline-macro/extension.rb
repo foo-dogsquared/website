@@ -11,7 +11,8 @@ class WikipediaInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
 
   def process(parent, target, attrs)
     caption = attrs['caption'] || target
-    page = URI.encode_www_form_component target
+    parser = URI::Parser.new
+    page = parser.escape target
     link = %(https://#{attrs['lang']}.wikipedia.org/wiki/#{page})
     node = create_anchor parent, caption, type: :link, target: link
 
