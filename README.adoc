@@ -18,7 +18,7 @@ Otherwise, you might have to manually install the following components:
 - link:https://git.sr.ht/~sircmpwn/openring[openring] for generating a webring which is used on the site homepage.
 - link:https://imagemagick.org/[ImageMagick] for processing the image files.
 
-With the things installed, you can just clone the Git repo of this project, run `make serve`, and voila!
+With the things installed, you can just clone the Git repo of this project, run `rake serve`, and voila!
 You're now a content creator!
 
 Most of the usual tasks done with this project should be handled by this project already which is listed in its link:./Rakefile[Rakefile].
@@ -162,12 +162,13 @@ Once it is done, a rebase should be done with a squashed commit publishing the c
 - The link:./assets/svg/avatars[avatar images] are processed with ImageMagick.
 Furthermore, they should be optimized.
 The simple avatar designs such as link:./assets/svg/avatars/ezran/default.svg[./assets/svg/avatars/ezran/default.svg] can be reduced and optimized up to 90% of its quality.
+Though, this depends on the encoding of the format (e.g., WebP, AVIF).
 The following command should show how it is done.
 +
 --
 [source, shell]
 ----
-magick convert $AVATAR -quality 10 $AVATAR_OUTPUT
+magick convert $AVATAR -quality 30 $AVATAR_OUTPUT
 ----
 --
 

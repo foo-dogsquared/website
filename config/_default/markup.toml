@@ -21,7 +21,7 @@ reproducible = true
 stem = "latexmath"
 
 avatarsdir = "/icons/avatars"
-avatarstype = "webp"
+avatarstype = "avif"
 
 icons = "image"
 iconsdir = "/icons/asciidoctor"

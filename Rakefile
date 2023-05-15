@@ -24,10 +24,10 @@ end
 
 desc 'Export the avatar images'
 task :export_avatars, [:base_dir, :output_dir, :output_extension] do |_, args|
-  args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'webp')
+  args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'avif')
   Dir.glob('avatars/**/*.svg', base: args.base_dir) do |f|
     output_file = "#{File.dirname(f)}/#{File.basename(f, '.svg')}.#{args.output_extension}"
-    sh "magick #{args.base_dir}#{f} -quality 10 #{args.output_dir}#{output_file}"
+    sh "magick #{args.base_dir}#{f} -quality 30 #{args.output_dir}#{output_file}"
   end
 end
 
