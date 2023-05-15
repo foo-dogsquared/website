@@ -1,4 +1,6 @@
 // Asciidoctor-specific styles
+@import "roles";
+
 .anchor {
   &::before {
     content: "§";

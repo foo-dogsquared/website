@@ -1,0 +1,58 @@
+@keyframes shake {
+  $distance: 1px;
+  from { transform: translate(-$distance); }
+  to { transform: translate($distance); }
+}
+
+@keyframes extreme-shake {
+  $distance: 3px;
+  from { transform: translate(-$distance); }
+  to { transform: translate($distance); }
+}
+
+@keyframes bounce {
+  $baseSize: 3em;
+  $baseRotation: 20deg;
+  from {
+    transform: rotate($baseRotation) translateX($baseSize)
+      translateY(-#{$baseSize / 5});
+  }
+  to {
+    transform: rotate(-$baseRotation) translateX(-$baseSize)
+      translateY(-#{$baseSize / 5});
+  }
+}
+
+@keyframes pulse {
+  from {
+    width: #{$tooltip-size / 2};
+  }
+  to {
+    width: #{$tooltip-size};
+  }
+}
+
+@keyframes rainbow {
+  $colorOrder: "07" "08" "09" "0A" "0B" "0C" "0D" "0E" "0F";
+  $divide: floor(100 / length($colorOrder));
+  @for $i from 1 to length($colorOrder) {
+    #{$i * $divide}% {
+      fill: var(--base#{nth($colorOrder, $i)});
+    }
+  }
+}
+
+@media (prefers-reduced-motion) {
+  @keyframes bounce {
+    $baseSize: 1em;
+    $baseRotation: 10deg;
+    from {
+      transform: rotate($baseRotation) translateX($baseSize)
+        translateY(-#{$baseSize / 5});
+    }
+    to {
+      transform: rotate(-$baseRotation) translateX(-$baseSize)
+        translateY(-#{$baseSize / 5});
+    }
+  }
+}
