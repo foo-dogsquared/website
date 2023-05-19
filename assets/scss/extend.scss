@@ -137,6 +137,6 @@ code[data-lang] {
 // Prefer reduced animations.
 @media (prefers-reduced-motion) {
   #logo svg {
-    animation: bounce 0.6s ease-in-out alternate infinite;
+    animation: none;
   }
 }

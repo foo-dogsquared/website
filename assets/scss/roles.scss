@@ -22,3 +22,9 @@
 .extreme-shake {
   animation: extreme-shake 0.1s alternate ease-in-out infinite;
 }
+
+@media (prefers-reduced-motion) {
+  .shake, .extreme-shake {
+    animation: none;
+  }
+}
