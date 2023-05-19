@@ -1,6 +1,10 @@
 // Asciidoctor-specific styles
 @import "roles";
 
+:root {
+  --mark-border-style: 0.5em var(--base05) solid;
+}
+
 .anchor {
   &::before {
     content: "§";
@@ -17,7 +21,7 @@
 
 .quoteblock {
   border: var(--border-style);
-  border-left: 0.5em var(--base05) solid;
+  border-left: var(--mark-border-style);
 
   blockquote {
     margin: auto;
@@ -240,6 +244,7 @@ p {
   &__box {
     align-items: center;
     border: var(--border-style);
+    border-left: var(--mark-border-style);
     display: flex;
     flex-flow: row nowrap;
     gap: 1em;
@@ -282,6 +287,8 @@ p {
   &.reversed {
     flex-direction: row-reverse;
     margin-left: auto;
+    border-left: var(--border-style);
+    border-right: var(--mark-border-style);
   }
 }
 
