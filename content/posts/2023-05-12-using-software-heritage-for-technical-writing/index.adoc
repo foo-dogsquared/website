@@ -1,11 +1,13 @@
 ---
 title: "Using Software Heritage for technical writing"
 date: 2023-05-12T00:00:00+00:00
+tags:
+  - Writing
 ---
 
 = Using Software Heritage for technical writing
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-v1.0.0, 2023-05-12: Initial version
+v1.1.0, 2023-05-19: Corrected information and update descriptions
 
 include::./attributes.adoc[]
 
@@ -87,7 +89,7 @@ Well, that's at least... unfortunate.
 == Its identifier system
 
 The main intention of the project is to provide a centralized archive for identifying and referencing software.
-The primary way of using such service is with an identifier system like wikipedia:Digital_object_identifiers[DOI] and wikipedia:ISBN[].
+The primary way of using such service is with an identifier system like wikipedia:Digital_object_identifiers[DOI] for digital objects, wikipedia:ISBN[] for books, and wikipedia:International_Standard_Musical_Work_Code[ISWC] for music.
 Software Heritage uses its own identifier system called link:https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html[SoftWare Heritage persistent IDentifier] or SWHID for short.
 The identifier follows a certain format.
 
@@ -142,8 +144,6 @@ Unlike DOIs and ISBNs where objects are arbitrarily assigned by a central author
 This means SWHIDs are deterministic and we can do a reverse lookup with the object.
 In fact, it can be computed with objects locally in your machine.
 
-// TODO: fig: create a picture of levels of granularity
-
 Due to its intrinsic nature of SWHIDs and with the ability to refer various parts of a software, we're also slowly unraveling the fact that Software Heritage archive itself is essentially a gigantic wikipedia:Merkle_tree[Merkle tree] where it contains several objects.
 Let's go back to the <<tbl:swhid-list, previous table of SWHIDs again>> and see what those are.
 
@@ -194,9 +194,9 @@ While the <<tbl:swhid-list, previously shown SWHIDs>> is enough and working as i
 From the identifier system, one cannot easily infer certain information that we often needed such as the URL of the repository and the path relative to the repository.
 This is also reflected in the website interface if you've visited the links where it just strictly presents the software artifact (e.g., content, directory, revision).
 
-- Let's take swh:{swh-nixpkgs-22-11-maintainers-dir}[] as an example where we just see a directory and nothing else.
+- Let's take swh:{swh-bare-nixpkgs-22-11-maintainers-dir}[] as an example where we just see a directory and nothing else.
 
-- Or let's take the swh:{swh-nixpkgs-22-11}[] where we see visit a revision of the project but we cannot see if it came from github:NixOS/nixpkgs[the canonical repository].
+- Or let's take the swh:{swh-bare-nixpkgs-22-11}[] where we see visit a revision of the project but we cannot see if it came from github:NixOS/nixpkgs[the canonical repository].
 
 - With yet another example, let's take swh:{swh-bare-system76-firmware-license}[] where the exact content object can appear for GPLv3-licensed projects. footnote:[You cannot modify the GPLv3 document itself since it is a copyrighted document so any GPL-licensed projects should have the same license text thus the same object.]
 Not to mention we can't tell where the license file is located in the repository, let alone the repository.
@@ -220,7 +220,7 @@ Let's take the <<tbl:swhid-list, previous table>> and add more contextual inform
 | Description
 
 | swh:{swh-system76-firmware-license}[opts=full]
-| Section 11 of the GPLv3 license from github:pop-os/system76-firmware[].
+| Section 11 of the GPLv3 license from github:pop-os/system76-firmware[opts=repo].
 
 | swh:{swh-nixpkgs-22-11-maintainers-dir}[opts=full]
 | `maintainers/` directory from the nixpkgs-22.11 branch from the canonical nixpkgs repository.
@@ -238,8 +238,8 @@ Let's take the <<tbl:swhid-list, previous table>> and add more contextual inform
 If you click each of the link, the website interface is more complete compared to the <<tbl:swhid-list, previous table of SWHIDs>>.
 
 [#fig:side-to-side-comparison-swhid-with-and-without-qualifiers]
-.Side-to-side comparison of the website interface for `{swh-bare-system76-firmware-license}` with and without qualifiers
-image::./assets/archive-website-swhid-cnt-side-to-side.png[Side-to-side comparison of the website interface in {swh-bare-system76-firmware-license} with and without qualifiers]
+.Side-to-side comparison of the website interface for `{swh-bare-system76-firmware-license}` without and with qualifiers
+image::./assets/archive-website-swhid-cnt-side-to-side.png[Side-to-side comparison of the website interface in {swh-bare-system76-firmware-license} without and with qualifiers]
 
 This practice of adding contextual information is recommended as link:https://www.softwareheritage.org/faq/#34_Which_type_of_SWHID_should_I_use_in_my_articledocumentation[documented from its FAQ].
 More specifically, the contextual information has to be as full as possible which you can easily get the identifier with all relevant qualifiers in its archive website interface which we'll cover next.
@@ -247,7 +247,7 @@ You can see more of them from <<appendix:guidelines-for-referencing-swhids>>.
 
 [NOTE]
 ====
-While the link text shown in the table are shown with the complete identifier with all qualifiers, it is recommended to show only the qualifier as the link text.
+While the link text shown in the table are shown with the complete identifier with all qualifiers, it is recommended to show only the core identifier as the link text.
 This is to address the obvious problem of length making it harder to read.
 For a proper example of a hyperlink, here is one with swh:{swh-system76-firmware-license}[].
 ====
@@ -263,8 +263,9 @@ Why don't you try those out yourself?
 Here's a list of them just for starters.
 
 [.break-anywhere]
-- swh:{swhid-content-with-invalid-origin}[opts=full]
-- swh:{swhid-content-with-invalid-path}[opts=full]
+- swh:{swhid-content-with-invalid-origin}[A `swh:cnt:` with invalid origin, opts=full]
+- swh:{swhid-dir-with-invalid-anchor}[A `swh:dir:` with invalid anchor, opts=full]
+- swh:{swhid-content-with-invalid-path}[A `swh:cnt:` with invalid path, opts=full]
 
 You could also mix and match qualifiers that are not supposed to appear in certain object types such as the `lines` qualifier in non-content objects.
 ====
