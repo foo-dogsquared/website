@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/asciidoctor/asciidoctor-tabs.git
-  revision: d5ee94b5253f4db75e6646f46511676af0be2cc3
-  specs:
-    asciidoctor-tabs (1.0.0.beta.3)
-      asciidoctor (>= 2.0.0, < 3.0.0)
-
 PATH
   remote: gems
   specs:
@@ -15,7 +8,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    asciidoctor (2.0.18)
+    asciidoctor (2.0.20)
     asciidoctor-bibtex (0.8.0)
       asciidoctor (~> 2.0)
       bibtex-ruby (~> 5.1)
@@ -29,14 +22,6 @@ GEM
       rexml
     asciidoctor-diagram-ditaamini (1.0.3)
     asciidoctor-diagram-plantuml (1.2023.5)
-    asciidoctor-html5s (0.5.1)
-      asciidoctor (>= 1.5.7, < 3.0)
-      thread_safe (~> 0.3.4)
-    asciidoctor-mathematical (0.3.5)
-      asciidoctor (~> 2.0)
-      asciimath (~> 2.0)
-      mathematical (~> 1.6.0)
-    asciimath (2.0.5)
     ast (2.4.2)
     bibtex-ruby (5.1.6)
       latex-decode (~> 0.0)
@@ -51,52 +36,45 @@ GEM
       rexml
     csl-styles (1.0.1.11)
       csl (~> 1.0)
-    i18n (1.13.0)
-      concurrent-ruby (~> 1.0)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
     latex-decode (0.4.0)
-    mathematical (1.6.14)
-      ruby-enum (~> 0.4)
     namae (1.1.1)
     open-uri-cached (1.0.0)
-    parallel (1.22.1)
-    parser (3.2.1.0)
+    parallel (1.23.0)
+    parser (3.2.2.1)
       ast (~> 2.4.1)
-    prettier_print (1.2.0)
+    prettier_print (1.2.1)
     rainbow (3.1.1)
     rake (13.0.6)
-    regexp_parser (2.7.0)
+    regexp_parser (2.8.0)
     rexml (3.2.5)
-    rouge (3.30.0)
-    rubocop (1.48.0)
+    rouge (4.1.1)
+    rubocop (1.51.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.2.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.26.0, < 2.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.27.0)
+    rubocop-ast (1.28.1)
       parser (>= 3.2.1.0)
-    ruby-enum (0.9.0)
-      i18n
-    ruby-lsp (0.4.1)
+    ruby-lsp (0.5.1)
       language_server-protocol (~> 3.17.0)
       sorbet-runtime
-      syntax_tree (>= 6, < 7)
+      syntax_tree (>= 6.1.1, < 7)
     ruby-progressbar (1.13.0)
     rugged (1.6.3)
-    slim (5.1.0)
+    slim (5.1.1)
       temple (~> 0.10.0)
-      tilt (>= 2.0.6, < 2.2)
-    sorbet-runtime (0.5.10693)
-    syntax_tree (6.0.1)
+      tilt (>= 2.1.0)
+    sorbet-runtime (0.5.10832)
+    syntax_tree (6.1.1)
       prettier_print (>= 1.2.0)
-    temple (0.10.0)
-    thread_safe (0.3.6)
+    temple (0.10.1)
     tilt (2.1.0)
     unicode-display_width (2.4.2)
 
@@ -108,9 +86,6 @@ DEPENDENCIES
   asciidoctor-bibtex
   asciidoctor-diagram
   asciidoctor-foodogsquared-extensions!
-  asciidoctor-html5s
-  asciidoctor-mathematical
-  asciidoctor-tabs!
   concurrent-ruby
   open-uri-cached
   rake
@@ -122,4 +97,4 @@ DEPENDENCIES
   tilt
 
 BUNDLED WITH
-   2.3.26
+   2.3.7

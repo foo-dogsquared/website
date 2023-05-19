@@ -3,7 +3,6 @@ extensions = [
   "asciidoctor-bibtex",
   "asciidoctor-diagram",
   "asciidoctor-foodogsquared-extensions",
-  "asciidoctor-tabs",
 ]
 trace = true
 workingFolderCurrent = true
