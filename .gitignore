@@ -3,7 +3,10 @@
 .direnv
 
 # The code workspace used for the dedicated branches for certain content.
-./code-workspace/
+/code-workspace/
+
+# The exported avatar images.
+/static/icons/avatars/
 
 # Certain files just need to be ignored.
 /layouts/partials/openring.html

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'fileutils'
 require 'json'
 require 'open3'
 require 'shellwords'
@@ -26,7 +27,10 @@ desc 'Export the avatar images'
 task :export_avatars, [:base_dir, :output_dir, :output_extension] do |_, args|
   args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'avif')
   Dir.glob('avatars/**/*.svg', base: args.base_dir) do |f|
-    output_file = "#{File.dirname(f)}/#{File.basename(f, '.svg')}.#{args.output_extension}"
+    dirname = File.dirname f
+    output_file = "#{dirname}/#{File.basename(f, '.svg')}.#{args.output_extension}"
+
+    FileUtils.mkdir_p "#{args.output_dir}#{dirname}", verbose: true
     sh "magick #{args.base_dir}#{f} -quality 30 #{args.output_dir}#{output_file}"
   end
 end
@@ -52,7 +56,7 @@ task :build_webring, [:limit, :input, :output, :file] do |_, args|
 end
 
 desc 'Create a web server'
-task :serve do
+task :serve => [:export_avatars] do
   sh 'nix develop -c hugo serve --buildFuture --verboseLog --destination public'
 end
 
