@@ -3,8 +3,14 @@
 let
   musicDir = "/srv/music";
   playlistsDir = "${musicDir}/playlists";
+
+  beetsOverride = pkgs.writeScriptBin "beet" ''
+    ${pkgs.beets}/bin/beet --config=${./config/beets/config.yml}
+  '';
 in
 {
+  environment.systemPackages = [ beetsOverride ];
+
   services.mopidy = {
     enable = true;
     extensionPackages = with pkgs; [

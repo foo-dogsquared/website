@@ -1,0 +1,48 @@
+directory: /srv/music
+fuzzy:
+    prefix: '-'
+    threshold: 0.7
+ignore_hidden: yes
+import:
+    group_albums: yes
+    incremental: yes
+    link: no
+    log: beets.log
+    move: yes
+    resume: yes
+library: /srv/music/library.db
+match:
+    ignore_video_tracks: yes
+plugins:
+- acousticbrainz
+- chroma
+- edit
+- export
+- fetchart
+- fromfilename
+- fuzzy
+- mbsync
+- playlist
+- scrub
+- smartplaylist
+scrub:
+    auto: yes
+smartplaylist:
+    playlist_dir: /srv/music/playlists
+    playlists: [{name: all.m3u8, query: ''}, {name: released-in-$year.m3u8, query: 'year:2000..2023'}]
+    relative_to: /srv/music
+    auto: yes
+    forward_slash: no
+    urlencode: no
+ui:
+    color: yes
+chroma:
+    auto: yes
+edit:
+    albumfields: album albumartist
+    itemfields: track title artist album
+    ignore_fields: id path
+acousticbrainz:
+    auto: yes
+    force: no
+    tags: []
