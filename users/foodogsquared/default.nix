@@ -107,6 +107,11 @@ in
     };
   };
 
+  programs.ncmpcpp = {
+    enable = true;
+    mpdMusicDir = musicDir;
+  };
+
   systemd.user.services.gonic = {
     Unit = {
       After = [ "network.target" "sound.target" ];
