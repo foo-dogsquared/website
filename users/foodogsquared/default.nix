@@ -58,5 +58,54 @@ in
     };
   };
 
+  services.mopidy = {
+    enable = true;
+    extensionPackages = with pkgs; [
+      mopidy-beets
+      mopidy-funkwhale
+      mopidy-internetarchive
+      mopidy-iris
+      mopidy-local
+      mopidy-mpd
+      mopidy-mpris
+      mopidy-youtube
+    ];
+
+    settings = {
+      http = {
+        hostname = "0.0.0.0";
+      };
+
+      file = {
+        enabled = true;
+        media_dirs = [
+          "$XDG_MUSIC_DIR|Music"
+          "~/library/music|Library"
+        ];
+      };
+
+      internetarchive = {
+        enabled = true;
+        browse_limit = 150;
+        search_limit = 150;
+        collections = [
+          "fav-foo-dogsquared"
+          "audio"
+          "etree"
+          "audio_music"
+          "audio_foreign"
+        ];
+      };
+
+      m3u = {
+        enabled = true;
+        base_dir = musicDir;
+        playlists_dir = playlistsDir;
+        default_encoding = "utf-8";
+        default_extension = ".m3u8";
+      };
+    };
+  };
+
   home.stateVersion = "23.05";
 }
