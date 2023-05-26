@@ -107,5 +107,16 @@ in
     };
   };
 
+  systemd.user.services.gonic = {
+    Unit = {
+      After = [ "network.target" "sound.target" ];
+      Description = "Gonic server";
+      Documentation = [ "https://github.com/sentriz/gonic" ];
+    };
+
+    Service.ExecStart = "${lib.getBin pkgs.gonic}/bin/gonic -config-path %E/gonic/gonic.conf -music-path %h/Music -cache-path %C/gonic -podcast-path %C/gonic/podcasts";
+    Install.WantedBy = "default.target";
+  };
+
   home.stateVersion = "23.05";
 }
