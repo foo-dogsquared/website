@@ -34,5 +34,20 @@ in
     '';
   };
 
+  services.gonic = {
+    enable = true;
+    settings = {
+      listen-addr = "172.23.0.1:4747";
+      cache-path = "/var/cache/gonic";
+      music-path = [ musicDir ];
+      podcast-path = "/var/cache/gonic/podcasts";
+
+      jukebox-enabled = true;
+
+      scan-interval = 1;
+      scan-at-start-enabled = true;
+    };
+  };
+
   system.stateVersion = "23.05";
 }
