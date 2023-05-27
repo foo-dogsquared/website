@@ -18,6 +18,7 @@ require_relative 'wikipedia-inline-macro/extension'
 require_relative 'package-indices-link-macro/extension'
 require_relative 'fdroid-link-inline-macro/extension'
 require_relative 'musicbrainz-link-inline-macro/extension'
+require_relative 'repology-link-inline-macro/extension'
 
 Asciidoctor::Extensions.register do
   inline_macro ManInlineMacro
@@ -43,4 +44,6 @@ Asciidoctor::Extensions.register do
   inline_macro FDroidLinkInlineMacro
 
   inline_macro MusicBrainzLinkInlineMacro
+
+  inline_macro RepologyLinkInlineMacro
 end

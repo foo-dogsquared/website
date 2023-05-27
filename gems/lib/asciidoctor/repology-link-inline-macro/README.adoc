@@ -1,0 +1,27 @@
+= Repology link inline macro
+:toc:
+
+
+An inline macro for shorthands Repology links.
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+repology:$PROJECT[$CAPTION]
+----
+
+Where...
+
+- `$PROJECT` is the project name listed in link:https://repology.org/projects/[Repology's project list].
+
+- `$CAPTION` is the link text to be used.
+By default, it will use the project name.
+
+
+== Example usage
+
+- `repology:beets[]` should link to the link:https://repology.org/project/beets/[Beets project page in Repology] with `beets` as the link text.
+
+- `repology:beets[widely available in Linux distributions]` is the same as the previous item but with the link text replaced to `widely available in Linux distributions`.
