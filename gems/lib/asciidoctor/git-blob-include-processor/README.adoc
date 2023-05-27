@@ -32,6 +32,9 @@ This is only effective if `diff` option is given.
 - `other` is the other commit to be compared with.
 This is only effective if `diff` option is given.
 
+- `lines` get the specified lines from the path.
+It uses the same parser as the line specifier from link:https://docs.asciidoctor.org/asciidoc/latest/verbatim/highlight-lines/[highlighting select lines] so the syntax is the same.
+
 There's also a couple of link:https://docs.asciidoctor.org/asciidoc/latest/attributes/options/[options] for this component.
 You can give the following options through `opts` attribute (i.e., `opts="diff,reverse"`).
 
@@ -61,3 +64,5 @@ The following examples assume that `doccontentref` points to `content/posts/samp
 - `include::git:{doccontentref}[opts="diff", path=Gemfile]` should include a diff of the Gemfile from `content/posts/sample` branch (assuming that Gemfile has changed).
 
 - `include::git:non-existing-rev[opts="diff"]` should result in a warning with the non-existing revision.
+
+- `include::git:{doccontentref}[path=README, lines=2..5]` should transclude the README file from lines 2-5.

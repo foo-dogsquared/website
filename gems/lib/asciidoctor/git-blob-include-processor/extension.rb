@@ -41,7 +41,19 @@ class GitBlobIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
                         git_object.target.tree.path attrs['path']
                       end
 
-        reader.push_include repo.lookup(inner_entry[:oid]).content
+        content = repo.lookup(inner_entry[:oid]).content
+
+        if attrs.key? 'lines'
+          content_lines = content.lines
+          new_content = +''
+          doc.resolve_lines_to_highlight(content, attrs['lines']).each do |line_no|
+            new_content << content_lines.at(line_no - 1)
+          end
+
+          content = new_content
+        end
+
+        reader.push_include content
       end
     rescue StandardError => e
       reader.push_include "Unresolved directive for '#{target}' with the following error:\n#{e}"
