@@ -1,0 +1,36 @@
+= F-droid link inline macro
+:toc:
+
+
+An inline macro as a shorthand for F-droid links.
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+fdroid:$APP_ID[$CAPTION]
+----
+
+Where...
+
+- `$APP_ID` is the application ID of the program (e.g., `org.moire.ultrasonic`).
+
+- `$CAPTION` is the link text.
+By default, it will use the display name of the application from its link:https://gitlab.com/fdroid/fdroiddata/[metadata repository].
+In other words, it will create an additional network request.
+
+
+== Attributes
+
+- `lang` is the language page to be linked.
+By default, it links to the English page of `en`.
+
+
+== Example usage
+
+- `fdroid:org.moire.ultrasonic[]` should link to the link:https://f-droid.org/en/packages/org.moire.ultrasonic/[F-Droid page for Ultrasonic] with the link text 'Ultrasonic'.
+
+- `fdroid:org.moire.ultrasonic[Hello there]` is the same as previous item but with the link text replaced with 'Hello there'.
+
+- `fdroid:org.moire.ultrasonic[lang=it]` is the same as the first list item but links to the link:https://f-droid.org/it/packages/org.moire.ultrasonic/[Italian page].

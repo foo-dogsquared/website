@@ -16,6 +16,7 @@ require_relative 'chat-block-processor/extension'
 require_relative 'git-blob-include-processor/extension'
 require_relative 'wikipedia-inline-macro/extension'
 require_relative 'package-indices-link-macro/extension'
+require_relative 'fdroid-link-inline-macro/extension'
 
 Asciidoctor::Extensions.register do
   inline_macro ManInlineMacro
@@ -38,4 +39,5 @@ Asciidoctor::Extensions.register do
   inline_macro CtanLinkInlineMacro
   inline_macro PypiLinkInlineMacro
   inline_macro CratesIOLinkInlineMacro
+  inline_macro FDroidLinkInlineMacro
 end
