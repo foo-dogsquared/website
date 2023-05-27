@@ -9,3 +9,12 @@ class String
         .downcase
   end
 end
+
+module Asciidoctor
+  module FoodogsquaredCustomExtensions
+    NAME = 'asciidoctor-foodogsquared-custom-extensions'
+    VERSION = '1.0.0'
+    CONTACT_EMAIL = 'foodogsquared@foodogsquared.one'
+    USER_AGENT = "#{NAME}/#{VERSION} ( #{CONTACT_EMAIL} )"
+  end
+end
