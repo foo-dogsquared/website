@@ -18,6 +18,7 @@ require_relative 'wikipedia-inline-macro/extension'
 require_relative 'package-indices-link-macro/extension'
 require_relative 'fdroid-link-inline-macro/extension'
 require_relative 'musicbrainz-link-inline-macro/extension'
+require_relative 'flathub-link-inline-macro/extension'
 require_relative 'repology-link-inline-macro/extension'
 
 Asciidoctor::Extensions.register do
@@ -38,12 +39,16 @@ Asciidoctor::Extensions.register do
 
   inline_macro WikipediaInlineMacro
 
+  # Package indices
   inline_macro CtanLinkInlineMacro
   inline_macro PypiLinkInlineMacro
   inline_macro CratesIOLinkInlineMacro
+
+  # App stores
   inline_macro FDroidLinkInlineMacro
+  inline_macro FlathubLinkInlineMacro
 
+  # Databases
   inline_macro MusicBrainzLinkInlineMacro
-
   inline_macro RepologyLinkInlineMacro
 end

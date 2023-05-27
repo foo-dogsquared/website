@@ -1,0 +1,28 @@
+= Flathub link inline macro
+:toc:
+
+
+A shorthand for linking applications from link:https://flathub.org[FlatHub].
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+flathub:$APP_ID[$CAPTION]
+----
+
+Where...
+
+- `$APP_ID` is the application ID of the program on Flathub.
+
+- `$CAPTION` is the link text to be used.
+By default, it will get the appstream metadata from FlatHub and use the display name.
+Take note it creates an additional network request to get the name.
+
+
+== Example usage
+
+- `flathub:org.gnome.design.IconLibrary[]` links to the link:https://flathub.org/apps/org.gnome.design.IconLibrary[FlatHub page of GNOME Icon Library] with `Icon Library` as the link text.
+
+- `flathub:org.gnome.design.IconLibrary[GNOME Icon Library]` is the same as the previous list item but with its link text replaced with `GNOME Icon Library`.
