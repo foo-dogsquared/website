@@ -4,6 +4,7 @@ PATH
     asciidoctor-foodogsquared-extensions (1.0.0)
       asciidoctor (~> 2.0)
       open-uri-cached (~> 1.0)
+      rugged (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -97,4 +98,4 @@ DEPENDENCIES
   tilt
 
 BUNDLED WITH
-   2.3.7
+   2.4.12

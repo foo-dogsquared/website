@@ -62,7 +62,7 @@
     version = "1.2023.5";
   };
   asciidoctor-foodogsquared-extensions = {
-    dependencies = ["asciidoctor" "open-uri-cached"];
+    dependencies = ["asciidoctor" "open-uri-cached" "rugged"];
     groups = ["default"];
     platforms = [];
     source = {

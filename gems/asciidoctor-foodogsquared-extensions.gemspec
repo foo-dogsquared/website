@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'asciidoctor', '~> 2.0'
   s.add_runtime_dependency 'open-uri-cached', '~> 1.0'
+  s.add_runtime_dependency 'rugged', '~> 1.0'
 end
