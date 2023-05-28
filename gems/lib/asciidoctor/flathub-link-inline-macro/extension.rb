@@ -2,7 +2,6 @@
 
 require 'json'
 require 'open-uri'
-require 'open-uri/cached'
 
 class FlathubLinkInlineMacro < Asciidoctor::Extensions::InlineMacroProcessor
   use_dsl

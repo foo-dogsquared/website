@@ -3,7 +3,6 @@ PATH
   specs:
     asciidoctor-foodogsquared-extensions (1.0.0)
       asciidoctor (~> 2.0)
-      open-uri-cached (~> 1.0)
       rugged (~> 1.0)
 
 GEM

@@ -3,7 +3,6 @@
 require 'base64'
 require 'json'
 require 'open-uri'
-require 'open-uri/cached'
 require 'uri'
 
 class GitHubRawIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
