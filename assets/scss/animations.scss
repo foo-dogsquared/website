@@ -23,6 +23,19 @@
   }
 }
 
+@keyframes mini-bounce {
+  $baseSize: 0.5em;
+  $baseRotation: 2deg;
+  from {
+    transform: rotate($baseRotation) translateX($baseSize)
+      translateY(-#{$baseSize / 5});
+  }
+  to {
+    transform: rotate(-$baseRotation) translateX(-$baseSize)
+      translateY(-#{$baseSize / 5});
+  }
+}
+
 @keyframes pulse {
   from {
     width: #{$tooltip-size / 2};
@@ -38,6 +51,12 @@
   @for $i from 1 to length($colorOrder) {
     #{$i * $divide}% {
       fill: var(--base#{nth($colorOrder, $i)});
+      color: var(--base#{nth($colorOrder, $i)});
     }
   }
+}
+
+@keyframes blur-blur {
+  from { filter: blur(1em); }
+  to { filter: blur(0); }
 }

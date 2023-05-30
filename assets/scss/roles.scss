@@ -23,8 +23,28 @@
   animation: extreme-shake 0.1s alternate ease-in-out infinite;
 }
 
+.blur {
+  filter: blur(4px);
+}
+
+.blur-blur {
+  animation: blur-blur 4s alternate infinite;
+}
+
+.rainbow {
+  animation: rainbow 5s infinite;
+}
+
+.bounce {
+  animation: bounce 0.6s alternate ease-in-out infinite;
+}
+
+.mini-bounce {
+  animation: mini-bounce 0.6s alternate ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion) {
-  .shake, .extreme-shake {
+  .shake, .extreme-shake, .blur-blur, .bounce {
     animation: none;
   }
 }
