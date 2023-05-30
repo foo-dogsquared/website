@@ -1,0 +1,11 @@
+[Install]
+WantedBy=default.target
+
+[Service]
+ExecStart=mopidy --config %E/mopidy/mopidy.conf
+
+[Unit]
+After=network.target
+After=sound.target
+Description=mopidy music player daemon
+Documentation=https://mopidy.com/

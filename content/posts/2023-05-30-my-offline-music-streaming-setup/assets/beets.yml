@@ -1,0 +1,38 @@
+directory: /home/foo-dogsquared/Music
+fuzzy:
+  prefix: '-'
+ignore_hidden: true
+import:
+  group_albums: true
+  incremental: true
+  link: false
+  log: beets.log
+  move: true
+  resume: true
+library: /home/foo-dogsquared/Music/library.db
+match:
+  ignore_video_tracks: true
+plugins:
+- acousticbrainz
+- chroma
+- edit
+- export
+- fetchart
+- fromfilename
+- fuzzy
+- mbsync
+- playlist
+- scrub
+- smartplaylist
+scrub:
+  auto: true
+smartplaylist:
+  playlist_dir: /home/foo-dogsquared/Music/playlists
+  playlists:
+  - name: all.m3u8
+    query: ''
+  - name: released-in-$year.m3u8
+    query: year:2000..2023
+  relative_to: /home/foo-dogsquared/Music
+ui:
+  color: true

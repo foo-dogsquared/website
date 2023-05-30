@@ -1,0 +1,11 @@
+[Install]
+WantedBy=default.target
+
+[Service]
+ExecStart=gonic -config-path /etc/gonic/gonic.conf
+
+[Unit]
+After=network.target
+After=sound.target
+Description=Gonic server
+Documentation=https://github.com/sentriz/gonic
