@@ -17,6 +17,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch/cache the fetched URIs
+        uses: actions/cache@v3
+        with:
+          key: open-uri-content-cache
+          path: |
+            /tmp/open-uri-*
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
