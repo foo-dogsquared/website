@@ -5,12 +5,6 @@ require 'json'
 require 'open3'
 require 'shellwords'
 
-github_api_headers = {
-  'Header' => 'application/vnd.github+json',
-  'X-GitHub-Api-Version' => '2022-11-28'
-}
-github_api_headers['Authorization'] = "Token #{ENV['GITHUB_API_BEARER_TOKEN']}" if ENV['GITHUB_API_BEARER_TOKEN']
-
 desc 'Build the site'
 task :build, [:context, :base_url] => [:export_avatars] do |_, args|
   args.with_defaults(context: 'production')
