@@ -22,7 +22,7 @@ jobs:
         with:
           key: open-uri-content-cache
           path: |
-            /tmp/open-uri-*
+            /tmp/open-uri-cache-foodogsquared-website
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
