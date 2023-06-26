@@ -3,6 +3,7 @@
 require 'fileutils'
 require 'json'
 require 'open3'
+require 'set'
 require 'shellwords'
 
 desc 'Build the site'
@@ -20,12 +21,17 @@ end
 desc 'Export the avatar images'
 task :export_avatars, [:base_dir, :output_dir, :output_extension] do |_, args|
   args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'avif')
+
+  output_dirs = Set[]
+
   Dir.glob('avatars/**/*.svg', base: args.base_dir) do |f|
     dirname = File.dirname f
+    output_dir = %(#{args.output_dir}#{dirname})
     output_file = "#{dirname}/#{File.basename(f, '.svg')}.#{args.output_extension}"
 
-    FileUtils.mkdir_p "#{args.output_dir}#{dirname}", verbose: true
-    sh "magick #{args.base_dir}#{f} -quality 30 #{args.output_dir}#{output_file}"
+    output_dirs.add?(output_dir) && FileUtils.mkdir_p(output_dir, verbose: true)
+
+    sh "magick #{args.base_dir}#{f} -resize 42% -quality 30 #{args.output_dir}#{output_file}"
   end
 end
 
