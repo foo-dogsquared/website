@@ -1,0 +1,27 @@
+= Flathub link inline macro
+:toc:
+
+
+A shorthand for linking link:https://datatracker.ietf.org/[IETF RFCs].
+
+
+== Synopsis
+
+[source, asciidoc]
+----
+rfc:$RFC[$CAPTION]
+----
+
+Where...
+
+- `$RFC` is the RFC number.
+
+- `$CAPTION` is the link text to be used.
+By default, it will be `RFC$RFC`.
+
+
+== Example usage
+
+- `rfc:2136[]` links to the link:https://datatracker.ietf.org/doc/html/rfc2136[RFC2136 (dynamic update)] with the caption `RFC2136`.
+
+- `rfc:2136[Dynamic DNS updates]` is the same as the previous list item but with the caption text `Dynamic DNS updates`.

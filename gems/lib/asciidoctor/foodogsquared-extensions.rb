@@ -21,11 +21,13 @@ require_relative 'fdroid-link-inline-macro/extension'
 require_relative 'musicbrainz-link-inline-macro/extension'
 require_relative 'flathub-link-inline-macro/extension'
 require_relative 'repology-link-inline-macro/extension'
+require_relative 'ietf-rfc-link-inline-macro/extension'
 
 OpenURI::Cache.cache_path = '/tmp/open-uri-cache-foodogsquared-website'
 
 Asciidoctor::Extensions.register do
   inline_macro ManInlineMacro
+  inline_macro IETFRFCLinkInlineMacro
   block ChatBlock if @document.basebackend? 'html'
 
   inline_macro SWHInlineMacro
