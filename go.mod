@@ -1,4 +1,4 @@
-module github.com/foo-dogsquared/blog
+module github.com/foo-dogsquared/website
 
 go 1.15
 
