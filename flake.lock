@@ -34,43 +34,10 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1678875422,
-        "narHash": "sha256-T3o6NcQPwXjxJMn2shz86Chch4ljXgZn746c2caGxd8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "126f49a01de5b7e35a43fd43f891ecf6d3a51459",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs",
-        "ruby-nix": "ruby-nix"
-      }
-    },
-    "ruby-nix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1681695382,
-        "narHash": "sha256-RBZnSdx3dnUg3o+FiQVKKeKZN6pntYb19mXnnA5b/i8=",
-        "owner": "sagittaros",
-        "repo": "ruby-nix",
-        "rev": "b1edcbec13c9f15915a900b1fb87d9c3ef1e882b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sagittaros",
-        "repo": "ruby-nix",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {

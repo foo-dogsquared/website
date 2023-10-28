@@ -3,25 +3,22 @@
 with pkgs;
 
 let
-  localGem = ruby-nix {
-    name = "asciidoctor-foodogsquared-extensions";
+  gems = bundlerEnv {
+    name = "foodogsquared-blog-gems";
     ruby = ruby_3_1;
-    gemset = ./gemset.nix;
+    gemdir = ./.;
   };
 
   asciidoctorWrappedWithCustomOptions = writeShellScriptBin "asciidoctor" ''
-    ${lib.getBin localGem.env}/bin/asciidoctor -T ./gems/templates $@
+    ${lib.getBin gems}/bin/asciidoctor -T ./gems/templates $@
   '';
 
   treesitterWithPlugins = (tree-sitter.withPlugins (_: tree-sitter.allGrammars));
 in
 mkShell {
-  buildInputs = [
-    localGem.env
-    localGem.ruby
-  ];
-
   packages = [
+    gems
+    gems.wrappedRuby
     asciidoctorWrappedWithCustomOptions
 
     git

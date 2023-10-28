@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    ruby-nix.url = "github:sagittaros/ruby-nix";
   };
 
   outputs = inputs@{ self, nixpkgs, ... }:
@@ -14,14 +13,7 @@
     in
     inputs.flake-utils.lib.eachSystem systems (system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = overlays ++ [
-            (final: prev: {
-              ruby-nix = inputs.ruby-nix.lib prev;
-            })
-          ];
-        };
+        pkgs = nixpkgs.legacyPackages."${system}";
       in
       {
         devShells.default = import ./shell.nix { inherit pkgs; };

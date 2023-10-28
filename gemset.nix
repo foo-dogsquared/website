@@ -66,10 +66,10 @@
     groups = ["default"];
     platforms = [];
     source = {
-      path = "gems";
-      type = "path";
+      remotes = ["https://rubygems.org"];
+      sha256 = "0jkc89m22fwjc4qn481rxyv5yif2yqqhw3ib4d6qkqcv2a21448g";
+      type = "gem";
     };
-    targets = [];
     version = "1.0.0";
   };
   ast = {
