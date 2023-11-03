@@ -10,16 +10,16 @@ let
   };
 
   asciidoctorWrappedWithCustomOptions = writeShellScriptBin "asciidoctor" ''
-    ${lib.getBin gems}/bin/asciidoctor -T ./gems/templates $@
+    ${lib.getBin gems}/bin/asciidoctor -T ${./templates} $@
   '';
 
   treesitterWithPlugins = (tree-sitter.withPlugins (_: tree-sitter.allGrammars));
 in
 mkShell {
   packages = [
+    asciidoctorWrappedWithCustomOptions
     gems
     gems.wrappedRuby
-    asciidoctorWrappedWithCustomOptions
 
     git
     libgit2
@@ -48,6 +48,7 @@ mkShell {
   shellHook = ''
     go version
     hugo version
+    which asciidoctor
     asciidoctor --version
 
     chmod u+x --recursive ./bin
