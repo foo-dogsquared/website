@@ -11,8 +11,18 @@
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ({ config, lib, ... }: {
-          nix.registry = lib.mapAttrs (_: flake: { inherit flake; }) inputs;
+        ({ config, lib, pkgs, ... }: {
+          # Setting each of the flake inputs as part of the system registry
+          # including our own flake which is just renamed from "self" to
+          # "config".
+          nix.registry =
+            lib.mapAttrs'
+              (name: flake:
+                let
+                  name' = if (name == "self") then "config" else name;
+                in
+                lib.nameValuePair name' { inherit flake; })
+              inputs;
         })
         ./hosts/desktop
       ];
