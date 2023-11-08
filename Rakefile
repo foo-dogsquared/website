@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
+require 'rake/clean'
+
 require 'fileutils'
 require 'json'
 require 'open3'
+require 'open-uri/cached'
 require 'set'
 require 'shellwords'
 
+OpenURI::Cache.cache_path = "#{Dir.pwd}/.cache"
+
 desc 'Build the site'
-task :build, [:context, :base_url] => [:export_avatars] do |_, args|
+task :build, %i[context base_url] => %i[export_avatars] do |_, args|
   args.with_defaults(context: 'production')
   draft_args = '--environment development --buildDrafts --buildFuture --buildExpired' unless args.context == 'production'
   base_uri_args = "-b #{args.base_url}" if args.base_url
@@ -19,7 +24,7 @@ task :build, [:context, :base_url] => [:export_avatars] do |_, args|
 end
 
 desc 'Export the avatar images'
-task :export_avatars, [:base_dir, :output_dir, :output_extension] do |_, args|
+task :export_avatars, %i[base_dir output_dir output_extension] do |_, args|
   args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'avif')
 
   output_dirs = Set[]
@@ -36,7 +41,7 @@ task :export_avatars, [:base_dir, :output_dir, :output_extension] do |_, args|
 end
 
 desc 'Build the webring to be embedded with the site'
-task :build_webring, [:limit, :input, :output, :file] do |_, args|
+task :build_webring, %i[limit input output file] do |_, args|
   args.with_defaults(
     limit: 5,
     file: './data/blogs.json',
@@ -56,8 +61,8 @@ task :build_webring, [:limit, :input, :output, :file] do |_, args|
 end
 
 desc 'Create a web server'
-task :serve => [:export_avatars] do
-  sh 'nix develop -c hugo serve --buildFuture --verboseLog --destination public'
+task :serve do
+  sh 'nix develop -c hugo serve --buildFuture --destination public'
 end
 
 desc 'Update the Hugo modules for this project'
