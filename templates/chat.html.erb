@@ -1,0 +1,13 @@
+<div<%= @id && %( id="#{@id}") %>
+                role="figure"
+                class="dialogblock <%= role %>"
+                data-avatar="<%= attr 'name' %>">
+  <div class="dialogblock__avatar" title="<%= attr 'name' %>">
+    <img src="<%= parent.image_uri (attr :avatarsticker), 'avatarsdir' %>"
+         alt="<%= attr 'name' %>"
+         loading="lazy"/>
+  </div>
+  <div class="dialogblock__text">
+    <%= content %>
+  </div>
+</div>
