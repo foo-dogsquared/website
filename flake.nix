@@ -16,8 +16,16 @@
         pkgs = nixpkgs.legacyPackages."${system}";
       in
       {
+        packages.asciidoctor = with pkgs; writeShellScriptBin "asciidoctor" ''
+          asciidoctor -T ${self.site.asciidoctor-templates} $@
+        '';
         devShells.default = import ./shell.nix { inherit pkgs; };
 
         formatter = pkgs.treefmt;
-      });
+      }) // {
+        site = {
+          asciidoctor-templates = ./templates;
+          assets = ./assets;
+        };
+      };
 }
