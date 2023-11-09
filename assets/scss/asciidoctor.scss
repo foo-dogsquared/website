@@ -2,7 +2,10 @@
 @import "roles";
 
 :root {
-  --mark-border-style: 0.5em var(--base05) solid;
+  --side-accent-color: var(--base05);
+  --side-accent-color-text: var(--base00);
+  --border-style: 1px var(--side-accent-color) solid;
+  --mark-border-style: 0.5em var(--side-accent-color) solid;
 }
 
 .anchor {
@@ -59,8 +62,8 @@ p.tableblock {
 *:not(.listingblock, .literalblock, .openblock) {
   > .attribution,
   > .title {
-    background: var(--foreground);
-    color: var(--base00);
+    background: var(--side-accent-color);
+    color: var(--side-accent-color-text);
     font-size: 0.9em;
     padding: 0.5em;
     word-break: break-word;
@@ -76,8 +79,8 @@ p.tableblock {
   position: relative;
 
   > .title {
-    background: var(--foreground);
-    color: var(--background);
+    background: var(--side-accent-color);
+    color: var(--side-accent-color-text);
     font-size: 0.9em;
     padding: 0.5em;
     word-wrap: break-word;
@@ -241,17 +244,15 @@ p {
 
 // Custom Asciidoctor components.
 .dialogblock {
-  &__box {
-    align-items: center;
-    border: var(--border-style);
-    border-left: var(--mark-border-style);
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 1em;
-    padding: 0.5em;
-    max-width: 55ch;
-    width: fit-content;
-  }
+  align-items: center;
+  border: var(--border-style);
+  border-left: var(--mark-border-style);
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1em;
+  padding: 0.5em;
+  max-width: 60ch;
+  width: fit-content;
 
   &__avatar {
     --size: 4em;
@@ -279,16 +280,17 @@ p {
     }
   }
 
-  &__avatar-name {
-    font-weight: bolder;
-  }
-
   // Roles/modifiers.
   &.reversed {
     flex-direction: row-reverse;
     margin-left: auto;
     border-left: var(--border-style);
     border-right: var(--mark-border-style);
+  }
+
+  &.full {
+    max-width: unset;
+    width: unset;
   }
 }
 

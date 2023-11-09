@@ -18,6 +18,8 @@ table tr td > p {
   margin-top: 1em;
 }
 
+a:hover { color: var(--base0B); }
+
 ul,
 ol {
   margin: 1em 0 0;
@@ -25,10 +27,6 @@ ol {
 
 pre {
   margin-bottom: 0;
-}
-
-a:hover {
-  color: var(--base0B);
 }
 
 button {
@@ -48,17 +46,12 @@ main > article {
 }
 
 // Layouts
-.site__title {
-  --size: 2rem;
-  margin-bottom: unset;
-  font-size: var(--size);
-  line-height: unset;
-}
-
 .site__socials {
   list-style: none;
   padding-left: 0;
 }
+
+.site__social-icon:hover { color: var(--base0B); }
 
 .site__links--content,
 .site__socials--content {
@@ -73,9 +66,6 @@ main > article {
 
 .site__links--content > * {
   flex-basis: 20;
-}
-.site__socials--content > * {
-  flex-basis: 15%;
 }
 
 article.post {

@@ -1,4 +1,10 @@
 // Asciidoctor roles (e.g., [.text-center]) on a block.
+.error {
+  --side-accent-color: var(--base08);
+  --side-accent-color-text: var(--base05);
+  --border-style: 2px var(--side-accent-color) solid;
+}
+
 .inline-block {
   display: inline-block;
 }
