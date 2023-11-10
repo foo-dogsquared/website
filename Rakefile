@@ -5,11 +5,8 @@ require 'rake/clean'
 require 'fileutils'
 require 'json'
 require 'open3'
-require 'open-uri/cached'
 require 'set'
 require 'shellwords'
-
-OpenURI::Cache.cache_path = "#{Dir.pwd}/.cache"
 
 desc 'Build the site'
 task :build, %i[context base_url] => %i[export_avatars] do |_, args|
