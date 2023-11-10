@@ -10,6 +10,8 @@ tags:
 Gabriel Arazas <foodogsquared@foodogsquared.one>
 v1.0.0, 2023-05-30: Initial version
 
+:doccontentref: refs/heads/content/posts/2023-05-30-my-offline-music-streaming-setup
+
 :swh-gonic-service-unit-contrib: swh:1:cnt:4a2128ff5d679b1eceac27464f2ccbd5c3dabc90;origin=https://github.com/sentriz/gonic;visit=swh:1:snp:c9ba117bcd80577fa6dbae0293c45e3d6488c08c;anchor=swh:1:rev:2f4ea6caa86afb8c78fda4efcd1d4a5e8aa18c60;path=/contrib/gonic.service
 :swh-gonic-service-nixpkgs: swh:1:cnt:65cf10f2c4b4623770b7006e927dc5838f3c7920;origin=https://github.com/NixOS/nixpkgs;visit=swh:1:snp:4b4f22375c9650345eb207a70c0158f951386514;anchor=swh:1:rev:1eae9f8f1b6a444b15d9037d4b8f2ca7da045a3f;path=/nixos/modules/services/audio/gonic.nix;lines=40-85
 

@@ -12,6 +12,8 @@ tags:
 Gabriel Arazas <foodogsquared@foodogsquared.one>
 v1.0.3, 2023-04-11: Update the revision for the site source code
 
+:doccontentref: refs/heads/content/posts/2023-04-10-asciidoc-go-template-and-hugo-featuring-nix
+
 :swhid-hugo-docs-asciidoctor-extension-support: swh:1:cnt:a98898821c30a1554c300c909cd29600059f436a;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f1e8f010f5f5990c6e172b977e5e2d2878b9a338;path=/docs/content/en/content-management/formats.md;lines=96
 :swhid-hugo-initial-asciidoctor-impl: swh:1:cnt:8cc3e79e67d7d197f5211c182f5a216b06c7cb9e;origin=https://github.com/gohugoio/hugo;visit=swh:1:snp:41c409e12a0a2aee3dd77f3270736828b60dc5e6;anchor=swh:1:rev:f0266e2ef3487bc57dd05402002fc816e3b40195;path=/markup/asciidocext/asciidocext_config/config.go;lines=34-42
 :foodogsquared-site-source-revision: 468ab1f841af6ab7ad8f197ac99f133f1ec60dc7
@@ -350,6 +352,7 @@ I wonder what that could be...
 The project mainly uses link:https://nixos.org/[Nix] to easily reproduce the development environment in a snap.
 Just list the required dependencies in `shell.nix` at the project root, run `nix-shell`, and voila!
 
+[.error]
 .`shell.nix`
 [source, nix]
 ----
@@ -399,7 +402,7 @@ This is the doing of `bundlerEnv` by including exported executables from the gem
 
 To check that it is working, enter the Nix environment with `nix-shell` and rerun the `asciidoctor` command.
 
-[.failed]
+[.error]
 [source, shell]
 ----
 asciidoctor -r asciidoctor-custom-extensions sample.adoc
@@ -408,6 +411,7 @@ asciidoctor -r asciidoctor-custom-extensions sample.adoc
 ...which you shouldn't be able to successfully run.
 Instead, you should have the following results similar to the next listing.
 
+[.error]
 [literal]
 ----
 include::./assets/bundlerenv-error[]

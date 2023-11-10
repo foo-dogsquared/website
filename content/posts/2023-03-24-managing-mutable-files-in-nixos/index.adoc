@@ -10,6 +10,8 @@ tags:
 Gabriel Arazas <foodogsquared@foodogsquared.one>
 v1.0.2, 2023-04-07: Update quote description
 
+:doccontentref: refs/heads/content/posts/2023-03-24-managing-mutable-files-in-nixos
+
 :home-manager-rev: bb4b25b302dbf0f527f190461b080b5262871756
 :nix-flakes-post: ../2023-03-05-combining-traditional-dotfiles-and-nixos-configurations-with-nix-flakes/index.adoc
 

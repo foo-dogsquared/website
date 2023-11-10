@@ -9,6 +9,8 @@ tags:
 Gabriel Arazas <foodogsquared@foodogsquared.one>
 v1.1.0, 2023-05-19: Corrected information and update descriptions
 
+:doccontentref: refs/heads/content/posts/2023-05-12-using-software-heritage-for-technical-writing
+
 include::./attributes.adoc[]
 
 
