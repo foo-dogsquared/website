@@ -18,6 +18,7 @@ in
 mkShell {
   packages = [
     asciidoctorWrappedWithCustomOptions
+    bundix
     gems
     gems.wrappedRuby
 
