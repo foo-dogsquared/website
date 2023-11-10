@@ -1,0 +1,224 @@
+---
+title: "Speeding up NixOS package search on the terminal"
+publishdate: 2023-11-10T00:00:00+00:00
+---
+
+= Speeding up NixOS package search on the terminal
+Gabriel Arazas <foodogsquared@foodogsquared.one>
+2023-11-10
+
+:doccontentref: refs/heads/content/posts/2023-11-10-speeding-up-nix-package-search-on-the-terminal
+
+
+For those who are using the new command-line interface of Nix, you've most likely went through to pain of searching packages through `nix search`.
+For reference, here's what the experience looks like searching for a package from nixpkgs except it always like that every time you run the command. footnote:[Not necessarily, just every few hours as you'll see why.]
+
+[#video:nix-search-demo]
+.A part of the `nix search nixpkgs` experience which took 8 minutes in total to complete the whole search
+video::./assets/nix-search-part-demo.webm[]
+
+It is painful to use to the point where people tend to recommend https://search.nixos.org/packages[search.nixos.org] or https://mynixos.com/[MyNixOS] for searching packages. footnote:[They also include searching for NixOS options so that may be another reason these tools are always recommended.]
+Ideally, searching packages for your system shouldn't rely on online services.
+Luckily for us, there are ways how to mitigate against that.
+
+[chat, Ezran]
+====
+I'm just going to say it.
+That package search result looks ugly.
+====
+
+[chat, foodogsquared, role=reversed]
+====
+That might be another reason why `nix search` is not much used.
+====
+
+[WARNING]
+====
+We're using Nix v2.18 for this post.
+Everything that is featured here is considered to be experimental: from flakes, the command-line interface, and even the referenced manual may change over time.
+
+In order to enable them in the first place, you'll have to add `experimental-features = nix-command flake` into the Nix configuration (see man:nix.conf[5, service=debian, subpath=/unstable] for more details).
+====
+
+
+
+
+[#whats-happening-with-nix-search]
+== What's happening with `nix search`
+
+But first, let's take a closer inspection as to why `nix search` is behaving like that.
+Let's look at the following command which is https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-search[one of the examples from the manual].
+
+[source, shell]
+----
+nix search nixpkgs blender
+----
+
+At first glance, most people expect `nix search nixpkgs blender` searches for package `blender` from their nixpkgs instance.
+It does work as intended which is searching through packages from nixpkgs containing the word `blender`.
+Just not our own nixpkgs instance.
+It just doesn't behave to how most people expect as they overlook one thing about flakes: the registry.
+Per https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-registry[the manual]:
+
+[#quote:flake-registry-intro]
+[quote, Nix manual]
+____
+Flake registries are a convenience feature that allows you to refer to flakes using symbolic identifiers such as `nixpkgs`, rather than full URLs such as `git://github.com/NixOS/nixpkgs`.
+You can use these identifiers on the command line (e.g. when you do `nix run nixpkgs#hello`) or in flake input specifications in `flake.nix` files.
+The latter are automatically resolved to full URLs and recorded in the flake’s `flake.lock` file.
+____
+
+In short, `nixpkgs` from `nix search nixpkgs blender` points to a flake from the registry.
+We can view what `nixpkgs` points to by running `nix registry list`.
+
+[#lst:cmd-nix-registry-list]
+.Results from `nix registry list | grep flake:nixpkgs`
+[source]
+----
+global flake:nixpkgs github:NixOS/nixpkgs/nixpkgs-unstable
+----
+
+As stated from https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-registry-list[the manual], the format from the `nix registry list` output comes in the form of `<type> <from> <to>` where...
+
+* `type` denotes which registry it came from (which we'll discuss shortly later in this post).
+* `from` typically contains the flake identifier.
+* `to` refers to the flake reference it points to (e.g., `github:NixOS/nixpkgs`, `github:nixos-community/home-manager`).
+
+We can see that nixpkgs points to the github:NixOS/nixpkgs[nixpkgs-unstable branch, rev=nixpkgs-unstable].
+In other words, `nix search nixpkgs blender` is pretty much the same as the following command.
+
+[source, shell]
+----
+nix search github:NixOS/nixpkgs/nixpkgs-unstable blender
+----
+
+This seems fine except the flake reference isn't pointing to a fixed point like a specific commit or a local path, footnote:[That is not under version control.] it points to a branch of a remote Git repo which can change over time.
+
+So every time you run the command, `nixpkgs` resolves to the most recent version of nixpkgs-unstable.
+This is why it downloads and evaluates a new nixpkgs instance every time it runs (or between every few hours which is the pace for nixpkgs-unstable updates).
+Not exactly a good experience for a system package search compared to other operating systems like Arch Linux, Fedora, or OpenSUSE.
+
+[chat, Ezran]
+====
+Seem like flake registry is not a convenience feature at all.
+More like a hindrance, really.
+====
+
+[chat, foodogsquared, role=reversed]
+====
+It is a CONVENIENCE FEATURE!
+I use it to quickly test and run packages from my nixpkgs instance as well as other projects with flake.
+
+It's just that most NixOS systems are not properly configured with it by default.
+You'll see what I mean.
+====
+
+
+
+
+[#pinning-nixpkgs-to-the-registry]
+== Pinning nixpkgs to the registry
+
+Most would expect to search packages in their nixpkgs instance of their NixOS system.
+As hinted from the previous section, we can make use of multiple registries.
+As stated right after the <<quote:flake-registry-intro, previous excerpt from the manual>>:
+
+[#quote:manual-multiple-flake-registries]
+[quote, Nix manual]
+____
+There are multiple registries.
+These are, in order from lowest to highest precedence:
+
+* The global registry, which is a file downloaded from the URL specified by the setting `flake-registry`.
+It is cached locally and updated automatically when it's older than `tarball-ttl` seconds.
+The default global registry is kept in https://github.com/NixOS/flake-registry[a GitHub repository].
+
+* The system registry, which is shared by all users.
+The default location is `/etc/nix/registry.json`.
+On NixOS, the system registry can be specified using the NixOS option `nix.registry`.
+
+* The user registry `~/.config/nix/registry.json`.
+This registry can be modified by commands such as `nix registry pin`.
+
+* Overrides specified on the command line using the option `--override-flake`.
+____
+
+A quick way to show this would be pinning `nixpkgs` from the global registry to the user registry with `nix registry pin nixpkgs`.
+
+.Results from `nix registry list | grep 'flake:nixpkgs'` after pinning
+[source, shell]
+----
+user   flake:nixpkgs github:NixOS/nixpkgs/ec750fd01963ab6b20ee1f0cb488754e8036d89d
+global flake:nixpkgs github:NixOS/nixpkgs/nixpkgs-unstable
+----
+
+[NOTE]
+====
+Since we're going to show configuring the system registry with NixOS, don't forget to remove the entry from the user registry with `nix registry remove nixpkgs`.
+====
+
+Both the global and system registry can be configured in the NixOS system.
+In this case, we'll be focusing on adding our flake inputs of our NixOS system into the system registry.
+
+Here's a snippet of how to add them into the system registry.
+
+[#lst:nixos-set-system-registry]
+.`flake.nix`
+[source, nix]
+----
+include::git:{doccontentref}~2[path=flake.nix]
+----
+
+In this snippet, we just included every single flake input including our own configuration (which we renamed it from `self` to `config`).
+Once we rebuild our NixOS system with `nixos-rebuild`, we should now see our flake inputs included in the system registry.
+
+.Results from `nix registry list | grep '^system'`
+[source]
+----
+system flake:config path:/nix/store/zhsja37x6q5jr66ildj1xlfn4bqgcbgy-source?lastModified=1699451030&narHash=sha256-%2B2GZOcuOHyJADZFLH7JjTu4j3lojhqkPmsOvHmLnJdY%3D
+system flake:nixpkgs path:/nix/store/k904fsh46wbh4b998qjxhfcps716r5gx-nixos-23.11.20231104.85f1ba3/nixos
+system flake:nixpkgs-stable path:/nix/store/3s69yxbbl116zwga3i6cy7prplywq0bn-source?lastModified=1699291058&narHash=sha256-5ggduoaAMPHUy4riL%2BOrlAZE14Kh7JWX4oLEs22ZqfU%3D&rev=41de143fda10e33be0f47eab2bfe08a50f234267
+system flake:nixpkgs-unstable path:/nix/store/mj0hy52z22q5gpsf33akndxiclxd8ray-source?lastModified=1699343069&narHash=sha256-s7BBhyLA6MI6FuJgs4F/SgpntHBzz40/qV0xLPW6A1Q%3D&rev=ec750fd01963ab6b20ee1f0cb488754e8036d89d
+----
+
+[#sidebar:setting-user-registry-in-home-manager]
+.Setting user registry in home-manager
+****
+We could also set the user registry with github:nixos-community/home-manager[opts=repo] footnote:[Though, you cannot modify the user registry with `nix registry` subcommands once home-manager fully manages it.].
+It even has the same option attribute as the NixOS system (i.e., `nix.registry`) so you could just set it once like in the following snippet.
+
+[#lst:nixos-and-home-manager-set-registry]
+.`flake.nix`
+[source, nix]
+----
+include::git:{doccontentref}[path=flake.nix]
+----
+****
+
+If we run `nix search nixpkgs blender` once again, it should still evaluate but it should be done only once since:
+
+* We have `nixpkgs` pinned to our nixpkgs instance.
+* We're fully taking advantage of https://www.tweag.io/blog/2020-06-25-eval-cache/[flake evaluation caching] meaning subsequent package searches should be (almost) instantaneous.
+
+By configuring our registry through NixOS, we're only evaluating nixpkgs once until we update our flake inputs with `nix flake update`.
+
+[chat, Ezran, role=full]
+====
+So instead of suffering every time you run the command like in the <<video:nix-search-demo, video at the beginning>>, you suffer at least once every update.
+====
+
+As another bonus, we can now take advantage of other `nix` subcommands such as `nix build`, `nix shell`, or `nix develop`.
+
+[source, shell]
+----
+# These commands should now use our nixpkgs instance. Hoorah!
+nix run nixpkgs#neofetch
+nix develop nixpkgs#gcc
+nix build nixpkgs#vale
+nix search nixpkgs asciidoctor
+
+# From the previous example, we can quickly run packages from other nixpkgs
+# branch easily.
+nix shell nixpkgs-stable#hugo
+nix shell nixpkgs-unstable#hugo
+----
