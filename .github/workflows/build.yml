@@ -40,13 +40,11 @@ jobs:
       - if: github.ref_name == 'master'
         name: Deploy site to Netlify
         run: |
-          nix develop
-          rake build[production]
-          netlify deploy --prod --dir ./public
+          nix develop -c rake build[production]
+          nix develop -c netlify deploy --prod --dir ./public
 
       - if: startsWith('drafts/', github.ref_name)
         name: Deploy draft versions of the site to Netlify
         run: |
-          nix develop
-          rake build[branch-deploy]
-          netlify deploy --context branch-deploy --dir ./public
+          nix develop -c rake build[branch-deploy]
+          nix develop -c netlify deploy --context branch-deploy --dir ./public
