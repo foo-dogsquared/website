@@ -16,6 +16,9 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: "write"
+      contents: "read"
     steps:
       - name: Fetch/cache the fetched URIs
         uses: actions/cache@v3
@@ -23,20 +26,27 @@ jobs:
           key: open-uri-content-cache
           path: |
             /tmp/open-uri-cache-foodogsquared-website
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: cachix/install-nix-action@v20
-        with:
-          nix_path: nixpkgs=channel:nixpkgs-unstable
+
+      - uses: DeterminateSystems/nix-installer-action@v7
+
       - name: Fetch all 'content/' branches
         run: |
           git fetch origin +refs/heads/content/*:refs/heads/content/*
+
       - if: github.ref_name == 'master'
-        name: Build and deploy site
+        name: Deploy site to Netlify
         run: |
-          nix develop --command bash -c "netlify deploy --build --prod"
+          nix develop
+          rake build[production]
+          netlify deploy --prod --dir ./public
+
       - if: startsWith('drafts/', github.ref_name)
-        name: Build and deploy draft versions of the site
+        name: Deploy draft versions of the site to Netlify
         run: |
-          nix develop --command bash -c "netlify deploy --build --context branch-deploy"
+          nix develop
+          rake build[branch-deploy]
+          netlify deploy --context branch-deploy --dir ./public
