@@ -5,7 +5,7 @@ publishdate: 2023-11-10T00:00:00+00:00
 
 = Speeding up NixOS package search on the terminal
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-2023-11-10
+v1.0.1, 2023-11-10: Minor changes to wording and update nix.conf caption
 
 :doccontentref: refs/heads/content/posts/2023-11-10-speeding-up-nix-package-search-on-the-terminal
 
@@ -17,7 +17,7 @@ For reference, here's what the experience looks like searching for a package fro
 .A part of the `nix search nixpkgs` experience which took 8 minutes in total to complete the whole search
 video::./assets/nix-search-part-demo.webm[]
 
-It is painful to use to the point where people tend to recommend https://search.nixos.org/packages[search.nixos.org] or https://mynixos.com/[MyNixOS] for searching packages. footnote:[They also include searching for NixOS options so that may be another reason these tools are always recommended.]
+It's painful to use to the point where people tend to recommend https://search.nixos.org/packages[search.nixos.org] or https://mynixos.com/[MyNixOS] for searching packages. footnote:[They also include searching for NixOS options so that may be another reason these tools are always recommended.]
 Ideally, searching packages for your system shouldn't rely on online services.
 Luckily for us, there are ways how to mitigate against that.
 
@@ -37,7 +37,7 @@ That might be another reason why `nix search` is not much used.
 We're using Nix v2.18 for this post.
 Everything that is featured here is considered to be experimental: from flakes, the command-line interface, and even the referenced manual may change over time.
 
-In order to enable them in the first place, you'll have to add `experimental-features = nix-command flake` into the Nix configuration (see man:nix.conf[5, service=debian, subpath=/unstable] for more details).
+In order to enable them in the first place, you'll have to add `experimental-features = nix-command flake` into the Nix configuration (see https://nixos.org/manual/nix/stable/command-ref/conf-file[`nix.conf` options] for more details).
 ====
 
 
@@ -81,21 +81,21 @@ global flake:nixpkgs github:NixOS/nixpkgs/nixpkgs-unstable
 As stated from https://nixos.org/manual/nix/unstable/command-ref/new-cli/nix3-registry-list[the manual], the format from the `nix registry list` output comes in the form of `<type> <from> <to>` where...
 
 * `type` denotes which registry it came from (which we'll discuss shortly later in this post).
-* `from` typically contains the flake identifier.
+* `from` typically has the flake identifier.
 * `to` refers to the flake reference it points to (e.g., `github:NixOS/nixpkgs`, `github:nixos-community/home-manager`).
 
 We can see that nixpkgs points to the github:NixOS/nixpkgs[nixpkgs-unstable branch, rev=nixpkgs-unstable].
-In other words, `nix search nixpkgs blender` is pretty much the same as the following command.
+That is, `nix search nixpkgs blender` is pretty much the same as the following command.
 
 [source, shell]
 ----
 nix search github:NixOS/nixpkgs/nixpkgs-unstable blender
 ----
 
-This seems fine except the flake reference isn't pointing to a fixed point like a specific commit or a local path, footnote:[That is not under version control.] it points to a branch of a remote Git repo which can change over time.
+This seems fine except the flake reference isn't pointing to a fixed point like a specific commit, it points to a branch of a remote Git repo which can change over time.
 
 So every time you run the command, `nixpkgs` resolves to the most recent version of nixpkgs-unstable.
-This is why it downloads and evaluates a new nixpkgs instance every time it runs (or between every few hours which is the pace for nixpkgs-unstable updates).
+This is why it downloads and evaluates a new nixpkgs instance every time it runs (or between every few hours, which is the pace for nixpkgs-unstable updates).
 Not exactly a good experience for a system package search compared to other operating systems like Arch Linux, Fedora, or OpenSUSE.
 
 [chat, Ezran]
@@ -160,38 +160,74 @@ Since we're going to show configuring the system registry with NixOS, don't forg
 Both the global and system registry can be configured in the NixOS system.
 In this case, we'll be focusing on adding our flake inputs of our NixOS system into the system registry.
 
-Here's a snippet of how to add them into the system registry.
+`nix.registry` expects an attribute set of flake inputs.
+And the `outputs` attribute from our flake can be a function that expects an attribute set of flake inputs returning an attribute set.
+We can basically set the system registry like so.
 
 [#lst:nixos-set-system-registry]
-.`flake.nix`
+.Showing how to set `nix.registry`
 [source, nix]
 ----
-include::git:{doccontentref}~2[path=flake.nix]
+{
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs";
+  inputs.nixos-stable.url = "github:NixOS/nixos-23.05";
+  inputs.nixos-unstable.url = "github:NixOS/nixos-unstable";
+
+  outputs = inputs@{ nixpkgs, ... }: {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        { nix.registry = inputs; }
+      ];
+    };
+  };
+}
 ----
 
-In this snippet, we just included every single flake input including our own configuration (which we renamed it from `self` to `config`).
 Once we rebuild our NixOS system with `nixos-rebuild`, we should now see our flake inputs included in the system registry.
 
+[#lst:nix-registry-with-system-registry]
 .Results from `nix registry list | grep '^system'`
 [source]
 ----
-system flake:config path:/nix/store/zhsja37x6q5jr66ildj1xlfn4bqgcbgy-source?lastModified=1699451030&narHash=sha256-%2B2GZOcuOHyJADZFLH7JjTu4j3lojhqkPmsOvHmLnJdY%3D
-system flake:nixpkgs path:/nix/store/k904fsh46wbh4b998qjxhfcps716r5gx-nixos-23.11.20231104.85f1ba3/nixos
+system flake:nixpkgs path:/nix/store/kcmipm57ph9bpzz8bs80iiijiwbyzwy3-source?lastModified=1699099776&narHash=sha256-X09iKJ27mGsGambGfkKzqvw5esP1L/Rf8H3u3fCqIiU%3D&rev=85f1ba3e51676fa8cc604a3d863d729026a6b8eb
 system flake:nixpkgs-stable path:/nix/store/3s69yxbbl116zwga3i6cy7prplywq0bn-source?lastModified=1699291058&narHash=sha256-5ggduoaAMPHUy4riL%2BOrlAZE14Kh7JWX4oLEs22ZqfU%3D&rev=41de143fda10e33be0f47eab2bfe08a50f234267
 system flake:nixpkgs-unstable path:/nix/store/mj0hy52z22q5gpsf33akndxiclxd8ray-source?lastModified=1699343069&narHash=sha256-s7BBhyLA6MI6FuJgs4F/SgpntHBzz40/qV0xLPW6A1Q%3D&rev=ec750fd01963ab6b20ee1f0cb488754e8036d89d
+system flake:self path:/nix/store/v68idbapq3m8sz0fds66vzgg7agg10g9-source?lastModified=1699449415&narHash=sha256-Whc5OQzHTJtyBbnFsDAzdjICWK2BnCDCBP6s%2Bk/oLGQ%3D&rev=e1a0efea49b2e22055d2454e76f3d01ae42fde07&revCount=3
 ----
 
-[#sidebar:setting-user-registry-in-home-manager]
-.Setting user registry in home-manager
+[#sidebar:self-flake-input]
+.The `self` flake input
 ****
-We could also set the user registry with github:nixos-community/home-manager[opts=repo] footnote:[Though, you cannot modify the user registry with `nix registry` subcommands once home-manager fully manages it.].
-It even has the same option attribute as the NixOS system (i.e., `nix.registry`) so you could just set it once like in the following snippet.
+Setting flake inputs to the system registry <<lst:nixos-set-system-registry, that way>> is convenient.
+But <<lst:nix-registry-with-system-registry, as shown from the results>>, there is a slight oversight with the flake input `self` which is a special named flake input for the current flake.
+Depending on your case, this can be convenient or not.
+At most, it is just left there... existing.
 
-[#lst:nixos-and-home-manager-set-registry]
-.`flake.nix`
+If you want, you can remove it like in the following snippet.
+
 [source, nix]
 ----
-include::git:{doccontentref}[path=flake.nix]
+nixpkgs.lib.nixosSystem {
+  modules = [
+    ({ config, lib, ... }: {
+      nix.registry = lib.removeAttrs inputs [ "self" ];
+    })
+  ];
+}
+----
+
+Otherwise, you'll have to give the `self` flake input from the registry a different name if you want to use it in your other flakes like in the following snippet.
+
+.Different `flake.nix`
+[source, nix]
+----
+{
+  inputs.config.url = "self";
+  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
+
+  # outputs...
+}
 ----
 ****
 
@@ -222,3 +258,19 @@ nix search nixpkgs asciidoctor
 nix shell nixpkgs-stable#hugo
 nix shell nixpkgs-unstable#hugo
 ----
+
+[#sidebar:setting-user-registry-in-home-manager]
+.Setting user registry in home-manager
+****
+We could also set the user registry with github:nixos-community/home-manager[opts=repo].
+It even has the same option attribute as the NixOS system (i.e., `nix.registry`) so you could just set it once like in the following snippet.
+
+[#lst:nixos-and-home-manager-set-registry]
+.`flake.nix`
+[source, nix]
+----
+include::git:{doccontentref}[path=flake.nix]
+----
+
+Take note, you cannot modify the user registry with `nix registry` subcommands once home-manager fully manages it.
+****
