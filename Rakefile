@@ -22,7 +22,7 @@ end
 
 desc 'Export the avatar images'
 task :export_avatars, %i[base_dir output_dir output_extension] do |_, args|
-  args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'avif')
+  args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'webp')
 
   output_dirs = Set[]
 
