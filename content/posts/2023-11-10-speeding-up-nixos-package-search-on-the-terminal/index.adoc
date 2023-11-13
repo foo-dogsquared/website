@@ -5,7 +5,7 @@ publishdate: 2023-11-10T00:00:00+00:00
 
 = Speeding up NixOS package search on the terminal
 Gabriel Arazas <foodogsquared@foodogsquared.one>
-v1.0.1, 2023-11-10: Minor changes to wording and update nix.conf caption
+v1.1.0, 2023-11-10: Fix erroneous code
 
 :doccontentref: refs/heads/content/posts/2023-11-10-speeding-up-nix-package-search-on-the-terminal
 
@@ -168,20 +168,7 @@ We can basically set the system registry like so.
 .Showing how to set `nix.registry`
 [source, nix]
 ----
-{
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs";
-  inputs.nixos-stable.url = "github:NixOS/nixos-23.05";
-  inputs.nixos-unstable.url = "github:NixOS/nixos-unstable";
-
-  outputs = inputs@{ nixpkgs, ... }: {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        { nix.registry = inputs; }
-      ];
-    };
-  };
-}
+include::git:{doccontentref}~2[path=flake.nix]
 ----
 
 Once we rebuild our NixOS system with `nixos-rebuild`, we should now see our flake inputs included in the system registry.
@@ -211,7 +198,9 @@ If you want, you can remove it like in the following snippet.
 nixpkgs.lib.nixosSystem {
   modules = [
     ({ config, lib, ... }: {
-      nix.registry = lib.removeAttrs inputs [ "self" ];
+      nix.registry = lib.mapAttrs
+        (_: flake: { inherit flake; })
+        (lib.attrsets.removeAttrs inputs [ "self" ]);
     })
   ];
 }
