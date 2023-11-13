@@ -11,6 +11,9 @@
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        ({ config, lib, ... }: {
+          nix.registry = lib.mapAttrs (_: flake: { inherit flake; }) inputs;
+        })
         ./hosts/desktop
       ];
     };
