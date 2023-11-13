@@ -15,7 +15,7 @@ For reference, here's what the experience looks like searching for a package fro
 
 [#video:nix-search-demo]
 .A part of the `nix search nixpkgs` experience which took 8 minutes in total to complete the whole search
-video::./assets/nix-search-part-demo.webm[]
+video::./assets/nix-search-part-demo.mp4[]
 
 It's painful to use to the point where people tend to recommend https://search.nixos.org/packages[search.nixos.org] or https://mynixos.com/[MyNixOS] for searching packages. footnote:[They also include searching for NixOS options so that may be another reason these tools are always recommended.]
 Ideally, searching packages for your system shouldn't rely on online services.
