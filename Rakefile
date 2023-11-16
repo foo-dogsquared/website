@@ -21,19 +21,42 @@ task :build, %i[context base_url] => %i[export_avatars] do |_, args|
 end
 
 desc 'Export the avatar images'
-task :export_avatars, %i[base_dir output_dir output_extension] do |_, args|
-  args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons/', output_extension: 'webp')
+task :export_avatars, %i[base_dir output_dir] do |_, args|
+  args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons')
 
   output_dirs = Set[]
 
   Dir.glob('avatars/**/*.svg', base: args.base_dir) do |f|
     dirname = File.dirname f
-    output_dir = %(#{args.output_dir}#{dirname})
-    output_file = "#{dirname}/#{File.basename(f, '.svg')}.#{args.output_extension}"
+    output_dir = %(#{args.output_dir}/#{dirname})
 
-    output_dirs.add?(output_dir) && FileUtils.mkdir_p(output_dir, verbose: true)
+    sizes = [ 32, 64, 128 ]
+    formats = [ "avif", "webp" ]
 
-    sh "magick #{args.base_dir}#{f} -resize 42% -quality 30 #{args.output_dir}#{output_file}"
+    if output_dirs.add?(output_dir) then
+      FileUtils.mkdir_p(output_dir, verbose: true)
+
+      sizes.each do |size|
+        size_dir = "#{output_dir}/#{size}x#{size}"
+        FileUtils.mkdir_p(size_dir, verbose: true)
+      end
+    end
+
+    # Create the avatars into various sizes.
+    formats.product(sizes).each do |metadata|
+      format = metadata[0]
+      size = metadata[1]
+      area = "#{size}x#{size}"
+
+      output_file = "#{output_dir}/#{area}/#{File.basename(f, '.svg')}.#{format}"
+      sh "magick #{args.base_dir}#{f} -strip -resize #{area} -quality 30 #{output_file}"
+    end
+
+    # Make the fallback images.
+    formats.each do |format|
+      output_file = "#{output_dir}/#{File.basename(f, '.svg')}.#{format}"
+      sh "magick #{args.base_dir}#{f} -strip -resize 75% -quality 30 #{output_file}"
+    end
   end
 end
 
