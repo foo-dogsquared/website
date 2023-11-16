@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{{ $highlighter.RelPermalink }}"/>
 
 {{- /* medium-zoom */ -}}
-<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.7/dist/medium-zoom.min.js"></script>
-<script>window.addEventListener('load', () => mediumZoom('article img', { 'background': 'rgba(0, 0, 0, 0.75)' }))</script>
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    mediumZoom('article .imageblock img', { 'background': 'rgba(0, 0, 0, 0.75)' })
+  })
+</script>
 
