@@ -89,3 +89,19 @@ desc 'Update the Hugo modules for this project'
 task :update do
   sh 'hugo mod get ./... && hugo mod tidy'
 end
+
+desc 'Clean the environment'
+task :clean do
+  # Remove the generated files.
+  generated_files_dir = [
+    './public',
+    './static/icons',
+    './static/posts',
+  ]
+
+  generated_files_dir.each do |dir|
+    if File.exist? dir then
+      FileUtils.rm_r dir, secure: true
+    end
+  end
+end
