@@ -1,11 +1,41 @@
 <div<%= @id && %( id="#{@id}") %>
                 role="figure"
                 class="dialogblock <%= role %>"
-                data-avatar="<%= attr 'name' %>">
-  <div class="dialogblock__avatar" title="<%= attr 'name' %>">
-    <img src="<%= parent.image_uri (attr :avatarsticker), 'avatarsdir' %>"
-         alt="<%= attr 'name' %>"
-         loading="lazy"/>
+                data-avatar="<%= attr 'avatar' %>">
+  <div class="dialogblock__avatar" title="<%= attr 'avatar' %>">
+    <picture>
+      <%=
+        # We're making it from the sources with the least widespread usage in
+        # order to make it with a nice fallback. In other words, the last one
+        # should be widespread.
+        sizes = [ 128 ]
+        formats = [ "avif", "webp" ]
+        sticker = attr('avatar').to_kebab
+
+        # Linking the sources with the sizes.
+        sources = formats.product(sizes).map! do |metadata|
+                    format = metadata[0]
+                    size = metadata[1]
+
+                    src = "#{sticker}/#{size}x#{size}/#{attr 'state'}.#{format}"
+                    image_uri = parent.image_uri src, 'avatarsdir'
+
+                    <<~HTML
+                      <source srcset="#{image_uri}" type="image/#{format}"/>
+                    HTML
+                  end
+
+        # Linking the fallback image.
+        fallback_format = formats.last
+        fallback_src = "#{sticker}/#{attr 'state'}.#{fallback_format}"
+        fallback_image_uri = parent.image_uri fallback_src, 'avatarsdir'
+        sources.append <<~HTML
+          <img src="#{fallback_image_uri}" alt="#{attr 'avatar'}" loading="lazy"/>
+        HTML
+
+        sources.join ' '
+      %>
+    </picture>
   </div>
   <div class="dialogblock__text">
     <%= content %>
