@@ -41,9 +41,6 @@ mkShell {
     # Formatters...
     nixpkgs-fmt # ...for Nix.
     nodePackages.prettier # ...for the web files.
-
-    # Language servers...
-    rnix-lsp # ...for Nix.
   ];
 
   shellHook = ''
