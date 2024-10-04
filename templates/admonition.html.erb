@@ -1,17 +1,9 @@
-<div<%= @id && %( id="#{@id}") %> class="<%= ['admonitionblock',(attr :name),role].compact * ' ' %>">
-  <table>
-    <tr>
-      <td class="icon" title="<%= @caption %>">
-        <svg class="icon">
-          <use href="<%= icon_uri(attr :name) %>#<%= attr :name %>" alt="<%= @caption %>"></use>
-        </svg>
-      </td>
-      <td class="content"><%
-        if title? %>
-      <div class="title"><%= title %></div><%
-        end %>
-        <%= content %>
-      </td>
-    </tr>
-  </table>
-</div>
+<aside <%= @id && %( id="#{@id}") %> class="<%= ['admonitionblock',(attr :name),role].compact * ' ' %>" data-admonition-type="<%= attr :name %>">
+  <svg class="icon">
+    <use href="<%= icon_uri(attr :name) %>#<%= attr :name %>" alt="<%= @caption %>"></use>
+  </svg>
+  <div class="content">
+    <% if title? %><div class="title"><%= title %></div><% end %>
+    <%= content %>
+  </div>
+</aside>
