@@ -34,20 +34,26 @@ You can view the file for more details but for the sake of completion, here are 
 == Workflow
 
 The workflow should be pretty easy to get started.
-Here are the non-exhaustive guidelines for this project.
+Here are the non-exhaustive writing guidelines for this project.
 
 - You can edit any text with the text editor of your choice.
 - The content uses Asciidoc markup with Asciidoctor toolchain.
 - The content also uses custom Asciidoctor extensions, all of which is cited on the link:Gemfile[`Gemfile`].
-- There is a Ruby gem for our own Asciidoctor extensions which is living at link:./gems/[`./gems/`].
 
 The posts from this website have a certain folder structure to follow.
 All of them should have a dedicated folder named `$PUBLISH_DATE_IN_ISO_FORMAT-$POST_TITLE_IN_KEBAB_CASE`.
 For example, if you have a post titled "How to pick your nose" published on March 31 of 2023, you have to store it in a folder `2023-03-31-how-to-pick-your-nose` in the content Hugo folder.
 You can easily create one with `hugo new posts/$FOLDER_NAME/index.adoc`.
 
-Take note you also have to fetch the branches with the `content/` prefix.
+
+=== Content branches
+
+There is another thing that this project uses which is set of dedicated branches for containing code for certain posts.
+For example, the content branch `content/posts/2023-03-31-how-to-pick-your-nose` contains code walkthroughs to be used on the same content from the content directory.
+
+This setup allows us to easily write code walkthroughs.
 Each of those branch are basically dedicated branches for content which can be retrieved inside of the Asciidoctor document.
+
 Another thing to set up is to create a link:https://git-scm.com/docs/git-worktree[Git worktree].
 Mostly, it is expected to be in a directory inside of the project.
 
@@ -63,21 +69,10 @@ The above directory is typically used for the `content/*` branches.
 
 This Hugo project uses Asciidoc markup with Asciidoctor due to more markup features found in it compared to Markdown.
 Not to mention, it easily allows extending the markup with its API which this project also makes use of.
-To get it working, you need to install the Ruby gem found in link:./gems/[`./gems/`].
+
+Speaking of extending Asciidoctor, we use our own set of custom Asciidoctor extensions https://github.com/foo-dogsquared/asciidoctor-foodogsquared-extensions[deployed with RubyGems].
 
 NOTE: If you have Nix, this is already handled for you so feel free to skip the following section.
-
-- Build the gem in the gems directory (i.e., `cd gems && gem build asciidoctor-foodogsquared-extensions.gemspec`)
-- Install the gem (i.e., `gem install ./asciidoctor-foodogsquared-extensions-1.0.0.gem`).
-- With the gem installed, you can make use of the Asciidoctor extensions from it.
-
-Here's a couple of macros with this extension.
-
-- An inline macro for easily linking manpages in a variety of websites (i.e., `man:crontab[5]`, `man:systemd.unit[5]`).
-- An inline macro for GitHub (i.e., `github:foo-dogsquared/nixos-config[]`, `github:NixOS/nixpkgs[]`) and GitLab (i.e., `gitlab:gitlab-org/gitlab`).
-- Yet another inline macro for linking link:https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html[SWHIDs] (i.e., `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2[]`, `swh:1:dir:d198bc9d7a6bcf6db04f476d29314f157507d505[]`).
-
-For more details, you can see link:./gems/lib/asciidoctor[`./gems/lib/asciidoctor`] for more details.
 
 
 === Asciidoctor custom include processors
