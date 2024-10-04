@@ -1,6 +1,9 @@
-### Hugo ###
+### Project setup ###
+# Vale styles
+/styles/
 
-.direnv
+# Custom cache folder.
+.cache
 
 # The code workspace used for the dedicated branches for certain content.
 /code-workspace/
@@ -11,6 +14,9 @@
 # Certain files just need to be ignored.
 /layouts/partials/openring.html
 /layouts/partials/planet.html
+.direnv
+
+### Hugo ###
 
 # Generated files by hugo
 /public/
@@ -23,3 +29,6 @@ hugo.linux
 
 # Ignore all other envrc
 .envrc.*
+
+# Local Netlify folder
+.netlify
