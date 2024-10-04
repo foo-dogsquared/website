@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rake/clean'
+require 'concurrent'
 
 require 'fileutils'
 require 'json'
@@ -9,7 +10,7 @@ require 'set'
 require 'shellwords'
 
 desc 'Build the site'
-task :build, %i[context base_url] => %i[export_avatars] do |_, args|
+task :build, %i[context base_url] => %i[clean export_content_assets export_avatars] do |_, args|
   args.with_defaults(context: 'production')
   draft_args = '--environment development --buildDrafts --buildFuture --buildExpired' unless args.context == 'production'
   base_uri_args = "-b #{args.base_url}" if args.base_url
@@ -25,13 +26,13 @@ task :export_avatars, %i[base_dir output_dir] do |_, args|
   args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons')
 
   output_dirs = Set[]
+  sizes = [ 32, 64, 128, 256, 512, 1024 ].freeze
+  formats = [ "avif", "webp" ].freeze
 
+  job_queue = Concurrent::ThreadPoolExecutor.new(min_threads: 5, max_threads: 10)
   Dir.glob('avatars/**/*.svg', base: args.base_dir) do |f|
     dirname = File.dirname f
     output_dir = %(#{args.output_dir}/#{dirname})
-
-    sizes = [ 32, 64, 128 ]
-    formats = [ "avif", "webp" ]
 
     if output_dirs.add?(output_dir) then
       FileUtils.mkdir_p(output_dir, verbose: true)
@@ -49,15 +50,25 @@ task :export_avatars, %i[base_dir output_dir] do |_, args|
       area = "#{size}x#{size}"
 
       output_file = "#{output_dir}/#{area}/#{File.basename(f, '.svg')}.#{format}"
-      sh "magick #{args.base_dir}#{f} -strip -resize #{area} -quality 30 #{output_file}"
+      Concurrent::Future.execute(executor: job_queue) do
+        sh "magick #{args.base_dir}#{f} -strip -resize #{area} -quality 30 #{output_file}"
+      end
     end
 
     # Make the fallback images.
     formats.each do |format|
       output_file = "#{output_dir}/#{File.basename(f, '.svg')}.#{format}"
-      sh "magick #{args.base_dir}#{f} -strip -resize 75% -quality 30 #{output_file}"
+      Concurrent::Future.execute(executor: job_queue) do
+        sh "magick #{args.base_dir}#{f} -strip -resize 75% -quality 30 #{output_file}"
+      end
     end
   end
+
+  job_queue.wait_for_termination
+end
+
+desc 'Export the content assets'
+task :export_content_assets do
 end
 
 desc 'Build the webring to be embedded with the site'
@@ -88,6 +99,11 @@ end
 desc 'Update the Hugo modules for this project'
 task :update do
   sh 'hugo mod get ./... && hugo mod tidy'
+end
+
+desc 'Update the flake'
+task :flake_update do
+  sh 'nix flake update --commit-lock-file --commit-lockfile-summary "Update flake inputs"'
 end
 
 desc 'Clean the environment'
