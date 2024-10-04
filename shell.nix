@@ -17,23 +17,25 @@ let
 in
 mkShell {
   packages = [
+    # To build my website.
     asciidoctorWrappedWithCustomOptions
     bundix
     gems
     gems.wrappedRuby
-
+    netlify-cli
     git
     libgit2
     go
     hugo
     gnuplot
     imagemagick
+    inkscape
     openring
-
     tree-sitter
     treesitterWithPlugins
 
-    netlify-cli # The deploy tool for this website.
+    # To build my resume.
+    typst
 
     libffi
     libxslt
