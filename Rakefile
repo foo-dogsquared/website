@@ -12,7 +12,9 @@ require 'shellwords'
 desc 'Build the site'
 task :build, %i[context base_url] => %i[clean export_content_assets export_avatars] do |_, args|
   args.with_defaults(context: 'production')
-  draft_args = '--environment development --buildDrafts --buildFuture --buildExpired' unless args.context == 'production'
+  unless args.context == 'production'
+    draft_args = '--environment development --buildDrafts --buildFuture --buildExpired'
+  end
   base_uri_args = "-b #{args.base_url}" if args.base_url
 
   # Unfortunately, we have to pass it inside of another Nix shell since
@@ -26,15 +28,15 @@ task :export_avatars, %i[base_dir output_dir] do |_, args|
   args.with_defaults(base_dir: './assets/svg/', output_dir: './static/icons')
 
   output_dirs = Set[]
-  sizes = [ 32, 64, 128, 256, 512, 1024 ].freeze
-  formats = [ "avif", "webp" ].freeze
+  sizes = [32, 64, 128, 256, 512, 1024].freeze
+  formats = %w[avif webp].freeze
 
-  job_queue = Concurrent::ThreadPoolExecutor.new(min_threads: 5, max_threads: 10)
+  job_queue = Concurrent::ThreadPoolExecutor.new(min_threads: 5)
   Dir.glob('avatars/**/*.svg', base: args.base_dir) do |f|
     dirname = File.dirname f
     output_dir = %(#{args.output_dir}/#{dirname})
 
-    if output_dirs.add?(output_dir) then
+    if output_dirs.add?(output_dir)
       FileUtils.mkdir_p(output_dir, verbose: true)
 
       sizes.each do |size|
@@ -63,8 +65,6 @@ task :export_avatars, %i[base_dir output_dir] do |_, args|
       end
     end
   end
-
-  job_queue.wait_for_termination
 end
 
 desc 'Export the content assets'
@@ -112,12 +112,10 @@ task :clean do
   generated_files_dir = [
     './public',
     './static/icons',
-    './static/posts',
+    './static/posts'
   ]
 
   generated_files_dir.each do |dir|
-    if File.exist? dir then
-      FileUtils.rm_r dir, secure: true
-    end
+    FileUtils.rm_r dir, secure: true if File.exist? dir
   end
 end
