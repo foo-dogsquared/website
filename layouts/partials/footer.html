@@ -3,7 +3,7 @@
 <p><a href="#top">{{ T "back_to_top" | default "Back to top" }}</a></p>
 
 <!-- Linking to other languages' homepage. -->
-{{ if $.Site.IsMultiLingual }}
+{{ if hugo.IsMultilingual }}
   <p>{{ T "multilingual" }}:
   <span class="list site__languages">
   {{ range $.Site.Languages }}

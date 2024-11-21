@@ -1,16 +1,6 @@
 useImage = true
 
 [[links]]
-id = "twitter"
-url = "https://twitter.com/foo_dogsquared"
-name = "Twitter"
-
-[[links]]
-id = "mastodon"
-url = "https://fosstodon.org/@foodogsquared"
-name = "Fosstodon"
-
-[[links]]
 id = "github"
 url = "https://github.com/foo-dogsquared/"
 name = "GitHub"
@@ -19,11 +9,6 @@ name = "GitHub"
 id = "gitlab"
 url = "https://gitlab.com/foo-dogsquared/"
 name = "GitLab"
-
-[[links]]
-id = "keybase"
-url = "https://keybase.io/foo_dogsquared"
-name = "Keybase"
 
 [[links]]
 id = "rss"

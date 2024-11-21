@@ -1,9 +1,8 @@
 baseURL = "https://www.foodogsquared.one"
-title = "Gabriel Arazas"
+title = "foodogsquared"
 languageCode = "en"
 enableGitInfo = true
-paginate = 40
-copyright = "© foodogsquared"
+copyright = "© Gabriel Arazas"
 summaryLength = 0
 timeZone = "UTC"
 
@@ -14,6 +13,9 @@ extraNotes = """
 This site uses [medium-zoom](https://github.com/francoischalifour/medium-zoom) and lots of modern CSS features for the life of me.
 For analytics, it uses [GoatCounter](https://goatcounter.com/).
 """
+
+[pagination]
+pagerSize = 40
 
 [taxonomies]
 tag = "tags"
@@ -46,7 +48,7 @@ home = ["HTML", "ATOM", "RSS", "JSON"]
 section = ["HTML", "ATOM", "RSS", "JSON"]
 
 [security.exec]
-allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^asciidoctor$']
+allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', '^asciidoctor$', '^git$']
 
 [security.funcs]
 getenv = [ "^LAST_COMMIT_DATE$" ]
